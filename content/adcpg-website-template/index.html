@@ -125,14 +125,14 @@
     display:flex;align-items:center;justify-content:center;
   }
   .emblem-card{
-    width:280px;height:280px;border-radius:50%;
+    width:320px;height:320px;border-radius:50%;
     background:radial-gradient(circle at 35% 25%, #1e3f82, #0c1938 75%);
     border:6px solid var(--gold);
     display:flex;align-items:center;justify-content:center;
     box-shadow:0 30px 70px -20px rgba(0,0,0,0.6), inset 0 0 40px rgba(212,175,55,0.15);
     position:relative;
   }
-  .emblem-card svg{width:150px;height:150px;}
+  .emblem-card svg{width:196px;height:196px;}
   .emblem-ring{
     position:absolute;inset:-6px;border-radius:50%;
     border:1px dashed rgba(212,175,55,0.5);
@@ -298,13 +298,17 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="adcpg-crest" viewBox="0 0 200 200">
-      <path id="crestRingPath" d="M 100,14 A 86,86 0 1 1 99.9,14" fill="none"/>
+      <path id="crestRingTop" d="M 16,102 A 84,84 0 0 1 184,102" fill="none"/>
+      <path id="crestRingBottom" d="M 40,158 A 84,84 0 0 0 160,158" fill="none"/>
       <circle cx="100" cy="100" r="96" fill="#0d1b3d"/>
       <circle cx="100" cy="100" r="96" fill="none" stroke="#d4af37" stroke-width="3"/>
-      <circle cx="100" cy="100" r="84" fill="none" stroke="#e9e6da" stroke-width="1.4"/>
-      <circle cx="100" cy="100" r="78" fill="none" stroke="#e9e6da" stroke-width="1"/>
-      <text font-family="'Playfair Display', Georgia, serif" font-size="10.2" font-weight="700" fill="#f0d878" letter-spacing="1.6">
-        <textPath href="#crestRingPath" startOffset="50%" text-anchor="middle">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+      <circle cx="100" cy="100" r="88" fill="none" stroke="#e9e6da" stroke-width="1.2"/>
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#e9e6da" stroke-width="1"/>
+      <text font-family="'Outfit', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#f7e6a8" stroke="#0d1b3d" stroke-width="2.6" stroke-linejoin="round" paint-order="stroke">
+        <textPath href="#crestRingTop" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="252">ASSOCIATION DOUMBOUYAH CITY</textPath>
+      </text>
+      <text font-family="'Outfit', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#f7e6a8" stroke="#0d1b3d" stroke-width="2.6" stroke-linejoin="round" paint-order="stroke">
+        <textPath href="#crestRingBottom" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="170">PERLE DE GUINEE</textPath>
       </text>
 
       <!-- laurel wreath -->
