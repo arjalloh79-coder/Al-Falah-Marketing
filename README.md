@@ -21,7 +21,9 @@ Site: https://www.al-falahmarketing.com
 
 ## Contact
 
-- **Phone / WhatsApp:** +1 240-280-6137
+- **Phone / WhatsApp (US):** +1 240-280-6137
+- **Phone / WhatsApp (Guinea):** +224 611 351 302
+- **Phone / WhatsApp (Sierra Leone):** +232 74 321 916
 - **Email:** info@al-falahmarketing.com
 - **Office:** 8468 Winding Trail, Laurel, MD 20724, USA
 - **Facebook:** https://www.facebook.com/profile.php?id=61573274222922

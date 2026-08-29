@@ -2,6 +2,8 @@
 
 Each platform gets its own caption length/tone. Swap the CTA link once the blog post is live on the site.
 
+**WhatsApp numbers for CTAs:** US +1 240-280-6137 · Guinea +224 611 351 302 · Sierra Leone +232 74 321 916. Use the Guinea/Sierra Leone numbers on French-language posts and posts targeting local audiences; US number otherwise, per the WhatsApp assistant's cross-border language/currency rules.
+
 ## Facebook
 
 **EN**
@@ -14,7 +16,7 @@ One client saw 300% more inquiries turn into real conversations. Read how → [l
 Vous répondez encore aux mêmes questions WhatsApp chaque jour ? 🤖 Il y a mieux.
 On vient d'expliquer ce que l'automatisation IA change vraiment pour les entreprises en Guinée et en Sierra Leone — sans jargon, juste ce qui change quand plus aucun client potentiel ne passe à la trappe.
 Un client a vu ses demandes augmenter de 300 %. Découvrez comment → [lien]
-📲 Ou écrivez-nous directement — on vous montre ce que ça donnerait pour vous.
+📲 Ou écrivez-nous directement au +224 611 351 302 (Guinée) — on vous montre ce que ça donnerait pour vous.
 
 ## Instagram
 
@@ -40,6 +42,8 @@ We wrote up what AI-driven lead capture and automation actually looks like in pr
 No hype, just the mechanics of what a well-built WhatsApp + CRM automation pipeline does for a growing business.
 
 Read the full piece: [link]
+
+📲 WhatsApp us: +1 240-280-6137 (US) · +224 611 351 302 (Guinea) · +232 74 321 916 (Sierra Leone)
 
 #DigitalMarketing #Automation #SMBGrowth #WestAfricaBusiness
 

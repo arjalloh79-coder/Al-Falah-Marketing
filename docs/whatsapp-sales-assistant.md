@@ -2,6 +2,12 @@
 
 This is the working copy of the `alfalah-whatsapp-sales-assistant` skill already installed for this account. Kept here as the durable, versioned source — edit here and re-sync the installed skill when the playbook changes.
 
+## Active WhatsApp numbers
+
+- **US:** +1 240-280-6137 (currently a plain phone/app number — see `whatsapp-automation-setup.md` for why this can't be automated as-is)
+- **Guinea:** +224 611 351 302
+- **Sierra Leone:** +232 74 321 916
+
 ---
 
 ## Trigger
