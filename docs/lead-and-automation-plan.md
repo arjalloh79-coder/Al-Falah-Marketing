@@ -4,21 +4,28 @@ Goal: get from "lead comes in" to "appointment booked" running through Zapier MC
 
 ## Current state (as of 2026-08-29)
 
-- Zapier MCP connected under arjalloh79@gmail.com, with Gmail and Google Calendar enabled and authenticated.
+- Zapier MCP connected under arjalloh79@gmail.com, with Gmail, Google Calendar, and Google Sheets enabled and authenticated.
+- **Lead tracker sheet created:** [Al-Falah Marketing - Leads](https://docs.google.com/spreadsheets/d/16khY9MvQdI80zZlJ8a5VmpXQjGsJfymbVD3H-f_0MI0/edit) — columns: Timestamp, Source, First Name, Last Name, Business, Email, Phone, Service Interest, Message/Subject, Status, Next Step, Notes.
 - The `alfalah-whatsapp-sales-assistant` skill exists and is usable for drafting/simulating WhatsApp replies, but is not wired into an actual WhatsApp automation yet — messages are pasted in manually.
 - Site has two lead-capture forms:
   - General contact form → POSTs to `/contact-submit` (fields: first/last name, email, phone, service interest, message)
   - "Free Consultation" booking form → POSTs to `/consultation-store` (fields: name, email, preferred meeting date, subject)
   - Both use Laravel-style CSRF tokens, implying a server-rendered backend (not static hosting) — likely has its own database of submissions.
-- No CRM confirmed. No payment processor confirmed.
+- Confirmed via clarifying questions (2026-08-29):
+  - **Site backend:** custom-built Laravel/PHP — no admin panel or API access yet, so form submissions can't be pulled automatically without either backend access or the developer adding a webhook.
+  - **WhatsApp:** the number (+1 240-280-6137) is just the app on a phone, not a Business API — replies can't be automated/sent programmatically; the WhatsApp assistant skill stays a paste-in/copy-out tool for now.
+  - **CRM:** Google Sheets chosen as the lightweight starting point (done — see tracker link above).
+- Checked whether `info@al-falahmarketing.com` (a Gmail inbox under arjalloh79@gmail.com) receives form-submission notifications — searched broadly, found none. Either no submissions have come in yet, or the site isn't configured to send a notification email at all. Unconfirmed either way — needs a real test submission to verify.
+- No payment processor confirmed.
 
 ## Open questions to unblock full automation
 
-1. **Site backend access.** Is there an admin panel, database export, or webhook/API for new contact-submit and consultation-store entries? Without this, leads submitted through the site can't be pulled into Zapier automatically.
-2. **WhatsApp channel.** Is the WhatsApp number (+1 240-280-6137) on a business API (Twilio, 360dialog, Meta Cloud API) or just a phone with the WhatsApp app? Automating replies requires an API-connected number — Zapier has WhatsApp Business integrations, but not for a plain personal/business app number.
-3. **CRM.** Where should qualified leads land — Google Sheets as a lightweight start, or a real CRM (HubSpot is available as a Zapier app)?
+1. **Site backend access.** Confirmed no admin/API access. Next step: either (a) get read access to the leads table/export, or (b) ask the developer to add a webhook call (e.g. to Zapier's "Webhooks by Zapier" catch-hook, or directly to a script that appends to the Sheet) inside the `/contact-submit` and `/consultation-store` handlers. Do NOT hand over admin credentials as a shortcut — see "explicitly out of scope" below.
+2. **WhatsApp channel.** Confirmed: plain phone app, not a Business API. To automate WhatsApp replies for real, the number would need to move to a Business API provider (Twilio, 360dialog, Meta Cloud API) — a real decision with cost/setup implications, not something to do silently.
+3. ~~**CRM.**~~ Resolved — Google Sheets tracker created.
 4. **Booking.** Should "book a free session" go straight to Google Calendar (already connected), or through a scheduling tool (Calendly etc.)?
 5. **Who reviews before send.** Confirm autonomy level: draft-and-approve vs. auto-send for routine replies (recommended: draft-and-approve until the flow is proven).
+6. **Test submission needed** to confirm whether the site sends any notification at all when a form is submitted — this determines if the email-watching approach is viable.
 
 ## Proposed pipeline (once above is answered)
 
