@@ -78,3 +78,82 @@ Key points to pass along:
 ## Step 4 — Optional: get notified the moment a lead lands
 
 Add a second action to the same Zap (or a second Zap watching the Sheet) that pings Slack, sends an email, or similar, so a new lead doesn't sit unnoticed in the Sheet. Ask when ready — I can add this once Slack or a preferred channel is confirmed.
+
+## Step 5 — Spam prevention on the forms themselves
+
+Ready-to-hand-off code for whoever maintains the Laravel site. Give them this whole section — it's copy/paste-adjustable, not just a checklist.
+
+### 5a. CAPTCHA (Google reCAPTCHA v3, invisible)
+
+```blade
+{{-- In the form's Blade template, before the submit button --}}
+<input type="hidden" name="recaptcha_token" id="recaptcha_token">
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    grecaptcha.ready(function() {
+        grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'submit'}).then(function(token) {
+            document.getElementById('recaptcha_token').value = token;
+            e.target.submit();
+        });
+    });
+});
+</script>
+```
+
+```php
+// In the form request validation / controller:
+$response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+    'secret' => config('services.recaptcha.secret_key'),
+    'response' => $request->recaptcha_token,
+]);
+if (($response->json('score') ?? 0) < 0.5) {
+    return back()->withErrors(['recaptcha' => 'Submission blocked — please try again.']);
+}
+```
+
+Add `recaptcha` config to `config/services.php` and the site/secret keys to `.env` (get them from google.com/recaptcha/admin).
+
+### 5b. Honeypot field
+
+```blade
+{{-- Hidden field a real visitor never sees or fills; bots that auto-fill every input do --}}
+<input type="text" name="website_url" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
+```
+
+```php
+// In the form request's validation (e.g. StoreContactRequest):
+if (!empty($request->input('website_url'))) {
+    // Silently drop it — don't tell the bot it was caught
+    return back(); // or redirect to the normal "thank you" page, so bots see success
+}
+```
+
+### 5c. Backend validation (minimum message length)
+
+```php
+$request->validate([
+    'message' => ['required', 'string', 'min:10'],
+    // ...existing rules for the other fields
+]);
+```
+
+### 5d. Rate limiting (max 3 submissions per IP per hour)
+
+```php
+// routes/web.php
+use Illuminate\Support\Facades\Route;
+
+Route::post('/contact-submit', [ContactController::class, 'submit'])
+    ->middleware('throttle:3,60'); // 3 attempts per 60 minutes, keyed by IP by default
+
+Route::post('/consultation-store', [ConsultationController::class, 'store'])
+    ->middleware('throttle:3,60');
+```
+
+Laravel's built-in `throttle` middleware handles this without extra packages — no other change needed.
+
+### Rollout note
+
+Add these one at a time and test after each (honeypot and rate limiting first — zero user-facing friction; reCAPTCHA second, since it needs real keys and a bit more testing). Don't ship all four blind — a broken reCAPTCHA integration silently blocking real submissions is worse than the spam it prevents.

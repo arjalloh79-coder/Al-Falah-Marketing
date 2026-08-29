@@ -49,6 +49,8 @@ Acile Coffee, Shawarma Sam, Labonet, E.I. Maloum, Metal Star Africa SARL, Distri
 - `docs/booking-setup.md` — how Google Calendar is wired up as the booking destination (live)
 - `docs/lead-capture-setup.md` — step-by-step to automate pulling leads from the site's contact/consultation forms into the tracker sheet
 - `docs/whatsapp-automation-setup.md` — step-by-step to move WhatsApp from a plain phone app to an automatable Business API
+- `content/batch-1/` — first content batch: blog post + video script (EN/FR) and social captions for Facebook/Instagram/LinkedIn/YouTube
+- `.claude/skills/al-falah-lead-triage/` — active skill: classify inbound leads (genuine / cold-pitch / suspicious / spam), draft the right reply, and log to the tracker sheet
 
 ## Status / open items
 
