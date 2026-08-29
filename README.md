@@ -43,10 +43,16 @@ Acile Coffee, Shawarma Sam, Labonet, E.I. Maloum, Metal Star Africa SARL, Distri
 
 - `docs/site-source/` — a saved snapshot of the live homepage HTML, pulled 2026-08-29 (this session's network policy blocks direct access to al-falahmarketing.com, so this is the source of truth until a live connector is set up)
 - `docs/whatsapp-sales-assistant.md` — the bilingual WhatsApp lead-qualification playbook already in use
-- `docs/lead-and-automation-plan.md` — working notes on wiring up lead capture → CRM → booked calls via Zapier MCP
+- `docs/lead-and-automation-plan.md` — working notes and current status on the overall lead → booking pipeline
+- `docs/booking-setup.md` — how Google Calendar is wired up as the booking destination (live)
+- `docs/lead-capture-setup.md` — step-by-step to automate pulling leads from the site's contact/consultation forms into the tracker sheet
+- `docs/whatsapp-automation-setup.md` — step-by-step to move WhatsApp from a plain phone app to an automatable Business API
 
 ## Status / open items
 
-- No CRM confirmed yet for storing leads — currently ad hoc
-- Site backend platform not yet confirmed (contact/consultation forms POST to `/contact-submit` and `/consultation-store` with CSRF tokens, suggesting a server-rendered app, not a static site)
-- Zapier MCP connections (Gmail, Calendar, etc.) are set up under arjalloh79@gmail.com — not yet mapped to Al-Falah-specific lead flow
+- **Lead tracker:** live — [Al-Falah Marketing - Leads](https://docs.google.com/spreadsheets/d/16khY9MvQdI80zZlJ8a5VmpXQjGsJfymbVD3H-f_0MI0/edit) (Google Sheets, via Zapier MCP)
+- **Booking:** live — Google Calendar connected, see `docs/booking-setup.md`
+- **Automated lead capture from the site:** not yet built — needs a webhook added to the Laravel form handlers (see `docs/lead-capture-setup.md`); requires a paid Zapier plan for the Webhooks app
+- **WhatsApp automation:** not yet built — the number is a plain phone app today, not a Business API; see `docs/whatsapp-automation-setup.md` for the path via Twilio
+- Site backend platform confirmed: custom Laravel/PHP, no admin/API access currently available
+- Zapier MCP connections (Gmail, Calendar, Sheets) are set up under arjalloh79@gmail.com
