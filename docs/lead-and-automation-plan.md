@@ -23,9 +23,10 @@ Goal: get from "lead comes in" to "appointment booked" running through Zapier MC
 1. **Site backend access.** Confirmed no admin/API access. Next step: either (a) get read access to the leads table/export, or (b) ask the developer to add a webhook call (e.g. to Zapier's "Webhooks by Zapier" catch-hook, or directly to a script that appends to the Sheet) inside the `/contact-submit` and `/consultation-store` handlers. Do NOT hand over admin credentials as a shortcut — see "explicitly out of scope" below.
 2. **WhatsApp channel.** Confirmed: plain phone app, not a Business API. To automate WhatsApp replies for real, the number would need to move to a Business API provider (Twilio, 360dialog, Meta Cloud API) — a real decision with cost/setup implications, not something to do silently.
 3. ~~**CRM.**~~ Resolved — Google Sheets tracker created.
-4. **Booking.** Should "book a free session" go straight to Google Calendar (already connected), or through a scheduling tool (Calendly etc.)?
+4. ~~**Booking.**~~ Resolved — dedicated "Al-Falah Marketing" Google Calendar created, see `booking-setup.md`.
 5. **Who reviews before send.** Confirm autonomy level: draft-and-approve vs. auto-send for routine replies (recommended: draft-and-approve until the flow is proven).
 6. **Test submission needed** to confirm whether the site sends any notification at all when a form is submitted — this determines if the email-watching approach is viable.
+7. **Network access confirmed blocked (2026-08-29).** This Claude Code session's environment blocks all outbound access to `al-falahmarketing.com` and `hpanel.hostinger.com` (org-level egress policy, confirmed via direct `curl` — not a login/credentials issue). This means direct backend/hPanel access isn't usable from this session regardless of what credentials are granted; it would need a differently-configured environment. Doesn't change the recommended approach — the webhook method in `lead-capture-setup.md` doesn't require this session to reach the site at all.
 
 ## Proposed pipeline (once above is answered)
 

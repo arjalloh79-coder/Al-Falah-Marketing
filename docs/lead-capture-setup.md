@@ -15,6 +15,12 @@ The site (al-falahmarketing.com) is a custom Laravel/PHP app. Its two lead forms
 
 This guide is for (A).
 
+### Why (B) isn't currently viable anyway
+
+Tested 2026-08-29: this Claude Code session's network policy blocks outbound access to both `al-falahmarketing.com`/`www.al-falahmarketing.com` and `hpanel.hostinger.com` entirely (org-level egress restriction on this environment — confirmed via direct `curl`, not a login/auth issue). So even with hPanel or backend admin credentials, this session has no path to reach either one. That's independent of whether sharing that kind of credential in chat would be a good idea (it isn't — see below); it's a structural block on top of that.
+
+If backend access is ever pursued, prefer scoped, revocable credentials over a shared admin/hPanel login: an SFTP/SSH user scoped to just the site directory, or a read-only database user for the leads table specifically. And note this only becomes usable from a session/environment with open network access to begin with — not this one, in its current configuration.
+
 ## Step 1 — Build the receiving Zap (on zapier.com, not in this chat)
 
 1. Log into zapier.com → **Create Zap**.
