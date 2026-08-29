@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Falah - Digital Marketing Agency</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="https://www.al-falahmarketing.com/assets/images/alfalah.webp">
+    <link rel="shortcut icon" href="https://www.al-falahmarketing.com/assets/images/alfalah.webp">
+    <link rel="apple-touch-icon" href="https://www.al-falahmarketing.com/assets/images/alfalah.webp">
+    
+    <!-- Google Fonts - Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'outfit': ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#F59E0B',
+                        dark: '#111827',
+                        muted: '#F3F4F6',
+                    },
+                    letterSpacing: {
+                        tighter: '-0.02em',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #FFFFFF;
+            color: #111827;
+            overflow-x: hidden;
+        }
+        
+        /* Remove all shadows globally */
+        * {
+            box-shadow: none !important;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #F3F4F6;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #3B82F6;
+            border-radius: 5px;
+        }
+        
+        /* Selection */
+        ::selection {
+            background: #3B82F6;
+            color: white;
+        }
+
+        /* Hide Google Translate top bar / banner and tooltips */
+        .skiptranslate iframe,
+        .goog-te-banner-frame,
+        .goog-te-banner,
+        .goog-te-menu-value,
+        iframe.goog-te-banner-frame,
+        #goog-gt-tt,
+        .goog-te-balloon-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        body {
+            top: 0px !important;
+            position: static !important;
+        }
+        html {
+            top: 0px !important;
+        }
+        /* Prevent Google Translate from showing highlighted text on hover */
+        .goog-text-highlight {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+    
+    </head>
+<body class="antialiased">
+    
+    <style>
+    /* Header Styles */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: white;
+        transition: all 200ms;
+    }
+
+    .header.scrolled {
+        border-bottom: 2px solid #E5E7EB;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 300ms;
+    }
+
+    .mobile-menu.active {
+        transform: translateX(0);
+    }
+</style>
+
+<header class="header" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="https://www.al-falahmarketing.com" class="flex items-center space-x-3 group">
+                <img src="https://www.al-falahmarketing.com/assets/images/alfalah.webp" alt="Al-Falah Marketing Logo"
+                    class="h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105">
+
+                <div>
+                    <span class="text-2xl font-bold text-dark tracking-tight">
+                        Al-Falah
+                        <span class="text-primary">Marketing</span>
+                    </span>
+                </div>
+
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="https://www.al-falahmarketing.com"
+                    class="nav-link text-sm font-semibold text-dark hover:text-primary transition-colors duration-200 uppercase tracking-wider">Home</a>
+                <a href="https://www.al-falahmarketing.com/About-us"
+                    class="nav-link text-sm font-semibold text-dark hover:text-primary transition-colors duration-200 uppercase tracking-wider">About</a>
+                <a href="https://www.al-falahmarketing.com/Services"
+                    class="nav-link text-sm font-semibold text-dark hover:text-primary transition-colors duration-200 uppercase tracking-wider">Services</a>
+                <a href="https://www.al-falahmarketing.com/portfolio"
+                    class="nav-link text-sm font-semibold text-dark hover:text-primary transition-colors duration-200 uppercase tracking-wider">Portfolio</a>
+                <a href="https://www.al-falahmarketing.com/Blog"
+                    class="nav-link text-sm font-semibold text-dark hover:text-primary transition-colors duration-200 uppercase tracking-wider">Blog</a>
+                <a href="https://www.al-falahmarketing.com/contact"
+                    class="nav-link text-sm font-semibold text-dark hover:text-primary transition-colors duration-200 uppercase tracking-wider">Contact</a>
+            </nav>
+
+            <!-- Desktop Right Side Buttons / Dashboard Icon -->
+            <div class="hidden lg:flex items-center space-x-4">
+
+
+
+                <!-- Language Switch -->
+    <div class="flex items-center bg-muted rounded-md overflow-hidden border border-gray-200">
+        <button onclick="setLanguage('en')" id="lang-btn-en"
+            class="px-3 h-10 text-xs font-bold uppercase transition">
+            🇬🇧 EN
+        </button>
+
+        <button onclick="setLanguage('fr')" id="lang-btn-fr"
+            class="px-3 h-10 text-xs font-bold uppercase transition">
+            🇫🇷 FR
+        </button>
+    </div>
+                                    <!-- अगर यूजर लॉग इन नहीं है तो ये बटन दिखेंगे -->
+                    <a href="https://www.al-falahmarketing.com/login"
+                        class="px-6 h-12 border-2 border-primary text-primary rounded-md font-semibold text-sm uppercase tracking-wider flex items-center justify-center transition-all duration-200 hover:bg-primary hover:text-white">
+                        Login
+                    </a>
+                    <a href="https://www.al-falahmarketing.com/signup"
+                        class="px-6 h-12 bg-primary text-white rounded-md font-semibold text-sm uppercase tracking-wider flex items-center justify-center transition-all duration-200 hover:scale-105 hover:bg-blue-600">
+                      Signup
+                    </a>
+                
+                            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden w-10 h-10 bg-muted rounded-md flex items-center justify-center"
+                onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-dark text-xl" id="menuIcon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-50 lg:hidden" id="mobileMenu">
+        <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between p-6 border-b-2 border-gray-200">
+                <span class="text-2xl font-bold text-dark tracking-tighter">MARKET<span
+                        class="text-primary">PRO</span></span>
+                <button class="w-10 h-10 bg-muted rounded-md flex items-center justify-center"
+                    onclick="toggleMobileMenu()">
+                    <i class="fas fa-times text-dark text-xl"></i>
+                </button>
+            </div>
+
+            <nav class="flex-1 px-6 py-8 space-y-4 overflow-y-auto">
+                <a href="https://www.al-falahmarketing.com" onclick="toggleMobileMenu()"
+                    class="block py-3 text-lg font-bold text-dark hover:text-primary transition-colors uppercase tracking-wider">Home</a>
+                <a href="https://www.al-falahmarketing.com/About-us" onclick="toggleMobileMenu()"
+                    class="block py-3 text-lg font-bold text-dark hover:text-primary transition-colors uppercase tracking-wider"> About </a>
+                <a href="https://www.al-falahmarketing.com/Services" onclick="toggleMobileMenu()"
+                    class="block py-3 text-lg font-bold text-dark hover:text-primary transition-colors uppercase tracking-wider">Services</a>
+                <a href="https://www.al-falahmarketing.com/portfolio" onclick="toggleMobileMenu()"
+                    class="block py-3 text-lg font-bold text-dark hover:text-primary transition-colors uppercase tracking-wider">Portfolio</a>
+                <a href="https://www.al-falahmarketing.com/Blog" onclick="toggleMobileMenu()"
+                    class="block py-3 text-lg font-bold text-dark hover:text-primary transition-colors uppercase tracking-wider">Blog</a>
+                <a href="https://www.al-falahmarketing.com/contact" onclick="toggleMobileMenu()"
+                    class="block py-3 text-lg font-bold text-dark hover:text-primary transition-colors uppercase tracking-wider">Contact</a>
+            </nav>
+
+           <div class="flex justify-center gap-3 mb-6">
+    <button onclick="setLanguage('en')" id="mobile-lang-btn-en"
+        class="px-4 py-2 rounded-md border font-semibold transition">
+        🇬🇧 EN
+    </button>
+
+    <button onclick="setLanguage('fr')" id="mobile-lang-btn-fr"
+        class="px-4 py-2 rounded-md border font-semibold transition">
+        🇫🇷 FR
+    </button>
+</div>
+
+            <!-- Mobile Menu Auth Block -->
+            <div class="p-6 space-y-4 border-t-2 border-gray-200">
+                                    <a href="https://www.al-falahmarketing.com/login"
+                        class="w-full h-14 border-2 border-primary text-primary rounded-md font-bold text-sm uppercase tracking-wider flex items-center justify-center transition-all duration-200 hover:bg-primary hover:text-white">
+                        Login
+                    </a>
+                    <a href="https://www.al-falahmarketing.com/signup"
+                        class="w-full h-14 bg-primary text-white rounded-md font-bold text-sm uppercase tracking-wider flex items-center justify-center transition-all duration-200 hover:scale-105">
+                        Signup
+                    </a>
+                
+                            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('mainHeader');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+
+    // Active link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('text-primary');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('text-primary');
+            }
+        });
+    });
+</script>
+    
+    <main>
+        
+<!-- HERO SECTION -->
+<section id="home" class="relative bg-primary overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32">
+    <!-- Decorative Background Shapes -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-white/5 rotate-45"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block px-4 py-2 bg-white/20 rounded-md mb-6">
+                    <span class="text-white font-semibold text-sm uppercase tracking-wider">Digital Marketing Excellence</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tighter">
+                    Transform Your Brand Into A
+                    <span class="text-accent"> Market Leader</span>
+                </h1>
+                
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    We deliver data-driven marketing strategies that amplify your reach, engage your audience, and drive measurable growth.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="h-16 px-8 bg-white text-primary rounded-md font-bold text-sm uppercase tracking-wider inline-flex items-center justify-center transition-all duration-200 hover:scale-105">
+                        Get Started Now
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#services" class="h-16 px-8 border-4 border-white text-white rounded-md font-bold text-sm uppercase tracking-wider inline-flex items-center justify-center transition-all duration-200 hover:bg-white hover:text-primary">
+                        Explore Services
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 mt-12">
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-1">500+</div>
+                        <div class="text-white/80 text-sm uppercase tracking-wider">Clients</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-1">98%</div>
+                        <div class="text-white/80 text-sm uppercase tracking-wider">Success Rate</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-1">15+</div>
+                        <div class="text-white/80 text-sm uppercase tracking-wider">Years Exp</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Image/Illustration -->
+            <div class="relative">
+                <div class="relative z-10">
+                    <img src="https://www.al-falahmarketing.com/public/assets/images/reception.jpg" alt="Marketing Dashboard" class="rounded-lg w-full">
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute -top-6 -right-6 w-24 h-24 bg-accent rounded-lg"></div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary rounded-lg"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="py-20 lg:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <img src="https://www.al-falahmarketing.com/public/assets/images/specialist.jpg" alt="Team Meeting" class="rounded-lg w-full">
+                <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary rounded-lg hidden lg:block"></div>
+                <div class="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-lg hidden lg:block"></div>
+            </div>
+            
+            <div>
+                <div class="inline-block px-4 py-2 bg-muted rounded-md mb-6">
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">About Al-Falah</span>
+                </div>
+                
+                <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-6 tracking-tighter">
+                    We Are Your Growth Partner
+                </h2>
+                
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Since 2009, we've been helping businesses scale through strategic digital marketing. Our team of experts combines creativity with data analytics to deliver campaigns that don't just look good—they perform.
+                </p>
+                
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    From startups to Fortune 500 companies, we've partnered with brands across industries to achieve remarkable growth and establish market dominance.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div class="bg-muted rounded-lg p-6">
+                        <div class="w-14 h-14 bg-primary rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-award text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-2">Award Winning</h4>
+                        <p class="text-gray-600 text-sm">Recognized industry leader</p>
+                    </div>
+                    
+                    <div class="bg-muted rounded-lg p-6">
+                        <div class="w-14 h-14 bg-secondary rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-2">Expert Team</h4>
+                        <p class="text-gray-600 text-sm">50+ marketing specialists</p>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="inline-flex items-center justify-center h-14 px-8 bg-primary text-white rounded-md font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:scale-105 hover:bg-blue-600">
+                    Partner With Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="py-20 lg:py-32 bg-muted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-white rounded-md mb-6">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">What We Do</span>
+            </div>
+            
+            <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-6 tracking-tighter">
+                Our Services
+            </h2>
+            
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Comprehensive digital marketing solutions tailored to your business goals
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+             <div class="p-10 bg-muted rounded-2xl border-b-8 border-primary transition-all hover:-translate-y-2">
+                <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-8">
+                    <i class="fas fa-code text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">Web Development</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Custom-coded, high-performance websites. We build lightning-fast, mobile-friendly sites designed to convert visitors into customers 24/7.
+                </p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-700 font-semibold">
+                    <li><i class="fas fa-check text-primary mr-2"></i> Custom Web Apps</li>
+                    <li><i class="fas fa-check text-primary mr-2"></i> E-commerce Solutions</li>
+                    <li><i class="fas fa-check text-primary mr-2"></i> CMS Integration</li>
+                </ul>
+                 <!-- Know More Button -->
+                <a href="https://www.al-falahmarketing.com/services/web-development" class="mt-6 inline-flex items-center text-primary font-bold hover:text-blue-700 transition group">
+                    <span>Know More</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Service 2: Digital Marketing -->
+            <div class="p-10 bg-muted rounded-2xl border-b-8 border-secondary transition-all hover:-translate-y-2">
+                <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mb-8">
+                    <i class="fas fa-bullhorn text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">Digital Marketing</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Data-driven growth strategies. From Local SEO to Google Ads, we ensure your business ranks high and gets found by the right audience.
+                </p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-700 font-semibold">
+                    <li><i class="fas fa-check text-secondary mr-2"></i> SEO & SEM</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Social Media Ads</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Email Marketing</li>
+                </ul>
+
+                 <!-- Know More Button -->
+                <a href="https://www.al-falahmarketing.com/services/digital-marketing" class="mt-6 inline-flex items-center text-primary font-bold hover:text-blue-700 transition group">
+                    <span>Know More</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+
+            </div>
+
+            <!-- Service 3: Branding & Design -->
+            <div class="p-10 bg-muted rounded-2xl border-b-8 border-accent transition-all hover:-translate-y-2">
+                <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-8">
+                    <i class="fas fa-palette text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">Branding & Design</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    We create visual identities that tell your story. Professional logos, UI/UX design, and brand guidelines that build trust and authority.
+                </p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-700 font-semibold">
+                    <li><i class="fas fa-check text-accent mr-2"></i> Logo & Visual Identity</li>
+                    <li><i class="fas fa-check text-accent mr-2"></i> UI/UX Design</li>
+                    <li><i class="fas fa-check text-accent mr-2"></i> Marketing Collateral</li>
+                </ul>
+                
+                 <a href="https://www.al-falahmarketing.com/services/branding" class="mt-6 inline-flex items-center text-primary font-bold hover:text-blue-700 transition group">
+                    <span>Know More</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                
+            </div>
+
+            <!-- Service 4: AI & Automation -->
+            <div class="p-10 bg-muted rounded-2xl border-b-8 border-primary transition-all hover:-translate-y-2">
+                <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-8">
+                    <i class="fas fa-microchip text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">AI & Automation</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Work smarter, not harder. We implement AI chatbots and automated lead nurture workflows to save you hours of manual work every day.
+                </p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-700 font-semibold">
+                    <li><i class="fas fa-check text-primary mr-2"></i> AI Chatbots</li>
+                    <li><i class="fas fa-check text-primary mr-2"></i> CRM Automation</li>
+                    <li><i class="fas fa-check text-primary mr-2"></i> Workflow Optimization</li>
+                </ul>
+
+                  <a href="https://www.al-falahmarketing.com/services/automation" class="mt-6 inline-flex items-center text-primary font-bold hover:text-blue-700 transition group">
+                    <span>Know More</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                
+
+            </div>
+
+            <!-- Service 5: Content Creation -->
+            <div class="p-10 bg-muted rounded-2xl border-b-8 border-secondary transition-all hover:-translate-y-2">
+                <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mb-8">
+                    <i class="fas fa-pen-nib text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">Content Creation</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Content that converts. Our team produces high-quality blogs, videos, and social media content that positions you as a leader in your industry.
+                </p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-700 font-semibold">
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Video Marketing</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Blog & Copywriting</li>
+                    <li><i class="fas fa-check text-secondary mr-2"></i> Graphics Production</li>
+                </ul>
+
+                <a href="https://www.al-falahmarketing.com/services/content-creation" class="mt-6 inline-flex items-center text-primary font-bold hover:text-blue-700 transition group">
+                    <span>Know More</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Service 6: IT Solutions -->
+            <div class="p-10 bg-muted rounded-2xl border-b-8 border-accent transition-all hover:-translate-y-2">
+                <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-8">
+                    <i class="fas fa-server text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">IT Solutions</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Reliable tech support for your growth. From secure cloud hosting to enterprise IT management, we keep your digital operations running smooth.
+                </p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-700 font-semibold">
+                    <li><i class="fas fa-check text-accent mr-2"></i> Cloud Hosting</li>
+                    <li><i class="fas fa-check text-accent mr-2"></i> Cyber Security</li>
+                    <li><i class="fas fa-check text-accent mr-2"></i> Tech Support</li>
+                </ul>
+
+                 <a href="https://www.al-falahmarketing.com/services/it-solutions" class="mt-6 inline-flex items-center text-primary font-bold hover:text-blue-700 transition group">
+                    <span>Know More</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio" class="py-20 lg:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-muted rounded-md mb-6">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">
+                    Our Work
+                </span>
+            </div>
+
+            <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-6 tracking-tighter">
+                Success Stories
+            </h2>
+
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Real results from real clients. See how we've transformed businesses across industries.
+            </p>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            
+                <div class="group cursor-pointer">
+
+                    <div class="relative overflow-hidden rounded-lg mb-6">
+
+                        <img src="https://www.al-falahmarketing.com/storage/public/portfolios/coVUnT3l6vrWFv4LGiRsuWrhVmQBoDrEUDKF50Tw.png"
+                             alt="Acile Coffee"
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+                        <div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+
+                            <div class="text-center text-white p-6">
+
+                                <h4 class="text-xl font-bold mb-2">
+                                    Acile Coffee
+                                </h4>
+
+                                                                    <p class="mb-4">
+                                        +100% More Enquiries
+                                    </p>
+                                
+                                                                    <a href="https://acile-coffee-ehzwdbqi.manus.space/"
+                                       target="_blank"
+                                       class="inline-flex items-center text-white font-semibold">
+                                        View Project
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="inline-block px-3 py-1 bg-primary/10 rounded-md mb-2">
+                        <span class="text-primary font-semibold text-xs uppercase">
+                            Web Design
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-dark mb-2">
+                        Acile Coffee
+                    </h3>
+
+                    <p class="text-gray-600">
+                        
+                    </p>
+
+                </div>
+
+            
+                <div class="group cursor-pointer">
+
+                    <div class="relative overflow-hidden rounded-lg mb-6">
+
+                        <img src="https://www.al-falahmarketing.com/storage/public/portfolios/K4X2mfXJmbkVmHGpipifevDqLg5Y9Mwmos5h2OoO.png"
+                             alt="SHAWARMA SAM"
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+                        <div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+
+                            <div class="text-center text-white p-6">
+
+                                <h4 class="text-xl font-bold mb-2">
+                                    SHAWARMA SAM
+                                </h4>
+
+                                                                    <p class="mb-4">
+                                        More Walkins
+                                    </p>
+                                
+                                                                    <a href="https://shawarma-sam-conakry-delights.lovable.app"
+                                       target="_blank"
+                                       class="inline-flex items-center text-white font-semibold">
+                                        View Project
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="inline-block px-3 py-1 bg-primary/10 rounded-md mb-2">
+                        <span class="text-primary font-semibold text-xs uppercase">
+                            Web Design
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-dark mb-2">
+                        SHAWARMA SAM
+                    </h3>
+
+                    <p class="text-gray-600">
+                        
+                    </p>
+
+                </div>
+
+            
+                <div class="group cursor-pointer">
+
+                    <div class="relative overflow-hidden rounded-lg mb-6">
+
+                        <img src="https://www.al-falahmarketing.com/storage/public/portfolios/hgnffWqlpHh5PqHUEPdABnyv56vNoqJ8fxyEXPcA.png"
+                             alt="LABONET"
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+                        <div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+
+                            <div class="text-center text-white p-6">
+
+                                <h4 class="text-xl font-bold mb-2">
+                                    LABONET
+                                </h4>
+
+                                                                    <p class="mb-4">
+                                        More Brand Visibility
+                                    </p>
+                                
+                                                                    <a href="https://khaki-crow-578367.hostingersite.com/"
+                                       target="_blank"
+                                       class="inline-flex items-center text-white font-semibold">
+                                        View Project
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="inline-block px-3 py-1 bg-primary/10 rounded-md mb-2">
+                        <span class="text-primary font-semibold text-xs uppercase">
+                            Web Design
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-dark mb-2">
+                        LABONET
+                    </h3>
+
+                    <p class="text-gray-600">
+                        
+                    </p>
+
+                </div>
+
+            
+                <div class="group cursor-pointer">
+
+                    <div class="relative overflow-hidden rounded-lg mb-6">
+
+                        <img src="https://www.al-falahmarketing.com/storage/public/portfolios/JdLq7L5mAVAVq7etKebdSMlXNEqWFarZRyAmVyFa.png"
+                             alt="E.I. MALOUM"
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+                        <div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+
+                            <div class="text-center text-white p-6">
+
+                                <h4 class="text-xl font-bold mb-2">
+                                    E.I. MALOUM
+                                </h4>
+
+                                                                    <p class="mb-4">
+                                        300% more Enquiries
+                                    </p>
+                                
+                                                                    <a href="https://wheat-octopus-107371.hostingersite.com/"
+                                       target="_blank"
+                                       class="inline-flex items-center text-white font-semibold">
+                                        View Project
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="inline-block px-3 py-1 bg-primary/10 rounded-md mb-2">
+                        <span class="text-primary font-semibold text-xs uppercase">
+                            Web Design
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-dark mb-2">
+                        E.I. MALOUM
+                    </h3>
+
+                    <p class="text-gray-600">
+                        
+                    </p>
+
+                </div>
+
+            
+                <div class="group cursor-pointer">
+
+                    <div class="relative overflow-hidden rounded-lg mb-6">
+
+                        <img src="https://www.al-falahmarketing.com/storage/public/portfolios/s2h4mKJrs5XTdX99NR50dsq9FzR5Zk6XVXDlTINc.png"
+                             alt="Metal Star Africa SARL"
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+                        <div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+
+                            <div class="text-center text-white p-6">
+
+                                <h4 class="text-xl font-bold mb-2">
+                                    Metal Star Africa SARL
+                                </h4>
+
+                                                                    <p class="mb-4">
+                                        More Orders
+                                    </p>
+                                
+                                                                    <a href="https://mediumaquamarine-hyena-598363.hostingersite.com/"
+                                       target="_blank"
+                                       class="inline-flex items-center text-white font-semibold">
+                                        View Project
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="inline-block px-3 py-1 bg-primary/10 rounded-md mb-2">
+                        <span class="text-primary font-semibold text-xs uppercase">
+                            Web Design
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-dark mb-2">
+                        Metal Star Africa SARL
+                    </h3>
+
+                    <p class="text-gray-600">
+                        
+                    </p>
+
+                </div>
+
+            
+                <div class="group cursor-pointer">
+
+                    <div class="relative overflow-hidden rounded-lg mb-6">
+
+                        <img src="https://www.al-falahmarketing.com/storage/public/portfolios/HG2v56ItMgLkm0OwG1PQDtgkapzGB9bqtGTzBU5I.png"
+                             alt="District Wildlife Solutions"
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+                        <div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+
+                            <div class="text-center text-white p-6">
+
+                                <h4 class="text-xl font-bold mb-2">
+                                    District Wildlife Solutions
+                                </h4>
+
+                                                                    <p class="mb-4">
+                                        100% Increase in Inquiries
+                                    </p>
+                                
+                                                                    <a href="https://darkred-rail-693072.hostingersite.com/"
+                                       target="_blank"
+                                       class="inline-flex items-center text-white font-semibold">
+                                        View Project
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="inline-block px-3 py-1 bg-primary/10 rounded-md mb-2">
+                        <span class="text-primary font-semibold text-xs uppercase">
+                            Web Design
+                        </span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-dark mb-2">
+                        District Wildlife Solutions
+                    </h3>
+
+                    <p class="text-gray-600">
+                        
+                    </p>
+
+                </div>
+
+            
+        </div>
+
+        <!-- Button -->
+                    <div class="text-center mt-12">
+                <a href="https://www.al-falahmarketing.com/portfolio"
+                   class="inline-flex items-center justify-center h-14 px-8 border-4 border-primary text-primary rounded-md font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:bg-primary hover:text-white">
+                    View All Projects
+                </a>
+            </div>
+        
+    </div>
+</section>
+
+<!-- BLOG SECTION -->
+<section id="blog" class="py-20 lg:py-32 bg-muted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-white rounded-md mb-6">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Insights</span>
+            </div>
+            
+            <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-6 tracking-tighter">
+                Latest From Our Blog
+            </h2>
+            
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Stay ahead with expert marketing insights, trends, and actionable strategies
+            </p>
+        </div>
+        
+        <!-- Check if blogs exist in the database -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    <!-- Dynamic Blog Post -->
+                    <article class="bg-white rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-[1.02] flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[16/10]">
+                            <!-- Blog Image -->
+                                                            <img src="https://www.al-falahmarketing.com/storage/public/blogs/BUj8DsCRF9xyvXBivtM7kclXjVUbtgaFBxodocez.jpg" alt="L&#039;IA en Marketing :La Révolution des Stratégies Omnicanales" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105">
+                                                        
+                            <!-- Blog Category Badge -->
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-primary text-white rounded-md text-xs font-bold uppercase">
+                                    AI Marketing
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Aug 22, 2026</span>
+                                <span class="mx-2">•</span>
+                                <span>5 Min Read</span>
+                            </div>
+                            
+                            <!-- Title -->
+                            <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                L&#039;IA en Marketing :La Révolution des Stratégies Omnicanales
+                            </h3>
+                            
+                            <!-- Content Excerpt -->
+                            <p class="text-gray-600 mb-4 line-clamp-3 flex-1">
+                                L’intelligence artificielle ne se contente plus de soutenir les équipes marketing : elle redéfinit entièrement la gestio...
+                            </p>
+                            
+                            <!-- Action Link (points to the show route via slug) -->
+                            <a href="https://www.al-falahmarketing.com/blog/lia-en-marketing-la-revolution-des-strategies-omnicanales" class="inline-flex items-center text-primary font-semibold group-hover:text-blue-600 transition-colors mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                                    <!-- Dynamic Blog Post -->
+                    <article class="bg-white rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-[1.02] flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[16/10]">
+                            <!-- Blog Image -->
+                                                            <img src="https://www.al-falahmarketing.com/storage/public/blogs/10kxjMfhmmVuelbGXTKosgeIcfabeFSyobjcr0Sg.jpg" alt="The 2026 Growth Blueprint:" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105">
+                                                        
+                            <!-- Blog Category Badge -->
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-primary text-white rounded-md text-xs font-bold uppercase">
+                                    AI Marketing
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Aug 07, 2026</span>
+                                <span class="mx-2">•</span>
+                                <span>6 Min</span>
+                            </div>
+                            
+                            <!-- Title -->
+                            <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                The 2026 Growth Blueprint:
+                            </h3>
+                            
+                            <!-- Content Excerpt -->
+                            <p class="text-gray-600 mb-4 line-clamp-3 flex-1">
+                                Merging AI, Intent-Driven SEO, and Conversion Design
+
+Estimated Reading Time: 6 Min Read by Abdulrahman Jalloh
+
+The...
+                            </p>
+                            
+                            <!-- Action Link (points to the show route via slug) -->
+                            <a href="https://www.al-falahmarketing.com/blog/the-2026-growth-blueprint" class="inline-flex items-center text-primary font-semibold group-hover:text-blue-600 transition-colors mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                                    <!-- Dynamic Blog Post -->
+                    <article class="bg-white rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-[1.02] flex flex-col h-full">
+                        <div class="relative overflow-hidden aspect-[16/10]">
+                            <!-- Blog Image -->
+                                                            <img src="https://www.al-falahmarketing.com/storage/public/blogs/0PHgcTVBgn2BrcyiK2bOxPFYjgCM8aLGgEDdyni2.jpg" alt="Beyond Traditional SEO:" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105">
+                                                        
+                            <!-- Blog Category Badge -->
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-primary text-white rounded-md text-xs font-bold uppercase">
+                                    AI Marketing
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Jul 26, 2026</span>
+                                <span class="mx-2">•</span>
+                                <span>6 Min read</span>
+                            </div>
+                            
+                            <!-- Title -->
+                            <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                Beyond Traditional SEO:
+                            </h3>
+                            
+                            <!-- Content Excerpt -->
+                            <p class="text-gray-600 mb-4 line-clamp-3 flex-1">
+                                How Generative Engine Optimization (GEO) and Search Everywhere Optimization (SEO) is Changing Digital Marketing in 2026...
+                            </p>
+                            
+                            <!-- Action Link (points to the show route via slug) -->
+                            <a href="https://www.al-falahmarketing.com/blog/beyond-traditional-seo" class="inline-flex items-center text-primary font-semibold group-hover:text-blue-600 transition-colors mt-auto">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                            </div>
+                
+        <!-- View All Button -->
+        <div class="text-center mt-12">
+            <a href="https://www.al-falahmarketing.com/Blog" class="inline-flex items-center justify-center h-14 px-8 bg-primary text-white rounded-md font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:scale-105 hover:bg-blue-600">
+                View All Articles
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-20 lg:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Success Message Alert -->
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+                <div class="inline-block px-4 py-2 bg-muted rounded-md mb-6">
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">Get In Touch</span>
+                </div>
+                
+                <h2 class="text-4xl lg:text-5xl font-bold text-dark mb-6 tracking-tighter">
+                    Let's Grow Your Business Together
+                </h2>
+                
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                    Ready to transform your digital presence? Get in touch with our team for a free consultation and custom strategy.
+                </p>
+                
+                <div class="space-y-6 mb-8">
+                    <div class="flex items-start">
+                        <div class="w-14 h-14 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark mb-1">Phone</h4>
+                            <p class="text-gray-600">+1 2402806137</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-14 h-14 bg-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark mb-1">Email</h4>
+                            <p class="text-gray-600">info@al-falahmarketing.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-14 h-14 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark mb-1">Office</h4>
+                            <p class="text-gray-600">8468 Winding Trail, Laurel, MD 20724, USA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="bg-muted rounded-lg p-8">
+                <form action="https://www.al-falahmarketing.com/contact-submit" method="POST" class="space-y-6">
+                    <input type="hidden" name="_token" value="oHPzthMUUjtG418ldUU0zC5jv683U9DS7bScO1H7" autocomplete="off">                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2 uppercase tracking-wider">First Name</label>
+                            <input type="text" name="first_name" required value="" class="w-full h-14 bg-white rounded-md px-4 text-dark focus:outline-none focus:ring-2 focus:ring-primary transition-all" placeholder="John">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2 uppercase tracking-wider">Last Name</label>
+                            <input type="text" name="last_name" required value="" class="w-full h-14 bg-white rounded-md px-4 text-dark focus:outline-none focus:ring-2 focus:ring-primary transition-all" placeholder="Doe">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-dark mb-2 uppercase tracking-wider">Email</label>
+                        <input type="email" name="email" required value="" class="w-full h-14 bg-white rounded-md px-4 text-dark focus:outline-none focus:ring-2 focus:ring-primary transition-all" placeholder="john@example.com">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-dark mb-2 uppercase tracking-wider">Phone</label>
+                        <input type="tel" name="phone" value="" class="w-full h-14 bg-white rounded-md px-4 text-dark focus:outline-none focus:ring-2 focus:ring-primary transition-all" placeholder="+1 (555) 000-0000">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-dark mb-2 uppercase tracking-wider">Service Interest</label>
+                        <select name="service_interest" class="w-full h-14 bg-white rounded-md px-4 text-dark focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+                            <option value="Web Development" >Web Development</option>
+                            <option value="Digital Marketing" >Digital Marketing</option>
+                            <option value="Branding & Design" >Branding & Design</option>
+                            <option value="AI & Automation" >AI & Automation</option>
+                            <option value="Content Creation" >Content Creation</option>
+                            <option value="IT Solutions" >IT Solutions</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-dark mb-2 uppercase tracking-wider">Message</label>
+                        <textarea name="message" rows="4" required class="w-full bg-white rounded-md px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full h-16 bg-primary text-white rounded-md font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:scale-105 hover:bg-blue-600">
+                        Send Message
+                        <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="py-20 lg:py-32 bg-accent relative overflow-hidden">
+    <!-- Decorative Shapes -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tighter">
+            Ready To Accelerate Your Growth?
+        </h2>
+        
+        <p class="text-xl text-white/90 mb-10 leading-relaxed">
+            Join 500+ businesses that trust MarketPro to deliver exceptional marketing results. Let's build something amazing together.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#consultation-form" class="h-16 px-10 bg-white text-accent rounded-md font-bold text-sm uppercase tracking-wider inline-flex items-center justify-center transition-all duration-200 hover:scale-105">
+                Get Free Consultation
+            </a>
+            <a href="#portfolio" class="h-16 px-10 border-4 border-white text-white rounded-md font-bold text-sm uppercase tracking-wider inline-flex items-center justify-center transition-all duration-200 hover:bg-white hover:text-accent">
+                View Our Work
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FREE CONSULTATION SECTION -->
+<section id="consultation-form" class="py-20 lg:py-32 bg-primary relative overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 -translate-x-1/2"></div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-5">
+                <!-- Info Side -->
+                <div class="md:col-span-2 bg-accent p-8 text-white">
+                    <h3 class="text-3xl font-bold mb-6">Book a Free Session</h3>
+                    <p class="mb-8 text-white/80">Select a date and tell us about your goals. Our experts will guide you through a custom strategy.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-3"></i> 30-Min Strategy Call</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-3"></i> Market Analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-3"></i> No Obligation</li>
+                    </ul>
+                </div>
+
+                <!-- Form Side -->
+                <div class="md:col-span-3 p-8 lg:p-12">
+                    
+                    <form action="https://www.al-falahmarketing.com/consultation-store" method="POST" class="space-y-5">
+                        <input type="hidden" name="_token" value="oHPzthMUUjtG418ldUU0zC5jv683U9DS7bScO1H7" autocomplete="off">                        <div>
+                            <label class="block text-sm font-bold text-dark mb-1 uppercase">Full Name</label>
+                            <input type="text" name="name" required class="w-full h-12 border-b-2 border-gray-200 focus:border-primary outline-none transition-colors" placeholder="Enter your name">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-1 uppercase">Email Address</label>
+                            <input type="email" name="email" required class="w-full h-12 border-b-2 border-gray-200 focus:border-primary outline-none transition-colors" placeholder="email@example.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-1 uppercase">Preferred Meeting Date</label>
+                            <input type="date" name="meeting_date" required min="2026-08-29" class="w-full h-12 border-b-2 border-gray-200 focus:border-primary outline-none transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-1 uppercase">Subject / Discussion Topic</label>
+                            <textarea name="subject" rows="3" required class="w-full border-b-2 border-gray-200 focus:border-primary outline-none transition-colors resize-none" placeholder="What would you like to discuss?"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full h-14 bg-primary text-white rounded-md font-bold uppercase tracking-widest hover:bg-blue-700 transition-all transform hover:scale-[1.02]">
+                            Confirm Booking
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+    
+      <footer class="bg-dark text-white">
+    <!-- Main Footer Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Company Info -->
+            <div>
+                <div class="flex items-center space-x-2 mb-6">
+                    <div class="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+                        <img src="https://www.al-falahmarketing.com/assets/images/alfalah.webp" alt="Al-Falah Marketing Logo"
+                            class="w-full h-full object-contain">
+                    </div>
+
+                    <span class="text-2xl font-bold tracking-tighter">
+                        Al-Falah<span class="text-primary">Marketing</span>
+                    </span>
+                </div>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    Transform your brand with data-driven marketing strategies that deliver real results.
+                </p>
+                <div class="flex space-x-3">
+                    <a href="https://www.facebook.com/profile.php?id=61573274222922"
+                        class="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://youtube.com/@al-falahmarketing-official?si=tt2bDxU_qv5g8M0o"
+                        class="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/al-falah-marketing-inc/"
+                        class="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/alfalahmarketinginc/"
+                        class="w-10 h-10 bg-white/10 rounded-md flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 uppercase tracking-wider">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="https://www.al-falahmarketing.com"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Home</a></li>
+                    <li><a href="https://www.al-falahmarketing.com/About-us"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">About Us</a></li>
+                    <li><a href="https://www.al-falahmarketing.com/Services"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Services</a></li>
+                    <li><a href=""
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Portfolio</a></li>
+                    <li><a href="https://www.al-falahmarketing.com/Blog"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Blog</a></li>
+                    <li><a href="https://www.al-falahmarketing.com/contact"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 uppercase tracking-wider">Services</h3>
+                <ul class="space-y-3">
+                    <li><a href="https://www.al-falahmarketing.com/services/web-development"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Web Development</a>
+                    </li>
+                    <li><a href="https://www.al-falahmarketing.com/services/digital-marketing"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Digital Marketing</a>
+                    </li>
+                    <li><a href="https://www.al-falahmarketing.com/services/branding"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Branding & Design</a>
+                    </li>
+                    <li><a href="https://www.al-falahmarketing.com/services/automation"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">AI & Automation</a>
+                    </li>
+                    <li><a href="https://www.al-falahmarketing.com/services/content-creation"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">Content Creation</a>
+                    </li>
+                    <li><a href="https://www.al-falahmarketing.com/services/it-solutions"
+                            class="text-gray-400 hover:text-primary transition-colors font-medium">IT Solutions</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                
+                                <h3 class="text-lg font-bold mb-6 uppercase tracking-wider">Newsletter</h3>
+                <p class="text-gray-400 mb-4">Subscribe to get latest marketing tips and insights.</p>
+                <form action="https://www.al-falahmarketing.com/newsletter-subscribe" method="POST" class="space-y-3">
+                    <input type="hidden" name="_token" value="oHPzthMUUjtG418ldUU0zC5jv683U9DS7bScO1H7" autocomplete="off">
+                    <input type="email" name="email" placeholder="Your email" required
+                        class="w-full h-12 bg-white/10 rounded-md px-4 text-white placeholder-gray-500 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+
+                    <button type="submit"
+                        class="w-full h-12 bg-primary text-white rounded-md font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:scale-105 hover:bg-blue-600">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t-2 border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                <p class="text-gray-400 text-sm">
+                    © 2026 Al-Falah Marketing. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="https://www.al-falahmarketing.com/privacy-policies"
+                        class="text-gray-400 hover:text-primary transition-colors font-medium">Privacy Policy</a>
+                    <a href="https://www.al-falahmarketing.com/terms-conditions"
+                        class="text-gray-400 hover:text-primary transition-colors font-medium">Terms of Service</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/+12402806137?text=Hello Al-Falah Team, I'm interested in your services!" target="_blank"
+    class="fixed bottom-8 left-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 z-50 group">
+
+    <!-- Pulse Effect -->
+    <span
+        class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping group-hover:hidden"></span>
+
+    <i class="fab fa-whatsapp text-3xl relative z-10"></i>
+
+    <!-- Tooltip -->
+    <span
+        class="absolute left-20 bg-white text-dark text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl whitespace-nowrap pointer-events-none">
+        Chat with us!
+        <span class="absolute top-1/2 -left-1 -translate-y-1/2 border-8 border-transparent border-r-white"></span>
+    </span>
+</a>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn"
+    class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-lg items-center justify-center hidden hover:scale-110 transition-all duration-200 z-50 shadow-lg">
+    <i class="fas fa-arrow-up text-xl"></i>
+</button>
+
+<script>
+    // Scroll to top functionality
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.remove('hidden');
+            scrollTopBtn.classList.add('flex');
+        } else {
+            scrollTopBtn.classList.add('hidden');
+            scrollTopBtn.classList.remove('flex');
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+    
+    <script>
+    // Smooth scroll with offset for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const targetPosition = target.offsetTop - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+    <div id="google_translate_element" style="display:none;"></div>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+
+function setLanguage(lang) {
+    if (lang === 'en') {
+        // Clear Google Translate cookie
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+        document.cookie = "lang=en; path=/; max-age=" + (30 * 24 * 60 * 60);
+    } else {
+        // Set Google Translate cookie
+        document.cookie = "googtrans=/en/" + lang + "; path=/;";
+        document.cookie = "googtrans=/en/" + lang + "; path=/; domain=" + window.location.hostname;
+        document.cookie = "lang=" + lang + "; path=/; max-age=" + (30 * 24 * 60 * 60);
+    }
+    localStorage.setItem('lang', lang);
+    window.location.reload();
+}
+
+function updateLanguageUI() {
+    // Determine language, defaulting to en
+    let lang = localStorage.getItem('lang') || 'en';
+    
+    // Double check cookies
+    let match = document.cookie.match(new RegExp('(^| )googtrans=([^;]+)'));
+    if (match) {
+        let val = decodeURIComponent(match[2]);
+        let parts = val.split('/');
+        if (parts.length >= 3) {
+            lang = parts[2].toLowerCase();
+        }
+    }
+
+    // Set HTML lang attribute
+    document.documentElement.lang = lang;
+
+    // Highlight desktop buttons
+    const btnEn = document.getElementById('lang-btn-en');
+    const btnFr = document.getElementById('lang-btn-fr');
+    if (btnEn && btnFr) {
+        if (lang === 'fr') {
+            btnFr.classList.add('bg-primary', 'text-white');
+            btnFr.classList.remove('hover:bg-gray-200');
+            btnEn.classList.remove('bg-primary', 'text-white');
+            btnEn.classList.add('hover:bg-gray-200');
+        } else {
+            btnEn.classList.add('bg-primary', 'text-white');
+            btnEn.classList.remove('hover:bg-gray-200');
+            btnFr.classList.remove('bg-primary', 'text-white');
+            btnFr.classList.add('hover:bg-gray-200');
+        }
+    }
+
+    // Highlight mobile buttons
+    const mBtnEn = document.getElementById('mobile-lang-btn-en');
+    const mBtnFr = document.getElementById('mobile-lang-btn-fr');
+    if (mBtnEn && mBtnFr) {
+        if (lang === 'fr') {
+            mBtnFr.classList.add('bg-primary', 'text-white');
+            mBtnFr.classList.remove('border-gray-300', 'bg-white');
+            mBtnEn.classList.remove('bg-primary', 'text-white');
+            mBtnEn.classList.add('border-gray-300', 'bg-white');
+        } else {
+            mBtnEn.classList.add('bg-primary', 'text-white');
+            mBtnEn.classList.remove('bg-primary', 'text-white');
+            mBtnEn.classList.add('border-gray-300', 'bg-white');
+            mBtnFr.classList.remove('bg-primary', 'text-white');
+            mBtnFr.classList.add('border-gray-300', 'bg-white');
+        }
+    }
+}
+
+// Run language UI update immediately
+document.addEventListener('DOMContentLoaded', updateLanguageUI);
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    updateLanguageUI();
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+</body>
+</html>
