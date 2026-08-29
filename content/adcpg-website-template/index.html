@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADCPG — Association De Doumbouya Cité &amp; Perle De Guinée</title>
+<meta name="description" content="Site officiel de l'ADCPG (Association De Doumbouya Cité & Perle De Guinée) — communauté, projets et actualités.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1b3d;
+    --navy-2:#132a5e;
+    --gold:#d4af37;
+    --gold-2:#f0d878;
+    --green:#1f8b4c;
+    --ink:#0f172a;
+    --muted:#5b6472;
+    --paper:#f7f6f2;
+    --white:#ffffff;
+    --line:#e6e3da;
+    --radius:16px;
+    --shadow:0 20px 50px -20px rgba(13,27,61,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Outfit',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand-name{font-family:'Playfair Display',serif;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  [data-fr], [data-en]{display:none;}
+  html[data-lang="fr"] [data-fr]{display:inline;}
+  html[data-lang="fr"] span[data-fr],
+  html[data-lang="fr"] div[data-fr],
+  html[data-lang="fr"] p[data-fr],
+  html[data-lang="fr"] li[data-fr]{display:block;}
+  html[data-lang="fr"] li[data-fr],
+  html[data-lang="fr"] span[data-fr]{display:inline;}
+  html[data-lang="en"] [data-en]{display:inline;}
+  html[data-lang="en"] div[data-en],
+  html[data-lang="en"] p[data-en],
+  html[data-lang="en"] li[data-en]{display:block;}
+  html[data-lang="en"] li[data-en],
+  html[data-lang="en"] span[data-en]{display:inline;}
+  html[data-lang="fr"] .blk[data-fr]{display:block;}
+  html[data-lang="en"] .blk[data-en]{display:block;}
+  html[data-lang="fr"] .blk[data-en]{display:none;}
+  html[data-lang="en"] .blk[data-fr]{display:none;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,27,61,0.96);
+    backdrop-filter:blur(8px);
+    color:#fff;
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .crest{width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #1c3a7a, #0d1b3d 70%);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .crest svg{width:26px;height:26px;}
+  .brand-text{line-height:1.15;}
+  .brand-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.3px;}
+  .brand-sub{font-size:11px;color:var(--gold-2);text-transform:uppercase;letter-spacing:1.5px;}
+  nav.links{display:flex;align-items:center;gap:28px;}
+  nav.links a{font-size:14.5px;font-weight:500;color:#e7e9f2;text-decoration:none;opacity:.9;transition:opacity .2s;}
+  nav.links a:hover{opacity:1;color:var(--gold-2);}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .lang-toggle{
+    display:flex;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+    border-radius:999px;padding:3px;font-size:12.5px;font-weight:600;
+  }
+  .lang-toggle button{
+    border:none;background:transparent;color:#cfd4e6;padding:6px 12px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:600;font-size:12.5px;
+  }
+  .lang-toggle button.active{background:var(--gold);color:var(--navy);}
+  .cta-btn{
+    background:var(--gold);color:var(--navy);padding:10px 20px;border-radius:999px;
+    font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;
+    box-shadow:0 8px 20px -8px rgba(212,175,55,0.7);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .cta-btn:hover{transform:translateY(-1px);box-shadow:0 12px 24px -8px rgba(212,175,55,0.85);}
+  .menu-btn{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(212,175,55,0.18), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 55%, #0a1530 100%);
+    color:#fff;padding:90px 0 110px;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size:26px 26px;opacity:.5;pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr 0.8fr;gap:48px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.14);
+    border:1px solid rgba(212,175,55,0.4);color:var(--gold-2);font-size:12.5px;font-weight:600;
+    letter-spacing:1px;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:22px;
+  }
+  .hero h1{font-size:44px;line-height:1.15;margin:0 0 20px;font-weight:700;}
+  .hero h1 em{font-style:normal;color:var(--gold-2);}
+  .hero p.lead{font-size:17px;color:#c9cee0;max-width:520px;margin:0 0 32px;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-outline{
+    border:1.5px solid rgba(255,255,255,0.35);color:#fff;padding:12px 24px;border-radius:999px;
+    text-decoration:none;font-weight:600;font-size:14.5px;transition:.2s;
+  }
+  .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff;}
+  .hero-emblem{
+    display:flex;align-items:center;justify-content:center;
+  }
+  .emblem-card{
+    width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle at 35% 25%, #1e3f82, #0c1938 75%);
+    border:6px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.6), inset 0 0 40px rgba(212,175,55,0.15);
+    position:relative;
+  }
+  .emblem-card svg{width:150px;height:150px;}
+  .emblem-ring{
+    position:absolute;inset:-6px;border-radius:50%;
+    border:1px dashed rgba(212,175,55,0.5);
+  }
+  .stat-strip{
+    background:var(--navy-2);border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .stat-strip .wrap{display:flex;justify-content:space-between;padding:26px 24px;flex-wrap:wrap;gap:24px;}
+  .stat{color:#fff;text-align:center;flex:1;min-width:120px;}
+  .stat .num{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold-2);font-weight:700;}
+  .stat .label{font-size:12.5px;color:#aab0c6;text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:90px 0;}
+  .section-head{max-width:640px;margin:0 auto 50px;text-align:center;}
+  .kicker{color:var(--green);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+  .section-head h2{font-size:32px;margin:0 0 14px;color:var(--navy);}
+  .section-head p{color:var(--muted);font-size:16px;margin:0;}
+
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about-grid h2{font-size:30px;color:var(--navy);margin:0 0 18px;}
+  .about-grid p{color:var(--muted);font-size:15.5px;margin:0 0 16px;}
+  .pillar-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px;}
+  .pillar-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink);}
+  .pillar-list .dot{
+    width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px;
+  }
+  .about-photo{
+    background:linear-gradient(160deg,#1e3f82,#0d1b3d);border-radius:var(--radius);
+    aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.65);
+    font-size:14px;text-align:center;padding:30px;box-shadow:var(--shadow);
+  }
+
+  .cards-bg{background:#fff;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px 26px;
+    transition:transform .25s, box-shadow .25s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card .icon{
+    width:48px;height:48px;border-radius:12px;background:var(--navy);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;
+  }
+  .card h3{margin:0 0 10px;font-size:18px;color:var(--navy);font-family:'Outfit';font-weight:700;}
+  .card p{margin:0;color:var(--muted);font-size:14.5px;}
+
+  .project-band{
+    background:linear-gradient(160deg, var(--navy), #16336e);color:#fff;border-radius:24px;
+    padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;
+  }
+  .project-band .kicker{color:var(--gold-2);}
+  .project-band h2{color:#fff;font-size:28px;margin:0 0 16px;}
+  .project-band p{color:#c9cee0;font-size:15.5px;margin:0 0 22px;}
+  .progress-item{margin-bottom:18px;}
+  .progress-label{display:flex;justify-content:space-between;font-size:13px;color:#dfe3f0;margin-bottom:6px;}
+  .progress-track{height:8px;background:rgba(255,255,255,0.15);border-radius:999px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--gold);border-radius:999px;}
+  .project-visual{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:18px;
+    padding:28px;
+  }
+
+  .board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .board-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center;
+    transition:box-shadow .25s, transform .25s;
+  }
+  .board-card:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
+  .avatar{
+    width:76px;height:76px;border-radius:50%;margin:0 auto 16px;
+    background:linear-gradient(160deg,#1e3f82,#0d1b3d);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;
+    border:3px solid var(--gold);
+  }
+  .board-card h3{margin:0 0 4px;font-size:16px;color:var(--navy);font-weight:700;font-family:'Outfit';}
+  .board-card .role{color:var(--green);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
+  .board-note{
+    margin-top:34px;text-align:center;font-size:13px;color:var(--muted);
+    background:#fbf8ee;border:1px dashed var(--gold);border-radius:12px;padding:14px 20px;
+  }
+
+  .join-section{
+    background:radial-gradient(1100px 500px at 20% 0%, rgba(31,139,76,0.08), transparent 60%), #fff;
+  }
+  .join-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .whatsapp-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .wa-icon{
+    width:64px;height:64px;border-radius:50%;background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:30px;
+  }
+  .whatsapp-card h3{margin:0 0 8px;color:var(--navy);}
+  .whatsapp-card p{color:var(--muted);font-size:14.5px;margin:0 0 22px;}
+  .wa-btn{
+    display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;
+    padding:14px 28px;border-radius:999px;font-weight:700;font-size:15px;box-shadow:0 12px 24px -10px rgba(37,211,102,0.6);
+    transition:transform .2s;
+  }
+  .wa-btn:hover{transform:translateY(-2px);}
+  .wa-fineprint{font-size:12px;color:#98a0b0;margin-top:16px;}
+
+  .contact-section{background:var(--navy);color:#fff;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  .contact-grid h2{color:#fff;}
+  .contact-info{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:18px;}
+  .contact-info li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:#dfe3f0;}
+  .contact-info .ic{
+    width:38px;height:38px;border-radius:10px;background:rgba(212,175,55,0.15);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;
+  }
+  form.contact-form{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:30px;}
+  form.contact-form label{display:block;font-size:13px;color:#c9cee0;margin-bottom:6px;font-weight:600;}
+  form.contact-form input, form.contact-form textarea, form.contact-form select{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.06);color:#fff;font-family:inherit;font-size:14.5px;margin-bottom:16px;
+  }
+  form.contact-form input::placeholder, form.contact-form textarea::placeholder{color:#8891ac;}
+  form.contact-form button{
+    width:100%;padding:14px;border:none;border-radius:999px;background:var(--gold);color:var(--navy);
+    font-weight:700;font-size:15px;cursor:pointer;
+  }
+
+  footer{background:#0a1530;color:#9aa2ba;padding:48px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+  .footer-brand{display:flex;gap:12px;align-items:center;margin-bottom:14px;}
+  .footer-brand .brand-name{color:#fff;font-size:16px;}
+  footer p{font-size:13.5px;line-height:1.7;margin:0;}
+  footer h4{color:#fff;font-size:13.5px;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
+  footer a{color:#9aa2ba;text-decoration:none;font-size:14px;}
+  footer a:hover{color:var(--gold-2);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;}
+
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .menu-btn{display:block;}
+    .hero-inner{grid-template-columns:1fr;text-align:center;}
+    .hero p.lead{margin-left:auto;margin-right:auto;}
+    .hero-btns{justify-content:center;}
+    .hero-emblem{order:-1;}
+    .about-grid, .join-grid, .contact-grid, .project-band{grid-template-columns:1fr;}
+    .cards, .board-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .stat-strip .wrap{justify-content:flex-start;}
+  }
+  @media (max-width:560px){
+    .cards, .board-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:32px;}
+    section{padding:64px 0;}
+    .project-band{padding:32px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="crest">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" stroke="#d4af37" stroke-width="2"/>
+          <path d="M20 40 L20 20 L30 20 C36 20 40 24 40 30 C40 36 36 40 30 40 L24 40 L24 34 L29 34 C32 34 34 32.5 34 30 C34 27.5 32 26 29 26 L26 26 L26 40 Z" fill="#f0d878"/>
+          <path d="M17 46 L47 46" stroke="#d4af37" stroke-width="2"/>
+          <circle cx="20" cy="50" r="1.6" fill="#d4af37"/>
+          <circle cx="32" cy="50" r="1.6" fill="#d4af37"/>
+          <circle cx="44" cy="50" r="1.6" fill="#d4af37"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">ADCPG</div>
+        <div class="brand-sub" data-fr>Doumbouya Cité &amp; Perle</div>
+        <div class="brand-sub" data-en>Doumbouya Cité &amp; Perle</div>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#apropos" data-fr>À propos</a><a href="#apropos" data-en>About</a>
+      <a href="#mission" data-fr>Mission</a><a href="#mission" data-en>Mission</a>
+      <a href="#projet" data-fr>Nos Villes</a><a href="#projet" data-en>Our Cities</a>
+      <a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a>
+      <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button type="button" data-set-lang="fr" class="active">FR</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="cta-btn" href="#rejoindre" data-fr>Rejoindre</a>
+      <a class="cta-btn" href="#rejoindre" data-en>Join Us</a>
+      <button class="menu-btn" aria-label="menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">
+        <span data-fr>Association à but non lucratif</span>
+        <span data-en>Non-profit community association</span>
+      </div>
+      <h1 data-fr>L'association de copropriétaires de <em>Doumbouya &amp; Perle</em></h1>
+      <h1 data-en>The homeowners association of <em>Doumbouya &amp; Perle</em></h1>
+      <p class="lead" data-fr>L'ADCPG régit et représente plus de 74 propriétés réparties sur les villes de Doumbouya et Perle, en Guinée — au service des propriétaires, résidents et membres de la diaspora.</p>
+      <p class="lead" data-en>ADCPG governs and represents more than 74 properties across the cities of Doumbouya and Perle, Guinea — serving homeowners, residents, and diaspora members alike.</p>
+      <div class="hero-btns">
+        <a class="cta-btn" href="#rejoindre" data-fr>Rejoindre le groupe WhatsApp</a>
+        <a class="cta-btn" href="#rejoindre" data-en>Join our WhatsApp group</a>
+        <a class="btn-outline" href="#projet" data-fr>Découvrir nos villes</a>
+        <a class="btn-outline" href="#projet" data-en>Discover our cities</a>
+      </div>
+    </div>
+    <div class="hero-emblem">
+      <div class="emblem-card">
+        <div class="emblem-ring"></div>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 46 L14 18 L28 18 C37 18 43 24 43 32 C43 40 37 46 28 46 L20 46 L20 38 L27 38 C31.5 38 34 35.8 34 32 C34 28.2 31.5 26 27 26 L23 26 L23 46 Z" fill="#f0d878"/>
+          <circle cx="16" cy="52" r="1.8" fill="#f0d878"/>
+          <circle cx="32" cy="53.5" r="1.8" fill="#f0d878"/>
+          <circle cx="48" cy="52" r="1.8" fill="#f0d878"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div class="wrap">
+    <div class="stat"><div class="num">74+</div><div class="label" data-fr>Propriétés régies</div><div class="label" data-en>Properties governed</div></div>
+    <div class="stat"><div class="num">2</div><div class="label" data-fr>Villes — Doumbouya &amp; Perle</div><div class="label" data-en>Cities — Doumbouya &amp; Perle</div></div>
+    <div class="stat"><div class="num">12</div><div class="label" data-fr>Membres du bureau</div><div class="label" data-en>Board members</div></div>
+    <div class="stat"><div class="num">2026</div><div class="label" data-fr>Fondée en</div><div class="label" data-en>Founded</div></div>
+  </div>
+</div>
+
+<section id="apropos">
+  <div class="wrap about-grid">
+    <div class="about-photo">
+      <span data-fr>[ Photo des propriétés / rues de Doumbouya &amp; Perle à ajouter ]</span>
+      <span data-en>[ Photo of the properties / streets of Doumbouya &amp; Perle to be added ]</span>
+    </div>
+    <div>
+      <div class="kicker" data-fr>Qui sommes-nous</div>
+      <div class="kicker" data-en>Who we are</div>
+      <h2 data-fr>L'Association De Doumbouya Cité &amp; Perle De Guinée</h2>
+      <h2 data-en>The Association De Doumbouya Cité &amp; Perle De Guinée</h2>
+      <p data-fr>L'ADCPG est l'association de copropriétaires (HOA) qui régit plus de 74 propriétés réparties sur les villes de Doumbouya et Perle. Elle réunit propriétaires, résidents et membres de la diaspora autour de la gestion des biens communs, du développement local et de la préservation de notre héritage partagé.</p>
+      <p data-en>ADCPG is the homeowners association (HOA) governing more than 74 properties across the cities of Doumbouya and Perle. It brings together homeowners, residents, and diaspora members around shared-property management, local development, and preserving our common heritage.</p>
+      <ul class="pillar-list">
+        <li><span class="dot">✓</span><span data-fr>Administrer les règlements et espaces communs de Doumbouya &amp; Perle</span><span data-en>Administer the bylaws and shared spaces of Doumbouya &amp; Perle</span></li>
+        <li><span class="dot">✓</span><span data-fr>Soutenir les projets de développement et d'infrastructure</span><span data-en>Support development and infrastructure projects</span></li>
+        <li><span class="dot">✓</span><span data-fr>Organiser l'entraide sociale et les collectes de fonds entre propriétaires</span><span data-en>Organize social support and fundraising among homeowners</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="mission" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Notre mission</div>
+      <div class="kicker" data-en>Our mission</div>
+      <h2 data-fr>Ce que nous défendons</h2>
+      <h2 data-en>What we stand for</h2>
+      <p data-fr>Trois piliers guident chaque action de l'ADCPG.</p>
+      <p data-en>Three pillars guide everything ADCPG does.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3 data-fr>Solidarité</h3><h3 data-en>Solidarity</h3>
+        <p data-fr>Un réseau d'entraide entre membres, familles et voisins, en Guinée comme dans la diaspora.</p>
+        <p data-en>A support network between members, families, and neighbors, at home and across the diaspora.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏗️</div>
+        <h3 data-fr>Développement</h3><h3 data-en>Development</h3>
+        <p data-fr>Contribuer aux infrastructures, à l'éducation et aux projets communautaires de Doumbouya Cité &amp; Perle.</p>
+        <p data-en>Contributing to infrastructure, education, and community projects in Doumbouya Cité &amp; Perle.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3 data-fr>Unité de la diaspora</h3><h3 data-en>Diaspora unity</h3>
+        <p data-fr>Connecter les membres à travers le monde autour d'une identité et d'objectifs communs.</p>
+        <p data-en>Connecting members across the world around a shared identity and common goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projet">
+  <div class="wrap">
+    <div class="project-band">
+      <div>
+        <div class="kicker" data-fr>Notre juridiction</div>
+        <div class="kicker" data-en>Our jurisdiction</div>
+        <h2 data-fr>Deux villes, une seule association</h2>
+        <h2 data-en>Two cities, one association</h2>
+        <p data-fr>L'ADCPG régit et représente plus de 74 propriétés réparties sur les villes de Doumbouya et Perle — réglementation, entretien des espaces communs, cotisations et projets d'infrastructure. Cette section est prête à recevoir la répartition officielle des propriétés par ville.</p>
+        <p data-en>ADCPG governs and represents more than 74 properties across the cities of Doumbouya and Perle — bylaws, upkeep of shared spaces, dues, and infrastructure projects. This section is ready to receive the official property breakdown by city.</p>
+        <a class="btn-outline" href="#contact" data-fr>Demander les détails de gouvernance</a>
+        <a class="btn-outline" href="#contact" data-en>Request governance details</a>
+      </div>
+      <div class="project-visual">
+        <div class="progress-item">
+          <div class="progress-label"><span data-fr>Propriétés — Doumbouya</span><span data-en>Properties — Doumbouya</span><span>—</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span data-fr>Propriétés — Perle</span><span data-en>Properties — Perle</span><span>—</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span data-fr>Total régi par l'ADCPG</span><span data-en>Total governed by ADCPG</span><span>74+</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+        </div>
+        <p style="font-size:12.5px;color:#aab0c6;margin:18px 0 0;" data-fr>* Répartition à titre indicatif — à remplacer par le décompte réel de propriétés par ville.</p>
+        <p style="font-size:12.5px;color:#aab0c6;margin:18px 0 0;" data-en>* Breakdown is a placeholder — to be replaced with the real per-city property count.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bureau" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Gouvernance</div>
+      <div class="kicker" data-en>Governance</div>
+      <h2 data-fr>Le Bureau de l'ADCPG</h2>
+      <h2 data-en>The ADCPG Board</h2>
+      <p data-fr>Les membres actuels du bureau, tel qu'identifiés dans le groupe WhatsApp officiel de l'association.</p>
+      <p data-en>Current board members, as identified in the association's official WhatsApp group.</p>
+    </div>
+    <div class="board-grid">
+      <div class="board-card"><div class="avatar">AJ</div><h3>Aïssatou</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AD</div><h3>Alpha S. Diallo</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">IJ</div><h3>Ibra</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MS</div><h3>Madame Soumaoro</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MB</div><h3>Mr Barry</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MB</div><h3>Madame Balde</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+    </div>
+    <div class="board-note">
+      <span data-fr>Noms extraits de la liste des administrateurs du groupe WhatsApp — à confirmer avec l'association pour les titres exacts (Président, Trésorier, Secrétaire, etc.) et l'orthographe complète des noms de famille.</span>
+      <span data-en>Names pulled from the WhatsApp group's admin list — please confirm exact titles (President, Treasurer, Secretary, etc.) and full last names with the association.</span>
+    </div>
+  </div>
+</section>
+
+<section id="rejoindre" class="join-section">
+  <div class="wrap join-grid">
+    <div>
+      <div class="kicker" data-fr>Rejoignez-nous</div>
+      <div class="kicker" data-en>Get involved</div>
+      <h2 style="font-size:30px;color:var(--navy);margin:0 0 16px;" data-fr>Restez connecté avec la communauté</h2>
+      <h2 style="font-size:30px;color:var(--navy);margin:0 0 16px;" data-en>Stay connected with the community</h2>
+      <p style="color:var(--muted);font-size:15.5px;" data-fr>Le groupe WhatsApp officiel de l'ADCPG est notre principal canal d'échange : annonces, actualités du projet, et entraide entre membres. Rejoignez-nous pour rester informé.</p>
+      <p style="color:var(--muted);font-size:15.5px;" data-en>ADCPG's official WhatsApp group is our main channel: announcements, project updates, and mutual support between members. Join us to stay informed.</p>
+    </div>
+    <div class="whatsapp-card">
+      <div class="wa-icon">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.2.6 4.3 1.7 6.1L4 29l8.1-1.7c1.7.9 3.7 1.4 5.9 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.8 1 1-4.7-.2-.4C5.4 17.6 5 16.3 5 15c0-6.1 4.9-11 11-11s11 4.9 11 11-4.9 10.8-11 10.8zm6-8.3c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+      </div>
+      <h3 data-fr>Groupe WhatsApp de l'ADCPG</h3><h3 data-en>ADCPG WhatsApp Group</h3>
+      <p data-fr>Scannez le code ou cliquez sur le bouton pour rejoindre directement.</p>
+      <p data-en>Scan the code or click the button to join directly.</p>
+      <a class="wa-btn" href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener">
+        <span data-fr>Rejoindre sur WhatsApp</span>
+        <span data-en>Join on WhatsApp</span>
+      </a>
+      <div class="wa-fineprint" data-fr>Ce lien vous redirige vers l'application WhatsApp officielle.</div>
+      <div class="wa-fineprint" data-en>This link redirects you to the official WhatsApp app.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kicker" style="color:var(--gold-2);" data-fr>Contact</div>
+      <div class="kicker" style="color:var(--gold-2);" data-en>Contact</div>
+      <h2 data-fr>Parlons-nous</h2>
+      <h2 data-en>Get in touch</h2>
+      <p style="color:#c9cee0;" data-fr>Une question, une suggestion, ou vous souhaitez contribuer au projet ? Contactez le bureau de l'ADCPG.</p>
+      <p style="color:#c9cee0;" data-en>Have a question, a suggestion, or want to contribute to the project? Reach out to the ADCPG board.</p>
+      <ul class="contact-info">
+        <li><span class="ic">💬</span><span data-fr>WhatsApp — voir le bouton "Rejoindre" ci-dessus</span><span data-en>WhatsApp — see the "Join" button above</span></li>
+        <li><span class="ic">✉️</span><span>contact@adcpg.org <span style="opacity:.6;">(<span data-fr>à confirmer</span><span data-en>to confirm</span>)</span></span></li>
+        <li><span class="ic">📍</span><span data-fr>Doumbouya Cité &amp; Perle, Guinée</span><span data-en>Doumbouya Cité &amp; Perle, Guinea</span></li>
+      </ul>
+    </div>
+    <form class="contact-form">
+      <label data-fr>Nom complet</label><label data-en>Full name</label>
+      <input type="text" placeholder="—">
+      <label data-fr>Adresse e-mail</label><label data-en>Email address</label>
+      <input type="email" placeholder="—">
+      <label data-fr>Message</label><label data-en>Message</label>
+      <textarea rows="4" placeholder="—"></textarea>
+      <button type="submit" data-fr>Envoyer</button>
+      <button type="submit" data-en>Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="crest" style="width:38px;height:38px;">
+            <svg viewBox="0 0 64 64" width="20" height="20" fill="none"><path d="M20 40 L20 20 L30 20 C36 20 40 24 40 30 C40 36 36 40 30 40 L24 40 L24 34 L29 34 C32 34 34 32.5 34 30 C34 27.5 32 26 29 26 L26 26 L26 40 Z" fill="#f0d878"/></svg>
+          </div>
+          <div class="brand-name">ADCPG</div>
+        </div>
+        <p data-fr>Association De Doumbouya Cité &amp; Perle De Guinée — au service de la communauté, en Guinée et dans la diaspora.</p>
+        <p data-en>Association De Doumbouya Cité &amp; Perle De Guinée — serving the community, at home and across the diaspora.</p>
+      </div>
+      <div>
+        <h4 data-fr>Navigation</h4><h4 data-en>Navigation</h4>
+        <ul>
+          <li><a href="#apropos" data-fr>À propos</a><a href="#apropos" data-en>About</a></li>
+          <li><a href="#projet" data-fr>Nos Villes</a><a href="#projet" data-en>Our Cities</a></li>
+          <li><a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a></li>
+          <li><a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Communauté</h4><h4 data-en>Community</h4>
+        <ul>
+          <li><a href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener" data-fr>Groupe WhatsApp</a><a href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener" data-en>WhatsApp Group</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ADCPG. <span data-fr>Tous droits réservés.</span><span data-en>All rights reserved.</span></span>
+      <span data-fr>Modèle de site — contenu à finaliser avec le bureau de l'association.</span>
+      <span data-en>Website template — content to be finalized with the association's board.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-set-lang]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const lang = btn.getAttribute('data-set-lang');
+      document.documentElement.setAttribute('data-lang', lang);
+      document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      try{ localStorage.setItem('adcpg-lang', lang); }catch(e){}
+    });
+  });
+  try{
+    const saved = localStorage.getItem('adcpg-lang');
+    if(saved){
+      document.documentElement.setAttribute('data-lang', saved);
+      document.querySelectorAll('.lang-toggle button').forEach(b=>{
+        b.classList.toggle('active', b.getAttribute('data-set-lang')===saved);
+      });
+    }
+  }catch(e){}
+</script>
+
+</body>
+</html>
