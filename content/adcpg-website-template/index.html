@@ -126,16 +126,15 @@
   }
   .emblem-card{
     width:320px;height:320px;border-radius:50%;
-    background:radial-gradient(circle at 35% 25%, #1e3f82, #0c1938 75%);
-    border:6px solid var(--gold);
+    background:#ffffff;
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 30px 70px -20px rgba(0,0,0,0.6), inset 0 0 40px rgba(212,175,55,0.15);
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.6);
     position:relative;
   }
-  .emblem-card svg{width:270px;height:270px;}
+  .emblem-card svg{width:296px;height:296px;}
   .emblem-ring{
-    position:absolute;inset:-6px;border-radius:50%;
-    border:1px dashed rgba(212,175,55,0.5);
+    position:absolute;inset:-8px;border-radius:50%;
+    border:1px dashed rgba(255,255,255,0.4);
   }
   .stat-strip{
     background:var(--navy-2);border-top:1px solid rgba(255,255,255,0.08);
@@ -299,36 +298,76 @@
   <div class="wrap nav">
     <div class="brand">
       <div class="crest">
-        <svg viewBox="0 0 200 200">
-          <path id="crestRingHdr" d="M 64.5,176.1 A 84,84 0 1 1 135.5,176.1" fill="none"/>
-          <circle cx="100" cy="100" r="96" fill="#1a34c4"/>
-          <circle cx="100" cy="100" r="96" fill="none" stroke="#132a9e" stroke-width="3"/>
-          <circle cx="100" cy="100" r="88" fill="none" stroke="#ffffff" stroke-width="5"/>
-          <circle cx="100" cy="100" r="80" fill="#1a34c4"/>
-          <text font-family="'Playfair Display', Georgia, serif" font-size="11.5" font-weight="700" fill="#ffffff" letter-spacing="0.5">
-            <textPath href="#crestRingHdr" xlink:href="#crestRingHdr" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="440">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
-          </text>
-          <g fill="#c9973f" opacity="0.95">
-            <g transform="translate(100,150)">
-              <g transform="rotate(-58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
-              <g transform="rotate(-42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
-              <g transform="rotate(-26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
-              <g transform="rotate(-10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
-              <g transform="rotate(58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
-              <g transform="rotate(42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
-              <g transform="rotate(26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
-              <g transform="rotate(10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
-            </g>
-          </g>
-          <path d="M100 60 L64 96 L76 96 L76 122 L124 122 L124 96 L136 96 Z" fill="none" stroke="#eef0f7" stroke-width="3.2" stroke-linejoin="round"/>
-          <text x="100" y="102" font-family="'Playfair Display', Georgia, serif" font-size="15" font-weight="700" fill="#eef0f7" text-anchor="middle">D</text>
-          <text x="100" y="132" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="700" fill="#eef0f7" text-anchor="middle">P</text>
-          <g fill="#ffffff">
-            <path transform="translate(76,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-            <path transform="translate(94,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-            <path transform="translate(112,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-          </g>
-        </svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path id="crestRingHdr" d="M 37.8,139 A 71,71 0 1 1 162.2,139" fill="none"/>
+
+  <circle cx="100" cy="100" r="97" fill="#2028c8"/>
+  <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="85" fill="#2028c8"/>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="#ffffff" letter-spacing="0.3">
+    <textPath href="#crestRingHdr" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="300">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+  </text>
+
+  <g stroke="#7a4a1e" stroke-width="0.35">
+    <g fill="#c99a5f">
+      <ellipse cx="68" cy="130" rx="8.4" ry="3.8" transform="rotate(-16 68 130)"/>
+      <ellipse cx="75" cy="134" rx="6.2" ry="2.8" transform="rotate(-6 75 134)"/>
+      <ellipse cx="58" cy="124" rx="8.8" ry="4.0" transform="rotate(-32 58 124)"/>
+      <ellipse cx="51.5" cy="126.5" rx="6.6" ry="3.0" transform="rotate(-54 51.5 126.5)"/>
+      <ellipse cx="51" cy="114" rx="8.8" ry="4.0" transform="rotate(-50 51 114)"/>
+      <ellipse cx="44.5" cy="116.5" rx="6.6" ry="3.0" transform="rotate(-72 44.5 116.5)"/>
+      <ellipse cx="47" cy="103" rx="8.8" ry="4.0" transform="rotate(-68 47 103)"/>
+      <ellipse cx="40.5" cy="105.5" rx="6.6" ry="3.0" transform="rotate(-90 40.5 105.5)"/>
+      <ellipse cx="46" cy="92" rx="8.8" ry="4.0" transform="rotate(-84 46 92)"/>
+      <ellipse cx="39.5" cy="94.5" rx="6.6" ry="3.0" transform="rotate(-106 39.5 94.5)"/>
+      <ellipse cx="48" cy="81" rx="8.8" ry="4.0" transform="rotate(-100 48 81)"/>
+      <ellipse cx="41.5" cy="83.5" rx="6.6" ry="3.0" transform="rotate(-122 41.5 83.5)"/>
+      <ellipse cx="53" cy="71" rx="8.8" ry="4.0" transform="rotate(-116 53 71)"/>
+      <ellipse cx="46.5" cy="73.5" rx="6.6" ry="3.0" transform="rotate(-138 46.5 73.5)"/>
+      <ellipse cx="60" cy="63" rx="8.8" ry="4.0" transform="rotate(-132 60 63)"/>
+      <ellipse cx="53.5" cy="65.5" rx="6.6" ry="3.0" transform="rotate(-154 53.5 65.5)"/>
+      <ellipse cx="69" cy="57" rx="8.8" ry="4.0" transform="rotate(-148 69 57)"/>
+      <ellipse cx="62.5" cy="59.5" rx="6.6" ry="3.0" transform="rotate(-170 62.5 59.5)"/>
+    </g>
+    <g fill="#c99a5f">
+      <ellipse cx="132" cy="130" rx="8.4" ry="3.8" transform="rotate(16 132 130)"/>
+      <ellipse cx="125" cy="134" rx="6.2" ry="2.8" transform="rotate(6 125 134)"/>
+      <ellipse cx="142" cy="124" rx="8.8" ry="4.0" transform="rotate(32 142 124)"/>
+      <ellipse cx="148.5" cy="126.5" rx="6.6" ry="3.0" transform="rotate(54 148.5 126.5)"/>
+      <ellipse cx="149" cy="114" rx="8.8" ry="4.0" transform="rotate(50 149 114)"/>
+      <ellipse cx="155.5" cy="116.5" rx="6.6" ry="3.0" transform="rotate(72 155.5 116.5)"/>
+      <ellipse cx="153" cy="103" rx="8.8" ry="4.0" transform="rotate(68 153 103)"/>
+      <ellipse cx="159.5" cy="105.5" rx="6.6" ry="3.0" transform="rotate(90 159.5 105.5)"/>
+      <ellipse cx="154" cy="92" rx="8.8" ry="4.0" transform="rotate(84 154 92)"/>
+      <ellipse cx="160.5" cy="94.5" rx="6.6" ry="3.0" transform="rotate(106 160.5 94.5)"/>
+      <ellipse cx="152" cy="81" rx="8.8" ry="4.0" transform="rotate(100 152 81)"/>
+      <ellipse cx="158.5" cy="83.5" rx="6.6" ry="3.0" transform="rotate(122 158.5 83.5)"/>
+      <ellipse cx="147" cy="71" rx="8.8" ry="4.0" transform="rotate(116 147 71)"/>
+      <ellipse cx="153.5" cy="73.5" rx="6.6" ry="3.0" transform="rotate(138 153.5 73.5)"/>
+      <ellipse cx="140" cy="63" rx="8.8" ry="4.0" transform="rotate(132 140 63)"/>
+      <ellipse cx="146.5" cy="65.5" rx="6.6" ry="3.0" transform="rotate(154 146.5 65.5)"/>
+      <ellipse cx="131" cy="57" rx="8.8" ry="4.0" transform="rotate(148 131 57)"/>
+      <ellipse cx="137.5" cy="59.5" rx="6.6" ry="3.0" transform="rotate(170 137.5 59.5)"/>
+    </g>
+  </g>
+  <path d="M100 132 L98.2 140 L100 145 L101.8 140 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.35"/>
+
+  <!-- house roof: thick white chevron, apex slightly above center-top of D -->
+  <path d="M101 50 L138 85 L133 85 L101 55 L69 85 L64 85 Z" fill="#f2f1f7"/>
+  <text x="101" y="66.5" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+
+  <!-- big D -->
+  <text x="96" y="126" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+  <!-- gold P inside the D bowl -->
+  <text x="101" y="117" font-family="Georgia, serif" font-size="27" font-weight="bold" fill="#c99a5f" text-anchor="middle">P</text>
+
+  <g fill="#ffffff">
+    <path transform="translate(62,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(91,147.5) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(120,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+  </g>
+</svg>
       </div>
       <div class="brand-text">
         <div class="brand-name">ADCPG</div>
@@ -376,36 +415,76 @@
     <div class="hero-emblem">
       <div class="emblem-card">
         <div class="emblem-ring"></div>
-        <svg viewBox="0 0 200 200">
-          <path id="crestRingHero" d="M 64.5,176.1 A 84,84 0 1 1 135.5,176.1" fill="none"/>
-          <circle cx="100" cy="100" r="96" fill="#1a34c4"/>
-          <circle cx="100" cy="100" r="96" fill="none" stroke="#132a9e" stroke-width="3"/>
-          <circle cx="100" cy="100" r="88" fill="none" stroke="#ffffff" stroke-width="5"/>
-          <circle cx="100" cy="100" r="80" fill="#1a34c4"/>
-          <text font-family="'Playfair Display', Georgia, serif" font-size="11.5" font-weight="700" fill="#ffffff" letter-spacing="0.5">
-            <textPath href="#crestRingHero" xlink:href="#crestRingHero" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="440">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
-          </text>
-          <g fill="#c9973f" opacity="0.95">
-            <g transform="translate(100,150)">
-              <g transform="rotate(-58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
-              <g transform="rotate(-42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
-              <g transform="rotate(-26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
-              <g transform="rotate(-10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
-              <g transform="rotate(58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
-              <g transform="rotate(42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
-              <g transform="rotate(26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
-              <g transform="rotate(10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
-            </g>
-          </g>
-          <path d="M100 60 L64 96 L76 96 L76 122 L124 122 L124 96 L136 96 Z" fill="none" stroke="#eef0f7" stroke-width="3.2" stroke-linejoin="round"/>
-          <text x="100" y="102" font-family="'Playfair Display', Georgia, serif" font-size="15" font-weight="700" fill="#eef0f7" text-anchor="middle">D</text>
-          <text x="100" y="132" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="700" fill="#eef0f7" text-anchor="middle">P</text>
-          <g fill="#ffffff">
-            <path transform="translate(76,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-            <path transform="translate(94,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-            <path transform="translate(112,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-          </g>
-        </svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path id="crestRingHero" d="M 37.8,139 A 71,71 0 1 1 162.2,139" fill="none"/>
+
+  <circle cx="100" cy="100" r="97" fill="#2028c8"/>
+  <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="85" fill="#2028c8"/>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="#ffffff" letter-spacing="0.3">
+    <textPath href="#crestRingHero" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="300">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+  </text>
+
+  <g stroke="#7a4a1e" stroke-width="0.35">
+    <g fill="#c99a5f">
+      <ellipse cx="68" cy="130" rx="8.4" ry="3.8" transform="rotate(-16 68 130)"/>
+      <ellipse cx="75" cy="134" rx="6.2" ry="2.8" transform="rotate(-6 75 134)"/>
+      <ellipse cx="58" cy="124" rx="8.8" ry="4.0" transform="rotate(-32 58 124)"/>
+      <ellipse cx="51.5" cy="126.5" rx="6.6" ry="3.0" transform="rotate(-54 51.5 126.5)"/>
+      <ellipse cx="51" cy="114" rx="8.8" ry="4.0" transform="rotate(-50 51 114)"/>
+      <ellipse cx="44.5" cy="116.5" rx="6.6" ry="3.0" transform="rotate(-72 44.5 116.5)"/>
+      <ellipse cx="47" cy="103" rx="8.8" ry="4.0" transform="rotate(-68 47 103)"/>
+      <ellipse cx="40.5" cy="105.5" rx="6.6" ry="3.0" transform="rotate(-90 40.5 105.5)"/>
+      <ellipse cx="46" cy="92" rx="8.8" ry="4.0" transform="rotate(-84 46 92)"/>
+      <ellipse cx="39.5" cy="94.5" rx="6.6" ry="3.0" transform="rotate(-106 39.5 94.5)"/>
+      <ellipse cx="48" cy="81" rx="8.8" ry="4.0" transform="rotate(-100 48 81)"/>
+      <ellipse cx="41.5" cy="83.5" rx="6.6" ry="3.0" transform="rotate(-122 41.5 83.5)"/>
+      <ellipse cx="53" cy="71" rx="8.8" ry="4.0" transform="rotate(-116 53 71)"/>
+      <ellipse cx="46.5" cy="73.5" rx="6.6" ry="3.0" transform="rotate(-138 46.5 73.5)"/>
+      <ellipse cx="60" cy="63" rx="8.8" ry="4.0" transform="rotate(-132 60 63)"/>
+      <ellipse cx="53.5" cy="65.5" rx="6.6" ry="3.0" transform="rotate(-154 53.5 65.5)"/>
+      <ellipse cx="69" cy="57" rx="8.8" ry="4.0" transform="rotate(-148 69 57)"/>
+      <ellipse cx="62.5" cy="59.5" rx="6.6" ry="3.0" transform="rotate(-170 62.5 59.5)"/>
+    </g>
+    <g fill="#c99a5f">
+      <ellipse cx="132" cy="130" rx="8.4" ry="3.8" transform="rotate(16 132 130)"/>
+      <ellipse cx="125" cy="134" rx="6.2" ry="2.8" transform="rotate(6 125 134)"/>
+      <ellipse cx="142" cy="124" rx="8.8" ry="4.0" transform="rotate(32 142 124)"/>
+      <ellipse cx="148.5" cy="126.5" rx="6.6" ry="3.0" transform="rotate(54 148.5 126.5)"/>
+      <ellipse cx="149" cy="114" rx="8.8" ry="4.0" transform="rotate(50 149 114)"/>
+      <ellipse cx="155.5" cy="116.5" rx="6.6" ry="3.0" transform="rotate(72 155.5 116.5)"/>
+      <ellipse cx="153" cy="103" rx="8.8" ry="4.0" transform="rotate(68 153 103)"/>
+      <ellipse cx="159.5" cy="105.5" rx="6.6" ry="3.0" transform="rotate(90 159.5 105.5)"/>
+      <ellipse cx="154" cy="92" rx="8.8" ry="4.0" transform="rotate(84 154 92)"/>
+      <ellipse cx="160.5" cy="94.5" rx="6.6" ry="3.0" transform="rotate(106 160.5 94.5)"/>
+      <ellipse cx="152" cy="81" rx="8.8" ry="4.0" transform="rotate(100 152 81)"/>
+      <ellipse cx="158.5" cy="83.5" rx="6.6" ry="3.0" transform="rotate(122 158.5 83.5)"/>
+      <ellipse cx="147" cy="71" rx="8.8" ry="4.0" transform="rotate(116 147 71)"/>
+      <ellipse cx="153.5" cy="73.5" rx="6.6" ry="3.0" transform="rotate(138 153.5 73.5)"/>
+      <ellipse cx="140" cy="63" rx="8.8" ry="4.0" transform="rotate(132 140 63)"/>
+      <ellipse cx="146.5" cy="65.5" rx="6.6" ry="3.0" transform="rotate(154 146.5 65.5)"/>
+      <ellipse cx="131" cy="57" rx="8.8" ry="4.0" transform="rotate(148 131 57)"/>
+      <ellipse cx="137.5" cy="59.5" rx="6.6" ry="3.0" transform="rotate(170 137.5 59.5)"/>
+    </g>
+  </g>
+  <path d="M100 132 L98.2 140 L100 145 L101.8 140 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.35"/>
+
+  <!-- house roof: thick white chevron, apex slightly above center-top of D -->
+  <path d="M101 50 L138 85 L133 85 L101 55 L69 85 L64 85 Z" fill="#f2f1f7"/>
+  <text x="101" y="66.5" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+
+  <!-- big D -->
+  <text x="96" y="126" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+  <!-- gold P inside the D bowl -->
+  <text x="101" y="117" font-family="Georgia, serif" font-size="27" font-weight="bold" fill="#c99a5f" text-anchor="middle">P</text>
+
+  <g fill="#ffffff">
+    <path transform="translate(62,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(91,147.5) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(120,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+  </g>
+</svg>
       </div>
     </div>
   </div>
@@ -602,36 +681,76 @@
       <div>
         <div class="footer-brand">
           <div class="crest" style="width:38px;height:38px;">
-            <svg viewBox="0 0 200 200" style="width:38px;height:38px;">
-          <path id="crestRingFtr" d="M 64.5,176.1 A 84,84 0 1 1 135.5,176.1" fill="none"/>
-          <circle cx="100" cy="100" r="96" fill="#1a34c4"/>
-          <circle cx="100" cy="100" r="96" fill="none" stroke="#132a9e" stroke-width="3"/>
-          <circle cx="100" cy="100" r="88" fill="none" stroke="#ffffff" stroke-width="5"/>
-          <circle cx="100" cy="100" r="80" fill="#1a34c4"/>
-          <text font-family="'Playfair Display', Georgia, serif" font-size="11.5" font-weight="700" fill="#ffffff" letter-spacing="0.5">
-            <textPath href="#crestRingFtr" xlink:href="#crestRingFtr" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="440">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
-          </text>
-          <g fill="#c9973f" opacity="0.95">
-            <g transform="translate(100,150)">
-              <g transform="rotate(-58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
-              <g transform="rotate(-42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
-              <g transform="rotate(-26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
-              <g transform="rotate(-10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
-              <g transform="rotate(58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
-              <g transform="rotate(42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
-              <g transform="rotate(26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
-              <g transform="rotate(10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
-            </g>
-          </g>
-          <path d="M100 60 L64 96 L76 96 L76 122 L124 122 L124 96 L136 96 Z" fill="none" stroke="#eef0f7" stroke-width="3.2" stroke-linejoin="round"/>
-          <text x="100" y="102" font-family="'Playfair Display', Georgia, serif" font-size="15" font-weight="700" fill="#eef0f7" text-anchor="middle">D</text>
-          <text x="100" y="132" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="700" fill="#eef0f7" text-anchor="middle">P</text>
-          <g fill="#ffffff">
-            <path transform="translate(76,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-            <path transform="translate(94,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-            <path transform="translate(112,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
-          </g>
-        </svg>
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:38px;height:38px;">
+  <path id="crestRingFtr" d="M 37.8,139 A 71,71 0 1 1 162.2,139" fill="none"/>
+
+  <circle cx="100" cy="100" r="97" fill="#2028c8"/>
+  <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="85" fill="#2028c8"/>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="#ffffff" letter-spacing="0.3">
+    <textPath href="#crestRingFtr" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="300">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+  </text>
+
+  <g stroke="#7a4a1e" stroke-width="0.35">
+    <g fill="#c99a5f">
+      <ellipse cx="68" cy="130" rx="8.4" ry="3.8" transform="rotate(-16 68 130)"/>
+      <ellipse cx="75" cy="134" rx="6.2" ry="2.8" transform="rotate(-6 75 134)"/>
+      <ellipse cx="58" cy="124" rx="8.8" ry="4.0" transform="rotate(-32 58 124)"/>
+      <ellipse cx="51.5" cy="126.5" rx="6.6" ry="3.0" transform="rotate(-54 51.5 126.5)"/>
+      <ellipse cx="51" cy="114" rx="8.8" ry="4.0" transform="rotate(-50 51 114)"/>
+      <ellipse cx="44.5" cy="116.5" rx="6.6" ry="3.0" transform="rotate(-72 44.5 116.5)"/>
+      <ellipse cx="47" cy="103" rx="8.8" ry="4.0" transform="rotate(-68 47 103)"/>
+      <ellipse cx="40.5" cy="105.5" rx="6.6" ry="3.0" transform="rotate(-90 40.5 105.5)"/>
+      <ellipse cx="46" cy="92" rx="8.8" ry="4.0" transform="rotate(-84 46 92)"/>
+      <ellipse cx="39.5" cy="94.5" rx="6.6" ry="3.0" transform="rotate(-106 39.5 94.5)"/>
+      <ellipse cx="48" cy="81" rx="8.8" ry="4.0" transform="rotate(-100 48 81)"/>
+      <ellipse cx="41.5" cy="83.5" rx="6.6" ry="3.0" transform="rotate(-122 41.5 83.5)"/>
+      <ellipse cx="53" cy="71" rx="8.8" ry="4.0" transform="rotate(-116 53 71)"/>
+      <ellipse cx="46.5" cy="73.5" rx="6.6" ry="3.0" transform="rotate(-138 46.5 73.5)"/>
+      <ellipse cx="60" cy="63" rx="8.8" ry="4.0" transform="rotate(-132 60 63)"/>
+      <ellipse cx="53.5" cy="65.5" rx="6.6" ry="3.0" transform="rotate(-154 53.5 65.5)"/>
+      <ellipse cx="69" cy="57" rx="8.8" ry="4.0" transform="rotate(-148 69 57)"/>
+      <ellipse cx="62.5" cy="59.5" rx="6.6" ry="3.0" transform="rotate(-170 62.5 59.5)"/>
+    </g>
+    <g fill="#c99a5f">
+      <ellipse cx="132" cy="130" rx="8.4" ry="3.8" transform="rotate(16 132 130)"/>
+      <ellipse cx="125" cy="134" rx="6.2" ry="2.8" transform="rotate(6 125 134)"/>
+      <ellipse cx="142" cy="124" rx="8.8" ry="4.0" transform="rotate(32 142 124)"/>
+      <ellipse cx="148.5" cy="126.5" rx="6.6" ry="3.0" transform="rotate(54 148.5 126.5)"/>
+      <ellipse cx="149" cy="114" rx="8.8" ry="4.0" transform="rotate(50 149 114)"/>
+      <ellipse cx="155.5" cy="116.5" rx="6.6" ry="3.0" transform="rotate(72 155.5 116.5)"/>
+      <ellipse cx="153" cy="103" rx="8.8" ry="4.0" transform="rotate(68 153 103)"/>
+      <ellipse cx="159.5" cy="105.5" rx="6.6" ry="3.0" transform="rotate(90 159.5 105.5)"/>
+      <ellipse cx="154" cy="92" rx="8.8" ry="4.0" transform="rotate(84 154 92)"/>
+      <ellipse cx="160.5" cy="94.5" rx="6.6" ry="3.0" transform="rotate(106 160.5 94.5)"/>
+      <ellipse cx="152" cy="81" rx="8.8" ry="4.0" transform="rotate(100 152 81)"/>
+      <ellipse cx="158.5" cy="83.5" rx="6.6" ry="3.0" transform="rotate(122 158.5 83.5)"/>
+      <ellipse cx="147" cy="71" rx="8.8" ry="4.0" transform="rotate(116 147 71)"/>
+      <ellipse cx="153.5" cy="73.5" rx="6.6" ry="3.0" transform="rotate(138 153.5 73.5)"/>
+      <ellipse cx="140" cy="63" rx="8.8" ry="4.0" transform="rotate(132 140 63)"/>
+      <ellipse cx="146.5" cy="65.5" rx="6.6" ry="3.0" transform="rotate(154 146.5 65.5)"/>
+      <ellipse cx="131" cy="57" rx="8.8" ry="4.0" transform="rotate(148 131 57)"/>
+      <ellipse cx="137.5" cy="59.5" rx="6.6" ry="3.0" transform="rotate(170 137.5 59.5)"/>
+    </g>
+  </g>
+  <path d="M100 132 L98.2 140 L100 145 L101.8 140 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.35"/>
+
+  <!-- house roof: thick white chevron, apex slightly above center-top of D -->
+  <path d="M101 50 L138 85 L133 85 L101 55 L69 85 L64 85 Z" fill="#f2f1f7"/>
+  <text x="101" y="66.5" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+
+  <!-- big D -->
+  <text x="96" y="126" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+  <!-- gold P inside the D bowl -->
+  <text x="101" y="117" font-family="Georgia, serif" font-size="27" font-weight="bold" fill="#c99a5f" text-anchor="middle">P</text>
+
+  <g fill="#ffffff">
+    <path transform="translate(62,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(91,147.5) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(120,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+  </g>
+</svg>
           </div>
           <div class="brand-name">ADCPG</div>
         </div>
