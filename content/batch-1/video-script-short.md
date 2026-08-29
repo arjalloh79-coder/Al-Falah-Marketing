@@ -1,7 +1,8 @@
 # Short-form video script (Reel / YouTube Short / TikTok — ~30-40 sec)
 
-**Topic:** "Your business is losing leads while you sleep" — promotes AI & Automation service.
+**Topic:** "Your business is losing leads while you sleep" — promotes Al-Falah Marketing's AI & Automation service.
 **Format:** Talking-head or voiceover-over-B-roll, on-screen captions throughout (sound-off viewing is common).
+**Branding:** Keep a small "Al-Falah Marketing" logo/wordmark watermark in a corner for the full duration (standard for repost/reshare identification), in addition to the full CTA card at the end.
 
 ---
 
