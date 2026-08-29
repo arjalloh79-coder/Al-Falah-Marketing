@@ -215,6 +215,31 @@
     background:#fbf8ee;border:1px dashed var(--gold);border-radius:12px;padding:14px 20px;
   }
 
+  .statuts-section{background:var(--paper);}
+  .statuts-list{max-width:820px;margin:0 auto;display:grid;gap:14px;}
+  .statuts-list details{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:0;overflow:hidden;
+  }
+  .statuts-list summary{
+    cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;
+    padding:18px 22px;font-weight:700;color:var(--navy);font-size:15.5px;
+  }
+  .statuts-list summary::-webkit-details-marker{display:none;}
+  .statuts-list summary .art-num{
+    flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--navy);
+    color:var(--gold-2);display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:14px;
+  }
+  .statuts-list summary .chev{margin-left:auto;color:var(--muted);transition:transform .2s;}
+  .statuts-list details[open] summary .chev{transform:rotate(90deg);}
+  .statuts-body{padding:0 22px 20px 74px;color:var(--muted);font-size:14.5px;}
+  .statuts-body h4{margin:14px 0 4px;font-size:13px;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;font-family:'Outfit';}
+  .statuts-body p{margin:0 0 10px;}
+  .statuts-meta{
+    max-width:820px;margin:26px auto 0;text-align:center;font-size:13px;color:var(--muted);
+    background:#fbf8ee;border:1px dashed var(--gold);border-radius:12px;padding:14px 20px;
+  }
   .join-section{
     background:radial-gradient(1100px 500px at 20% 0%, rgba(31,139,76,0.08), transparent 60%), #fff;
   }
@@ -369,6 +394,7 @@
       <a href="#mission" data-fr>Mission</a><a href="#mission" data-en>Mission</a>
       <a href="#projet" data-fr>Nos Villes</a><a href="#projet" data-en>Our Cities</a>
       <a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a>
+      <a href="#statuts" data-fr>Statuts</a><a href="#statuts" data-en>Bylaws</a>
       <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
     </nav>
     <div class="nav-actions">
@@ -473,7 +499,7 @@
     <div class="stat"><div class="num">74+</div><div class="label" data-fr>Propriétés régies</div><div class="label" data-en>Properties governed</div></div>
     <div class="stat"><div class="num">2</div><div class="label" data-fr>Villes — Doumbouya &amp; Perle</div><div class="label" data-en>Cities — Doumbouya &amp; Perle</div></div>
     <div class="stat"><div class="num">14</div><div class="label" data-fr>Membres du bureau</div><div class="label" data-en>Board members</div></div>
-    <div class="stat"><div class="num">2026</div><div class="label" data-fr>Fondée en</div><div class="label" data-en>Founded</div></div>
+    <div class="stat"><div class="num">2024</div><div class="label" data-fr>Statuts adoptés en</div><div class="label" data-en>Bylaws adopted</div></div>
   </div>
 </div>
 
@@ -598,6 +624,75 @@
   </div>
 </section>
 
+
+<section id="statuts" class="statuts-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Textes officiels</div>
+      <div class="kicker" data-en>Official documents</div>
+      <h2 data-fr>Les Statuts de l'Association</h2>
+      <h2 data-en>The Association's Bylaws</h2>
+      <p data-fr>Statuts adoptés par les membres le 29 mars 2024, conformément à la loi L/2005/013/AN du 4 juillet 2005.</p>
+      <p data-en>Bylaws adopted by the members on March 29, 2024, in accordance with law L/2005/013/AN of July 4, 2005.</p>
+    </div>
+    <div class="statuts-list">
+      <details open>
+        <summary><span class="art-num">I</span><span data-fr>Nom et Objectif</span><span data-en>Name and Purpose</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Nom</h4><p>Le nom de cette organisation sera « Doumbouyah City/Perle de Guinée », ci-après désignée « l'Association ». Les adhérents aux présents statuts constituent les membres de l'Association conformément à la loi L/2005/013/AN de l'Assemblée nationale du 4 juillet 2005.</p><h4>Section 2 — Objectif</h4><p>L'objectif de l'Association sera de promouvoir et de protéger les intérêts des propriétaires au sein de la communauté désignée à Coyah, République de Guinée, de favoriser un sentiment d'appartenance communautaire, et de maintenir et d'améliorer la valeur des propriétés au sein de la communauté.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Name</h4><p>The name of this organization shall be "Doumbouyah City/Perle de Guinée", hereafter "the Association". Adherents to these bylaws constitute the Association's members, in accordance with law L/2005/013/AN of the National Assembly of July 4, 2005.</p><h4>Section 2 — Purpose</h4><p>The Association's purpose is to promote and protect homeowners' interests within the designated community in Coyah, Republic of Guinea, foster a sense of community belonging, and maintain and improve property values within the community.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">II</span><span data-fr>Adhésion</span><span data-en>Membership</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Éligibilité</h4><p>L'adhésion est ouverte à tous les propriétaires de la communauté de Doumbouyah City/Perle de Guinée, tels que définis dans les accords d'achat de propriété conclus avec le promoteur immobilier Jobomax.</p><h4>Section 2 — Droits et Responsabilités</h4><p>Tous les membres ont le droit de participer aux réunions, de voter sur les questions soumises à l'assemblée, et d'accéder aux ressources et équipements de l'Association. Ils sont tenus de respecter les règles fixées par l'Association et de payer les cotisations en temps voulu.</p><h4>Section 3 — Résiliation</h4><p>L'adhésion prend fin lorsque le membre cesse d'être propriétaire d'une habitation au sein de la communauté, ou pour tout autre motif dûment justifié, constaté par le Comité de Gestion et approuvé par le Conseil d'Administration.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Eligibility</h4><p>Membership is open to all homeowners of the Doumbouyah City/Perle de Guinée community, as defined in the property purchase agreements concluded with the developer Jobomax.</p><h4>Section 2 — Rights and Responsibilities</h4><p>All members may attend meetings, vote on matters put to the assembly, and access the Association's resources and facilities. Members must follow the Association's rules and pay dues on time.</p><h4>Section 3 — Termination</h4><p>Membership ends when a member ceases to own a home within the community, or for any other duly justified reason, established by the Management Committee and approved by the Board of Directors.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">III</span><span data-fr>Conseil d'Administration</span><span data-en>Board of Directors</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Composition</h4><p>Les affaires de l'Association seront gérées par un Conseil d'Administration (CA) composé de 13 membres, élus pour une durée de cinq (5) années par les membres lors de l'assemblée annuelle.</p><h4>Section 2 — Pouvoirs et Devoirs</h4><p>Le CA désignera un Comité de Gestion de cinq (5) membres chargé de gérer les affaires administratives et financières, les activités majeures de l'Association, d'appliquer ses règles, de recruter et superviser les prestataires pour l'entretien et les réparations, et de prendre toute autre mesure nécessaire.</p><h4>Section 3 — Mandat</h4><p>Les gestionnaires exercent un mandat de deux (2) années, avec des mandats échelonnés pour assurer la continuité du leadership. Ils peuvent être reconduits.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Composition</h4><p>The Association's affairs are managed by a Board of Directors (CA) of 13 members, elected to five (5)-year terms by the members at the annual assembly.</p><h4>Section 2 — Powers and Duties</h4><p>The Board appoints a five (5)-member Management Committee empowered to run the Association's administrative and financial affairs and major activities, enforce its rules, hire and supervise maintenance and repair contractors, and take any other action needed to fulfill the Association's purpose.</p><h4>Section 3 — Terms</h4><p>Managers serve two (2)-year staggered terms to ensure leadership continuity, and may serve successive terms.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">IV</span><span data-fr>Réunions</span><span data-en>Meetings</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Assemblée Annuelle</h4><p>L'Association tiendra une assemblée annuelle pour élire les membres du CA, examiner les finances et traiter toute autre affaire. Un avis sera envoyé à tous les membres au moins 15 jours à l'avance. Cette assemblée pourra être virtuelle.</p><h4>Section 2 — Réunions Spéciales</h4><p>Des réunions spéciales du CA peuvent être convoquées par le Président, le Comité de Gestion, ou sur demande écrite de deux (2) membres, avec un avis d'au moins sept (7) jours et un ordre du jour.</p><h4>Section 3 — Quorum</h4><p>Le quorum pour toute réunion des membres est de 30% des membres en règle.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Annual Assembly</h4><p>The Association holds an annual members' assembly to elect Board members, review finances, and conduct any other business. Notice is sent to all members at least 15 days in advance; the assembly may be held virtually.</p><h4>Section 2 — Special Meetings</h4><p>Special Board meetings may be called by the President, the Management Committee, or on written request of two (2) members, with at least seven (7) days' notice and an agenda.</p><h4>Section 3 — Quorum</h4><p>A quorum for any members' meeting is 30% of members in good standing.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">V</span><span data-fr>Finances</span><span data-en>Finances</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Cotisations</h4><p>L'Association impose des cotisations annuelles à tous les membres pour couvrir l'entretien des espaces communs, des équipements, et toute autre dépense nécessaire. Le taux et la fréquence de paiement sont définis par l'assemblée générale. Une contribution spéciale et unique de 500 000 FGN, dénommée « Fonds de Solidarité », est imposée à tous les membres pour faire face aux priorités urgentes.</p><h4>Section 2 — Ressources</h4><p>Les ressources de l'Association sont les cotisations, le Fonds de Solidarité, les subventions, les dons, les recettes des activités de l'Association et toutes autres ressources légales conformes à ses objectifs.</p><h4>Section 3 — Exercice Financier</h4><p>L'exercice financier court du 1er janvier au 31 décembre.</p><h4>Section 4 — Registres Financiers</h4><p>Des registres financiers précis et complets sont tenus et mis à disposition des membres pour inspection sur demande.</p><h4>Section 5 — Commissariat aux Comptes</h4><p>Chargé du contrôle et de la vérification de la régularité des comptes, il comprend deux (2) membres désignés par le CA pour un mandat de deux (2) ans renouvelable.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Dues</h4><p>The Association levies annual dues on all members to cover upkeep of shared spaces and facilities and any other expense needed to fulfill its purpose. The rate and payment schedule are set by the general assembly. A special one-time contribution of 500,000 FGN, the "Solidarity Fund", is levied on all members to address the Association's urgent priorities.</p><h4>Section 2 — Resources</h4><p>The Association's resources are member dues, the Solidarity Fund, grants, donations, proceeds from its activities, and any other lawful resources consistent with its purpose.</p><h4>Section 3 — Fiscal Year</h4><p>The fiscal year runs January 1 to December 31.</p><h4>Section 4 — Financial Records</h4><p>Accurate, complete financial records are kept and made available for member inspection on request.</p><h4>Section 5 — Audit Committee</h4><p>Responsible for verifying the regularity of the accounts; two (2) members appointed by the Board for a renewable two (2)-year term.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">VI</span><span data-fr>Dispositions Générales</span><span data-en>General Provisions</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Amendements</h4><p>Ces statuts peuvent être modifiés par un vote des deux tiers des membres présents à toute réunion, à condition qu'un avis des amendements proposés soit envoyé à tous les membres au moins 30 jours à l'avance.</p><h4>Section 2 — Dissolution</h4><p>En cas de dissolution, tous les actifs restants après règlement des dettes seront distribués à la mairie de Coyah.</p><h4>Section 3 — Règlement Intérieur</h4><p>Un règlement intérieur, conçu de façon participative, complétera les présents statuts : droits et obligations des membres, procédures électorales, fonctionnement de l'Assemblée Générale et du CA, attributions des membres du CA et du Comité de Gestion, procédures financières et signatures bancaires, gestion des conflits, procédures disciplinaires et conflits d'intérêts.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Amendments</h4><p>These bylaws may be amended by a two-thirds vote of members present at any meeting, provided notice of the proposed amendments is sent to all members at least 30 days in advance.</p><h4>Section 2 — Dissolution</h4><p>Upon dissolution, all assets remaining after settling debts shall be distributed to the Coyah town hall.</p><h4>Section 3 — Internal Rules</h4><p>Internal rules, drafted participatively, will complement these bylaws: member rights and duties, electoral procedures, operation of the General Assembly and Board, detailed roles of Board and Management Committee members, financial procedures and bank signatures, conflict management, disciplinary procedures, and conflict-of-interest rules.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">VII</span><span data-fr>Adoption</span><span data-en>Adoption</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><p>Ces statuts sont effectifs dès leur adoption par un vote majoritaire des membres présents lors d'une réunion dûment convoquée à cet effet. Ils ont été approuvés et adoptés par les membres de l'Association Doumbouyah City/Perle de Guinée le <strong>29 mars 2024</strong>.</p></div>
+          <div class="blk" data-en><p>These bylaws take effect upon adoption by a majority vote of members present at a meeting duly convened for that purpose. They were approved and adopted by the members of the Association Doumbouyah City/Perle de Guinée on <strong>March 29, 2024</strong>.</p></div>
+        </div>
+      </details>
+    </div>
+    <div class="statuts-meta">
+      <span data-fr>Texte intégral tel qu'adopté — la version anglaise est une traduction de courtoisie ; en cas de divergence, la version française fait foi.</span>
+      <span data-en>Full text as adopted — the English version is a courtesy translation; in case of discrepancy, the French version prevails.</span>
+    </div>
+  </div>
+</section>
+
 <section id="rejoindre" class="join-section">
   <div class="wrap join-grid">
     <div>
@@ -637,7 +732,7 @@
       <ul class="contact-info">
         <li><span class="ic">💬</span><span data-fr>WhatsApp — voir le bouton "Rejoindre" ci-dessus</span><span data-en>WhatsApp — see the "Join" button above</span></li>
         <li><span class="ic">✉️</span><span>contact@adcpg.org <span style="opacity:.6;">(<span data-fr>à confirmer</span><span data-en>to confirm</span>)</span></span></li>
-        <li><span class="ic">📍</span><span data-fr>Doumbouya Cité &amp; Perle, Guinée</span><span data-en>Doumbouya Cité &amp; Perle, Guinea</span></li>
+        <li><span class="ic">📍</span><span data-fr>Doumbouya Cité &amp; Perle, Coyah, Guinée</span><span data-en>Doumbouya Cité &amp; Perle, Coyah, Guinea</span></li>
       </ul>
     </div>
     <form class="contact-form">
@@ -730,6 +825,7 @@
           <li><a href="#apropos" data-fr>À propos</a><a href="#apropos" data-en>About</a></li>
           <li><a href="#projet" data-fr>Nos Villes</a><a href="#projet" data-en>Our Cities</a></li>
           <li><a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a></li>
+          <li><a href="#statuts" data-fr>Statuts</a><a href="#statuts" data-en>Bylaws</a></li>
           <li><a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a></li>
         </ul>
       </div>
