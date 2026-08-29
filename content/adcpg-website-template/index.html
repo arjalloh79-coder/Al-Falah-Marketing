@@ -292,18 +292,52 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="adcpg-crest" viewBox="0 0 200 200">
+      <path id="crestRingPath" d="M 100,14 A 86,86 0 1 1 99.9,14" fill="none"/>
+      <circle cx="100" cy="100" r="96" fill="#0d1b3d"/>
+      <circle cx="100" cy="100" r="96" fill="none" stroke="#d4af37" stroke-width="3"/>
+      <circle cx="100" cy="100" r="84" fill="none" stroke="#e9e6da" stroke-width="1.4"/>
+      <circle cx="100" cy="100" r="78" fill="none" stroke="#e9e6da" stroke-width="1"/>
+      <text font-family="'Playfair Display', Georgia, serif" font-size="10.2" font-weight="700" fill="#f0d878" letter-spacing="1.6">
+        <textPath href="#crestRingPath" startOffset="50%" text-anchor="middle">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+      </text>
+
+      <!-- laurel wreath -->
+      <g fill="#c9973f" opacity="0.95">
+        <g transform="translate(100,150)">
+          <g transform="rotate(-58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
+          <g transform="rotate(-42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
+          <g transform="rotate(-26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
+          <g transform="rotate(-10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
+          <g transform="rotate(58)"><ellipse cx="0" cy="-38" rx="5.5" ry="11"/></g>
+          <g transform="rotate(42)"><ellipse cx="0" cy="-42" rx="6" ry="12"/></g>
+          <g transform="rotate(26)"><ellipse cx="0" cy="-45" rx="6.5" ry="13"/></g>
+          <g transform="rotate(10)"><ellipse cx="0" cy="-47" rx="7" ry="13.5"/></g>
+        </g>
+      </g>
+
+      <!-- house / monogram -->
+      <path d="M100 60 L64 96 L76 96 L76 122 L124 122 L124 96 L136 96 Z" fill="none" stroke="#eef0f7" stroke-width="3.2" stroke-linejoin="round"/>
+      <text x="100" y="102" font-family="'Playfair Display', Georgia, serif" font-size="15" font-weight="700" fill="#eef0f7" text-anchor="middle">D</text>
+      <text x="100" y="132" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="700" fill="#f0d878" text-anchor="middle">P</text>
+
+      <!-- three stars -->
+      <g fill="#eef0f7">
+        <path transform="translate(76,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
+        <path transform="translate(94,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
+        <path transform="translate(112,152) scale(0.55)" d="M8 0 L10.2 5.6 16 6.1 11.5 9.9 13 15.6 8 12.3 3 15.6 4.5 9.9 0 6.1 5.8 5.6 Z"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
 <header>
   <div class="wrap nav">
     <div class="brand">
       <div class="crest">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="30" stroke="#d4af37" stroke-width="2"/>
-          <path d="M20 40 L20 20 L30 20 C36 20 40 24 40 30 C40 36 36 40 30 40 L24 40 L24 34 L29 34 C32 34 34 32.5 34 30 C34 27.5 32 26 29 26 L26 26 L26 40 Z" fill="#f0d878"/>
-          <path d="M17 46 L47 46" stroke="#d4af37" stroke-width="2"/>
-          <circle cx="20" cy="50" r="1.6" fill="#d4af37"/>
-          <circle cx="32" cy="50" r="1.6" fill="#d4af37"/>
-          <circle cx="44" cy="50" r="1.6" fill="#d4af37"/>
-        </svg>
+        <svg viewBox="0 0 200 200"><use href="#adcpg-crest"/></svg>
       </div>
       <div class="brand-text">
         <div class="brand-name">ADCPG</div>
@@ -351,12 +385,7 @@
     <div class="hero-emblem">
       <div class="emblem-card">
         <div class="emblem-ring"></div>
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 46 L14 18 L28 18 C37 18 43 24 43 32 C43 40 37 46 28 46 L20 46 L20 38 L27 38 C31.5 38 34 35.8 34 32 C34 28.2 31.5 26 27 26 L23 26 L23 46 Z" fill="#f0d878"/>
-          <circle cx="16" cy="52" r="1.8" fill="#f0d878"/>
-          <circle cx="32" cy="53.5" r="1.8" fill="#f0d878"/>
-          <circle cx="48" cy="52" r="1.8" fill="#f0d878"/>
-        </svg>
+        <svg viewBox="0 0 200 200"><use href="#adcpg-crest"/></svg>
       </div>
     </div>
   </div>
@@ -366,7 +395,7 @@
   <div class="wrap">
     <div class="stat"><div class="num">74+</div><div class="label" data-fr>Propriétés régies</div><div class="label" data-en>Properties governed</div></div>
     <div class="stat"><div class="num">2</div><div class="label" data-fr>Villes — Doumbouya &amp; Perle</div><div class="label" data-en>Cities — Doumbouya &amp; Perle</div></div>
-    <div class="stat"><div class="num">12</div><div class="label" data-fr>Membres du bureau</div><div class="label" data-en>Board members</div></div>
+    <div class="stat"><div class="num">14</div><div class="label" data-fr>Membres du bureau</div><div class="label" data-en>Board members</div></div>
     <div class="stat"><div class="num">2026</div><div class="label" data-fr>Fondée en</div><div class="label" data-en>Founded</div></div>
   </div>
 </div>
@@ -470,12 +499,20 @@
       <p data-en>Current board members, as identified in the association's official WhatsApp group.</p>
     </div>
     <div class="board-grid">
-      <div class="board-card"><div class="avatar">AJ</div><h3>Aïssatou</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AJ</div><h3>Abdulrahman Jalloh</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">A</div><h3>Aïssatou</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
       <div class="board-card"><div class="avatar">AD</div><h3>Alpha S. Diallo</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
-      <div class="board-card"><div class="avatar">IJ</div><h3>Ibra</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">I</div><h3>Ibra</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
       <div class="board-card"><div class="avatar">MS</div><h3>Madame Soumaoro</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
       <div class="board-card"><div class="avatar">MB</div><h3>Mr Barry</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
       <div class="board-card"><div class="avatar">MB</div><h3>Madame Balde</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">KI</div><h3>Kaba Impôts</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">CB</div><h3>Corinne Blanchard</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AY</div><h3>Abdoulaye Youla</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AT</div><h3>Alpha Touré</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">DD</div><h3>Dr. Diallo — EuroGuinée</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">ET</div><h3>Emmanuel Lamine Touré</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AD</div><h3>Abdoulaye Dr. Diallo</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
     </div>
     <div class="board-note">
       <span data-fr>Noms extraits de la liste des administrateurs du groupe WhatsApp — à confirmer avec l'association pour les titres exacts (Président, Trésorier, Secrétaire, etc.) et l'orthographe complète des noms de famille.</span>
@@ -545,7 +582,7 @@
       <div>
         <div class="footer-brand">
           <div class="crest" style="width:38px;height:38px;">
-            <svg viewBox="0 0 64 64" width="20" height="20" fill="none"><path d="M20 40 L20 20 L30 20 C36 20 40 24 40 30 C40 36 36 40 30 40 L24 40 L24 34 L29 34 C32 34 34 32.5 34 30 C34 27.5 32 26 29 26 L26 26 L26 40 Z" fill="#f0d878"/></svg>
+            <svg viewBox="0 0 200 200"><use href="#adcpg-crest"/></svg>
           </div>
           <div class="brand-name">ADCPG</div>
         </div>
