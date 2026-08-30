@@ -25,7 +25,7 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  html, body{overflow-x:clip;}
+  html, body{overflow-x:hidden;max-width:100%;}
   :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px;}
   a, button, summary{-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
   .cta-btn:active, .btn-outline:active, .wa-btn:active, form.contact-form button:active{transform:scale(.97);}
@@ -62,11 +62,9 @@
   html[data-lang="en"] .blk[data-en]{display:block;}
   html[data-lang="fr"] .blk[data-en]{display:none;}
   html[data-lang="en"] .blk[data-fr]{display:none;}
-  /* Inactive language never shows, whatever display an element rule sets */
+  /* Inactive language never shows, whatever display an element's own component class sets */
   html[data-lang="fr"] [data-en]{display:none !important;}
   html[data-lang="en"] [data-fr]{display:none !important;}
-  html[data-lang="fr"] a.cta-btn[data-fr], html[data-lang="fr"] a.btn-outline[data-fr], html[data-lang="fr"] a.wa-btn[data-fr],
-  html[data-lang="en"] a.cta-btn[data-en], html[data-lang="en"] a.btn-outline[data-en], html[data-lang="en"] a.wa-btn[data-en]{display:inline-flex;}
 
   /* ---------- Header ---------- */
   header{
@@ -89,7 +87,7 @@
   nav.links a{font-size:14.5px;font-weight:500;color:#e7e9f2;text-decoration:none;opacity:.9;transition:opacity .2s;}
   nav.links a:hover{opacity:1;color:var(--gold-2);}
   .nav-actions{display:flex;align-items:center;gap:10px;}
-  .nav-actions > .cta-btn{display:none;}
+  .nav-actions > .cta-btn{display:none !important;}
   .lang-toggle{
     display:flex;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
     border-radius:999px;padding:3px;font-size:12.5px;font-weight:600;
@@ -375,7 +373,7 @@
   @media (min-width:900px){
     nav.links{display:flex;}
     .menu-btn{display:none;}
-    .nav-actions > .cta-btn{display:inline-flex;}
+    .nav-actions > .cta-btn{display:inline-flex !important;}
     .hero-inner{grid-template-columns:1.2fr 0.8fr;gap:48px;text-align:left;}
     .hero-emblem{order:0;}
     .hero p.lead{margin:0 0 32px;}
@@ -939,22 +937,34 @@
 </footer>
 
 <script>
-  (function(){
+  function initMobileMenu(){
     const body = document.body;
     const btn = document.querySelector('.menu-btn');
     const menu = document.getElementById('mobileMenu');
     const scrim = document.getElementById('menuScrim');
+    if (!btn || !menu || !scrim) {
+      console.warn('ADCPG: mobile menu elements missing — hamburger will not work.', { btn, menu, scrim });
+      return;
+    }
     const closeBtn = menu.querySelector('.drawer-close');
     function setMenu(open){
       body.classList.toggle('menu-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
-    btn.addEventListener('click', ()=> setMenu(!body.classList.contains('menu-open')));
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      setMenu(!body.classList.contains('menu-open'));
+    });
     scrim.addEventListener('click', ()=> setMenu(false));
-    closeBtn.addEventListener('click', ()=> setMenu(false));
-    menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> setMenu(false)));
-    document.addEventListener('keydown', e=>{ if(e.key === 'Escape') setMenu(false); });
-  })();
+    if (closeBtn) closeBtn.addEventListener('click', ()=> setMenu(false));
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', ()=> setMenu(false)); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
 
   document.querySelectorAll('[data-set-lang]').forEach(btn=>{
     btn.addEventListener('click',()=>{
