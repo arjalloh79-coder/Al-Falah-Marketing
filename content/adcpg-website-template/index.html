@@ -353,6 +353,157 @@
   .footer-credit a{color:var(--gold-2);text-decoration:none;}
   .footer-credit a:hover{text-decoration:underline;}
 
+  /* ---------- Rules banner (statutory notices) ---------- */
+  .rules-banner{
+    display:flex;gap:14px;align-items:flex-start;background:#fbf8ee;border:1px solid var(--gold);
+    border-radius:14px;padding:16px 18px;max-width:820px;margin:0 auto 34px;
+  }
+  .rules-banner .ic{font-size:20px;flex-shrink:0;line-height:1;}
+  .rules-banner p{margin:0;font-size:13.5px;color:#6b5a1f;line-height:1.6;}
+  .rules-banner strong{color:var(--navy);}
+
+  /* ---------- Vote section ---------- */
+  .vote-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:940px;margin:0 auto;}
+  .vote-card{
+    background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 22px;box-shadow:var(--shadow);
+  }
+  .vote-card h3{margin:0 0 6px;color:var(--navy);font-size:19px;}
+  .vote-card .sub{color:var(--muted);font-size:13.5px;margin:0 0 20px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+  .field input, .field select{
+    width:100%;min-height:48px;padding:0 14px;border-radius:10px;border:1.5px solid var(--line);
+    background:#fbfaf7;font-family:inherit;font-size:16px;color:var(--ink);
+  }
+  .field input:focus, .field select:focus{border-color:var(--gold);outline:none;}
+  .field-hint{font-size:12px;color:var(--muted);margin-top:6px;}
+  .btn-solid{
+    width:100%;min-height:50px;border:none;border-radius:999px;background:var(--navy);color:#fff;
+    font-weight:700;font-size:15px;cursor:pointer;transition:transform .15s, background .2s;
+  }
+  .btn-solid:hover{background:var(--navy-2);}
+  .btn-solid:active{transform:scale(.98);}
+  .btn-solid:disabled{opacity:.5;cursor:not-allowed;}
+  .vote-msg{
+    margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13.5px;display:none;
+  }
+  .vote-msg.show{display:block;}
+  .vote-msg.info{background:#eef2ff;color:#33418c;}
+  .vote-msg.error{background:#fdecec;color:#9c2b2b;}
+  .vote-msg.success{background:#e8f7ee;color:#1f7a3f;}
+
+  .session-pill{
+    display:inline-flex;align-items:center;gap:8px;background:#eef2ff;color:#33418c;font-size:12.5px;font-weight:600;
+    padding:7px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .session-pill button{
+    border:none;background:none;color:#33418c;text-decoration:underline;cursor:pointer;font-size:12.5px;padding:0;font-family:inherit;
+  }
+
+  .ballot-empty{
+    text-align:center;color:var(--muted);font-size:14.5px;padding:30px 10px;
+  }
+  .ballot-title{font-size:17px;font-weight:700;color:var(--navy);margin:0 0 6px;}
+  .ballot-desc{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+  .ballot-options{display:grid;gap:10px;margin-bottom:20px;}
+  .ballot-option{
+    display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;
+    padding:13px 16px;cursor:pointer;transition:border-color .15s, background .15s;
+  }
+  .ballot-option:hover{border-color:var(--gold);background:#fbf8ee;}
+  .ballot-option input{width:20px;height:20px;accent-color:var(--navy);flex-shrink:0;}
+  .ballot-option .name{font-weight:600;color:var(--ink);font-size:14.5px;}
+  .ballot-option .desc{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .ballot-option.has-voted{opacity:.55;pointer-events:none;}
+
+  .quorum-wrap{margin-bottom:22px;}
+  .quorum-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--navy);margin-bottom:6px;font-weight:600;}
+  .quorum-head .pct{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);}
+  .quorum-track{position:relative;height:12px;background:#efece2;border-radius:999px;overflow:visible;margin-top:8px;}
+  .quorum-fill{height:100%;background:linear-gradient(90deg, var(--navy), var(--navy-2));border-radius:999px;transition:width .5s ease;}
+  .quorum-marker{
+    position:absolute;top:-4px;bottom:-4px;width:2px;background:#c0392b;
+  }
+  .quorum-marker::after{
+    content:attr(data-label);position:absolute;top:18px;left:50%;transform:translateX(-50%);
+    font-size:10.5px;color:#c0392b;font-weight:700;white-space:nowrap;
+  }
+
+  .result-row{margin-bottom:14px;}
+  .result-head{display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink);margin-bottom:5px;}
+  .result-head b{color:var(--navy);}
+  .result-track{height:10px;background:#efece2;border-radius:999px;overflow:hidden;}
+  .result-fill{height:100%;background:var(--green);border-radius:999px;transition:width .5s ease;}
+
+  /* ---------- Transparency dashboard ---------- */
+  .fin-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:28px;}
+  .fin-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 20px;text-align:center;
+  }
+  .fin-card .num{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);font-weight:700;}
+  .fin-card .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-top:6px;}
+  .fin-card .note{font-size:11px;color:#b3ab8f;margin-top:8px;}
+
+  .fin-breakdown{max-width:760px;margin:0 auto 30px;}
+  .fin-item{margin-bottom:20px;}
+  .fin-item-head{display:flex;justify-content:space-between;font-size:14px;color:var(--navy);margin-bottom:6px;font-weight:600;}
+  .fin-item-head span.amt{color:var(--muted);font-weight:500;font-size:13px;}
+  .fin-track{height:10px;background:#efece2;border-radius:999px;overflow:hidden;}
+  .fin-fill{height:100%;background:var(--gold);border-radius:999px;}
+
+  .audit-cta{text-align:center;}
+
+  /* ---------- Timeline (assembly & roadmap) ---------- */
+  .timeline{max-width:760px;margin:0 auto 30px;display:grid;gap:0;}
+  .timeline-item{
+    position:relative;padding:0 0 30px 34px;border-left:2px solid var(--line);
+  }
+  .timeline-item:last-child{border-color:transparent;padding-bottom:0;}
+  .timeline-item::before{
+    content:"";position:absolute;left:-8px;top:2px;width:14px;height:14px;border-radius:50%;
+    background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 2px var(--gold);
+  }
+  .timeline-item h4{margin:0 0 4px;color:var(--navy);font-size:15.5px;}
+  .timeline-item p{margin:0 0 6px;color:var(--muted);font-size:13.5px;}
+  .timeline-item a.tl-link{font-size:13px;font-weight:600;color:var(--green);text-decoration:none;}
+  .timeline-item a.tl-link:hover{text-decoration:underline;}
+
+  .minutes-list{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+  .minutes-list li{
+    display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:10px 14px;font-size:13.5px;
+  }
+  .minutes-list .tag{font-size:11px;color:var(--muted);}
+
+  /* ---------- Modal (digital request form) ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(10,16,40,0.55);display:none;align-items:center;justify-content:center;
+    z-index:80;padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-card{
+    background:#fff;border-radius:18px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;
+    padding:26px 22px;position:relative;box-shadow:0 40px 80px -20px rgba(0,0,0,.5);
+  }
+  .modal-close{
+    position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;border:none;
+    background:#f3f1ea;color:var(--navy);font-size:16px;cursor:pointer;
+  }
+  .modal-card h3{margin:0 0 4px;color:var(--navy);font-size:19px;}
+  .modal-card .sub{color:var(--muted);font-size:13px;margin:0 0 18px;}
+
+  .fab-request{
+    position:fixed;right:18px;bottom:18px;z-index:40;background:var(--navy);color:#fff;border:none;
+    border-radius:999px;padding:0 20px;min-height:52px;display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 16px 32px -12px rgba(13,27,61,.55);
+  }
+  .fab-request:active{transform:scale(.97);}
+
+  @media (min-width:760px){
+    .vote-grid{grid-template-columns:0.85fr 1.15fr;align-items:start;}
+    .fin-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
   /* ---------- Mobile-first breakpoints: base = phone, expand upward ---------- */
   @media (max-width:599px){
     .brand-sub{display:none !important;}
@@ -468,6 +619,8 @@
       <a href="#projet" data-fr>Nos Quartiers</a><a href="#projet" data-en>Our Neighborhoods</a>
       <a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a>
       <a href="#statuts" data-fr>Statuts</a><a href="#statuts" data-en>Bylaws</a>
+      <a href="#vote" data-fr>Vote</a><a href="#vote" data-en>Vote</a>
+      <a href="#transparence" data-fr>Transparence</a><a href="#transparence" data-en>Transparency</a>
       <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
     </nav>
     <div class="nav-actions">
@@ -492,6 +645,8 @@
   <a href="#projet" data-fr>Nos Quartiers</a><a href="#projet" data-en>Our Neighborhoods</a>
   <a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a>
   <a href="#statuts" data-fr>Statuts</a><a href="#statuts" data-en>Bylaws</a>
+  <a href="#vote" data-fr>Vote</a><a href="#vote" data-en>Vote</a>
+  <a href="#transparence" data-fr>Transparence</a><a href="#transparence" data-en>Transparency</a>
   <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
   <a class="cta-btn" href="#rejoindre" data-fr>Rejoindre le groupe</a>
   <a class="cta-btn" href="#rejoindre" data-en>Join the group</a>
@@ -781,6 +936,206 @@
   </div>
 </section>
 
+<section id="vote" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Vote électronique</div>
+      <div class="kicker" data-en>Online Voting</div>
+      <h2 data-fr>Élections &amp; motions du conseil</h2>
+      <h2 data-en>Board Elections &amp; Motions</h2>
+      <p data-fr>Un vote par propriété enregistrée — connectez-vous avec votre identifiant de lot et votre code d'accès WhatsApp.</p>
+      <p data-en>One vote per registered property — sign in with your Lot ID and WhatsApp access code.</p>
+    </div>
+
+    <div class="rules-banner">
+      <span class="ic">⚖️</span>
+      <p data-fr><strong>Règles statutaires (Article IV, Section 3 des statuts du 29 mars 2024) :</strong> le quorum pour toute réunion des membres est de 30% des membres en règle. Chaque propriété enregistrée parmi les 74+ propriétés de l'ADCPG dispose d'<strong>une seule voix</strong>, quel que soit le nombre de personnes vivant sur le lot.</p>
+      <p data-en><strong>Statutory rules (Article IV, Section 3 of the bylaws adopted March 29, 2024):</strong> quorum for any members' meeting is 30% of members in good standing. Each of ADCPG's 74+ registered properties gets <strong>exactly one vote</strong>, regardless of how many people live on the lot.</p>
+    </div>
+
+    <div class="vote-grid">
+
+      <div class="vote-card" id="loginCard">
+        <h3 data-fr>Connexion propriétaire</h3><h3 data-en>Owner Login</h3>
+        <p class="sub" data-fr>Utilisez l'identifiant de lot et le code d'accès communiqués par le bureau via WhatsApp.</p>
+        <p class="sub" data-en>Use the Lot ID and access code shared by the board over WhatsApp.</p>
+
+        <div id="loggedOutView">
+          <form id="loginForm">
+            <div class="field">
+              <label for="lotId" data-fr>Identifiant de propriété / lot</label>
+              <label for="lotId" data-en>Property / Lot ID</label>
+              <input type="text" id="lotId" name="lotId" autocomplete="username" placeholder="ex. DP-014" required>
+            </div>
+            <div class="field">
+              <label for="accessCode" data-fr>Code d'accès WhatsApp</label>
+              <label for="accessCode" data-en>WhatsApp Access Code</label>
+              <input type="password" id="accessCode" name="accessCode" autocomplete="current-password" inputmode="text" placeholder="••••••" required>
+              <div class="field-hint" data-fr>Code personnel envoyé par le bureau dans le groupe WhatsApp de l'ADCPG.</div>
+              <div class="field-hint" data-en>Personal code sent by the board in the ADCPG WhatsApp group.</div>
+            </div>
+            <button type="submit" class="btn-solid" id="loginBtn">
+              <span data-fr>Se connecter</span><span data-en>Sign in</span>
+            </button>
+          </form>
+          <div class="vote-msg" id="loginMsg"></div>
+          <p class="field-hint" style="margin-top:16px;">
+            <span data-fr>Code perdu ou non reçu ? </span><span data-en>Lost or never received a code? </span>
+            <a href="#rejoindre" style="color:var(--green);font-weight:600;"><span data-fr>Contactez le bureau via WhatsApp.</span><span data-en>Contact the board on WhatsApp.</span></a>
+          </p>
+        </div>
+
+        <div id="loggedInView" style="display:none;">
+          <div class="session-pill">
+            <span id="sessionLabel"></span>
+            <button type="button" id="logoutBtn" data-fr>Se déconnecter</button>
+            <button type="button" id="logoutBtnEn" data-en>Sign out</button>
+          </div>
+          <div id="quorumBlock" class="quorum-wrap" style="display:none;">
+            <div class="quorum-head">
+              <span data-fr>Participation actuelle</span><span data-en>Current turnout</span>
+              <span class="pct" id="turnoutPct">—%</span>
+            </div>
+            <div class="quorum-track">
+              <div class="quorum-fill" id="turnoutFill" style="width:0%;"></div>
+              <div class="quorum-marker" style="left:30%;" data-label="30%"></div>
+            </div>
+            <p class="field-hint" style="margin-top:26px;">
+              <span id="turnoutCount" data-fr>— votes sur 74+ propriétés</span>
+              <span id="turnoutCountEn" data-en>— votes out of 74+ properties</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vote-card" id="ballotCard">
+        <div id="ballotContent">
+          <div class="ballot-empty">
+            <p data-fr>Connectez-vous pour voir le scrutin en cours.</p>
+            <p data-en>Sign in to view the current ballot.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="transparence">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Transparence</div>
+      <div class="kicker" data-en>Transparency</div>
+      <h2 data-fr>Tableau de bord financier</h2>
+      <h2 data-en>Financial Transparency Dashboard</h2>
+      <p data-fr>Conformément à l'Article V des statuts — registres financiers accessibles aux membres sur demande.</p>
+      <p data-en>Per Article V of the bylaws — financial records available to members on request.</p>
+    </div>
+
+    <div class="fin-grid">
+      <div class="fin-card">
+        <div class="num">37 000 000 FGN</div>
+        <div class="lbl" data-fr>Cotisations annuelles collectées</div>
+        <div class="lbl" data-en>Annual dues collected</div>
+        <div class="note" data-fr>* Exemple — à remplacer par les chiffres réels</div>
+        <div class="note" data-en>* Sample figure — replace with real numbers</div>
+      </div>
+      <div class="fin-card">
+        <div class="num">500 000 FGN</div>
+        <div class="lbl" data-fr>Fonds de Solidarité (par propriété)</div>
+        <div class="lbl" data-en>Solidarity Fund (per property)</div>
+        <div class="note" data-fr>Contribution unique — Article V, Section 1</div>
+        <div class="note" data-en>One-time contribution — Article V, Section 1</div>
+      </div>
+      <div class="fin-card">
+        <div class="num">74+</div>
+        <div class="lbl" data-fr>Propriétés contributrices</div>
+        <div class="lbl" data-en>Contributing properties</div>
+        <div class="note" data-fr>Doumbouya &amp; Perle, Coyah</div>
+        <div class="note" data-en>Doumbouya &amp; Perle, Coyah</div>
+      </div>
+    </div>
+
+    <div class="fin-breakdown">
+      <div class="fin-item">
+        <div class="fin-item-head"><span data-fr>Fonds de Solidarité — objectif</span><span data-en>Solidarity Fund — target</span><span class="amt">— / 37 000 000 FGN</span></div>
+        <div class="fin-track"><div class="fin-fill" style="width:0%" id="finSolidarity"></div></div>
+      </div>
+      <div class="fin-item">
+        <div class="fin-item-head"><span data-fr>Entretien des espaces communs</span><span data-en>Shared-space upkeep</span><span class="amt">—</span></div>
+        <div class="fin-track"><div class="fin-fill" style="width:0%"></div></div>
+      </div>
+      <div class="fin-item">
+        <div class="fin-item-head"><span data-fr>Projets d'infrastructure</span><span data-en>Infrastructure projects</span><span class="amt">—</span></div>
+        <div class="fin-track"><div class="fin-fill" style="width:0%"></div></div>
+      </div>
+      <p class="field-hint" style="text-align:center;margin-top:6px;">
+        <span data-fr>* Répartition à titre indicatif — à remplacer par les registres financiers réels du Commissariat aux Comptes (Article V, Section 5).</span>
+        <span data-en>* Breakdown is a placeholder — to be replaced with real records from the Audit Committee (Article V, Section 5).</span>
+      </p>
+    </div>
+
+    <div class="audit-cta">
+      <button type="button" class="btn-outline" style="color:var(--navy);border-color:var(--navy);" onclick="openRequestModal('audit')">
+        <span data-fr>Demander l'audit complet</span><span data-en>Request the full audit</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="assemblee" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Gouvernance</div>
+      <div class="kicker" data-en>Governance</div>
+      <h2 data-fr>Assemblée Générale &amp; Feuille de route</h2>
+      <h2 data-en>General Assembly &amp; Roadmap</h2>
+      <p data-fr>Réunions, procès-verbaux et avancement du projet d'infrastructure de Coyah.</p>
+      <p data-en>Meetings, minutes, and progress on the Coyah infrastructure project.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4 data-fr>Assemblée annuelle</h4><h4 data-en>Annual Assembly</h4>
+        <p data-fr>Date à confirmer — avis envoyé aux membres au moins 15 jours à l'avance (Article IV, Section 1). Cette assemblée peut se tenir en virtuel.</p>
+        <p data-en>Date to be confirmed — notice sent to members at least 15 days in advance (Article IV, Section 1). This assembly may be held virtually.</p>
+        <a class="tl-link" href="#" onclick="return false;"><span data-fr>Lien de la réunion virtuelle — à venir</span><span data-en>Virtual meeting link — coming soon</span></a>
+      </div>
+      <div class="timeline-item">
+        <h4 data-fr>Réunions spéciales du CA</h4><h4 data-en>Special Board Meetings</h4>
+        <p data-fr>Convoquées par le Président, le Comité de Gestion, ou deux (2) membres — avis d'au moins 7 jours (Article IV, Section 2).</p>
+        <p data-en>Called by the President, the Management Committee, or two (2) members — at least 7 days' notice (Article IV, Section 2).</p>
+      </div>
+      <div class="timeline-item">
+        <h4 data-fr>Archive des procès-verbaux</h4><h4 data-en>Minutes Archive</h4>
+        <ul class="minutes-list">
+          <li><span data-fr>Assemblée annuelle — à venir</span><span data-en>Annual Assembly — upcoming</span><span class="tag" data-fr>PDF bientôt</span><span class="tag" data-en>PDF soon</span></li>
+          <li><span data-fr>Réunion du CA — à venir</span><span data-en>Board meeting — upcoming</span><span class="tag" data-fr>PDF bientôt</span><span class="tag" data-en>PDF soon</span></li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <h4 data-fr>Feuille de route — Infrastructure Coyah</h4><h4 data-en>Roadmap — Coyah Infrastructure</h4>
+        <p data-fr>Avancement des projets d'infrastructure communs financés par les cotisations et le Fonds de Solidarité.</p>
+        <p data-en>Progress on shared infrastructure projects funded by dues and the Solidarity Fund.</p>
+        <div class="fin-item" style="margin-top:14px;">
+          <div class="fin-item-head"><span data-fr>Planification</span><span data-en>Planning</span><span class="amt">100%</span></div>
+          <div class="fin-track"><div class="fin-fill" style="width:100%"></div></div>
+        </div>
+        <div class="fin-item">
+          <div class="fin-item-head"><span data-fr>Travaux d'infrastructure</span><span data-en>Infrastructure works</span><span class="amt">—</span></div>
+          <div class="fin-track"><div class="fin-fill" style="width:35%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="audit-cta">
+      <button type="button" class="btn-outline" style="color:var(--navy);border-color:var(--navy);" onclick="openRequestModal('governance')">
+        <span data-fr>Soumettre une demande au bureau</span><span data-en>Submit a request to the board</span>
+      </button>
+    </div>
+  </div>
+</section>
+
 <section id="rejoindre" class="join-section">
   <div class="wrap join-grid">
     <div>
@@ -921,6 +1276,8 @@
         <h4 data-fr>Communauté</h4><h4 data-en>Community</h4>
         <ul>
           <li><a href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener" data-fr>Groupe WhatsApp</a><a href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener" data-en>WhatsApp Group</a></li>
+          <li><a href="#vote" data-fr>Vote électronique</a><a href="#vote" data-en>Online Voting</a></li>
+          <li><a href="#transparence" data-fr>Transparence financière</a><a href="#transparence" data-en>Financial Transparency</a></li>
         </ul>
       </div>
     </div>
@@ -934,6 +1291,53 @@
     </div>
   </div>
 </footer>
+
+<button type="button" class="fab-request" onclick="openRequestModal('maintenance')" aria-haspopup="dialog">
+  <span>✉️</span>
+  <span data-fr>Demande</span><span data-en>Request</span>
+</button>
+
+<div class="modal-overlay" id="requestModal" role="dialog" aria-modal="true" aria-labelledby="requestModalTitle">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeRequestModal()" aria-label="Close">✕</button>
+    <h3 id="requestModalTitle" data-fr>Formulaire de demande</h3>
+    <h3 data-en>Request Form</h3>
+    <p class="sub" data-fr>Entretien, audit financier, ou toute question de gouvernance — votre demande est transmise au Conseil d'Administration (13 membres).</p>
+    <p class="sub" data-en>Maintenance, financial audit, or any governance question — your request is sent to the 13-member Board of Directors.</p>
+
+    <form id="requestForm">
+      <div class="field">
+        <label for="reqName" data-fr>Nom complet</label>
+        <label for="reqName" data-en>Full name</label>
+        <input type="text" id="reqName" name="reqName" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="reqLotId" data-fr>Identifiant de lot (optionnel)</label>
+        <label for="reqLotId" data-en>Lot ID (optional)</label>
+        <input type="text" id="reqLotId" name="reqLotId" placeholder="ex. DP-014">
+      </div>
+      <div class="field">
+        <label for="reqCategory" data-fr>Catégorie</label>
+        <label for="reqCategory" data-en>Category</label>
+        <select id="reqCategory" name="reqCategory">
+          <option value="maintenance" data-i18n-fr="Entretien / Maintenance" data-i18n-en="Maintenance">Entretien / Maintenance</option>
+          <option value="governance" data-i18n-fr="Gouvernance" data-i18n-en="Governance">Gouvernance</option>
+          <option value="audit" data-i18n-fr="Audit financier" data-i18n-en="Financial audit">Audit financier</option>
+          <option value="other" data-i18n-fr="Autre" data-i18n-en="Other">Autre</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="reqMessage" data-fr>Message</label>
+        <label for="reqMessage" data-en>Message</label>
+        <textarea id="reqMessage" name="reqMessage" rows="4" required style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:#fbfaf7;font-family:inherit;font-size:15px;resize:vertical;"></textarea>
+      </div>
+      <button type="submit" class="btn-solid" id="requestSubmitBtn">
+        <span data-fr>Envoyer au bureau</span><span data-en>Send to the board</span>
+      </button>
+    </form>
+    <div class="vote-msg" id="requestMsg"></div>
+  </div>
+</div>
 
 <script>
   function initMobileMenu(){
@@ -965,6 +1369,13 @@
     initMobileMenu();
   }
 
+  function syncSelectI18n(){
+    const lang = document.documentElement.getAttribute('data-lang') || 'fr';
+    document.querySelectorAll('option[data-i18n-fr]').forEach(function(opt){
+      opt.textContent = lang === 'en' ? opt.getAttribute('data-i18n-en') : opt.getAttribute('data-i18n-fr');
+    });
+  }
+
   document.querySelectorAll('[data-set-lang]').forEach(btn=>{
     btn.addEventListener('click',()=>{
       const lang = btn.getAttribute('data-set-lang');
@@ -972,6 +1383,7 @@
       document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
       try{ localStorage.setItem('adcpg-lang', lang); }catch(e){}
+      syncSelectI18n();
     });
   });
   try{
@@ -983,6 +1395,348 @@
       });
     }
   }catch(e){}
+  syncSelectI18n();
+</script>
+
+<!-- ================================================================
+     ADCPG Voting & Governance — Supabase-backed module
+     Full setup guide: see docs/voting-supabase-setup.md and
+     supabase/schema.sql in the repository this page ships with.
+
+     IMPORTANT — this only talks to Supabase once the page is hosted
+     on a real domain (GitHub Pages, Netlify, your own server). It
+     will NOT reach Supabase from inside a Claude Artifact preview,
+     which sandboxes outbound network calls to a fixed allowlist.
+     ================================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  // ---- 1) CONFIGURE ME ------------------------------------------------
+  // Replace with your Supabase project's URL and public "anon" key
+  // (Project Settings → API in the Supabase dashboard). The anon key is
+  // safe to expose client-side — it only grants what your RLS policies
+  // and RPC functions allow (see supabase/schema.sql).
+  var SUPABASE_URL = 'https://YOUR-PROJECT-REF.supabase.co';
+  var SUPABASE_ANON_KEY = 'YOUR-PUBLIC-ANON-KEY';
+  var TOTAL_PROPERTIES = 74; // update if the association's property count changes
+
+  var configured = SUPABASE_URL.indexOf('YOUR-PROJECT-REF') === -1 &&
+                    SUPABASE_ANON_KEY.indexOf('YOUR-PUBLIC-ANON-KEY') === -1;
+  var sb = null;
+  if (configured && window.supabase) {
+    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+
+  // In-memory only — never persisted to localStorage/sessionStorage,
+  // so a shared or public device doesn't leak a member's access code.
+  var session = null; // { lotId, accessCode, ownerName }
+  var activeElection = null; // { id, title_fr, title_en, ..., candidates: [...] }
+  var realtimeChannel = null;
+
+  function $(id){ return document.getElementById(id); }
+  function lang(){ return document.documentElement.getAttribute('data-lang') || 'fr'; }
+  function t(fr, en){ return lang() === 'en' ? en : fr; }
+
+  function showMsg(el, text, type){
+    if(!el) return;
+    el.textContent = text;
+    el.className = 'vote-msg show ' + type;
+  }
+  function clearMsg(el){
+    if(!el) return;
+    el.className = 'vote-msg';
+    el.textContent = '';
+  }
+
+  // ---- 2) Not-configured fallback -------------------------------------
+  function renderNotConfigured(){
+    var ballot = $('ballotContent');
+    if (ballot) {
+      ballot.innerHTML =
+        '<div class="ballot-empty">' +
+          '<p data-fr>Le module de vote n\'est pas encore connecté à la base de données. Voir le guide de configuration Supabase fourni avec ce site.</p>' +
+          '<p data-en>The voting module isn\'t connected to a database yet. See the Supabase setup guide shipped with this site.</p>' +
+        '</div>';
+    }
+  }
+
+  // ---- 3) Login ---------------------------------------------------------
+  var loginForm = $('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var loginMsg = $('loginMsg');
+      clearMsg(loginMsg);
+      var lotId = $('lotId').value.trim();
+      var accessCode = $('accessCode').value;
+      if (!lotId || !accessCode) return;
+
+      if (!sb) {
+        showMsg(loginMsg, t(
+          'Backend non connecté — voir le guide de configuration Supabase.',
+          'Backend not connected — see the Supabase setup guide.'
+        ), 'error');
+        return;
+      }
+
+      var btn = $('loginBtn');
+      btn.disabled = true;
+      try {
+        var res = await sb.rpc('login_property', { p_lot_id: lotId, p_access_code: accessCode });
+        if (res.error) throw res.error;
+        var rows = res.data || [];
+        if (!rows.length) {
+          showMsg(loginMsg, t(
+            'Identifiant ou code d\'accès incorrect.',
+            'Incorrect Lot ID or access code.'
+          ), 'error');
+          return;
+        }
+        session = { lotId: lotId, accessCode: accessCode, ownerName: rows[0].owner_name };
+        enterLoggedInView();
+        await loadActiveElection();
+      } catch (err) {
+        console.error(err);
+        showMsg(loginMsg, t(
+          'Erreur de connexion. Réessayez ou contactez le bureau.',
+          'Sign-in error. Try again or contact the board.'
+        ), 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
+  function enterLoggedInView(){
+    $('loggedOutView').style.display = 'none';
+    $('loggedInView').style.display = 'block';
+    var label = t('Connecté — ', 'Signed in as ') + session.ownerName + ' (' + session.lotId + ')';
+    $('sessionLabel').textContent = label;
+  }
+
+  function logout(){
+    session = null;
+    activeElection = null;
+    if (realtimeChannel && sb) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
+    $('loggedOutView').style.display = 'block';
+    $('loggedInView').style.display = 'none';
+    $('quorumBlock').style.display = 'none';
+    $('loginForm').reset();
+    renderNotConfigured();
+  }
+  var lb1 = $('logoutBtn'); if (lb1) lb1.addEventListener('click', logout);
+  var lb2 = $('logoutBtnEn'); if (lb2) lb2.addEventListener('click', logout);
+
+  // ---- 4) Load active election + candidates -----------------------------
+  async function loadActiveElection(){
+    if (!sb) return;
+    var ballot = $('ballotContent');
+    try {
+      var res = await sb.from('elections')
+        .select('id, title_fr, title_en, description_fr, description_en, status, quorum_percent, candidates(id, name, description_fr, description_en, sort_order)')
+        .eq('status', 'active')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (res.error) throw res.error;
+      if (!res.data) {
+        activeElection = null;
+        ballot.innerHTML = '<div class="ballot-empty">' +
+          '<p data-fr>Aucune élection ou motion active pour le moment.</p>' +
+          '<p data-en>No active election or motion right now.</p>' +
+        '</div>';
+        $('quorumBlock').style.display = 'none';
+        return;
+      }
+      activeElection = res.data;
+      activeElection.candidates.sort(function(a,b){ return (a.sort_order||0) - (b.sort_order||0); });
+
+      var hasVotedRes = await sb.rpc('has_voted', { p_lot_id: session.lotId, p_election_id: activeElection.id });
+      var alreadyVoted = !hasVotedRes.error && hasVotedRes.data === true;
+
+      renderBallot(alreadyVoted);
+      $('quorumBlock').style.display = 'block';
+      await loadResults();
+      subscribeRealtime();
+    } catch (err) {
+      console.error(err);
+      ballot.innerHTML = '<div class="ballot-empty">' +
+        '<p data-fr>Impossible de charger le scrutin. Réessayez plus tard.</p>' +
+        '<p data-en>Could not load the ballot. Please try again later.</p>' +
+      '</div>';
+    }
+  }
+
+  function renderBallot(alreadyVoted){
+    var ballot = $('ballotContent');
+    var title = t(activeElection.title_fr, activeElection.title_en);
+    var desc = t(activeElection.description_fr || '', activeElection.description_en || '');
+
+    var optionsHtml = activeElection.candidates.map(function(c){
+      var cName = c.name;
+      var cDesc = t(c.description_fr || '', c.description_en || '');
+      return '<label class="ballot-option' + (alreadyVoted ? ' has-voted' : '') + '">' +
+        '<input type="radio" name="candidate" value="' + c.id + '" ' + (alreadyVoted ? 'disabled' : '') + '>' +
+        '<span><span class="name">' + cName + '</span>' +
+        (cDesc ? '<div class="desc">' + cDesc + '</div>' : '') + '</span>' +
+      '</label>';
+    }).join('');
+
+    ballot.innerHTML =
+      '<div class="ballot-title">' + title + '</div>' +
+      (desc ? '<p class="ballot-desc">' + desc + '</p>' : '') +
+      '<div class="ballot-options">' + optionsHtml + '</div>' +
+      (alreadyVoted
+        ? '<p class="vote-msg show success" style="display:block;">' + t('Vous avez déjà voté pour ce scrutin. Merci !', 'You have already voted in this ballot. Thank you!') + '</p>'
+        : '<button type="button" class="btn-solid" id="submitVoteBtn">' + t('Soumettre mon vote', 'Submit my vote') + '</button>' +
+          '<div class="vote-msg" id="ballotMsg"></div>'
+      ) +
+      '<div id="resultsBlock" style="margin-top:24px;"></div>';
+
+    if (!alreadyVoted) {
+      $('submitVoteBtn').addEventListener('click', submitVote);
+    }
+  }
+
+  async function submitVote(){
+    var ballotMsg = $('ballotMsg');
+    clearMsg(ballotMsg);
+    var picked = document.querySelector('input[name="candidate"]:checked');
+    if (!picked) {
+      showMsg(ballotMsg, t('Sélectionnez un candidat avant de voter.', 'Select a candidate before voting.'), 'error');
+      return;
+    }
+    var btn = $('submitVoteBtn');
+    btn.disabled = true;
+    try {
+      var res = await sb.rpc('cast_vote', {
+        p_lot_id: session.lotId,
+        p_access_code: session.accessCode,
+        p_election_id: activeElection.id,
+        p_candidate_id: picked.value
+      });
+      if (res.error) throw res.error;
+      showMsg(ballotMsg, t('Vote enregistré. Merci pour votre participation !', 'Vote recorded. Thank you for participating!'), 'success');
+      var hasVotedRes = await sb.rpc('has_voted', { p_lot_id: session.lotId, p_election_id: activeElection.id });
+      renderBallot(!hasVotedRes.error && hasVotedRes.data === true);
+      await loadResults();
+    } catch (err) {
+      console.error(err);
+      var code = (err && err.message) || '';
+      var msg = t('Erreur lors du vote. Réessayez.', 'Error while voting. Please try again.');
+      if (code.indexOf('already_voted') !== -1) msg = t('Ce lot a déjà voté pour ce scrutin.', 'This lot has already voted in this ballot.');
+      if (code.indexOf('election_not_active') !== -1) msg = t('Ce scrutin n\'est plus actif.', 'This ballot is no longer active.');
+      showMsg($('ballotMsg'), msg, 'error');
+      btn.disabled = false;
+    }
+  }
+
+  // ---- 5) Results + turnout (public views, safe to read without login) --
+  async function loadResults(){
+    if (!sb || !activeElection) return;
+    try {
+      var turnoutRes = await sb.from('election_turnout').select('*').eq('election_id', activeElection.id).maybeSingle();
+      if (!turnoutRes.error && turnoutRes.data) {
+        var pct = turnoutRes.data.turnout_percent || 0;
+        $('turnoutPct').textContent = pct + '%';
+        $('turnoutFill').style.width = Math.min(pct, 100) + '%';
+        var votesCast = turnoutRes.data.votes_cast || 0;
+        var total = turnoutRes.data.total_properties || TOTAL_PROPERTIES;
+        $('turnoutCount').textContent = votesCast + ' ' + t('votes sur', 'votes out of') + ' ' + total + ' ' + t('propriétés', 'properties');
+        $('turnoutCountEn').textContent = $('turnoutCount').textContent;
+      }
+
+      var resultsRes = await sb.from('election_results').select('*').eq('election_id', activeElection.id);
+      var block = $('resultsBlock');
+      if (!block) return;
+      if (resultsRes.error || !resultsRes.data || !resultsRes.data.length) { block.innerHTML = ''; return; }
+
+      var totalVotes = resultsRes.data.reduce(function(sum, r){ return sum + (r.vote_count || 0); }, 0) || 1;
+      var rowsHtml = resultsRes.data.map(function(r){
+        var p = Math.round(100 * (r.vote_count || 0) / totalVotes);
+        return '<div class="result-row">' +
+          '<div class="result-head"><b>' + r.candidate_name + '</b><span>' + r.vote_count + ' — ' + p + '%</span></div>' +
+          '<div class="result-track"><div class="result-fill" style="width:' + p + '%"></div></div>' +
+        '</div>';
+      }).join('');
+      block.innerHTML = '<h4 style="font-size:13px;color:var(--navy);text-transform:uppercase;letter-spacing:.6px;margin:0 0 10px;">' +
+        t('Résultats en direct', 'Live results') + '</h4>' + rowsHtml;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function subscribeRealtime(){
+    if (!sb || !activeElection || realtimeChannel) return;
+    realtimeChannel = sb.channel('votes-' + activeElection.id)
+      .on('postgres_changes', {
+        event: 'INSERT', schema: 'public', table: 'votes',
+        filter: 'election_id=eq.' + activeElection.id
+      }, function(){ loadResults(); })
+      .subscribe();
+  }
+
+  // ---- 6) Digital request modal ------------------------------------------
+  window.openRequestModal = function(category){
+    var modal = $('requestModal');
+    if (!modal) return;
+    if (category) $('reqCategory').value = category;
+    modal.classList.add('open');
+  };
+  window.closeRequestModal = function(){
+    var modal = $('requestModal');
+    if (modal) modal.classList.remove('open');
+  };
+  var reqModalEl = $('requestModal');
+  if (reqModalEl) {
+    reqModalEl.addEventListener('click', function(e){ if (e.target === reqModalEl) closeRequestModal(); });
+  }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeRequestModal(); });
+
+  var requestForm = $('requestForm');
+  if (requestForm) {
+    requestForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var msgEl = $('requestMsg');
+      clearMsg(msgEl);
+      var payload = {
+        full_name: $('reqName').value.trim(),
+        lot_id: $('reqLotId').value.trim() || null,
+        category: $('reqCategory').value,
+        message: $('reqMessage').value.trim()
+      };
+      if (!payload.full_name || !payload.message) return;
+
+      if (!sb) {
+        showMsg(msgEl, t(
+          'Backend non connecté — écrivez-nous directement via WhatsApp en attendant.',
+          'Backend not connected — please reach us on WhatsApp in the meantime.'
+        ), 'error');
+        return;
+      }
+
+      var btn = $('requestSubmitBtn');
+      btn.disabled = true;
+      try {
+        var res = await sb.from('governance_requests').insert(payload);
+        if (res.error) throw res.error;
+        showMsg(msgEl, t('Demande envoyée. Le bureau vous répondra bientôt.', 'Request sent. The board will follow up soon.'), 'success');
+        requestForm.reset();
+        setTimeout(closeRequestModal, 1600);
+      } catch (err) {
+        console.error(err);
+        showMsg(msgEl, t('Erreur lors de l\'envoi. Réessayez.', 'Error sending your request. Please try again.'), 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
+  // ---- 7) Boot ------------------------------------------------------------
+  if (!configured) {
+    renderNotConfigured();
+  }
+})();
 </script>
 
 </body>
