@@ -52,13 +52,13 @@ Acile Coffee, Shawarma Sam, Labonet, E.I. Maloum, Metal Star Africa SARL, Distri
 - `content/batch-1/` — first content batch: blog post + video script (EN/FR) and social captions for Facebook/Instagram/LinkedIn/YouTube
 - `.claude/skills/al-falah-lead-triage/` — active skill: classify inbound leads (genuine / cold-pitch / suspicious / spam), draft the right reply, and log to the tracker sheet
 - `docs/order-notifications-setup.md` — the Al-Falah Services (Base44) backend that appeared 2026-09-16, the Orders tracker, and the hourly new-order watch
+- `backend/` — a real, working Laravel backend (services catalog, lead capture, orders, admin dashboard) — see `docs/custom-backend-plan.md` and `backend/README.md`
 
 ## Status / open items
 
-- **Lead tracker:** live — [Al-Falah Marketing - Leads](https://docs.google.com/spreadsheets/d/16khY9MvQdI80zZlJ8a5VmpXQjGsJfymbVD3H-f_0MI0/edit) (Google Sheets, via Zapier MCP)
-- **Order tracker:** live — [Al-Falah Marketing - Orders](https://docs.google.com/spreadsheets/d/1CtZT6rMKl0Ffhost9SNXPdLyhxTAjn1hliQVWGOZSbE/edit), watched hourly for new orders from the Al-Falah Services backend (see `docs/order-notifications-setup.md`)
+- **Custom backend (2026-09-16):** decided to build and own a Laravel backend rather than continue on Base44 (Base44 confirmed NOT to be the live site's actual backend). Scaffolded, tested end-to-end locally (migrations, seeder, contact/consultation forms incl. honeypot + rate limiting, order placement, admin login/dashboard) — see `docs/custom-backend-plan.md` and `backend/README.md`. **Not yet deployed** — this session cannot reach Hostinger to deploy it; that's a manual step.
+- **Lead tracker:** live — [Al-Falah Marketing - Leads](https://docs.google.com/spreadsheets/d/16khY9MvQdI80zZlJ8a5VmpXQjGsJfymbVD3H-f_0MI0/edit) (Google Sheets, via Zapier MCP) — will likely be superseded by the custom backend's own Leads table once deployed
+- **Order tracker:** live — [Al-Falah Marketing - Orders](https://docs.google.com/spreadsheets/d/1CtZT6rMKl0Ffhost9SNXPdLyhxTAjn1hliQVWGOZSbE/edit), watched hourly for new orders from the Al-Falah Services (Base44) backend (see `docs/order-notifications-setup.md`) — Base44 is being phased out per the decision above, not the long-term system of record
 - **Booking:** live — Google Calendar connected, see `docs/booking-setup.md`
-- **Real backend access (2026-09-16):** the Al-Falah Services Base44 app gives live, queryable/writable access to Services and Orders — this may supersede the Laravel webhook plan below; not yet confirmed whether it's the same backend as al-falahmarketing.com or a separate system
-- **Automated lead capture from the site (Laravel forms):** not yet built — needs a webhook added to the Laravel form handlers (see `docs/lead-capture-setup.md`); requires a paid Zapier plan for the Webhooks app. May be moot if Al-Falah Services turns out to be the real backend.
 - **WhatsApp automation:** not yet built — the number is a plain phone app today, not a Business API; see `docs/whatsapp-automation-setup.md` for the path via Twilio
 - Zapier MCP connections (Gmail, Calendar, Sheets) are set up under arjalloh79@gmail.com
