@@ -51,12 +51,14 @@ Acile Coffee, Shawarma Sam, Labonet, E.I. Maloum, Metal Star Africa SARL, Distri
 - `docs/whatsapp-automation-setup.md` — step-by-step to move WhatsApp from a plain phone app to an automatable Business API
 - `content/batch-1/` — first content batch: blog post + video script (EN/FR) and social captions for Facebook/Instagram/LinkedIn/YouTube
 - `.claude/skills/al-falah-lead-triage/` — active skill: classify inbound leads (genuine / cold-pitch / suspicious / spam), draft the right reply, and log to the tracker sheet
+- `docs/order-notifications-setup.md` — the Al-Falah Services (Base44) backend that appeared 2026-09-16, the Orders tracker, and the hourly new-order watch
 
 ## Status / open items
 
 - **Lead tracker:** live — [Al-Falah Marketing - Leads](https://docs.google.com/spreadsheets/d/16khY9MvQdI80zZlJ8a5VmpXQjGsJfymbVD3H-f_0MI0/edit) (Google Sheets, via Zapier MCP)
+- **Order tracker:** live — [Al-Falah Marketing - Orders](https://docs.google.com/spreadsheets/d/1CtZT6rMKl0Ffhost9SNXPdLyhxTAjn1hliQVWGOZSbE/edit), watched hourly for new orders from the Al-Falah Services backend (see `docs/order-notifications-setup.md`)
 - **Booking:** live — Google Calendar connected, see `docs/booking-setup.md`
-- **Automated lead capture from the site:** not yet built — needs a webhook added to the Laravel form handlers (see `docs/lead-capture-setup.md`); requires a paid Zapier plan for the Webhooks app
+- **Real backend access (2026-09-16):** the Al-Falah Services Base44 app gives live, queryable/writable access to Services and Orders — this may supersede the Laravel webhook plan below; not yet confirmed whether it's the same backend as al-falahmarketing.com or a separate system
+- **Automated lead capture from the site (Laravel forms):** not yet built — needs a webhook added to the Laravel form handlers (see `docs/lead-capture-setup.md`); requires a paid Zapier plan for the Webhooks app. May be moot if Al-Falah Services turns out to be the real backend.
 - **WhatsApp automation:** not yet built — the number is a plain phone app today, not a Business API; see `docs/whatsapp-automation-setup.md` for the path via Twilio
-- Site backend platform confirmed: custom Laravel/PHP, no admin/API access currently available
 - Zapier MCP connections (Gmail, Calendar, Sheets) are set up under arjalloh79@gmail.com
