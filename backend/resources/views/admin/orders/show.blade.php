@@ -18,7 +18,8 @@
                     <div><dt class="text-gray-500">Service</dt><dd class="font-medium">{{ $order->service_name }}</dd></div>
                     <div><dt class="text-gray-500">Amount</dt><dd class="font-medium">${{ number_format($order->total_amount, 2) }}</dd></div>
                     <div><dt class="text-gray-500">Payment method</dt><dd class="font-medium">{{ str($order->payment_method)->headline() }}</dd></div>
-                    <div><dt class="text-gray-500">Payment / transaction ref</dt><dd class="font-medium">{{ $order->payment_number ?? $order->transaction_id ?? '—' }}</dd></div>
+                    <div><dt class="text-gray-500">Customer paid from</dt><dd class="font-medium">{{ $order->payment_number ?? '—' }}</dd></div>
+                    <div><dt class="text-gray-500">Transaction / reference ID</dt><dd class="font-medium">{{ $order->transaction_id ?? '—' }}</dd></div>
                     <div><dt class="text-gray-500">Placed</dt><dd class="font-medium">{{ $order->created_at->format('M j, Y g:ia') }}</dd></div>
                 </dl>
 
