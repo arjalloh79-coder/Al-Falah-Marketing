@@ -140,9 +140,15 @@
             </div>
         </div>
 
-        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-            Save Settings
-        </button>
+        <div class="h-20"></div>
+
+        <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-t border-gray-200 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+            <div class="max-w-3xl mx-auto px-6 py-4 flex justify-end">
+                <button type="submit" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold text-base hover:bg-blue-700 transition shadow-md">
+                    Save Settings
+                </button>
+            </div>
+        </div>
 
     </form>
 
