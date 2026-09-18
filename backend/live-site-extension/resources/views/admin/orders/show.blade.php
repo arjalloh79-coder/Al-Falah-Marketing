@@ -1,6 +1,6 @@
-@extends('admin.layout')
+@extends('admin.main')
 
-@section('content')
+@section('admin-content')
 
 <div class="p-6 max-w-3xl">
     <h1 class="text-2xl font-bold text-dark mb-6">Commande / Order #{{ $order->id }}</h1>

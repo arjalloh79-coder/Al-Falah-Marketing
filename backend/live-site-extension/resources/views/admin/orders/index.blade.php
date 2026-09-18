@@ -1,11 +1,6 @@
-{{-- NOTE ON @extends/@section: modeled on the sidebar/nav conventions seen in
-     admin/sidebar.blade.php, but the actual admin page layout file wasn't
-     pasted. If this doesn't render inside the admin shell, check what
-     admin/consultations/index.blade.php (or any other admin page) actually
-     extends and match it here — likely a one-line fix. --}}
-@extends('admin.layout')
+@extends('admin.main')
 
-@section('content')
+@section('admin-content')
 
 <div class="p-6">
     <div class="flex items-center justify-between mb-6">

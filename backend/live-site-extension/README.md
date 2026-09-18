@@ -1,5 +1,10 @@
 # Live site extension: orders + checkout
 
+**Status: deployed and verified live on al-falahmarketing.com (2026-09-18).**
+Two real test orders (#1, #2) were placed via the live checkout page and
+confirmed visible in Admin → Orders — safe to delete from
+`/admin/orders` whenever convenient, or leave them.
+
 This folder mirrors the real folder structure of the live `al-falahmarketing.com`
 Laravel app (the one at `domains/al-falahmarketing.com/public_html` on Hostinger,
 git remote `manishkarantiwaripsyt/alfalah-final`). It adds a service checkout
@@ -140,6 +145,24 @@ immediately) works the same way here.
 - Submit a test order (any non-card method) — should redirect to
   `/order-confirmation/{id}` and show up in Admin → Orders.
 - Card option should show as unavailable until Stripe is set up.
+
+## Real fixes made during deployment (2026-09-18)
+
+- The public views (`checkout.blade.php`, `order-confirmation.blade.php`)
+  actually extend `User.main`, not `layouts.app` as originally guessed —
+  already corrected in this folder.
+- The admin views (`admin/orders/index.blade.php`, `admin/orders/show.blade.php`)
+  actually extend `admin.main` with `@section('admin-content')`, not
+  `admin.layout`/`content` as originally guessed — already corrected.
+- The SSH account's default `php` CLI is 8.2; the live site actually runs
+  8.4.19. Use `/opt/alt/php84/usr/bin/php` explicitly for any `artisan`
+  command run over SSH (e.g. `/opt/alt/php84/usr/bin/php artisan migrate --force`).
+- **Pre-existing bug, unrelated to this extension, fixed live**: `app/Http/Middleware/IsAdmin.php`
+  compared `Auth::user()->role === 'admin'`, but stored role values are
+  `'Admin'` (capital A) — the comparison always failed, locking every admin
+  account out of `/admin`. Fixed to `strtolower(Auth::user()->role ?? '') === 'admin'`.
+  Not yet ported back into this repo copy — do that if/when the live
+  `app/Http/Middleware/IsAdmin.php` is added here.
 
 ## What this supersedes
 

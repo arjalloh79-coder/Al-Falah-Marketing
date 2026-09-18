@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('User.main')
 
 @section('title', 'Commande confirmée / Order received — Al-Falah Marketing')
 

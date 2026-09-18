@@ -1,9 +1,4 @@
-{{-- NOTE ON @extends: the User/contact.blade.php sample this was modeled on
-     didn't show its @extends line when pasted (likely scrolled out of the
-     terminal buffer). If this page renders without the site header/footer,
-     change the line below to match whatever contact.blade.php actually
-     extends — a one-line fix. --}}
-@extends('layouts.app')
+@extends('User.main')
 
 @section('title', ($service['name_en'] ?: $service['name_fr']) . ' — Al-Falah Marketing')
 
