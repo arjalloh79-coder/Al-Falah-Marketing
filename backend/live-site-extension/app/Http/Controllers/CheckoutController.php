@@ -17,9 +17,12 @@ class CheckoutController extends Controller
             abort(404);
         }
 
+        $methods = array_filter(config('payment_methods'), fn ($m) => ! empty($m['enabled']));
+
         return view('User.checkout', [
             'service' => $item,
-            'methods' => config('payment_methods'),
+            'methods' => $methods,
+            'defaultMethod' => array_key_first($methods),
         ]);
     }
 
@@ -32,7 +35,7 @@ class CheckoutController extends Controller
         }
 
         $method = $request->input('payment_method');
-        $methods = config('payment_methods');
+        $methods = array_filter(config('payment_methods'), fn ($m) => ! empty($m['enabled']));
 
         if (! isset($methods[$method])) {
             throw ValidationException::withMessages([

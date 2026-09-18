@@ -4,7 +4,7 @@
 
 @section('main-section')
 
-<section id="checkout" class="py-20 lg:py-32 bg-white" x-data="{ method: 'orange_money' }">
+<section id="checkout" class="py-20 lg:py-32 bg-white" x-data="{ method: '{{ $defaultMethod }}' }">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-10">
@@ -33,6 +33,12 @@
             </div>
         @endif
 
+        @if (empty($methods))
+            <div class="p-8 bg-amber-50 border border-amber-200 rounded-lg text-amber-800">
+                Aucune méthode de paiement n'est active pour le moment. Merci de nous contacter directement. /
+                No payment method is currently active — please contact us directly to place this order.
+            </div>
+        @else
         <form method="POST" action="{{ route('checkout.store', $service['id']) }}" class="bg-muted rounded-lg p-8 space-y-6">
             @csrf
 
@@ -72,7 +78,7 @@
                         <label class="flex items-center gap-2 border rounded-md px-3 py-3 cursor-pointer bg-white"
                             :class="method === '{{ $key }}' ? 'border-primary ring-1 ring-primary' : 'border-gray-200'">
                             <input type="radio" name="payment_method" value="{{ $key }}" x-model="method"
-                                {{ old('payment_method', 'orange_money') === $key ? 'checked' : '' }} class="text-primary">
+                                {{ old('payment_method', $defaultMethod) === $key ? 'checked' : '' }} class="text-primary">
                             <span class="text-sm font-semibold">{{ $m['label'] }}</span>
                         </label>
                     @endforeach
@@ -92,7 +98,7 @@
                         @endunless
                     @else
                         <p class="text-sm font-bold text-dark">
-                            Envoyer à / Send to: {{ $m['receiving_account'] }}
+                            Envoyer à / Send to:<br>{!! nl2br(e($m['receiving_account'])) !!}
                         </p>
 
                         @if ($m['requires_payment_number'] ?? false)
@@ -121,6 +127,7 @@
                 <i class="fas fa-arrow-right ml-2"></i>
             </button>
         </form>
+        @endif
     </div>
 </section>
 

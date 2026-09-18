@@ -93,3 +93,41 @@ region-filtering feature exists for portfolio items to link to honestly,
 so both now link to the real public Portfolio page (`route('portfolio')`,
 opens in a new tab) — the actual evidence of that USA/Africa work, rather
 than inventing a filter that doesn't exist.
+
+## 2026-09-18: Payment Settings page was minimal and every method always showed on checkout
+
+`admin/settings.blade.php` and `Admin\SettingsController` (built earlier the
+same day) only captured a bare number per mobile money method and a single
+freeform textarea for bank details — and `config/payment_methods.php` had
+been hand-patched directly on the live server to read from
+`storage/app/content/settings.json`, a change that was never copied back
+into this repo, so the repo's copy of that file had silently drifted from
+what's actually running.
+
+Rebuilt the Settings page and its config on both sides:
+- Each mobile money method (Orange Money, MTN, Moov, Wave) now also has an
+  **account holder name** field, shown alongside the number on checkout
+  (`+224 611 351 302 (Al-Falah Marketing SARL)`) so customers can confirm
+  they're sending to the right account before paying.
+- Bank transfer is now three structured fields (bank name, account name,
+  account number) plus an optional notes field (branch/SWIFT/etc.), instead
+  of one opaque textarea — `payment_methods.php` joins them into the
+  multi-line "Send to:" block on checkout (`checkout.blade.php` now renders
+  it through `nl2br`).
+- Every method — mobile money and bank — has an **"Active on checkout"**
+  toggle. It defaults on the moment an admin fills in that method's details
+  (so nothing extra has to be flipped), but can be switched off independently
+  to hide a method from customers without wiping out the saved account info.
+  This directly fixes the old behavior where all 5 methods + Card always
+  showed on checkout, "[SET THIS UP]" placeholder and all, even completely
+  unconfigured ones.
+- Card/Stripe now shows a read-only "Live" / "Not set up" status on the
+  Settings page instead of not appearing at all — it stays server/`.env`-only
+  since a Stripe secret key doesn't belong in the JSON settings file.
+- `CheckoutController` now filters `config('payment_methods')` down to only
+  enabled methods before handing them to the checkout view (both for display
+  and for validating the submitted `payment_method`), and picks the first
+  enabled method as the default radio selection instead of hardcoding
+  `orange_money` (which would have broken if an admin ever disabled it).
+  If an admin disables every method, checkout now shows a clear "no payment
+  method active, contact us directly" message instead of a broken empty form.
