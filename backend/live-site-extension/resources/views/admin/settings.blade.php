@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.settings.update') }}" method="POST" class="space-y-6">
+    <form id="settingsForm" action="{{ route('admin.settings.update') }}" method="POST" class="space-y-6">
         @csrf
         @method('PUT')
 
@@ -142,16 +142,16 @@
 
         <div class="h-20"></div>
 
-        <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-t border-gray-200 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
-            <div class="max-w-3xl mx-auto px-6 py-4 flex justify-end">
-                <button type="submit" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold text-base hover:bg-blue-700 transition shadow-md">
-                    Save Settings
-                </button>
-            </div>
-        </div>
-
     </form>
 
+</div>
+
+<div id="settingsSaveBar" class="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t border-gray-200 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+    <div class="max-w-3xl mx-auto px-6 py-4 flex justify-end">
+        <button type="submit" form="settingsForm" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold text-base hover:bg-blue-700 transition shadow-md">
+            Save Settings
+        </button>
+    </div>
 </div>
 
 <script>
@@ -169,6 +169,13 @@
             }
         });
     });
+
+    // Some admin layouts apply `transform` to a wrapper for sidebar
+    // animations, which silently turns `position: fixed` descendants into
+    // elements positioned relative to that wrapper instead of the real
+    // viewport. Re-parent the save bar straight onto <body> so it always
+    // sits at the true bottom of the screen regardless of layout.
+    document.body.appendChild(document.getElementById('settingsSaveBar'));
 </script>
 
 @endsection
