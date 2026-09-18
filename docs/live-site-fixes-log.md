@@ -44,3 +44,52 @@ thumbnails — rendered as broken icons. Two layered issues:
 
 Verified live: portfolio thumbnails render correctly at `/admin/portfolio`
 for all entries after the fix.
+
+## 2026-09-18: Dashboard was 100% fake data; Profile/Settings/user-edit didn't exist
+
+`AdminController::index()` passed no data to the view at all — the whole
+`/admin` dashboard (all 4 stat cards, the "Recent Inquiries" table) was
+hardcoded mockup content ("Johnathan Reed", "1,284" leads, "45.2k" blog
+views, etc.), not connected to anything real. Separately, the profile
+dropdown's "My Profile"/"Settings" links and the Users tab's "Edit" button
+were all `href="#"` — no controller methods, no routes, no views existed
+for any of them.
+
+Fixed:
+- `AdminController::index()` now computes real stats (`Contact::count() +
+  Consultation::count()`, `Blog::count()`, `Portfolio::count()`, new
+  contacts in the last 7 days) and passes the 5 latest real `Contact`
+  records to a rebuilt dashboard view.
+- Added `AdminController::profile()` / `updateProfile()` + a real
+  `admin.profile` page (name, email, password change).
+- Added `AdminController::editUser()` / `updateUser()` + a real
+  `admin.users.edit` page, wired to the previously-dead Edit button.
+- Added `Admin\SettingsController` + a real `admin.settings` page for the
+  checkout payment account numbers (Orange Money/MTN/Moov/Wave/bank
+  details), stored in `storage/app/content/settings.json` — the same
+  JSON-file pattern `ContentStore` already uses for services/testimonials.
+  `config/payment_methods.php` now reads from this file first, falling
+  back to `.env` (legacy) then to `[SET THIS UP]`.
+- Also fixed while touching `header.blade.php`: the avatar image pointed
+  at `https://via.placeholder.com/100`, an unreliable/deprecated service —
+  switched to `ui-avatars.com` generating real initials from the logged-in
+  user's name (also previously hardcoded as "Abdulrahman" regardless of
+  who was actually logged in).
+
+## 2026-09-18: Login always sent admins to the fake customer dashboard
+
+Same case-sensitivity bug as `IsAdmin.php`, independently duplicated in
+`UserController::loginProcess()`: `Auth::user()->role === 'admin'`
+(lowercase) against a `'Admin'`-cased stored value, so it always fell
+through to `redirect()->intended(route('user.dashboard'))` — the fake
+mockup dashboard — instead of `route('admin.index')`. Fixed the same way:
+`strtolower(Auth::user()->role ?? '') === 'admin'`.
+
+## 2026-09-18: Admin footer "USA Experience" / "Africa Growth" were dead badges
+
+Plain `<span>` elements in `admin/footer.blade.php`, styled to look like
+clickable links (blue/accent color) but with no `href` at all. No
+region-filtering feature exists for portfolio items to link to honestly,
+so both now link to the real public Portfolio page (`route('portfolio')`,
+opens in a new tab) — the actual evidence of that USA/Africa work, rather
+than inventing a filter that doesn't exist.
