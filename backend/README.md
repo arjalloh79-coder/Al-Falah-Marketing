@@ -1,4 +1,17 @@
-# Al-Falah Marketing — backend
+# Al-Falah Marketing — backend (SUPERSEDED — do not deploy)
+
+**This standalone app is no longer the plan.** We since found that
+al-falahmarketing.com already has a real, live Laravel backend (built by
+another developer, git remote `manishkarantiwaripsyt/alfalah-final`), with
+real production data (blog posts, contacts, consultations, portfolio items).
+Deploying this separate app would orphan that data and create two competing
+logins/admin panels.
+
+The order/checkout/payment-method logic below was ported into that live app
+instead — see `live-site-extension/README.md` for the actual deployment
+path. This folder is kept for reference only.
+
+---
 
 A Laravel backend for Al-Falah Marketing: public services catalog, lead capture (contact + consultation forms), order placement, and an authenticated admin dashboard to manage all three. See `../docs/custom-backend-plan.md` for why this exists and what it replaces.
 
