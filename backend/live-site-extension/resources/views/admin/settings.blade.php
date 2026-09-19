@@ -177,12 +177,20 @@
     // sits at the true bottom of the screen regardless of layout.
     var saveBar = document.getElementById('settingsSaveBar');
     document.body.appendChild(saveBar);
+
     // Moving an already-painted element via appendChild can leave Chrome's
     // compositor with a stale (invisible) layer for it even though layout
-    // and computed style are both correct — force a synchronous reflow and
-    // promote it to its own layer so it actually gets painted.
-    void saveBar.offsetHeight;
-    saveBar.style.transform = 'translateZ(0)';
+    // and computed style are both correct. Forcing the repaint in the same
+    // tick as the move isn't enough — it still gets folded into the same
+    // stale paint pass. Waiting two animation frames guarantees this runs
+    // after the browser's first real paint has already settled, which is
+    // when the forced style mutation actually takes effect.
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            void saveBar.offsetHeight;
+            saveBar.style.transform = 'translateZ(0.001px)';
+        });
+    });
 </script>
 
 @endsection
