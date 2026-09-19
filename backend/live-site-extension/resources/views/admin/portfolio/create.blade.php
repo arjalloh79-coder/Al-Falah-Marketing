@@ -99,7 +99,8 @@
                     Cancel
                 </a>
                 <button type="submit"
-                    class="flex-1 h-12 bg-primary text-white rounded-xl font-bold text-sm uppercase tracking-wider transition-all hover:bg-blue-600 active:scale-95 shadow-md shadow-primary/10">
+                    class="flex-1 h-12 rounded-xl font-bold text-sm uppercase tracking-wider transition-all active:scale-95"
+                    style="background: #2563eb; color: #ffffff; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);">
                     Save Project
                 </button>
             </div>
