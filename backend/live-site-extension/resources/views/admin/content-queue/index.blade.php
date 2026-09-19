@@ -41,7 +41,7 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+            <button type="submit" style="background: #2563eb; color: #ffffff; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; border: none; cursor: pointer;">
                 Generate
             </button>
         </form>
