@@ -175,7 +175,14 @@
     // elements positioned relative to that wrapper instead of the real
     // viewport. Re-parent the save bar straight onto <body> so it always
     // sits at the true bottom of the screen regardless of layout.
-    document.body.appendChild(document.getElementById('settingsSaveBar'));
+    var saveBar = document.getElementById('settingsSaveBar');
+    document.body.appendChild(saveBar);
+    // Moving an already-painted element via appendChild can leave Chrome's
+    // compositor with a stale (invisible) layer for it even though layout
+    // and computed style are both correct — force a synchronous reflow and
+    // promote it to its own layer so it actually gets painted.
+    void saveBar.offsetHeight;
+    saveBar.style.transform = 'translateZ(0)';
 </script>
 
 @endsection
