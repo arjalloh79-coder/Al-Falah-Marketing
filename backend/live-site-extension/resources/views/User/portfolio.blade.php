@@ -159,11 +159,18 @@
         var cards = document.querySelectorAll('.project-card');
         var emptyState = document.getElementById('portfolioEmpty');
 
+        // Trims and lowercases so real-world data drift (e.g. "E-Commerce" vs
+        // "E-commerce") can't silently break the filter the way it did before.
+        function normalize(value) {
+            return (value || '').trim().toLowerCase();
+        }
+
         function applyFilter(category) {
             var visibleCount = 0;
+            var normalizedCategory = normalize(category);
 
             cards.forEach(function (card) {
-                var matches = category === 'all' || card.getAttribute('data-category') === category;
+                var matches = category === 'all' || normalize(card.getAttribute('data-category')) === normalizedCategory;
                 if (matches) {
                     card.classList.remove('is-hidden');
                     // Fade in on the next frame so the transition actually plays.
