@@ -140,18 +140,16 @@
             </div>
         </div>
 
-        <div class="h-20"></div>
+        <div style="height: 90px;"></div>
+
+        <div id="settingsSaveBar" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999; background: #ffffff; border-top: 1px solid #e5e7eb; box-shadow: 0 -4px 16px rgba(0,0,0,0.08); padding: 16px 24px; text-align: right;">
+            <button type="submit" style="background: #2563eb; color: #ffffff; padding: 12px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; border: none; cursor: pointer;">
+                Save Settings
+            </button>
+        </div>
 
     </form>
 
-</div>
-
-<div id="settingsSaveBar" class="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t border-gray-200 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
-    <div class="max-w-3xl mx-auto px-6 py-4 flex justify-end">
-        <button type="submit" form="settingsForm" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold text-base hover:bg-blue-700 transition shadow-md">
-            Save Settings
-        </button>
-    </div>
 </div>
 
 <script>
@@ -167,28 +165,6 @@
                 pill.classList.remove('bg-green-100', 'text-green-700');
                 pill.classList.add('bg-gray-100', 'text-gray-500');
             }
-        });
-    });
-
-    // Some admin layouts apply `transform` to a wrapper for sidebar
-    // animations, which silently turns `position: fixed` descendants into
-    // elements positioned relative to that wrapper instead of the real
-    // viewport. Re-parent the save bar straight onto <body> so it always
-    // sits at the true bottom of the screen regardless of layout.
-    var saveBar = document.getElementById('settingsSaveBar');
-    document.body.appendChild(saveBar);
-
-    // Moving an already-painted element via appendChild can leave Chrome's
-    // compositor with a stale (invisible) layer for it even though layout
-    // and computed style are both correct. Forcing the repaint in the same
-    // tick as the move isn't enough — it still gets folded into the same
-    // stale paint pass. Waiting two animation frames guarantees this runs
-    // after the browser's first real paint has already settled, which is
-    // when the forced style mutation actually takes effect.
-    requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-            void saveBar.offsetHeight;
-            saveBar.style.transform = 'translateZ(0.001px)';
         });
     });
 </script>
