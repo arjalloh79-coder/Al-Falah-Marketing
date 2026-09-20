@@ -69,7 +69,7 @@
 </div>
 
 <!-- DYNAMIC FEATURED POST -->
-@if($featured && !$category)
+@if($featured && !$category && !$search)
 <section class="py-10 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="group relative bg-muted rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
@@ -111,7 +111,11 @@
         @if($blogs->isEmpty())
             <div class="text-center py-12">
                 <p class="text-gray-500 text-lg">
-                    @if ($category)
+                    @if ($search && $category)
+                        No posts matching "{{ $search }}" in "{{ $category }}".
+                    @elseif ($search)
+                        No posts matching "{{ $search }}".
+                    @elseif ($category)
                         No posts in "{{ $category }}" yet.
                     @else
                         No blog posts found.
@@ -171,8 +175,9 @@
                 <p class="text-white/80 text-sm md:text-lg mb-8 md:mb-10 max-w-xl mx-auto px-2">
                     Get the latest marketing strategies for USA & Africa delivered straight to your inbox once a month.
                 </p>
-                <form action="#" class="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-lg mx-auto">
-                    <input type="email" placeholder="Your email address" class="flex-1 h-14 md:h-16 px-6 rounded-full bg-white focus:outline-none text-sm" required>
+                <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-lg mx-auto">
+                    @csrf
+                    <input type="email" name="email" placeholder="Your email address" class="flex-1 h-14 md:h-16 px-6 rounded-full bg-white focus:outline-none text-sm" required>
                     <button type="submit" class="h-14 md:h-16 px-8 md:px-10 bg-accent text-white font-bold rounded-full uppercase tracking-wider hover:scale-105 transition-all text-xs md:text-sm">
                         Subscribe
                     </button>
