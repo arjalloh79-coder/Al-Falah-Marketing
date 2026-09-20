@@ -64,7 +64,7 @@
                     <button type="button"
                         class="nav-link text-sm font-semibold text-dark hover:text-primary transition-colors duration-200 uppercase tracking-wider flex items-center gap-1"
                         aria-haspopup="true" aria-expanded="false" aria-controls="services-menu"
-                        onclick="toggleServicesMenu()">
+                        onclick="toggleServicesMenu(event)">
                         Services
                         <i class="fas fa-chevron-down text-xs transition-transform" id="servicesChevron"></i>
                     </button>
@@ -293,20 +293,48 @@
         const chevron = document.getElementById('servicesChevron');
         let open = false;
 
-        function setOpen(state) {
+        // Focus only moves into the panel when the caller explicitly asks
+        // for it (keyboard activation) -- a plain mouse hover must never
+        // steal keyboard/screen-reader focus.
+        function setOpen(state, opts) {
+            opts = opts || {};
             open = state;
             btn.setAttribute('aria-expanded', String(state));
             panel.classList.toggle('opacity-0', !state);
             panel.classList.toggle('invisible', !state);
             panel.classList.toggle('translate-y-1', !state);
             chevron.style.transform = state ? 'rotate(180deg)' : '';
-            if (state) panel.querySelector('a').focus();
+            if (state && opts.focusFirst) panel.querySelector('a').focus();
         }
 
-        window.toggleServicesMenu = function () { setOpen(!open); };
+        // A click MouseEvent synthesized by pressing Enter/Space on a
+        // focused <button> has detail === 0 (no real mouse click count),
+        // which is how we tell a keyboard activation from a real mouse
+        // click here without a separate keydown handler for Enter/Space.
+        window.toggleServicesMenu = function (e) {
+            const viaKeyboard = !!(e && e.detail === 0);
+            setOpen(!open, { focusFirst: viaKeyboard });
+        };
 
-        wrap.addEventListener('mouseenter', () => setOpen(true));
-        wrap.addEventListener('mouseleave', () => setOpen(false));
+        btn.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' && !open) {
+                e.preventDefault();
+                setOpen(true, { focusFirst: true });
+            }
+        });
+
+        // Only bind hover open/close on devices whose primary input is an
+        // actual mouse (fine pointer + real hover). On touch and hybrid
+        // touch-primary devices this stays click-only, so a tap doesn't
+        // fire mouseenter/mouseleave and race against the click-outside
+        // handler below (the flicker this was causing).
+        const supportsHover = window.matchMedia
+            && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+        if (supportsHover) {
+            wrap.addEventListener('mouseenter', () => setOpen(true, { focusFirst: false }));
+            wrap.addEventListener('mouseleave', () => setOpen(false));
+        }
 
         document.addEventListener('keydown', (e) => {
             if (!open) return;
