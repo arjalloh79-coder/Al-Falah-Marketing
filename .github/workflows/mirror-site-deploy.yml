@@ -38,4 +38,8 @@ jobs:
             echo "::error::SITE_DEPLOY_TOKEN secret is not set. Add a Personal Access Token with 'repo' scope as a repository secret named SITE_DEPLOY_TOKEN (Settings > Secrets and variables > Actions)."
             exit 1
           fi
+          # actions/checkout@v4 injects its own short-lived, repo-scoped credential
+          # via this config for ALL github.com requests. It overrides our token
+          # below, so it must be cleared before pushing to a different repo.
+          git config --unset-all http.https://github.com/.extraheader || true
           git push --force "https://${TOKEN}@github.com/arjalloh79-coder/Al-Falah-Website.git" site-deploy:main
