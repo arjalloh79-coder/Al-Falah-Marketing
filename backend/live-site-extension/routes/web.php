@@ -120,7 +120,30 @@ Route::middleware('auth')->group(function () {
 
     // Standard User Dashboard Routing
     Route::get('/dashboard', function () {
-        return view('User.dashboard');
+        $email = auth()->user()->email;
+
+        $orders = \App\Models\Order::where('customer_email', $email)->latest()->get();
+        $consultations = \App\Models\Consultation::where('email', $email)->latest()->get();
+
+        $recentActivity = $orders->map(fn ($order) => [
+                'icon' => 'fa-file-invoice-dollar',
+                'title' => $order->service_name,
+                'subtitle' => 'Order · ' . ucfirst(str_replace('_', ' ', $order->status)),
+                'status' => $order->status,
+                'date' => $order->created_at,
+            ])
+            ->concat($consultations->map(fn ($consultation) => [
+                'icon' => 'fa-calendar-check',
+                'title' => $consultation->subject,
+                'subtitle' => 'Consultation · ' . \Illuminate\Support\Carbon::parse($consultation->meeting_date)->format('M j, Y'),
+                'status' => $consultation->meeting_date >= now()->toDateString() ? 'confirmed' : 'completed',
+                'date' => $consultation->created_at,
+            ]))
+            ->sortByDesc('date')
+            ->take(5)
+            ->values();
+
+        return view('User.dashboard', compact('orders', 'consultations', 'recentActivity'));
     })->name('user.dashboard');
 
     // Admin Group Dashboard Routing

@@ -31,44 +31,44 @@
                 <!-- Statistic Block item 1 -->
                 <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-center space-x-4">
                     <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-2xl">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Traffic Conversions</p>
-                        <h3 class="text-2xl font-bold text-dark mt-1">12,450</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Orders Placed</p>
+                        <h3 class="text-2xl font-bold text-dark mt-1">{{ $orders->count() }}</h3>
                     </div>
                 </div>
 
                 <!-- Statistic Block item 2 -->
                 <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-center space-x-4">
                     <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary text-2xl">
-                        <i class="fas fa-bullseye"></i>
+                        <i class="fas fa-calendar-check"></i>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Active Leads Generated</p>
-                        <h3 class="text-2xl font-bold text-dark mt-1">+342</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Consultations Booked</p>
+                        <h3 class="text-2xl font-bold text-dark mt-1">{{ $consultations->count() }}</h3>
                     </div>
                 </div>
 
                 <!-- Statistic Block item 3 -->
                 <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-center space-x-4">
                     <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-accent text-2xl">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-spinner"></i>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Strategy Hours Tracked</p>
-                        <h3 class="text-2xl font-bold text-dark mt-1">18.5 hrs</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Orders In Progress</p>
+                        <h3 class="text-2xl font-bold text-dark mt-1">{{ $orders->whereIn('status', ['confirmed', 'in_progress'])->count() }}</h3>
                     </div>
                 </div>
 
                 <!-- Statistic Block item 4 -->
                 <div class="bg-white p-6 rounded-2xl border border-gray-100 flex items-center space-x-4">
                     <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-500 text-2xl">
-                        <i class="fas fa-tasks"></i>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Project System Status</p>
-                        <h3 class="text-xl font-bold text-secondary mt-1">Active / Live</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Completed Orders</p>
+                        <h3 class="text-2xl font-bold text-dark mt-1">{{ $orders->where('status', 'completed')->count() }}</h3>
                     </div>
                 </div>
             </div>
@@ -76,45 +76,35 @@
             <!-- Two-Column Context Data Board Row Split -->
             <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
                 
-                <!-- Project Status Task Monitoring Table Card element -->
+                <!-- Recent Activity Table Card element -->
                 <div class="bg-white p-6 rounded-2xl border border-gray-100 xl:col-span-2">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-muted">
-                        <h3 class="text-lg font-bold text-dark uppercase tracking-wider">Ongoing System Milestones</h3>
-                        <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded">Updated Live</span>
+                        <h3 class="text-lg font-bold text-dark uppercase tracking-wider">Recent Activity</h3>
                     </div>
                     <div class="space-y-4">
-                        <div class="p-4 bg-muted rounded-xl flex items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-laptop-code text-primary text-xl"></i>
-                                <div>
-                                    <h4 class="text-sm font-bold text-dark">Landing Page Copywriting & UI Tweaks</h4>
-                                    <p class="text-xs text-gray-500">Web Architecture & Conversion Optimization System</p>
+                        @forelse ($recentActivity as $item)
+                            <div class="p-4 bg-muted rounded-xl flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas {{ $item['icon'] }} text-primary text-xl"></i>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-dark">{{ $item['title'] }}</h4>
+                                        <p class="text-xs text-gray-500">{{ $item['subtitle'] }}</p>
+                                    </div>
                                 </div>
+                                <span @class([
+                                    'text-xs font-bold uppercase tracking-wider px-3 py-1 rounded',
+                                    'text-amber-600 bg-amber-100' => $item['status'] === 'pending',
+                                    'text-secondary bg-secondary/10' => in_array($item['status'], ['confirmed', 'completed']),
+                                    'text-primary bg-primary/10' => $item['status'] === 'in_progress',
+                                    'text-red-600 bg-red-100' => $item['status'] === 'cancelled',
+                                ])>{{ ucfirst(str_replace('_', ' ', $item['status'])) }}</span>
                             </div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-accent bg-accent/10 px-3 py-1 rounded">In Review</span>
-                        </div>
-
-                        <div class="p-4 bg-muted rounded-xl flex items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-search text-secondary text-xl"></i>
-                                <div>
-                                    <h4 class="text-sm font-bold text-dark">SEO Schema Optimization & Backlinking Setup</h4>
-                                    <p class="text-xs text-gray-500">Organic Growth Campaign Development System</p>
-                                </div>
+                        @empty
+                            <div class="p-6 text-center">
+                                <p class="text-sm text-gray-500">No orders or consultations yet.</p>
+                                <a href="/#consultation-form" class="text-primary font-bold text-sm hover:underline">Book a consultation</a> to get started.
                             </div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-3 py-1 rounded">Completed</span>
-                        </div>
-
-                        <div class="p-4 bg-muted rounded-xl flex items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-robot text-purple-500 text-xl"></i>
-                                <div>
-                                    <h4 class="text-sm font-bold text-dark">AI Lead Routing Automation Engine Connection</h4>
-                                    <p class="text-xs text-gray-500">AI Automation Workflow Integrations</p>
-                                </div>
-                            </div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded">In Progress</span>
-                        </div>
+                        @endforelse
                     </div>
                 </div>
 
@@ -132,7 +122,7 @@
                             <a href="/#consultation-form" class="w-full h-12 bg-primary text-white rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center transition-colors hover:bg-blue-600">
                                 <i class="fas fa-video mr-2"></i> Book Next Session
                             </a>
-                            <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="w-full h-12 border-2 border-muted text-dark hover:border-primary rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center transition-colors">
+                            <a href="{{ \App\Support\Contact::whatsappUrl() }}" target="_blank" class="w-full h-12 border-2 border-muted text-dark hover:border-primary rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center transition-colors">
                                 <i class="fab fa-whatsapp text-secondary mr-2 text-base"></i> Direct Message Team
                             </a>
                         </div>
