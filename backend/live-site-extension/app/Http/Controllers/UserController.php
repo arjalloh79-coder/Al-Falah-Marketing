@@ -34,11 +34,16 @@ class UserController extends Controller
      public function blog(Request $request)
     {
     $category = $request->query('category');
+    $search = $request->query('search');
 
     $featured = Blog::where('is_featured', true)->first();
 
     $blogs = Blog::where('is_featured', false)
         ->when($category, fn ($query) => $query->where('category', $category))
+        ->when($search, fn ($query) => $query->where(function ($q) use ($search) {
+            $q->where('title', 'like', "%{$search}%")
+              ->orWhere('content', 'like', "%{$search}%");
+        }))
         ->latest()
         ->paginate(6)
         ->withQueryString();
@@ -50,7 +55,7 @@ class UserController extends Controller
         ->groupBy('category')
         ->pluck('total', 'category');
 
-    return view('User.blog', compact('blogs', 'featured', 'category', 'categoryCounts'));
+    return view('User.blog', compact('blogs', 'featured', 'category', 'categoryCounts', 'search'));
     }
 
 
