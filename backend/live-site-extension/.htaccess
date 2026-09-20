@@ -1,0 +1,48 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # ------------------------------------------------------------------
+    # Deny direct web access to application internals.
+    #
+    # This site's document root is the Laravel project folder rather than
+    # its public/ sub-folder, so without these rules files such as
+    # storage/logs/laravel.log are downloadable by anyone.
+    #
+    # storage/public/ is deliberately NOT blocked: portfolio and blog
+    # images are served through it.
+    # ------------------------------------------------------------------
+    RewriteRule ^storage/(logs|framework|app)/ - [F,L]
+    RewriteRule ^(app|bootstrap|config|database|lang|resources|routes|tests|vendor)/ - [F,L]
+    RewriteRule ^(composer\.(json|lock)|artisan|phpunit\.xml|package(-lock)?\.json|vite\.config\.js|README\.md)$ - [F,L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+
+</IfModule>
+# Block .env file access
+<Files ".env">
+    Require all denied
+</Files>
+
+# Block all hidden files (.git, .env, etc.)
+RewriteRule (^|/)\. - [F,L]
