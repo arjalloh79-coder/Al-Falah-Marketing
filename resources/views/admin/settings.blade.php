@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.settings.update') }}" method="POST" class="space-y-6">
+    <form id="settingsForm" action="{{ route('admin.settings.update') }}" method="POST" class="space-y-6">
         @csrf
         @method('PUT')
 
@@ -140,9 +140,13 @@
             </div>
         </div>
 
-        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-            Save Settings
-        </button>
+        <div style="height: 90px;"></div>
+
+        <div id="settingsSaveBar" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 99999; background: #ffffff; border-top: 1px solid #e5e7eb; box-shadow: 0 -4px 16px rgba(0,0,0,0.08); padding: 16px 24px; text-align: right;">
+            <button type="submit" style="background: #2563eb; color: #ffffff; padding: 12px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; border: none; cursor: pointer;">
+                Save Settings
+            </button>
+        </div>
 
     </form>
 
