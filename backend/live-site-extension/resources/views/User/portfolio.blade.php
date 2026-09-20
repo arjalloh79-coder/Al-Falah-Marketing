@@ -98,39 +98,22 @@
     </div>
 </section>
 
-@if(count($testimonials ?? []))
 <!-- TESTIMONIAL MINI SECTION -->
 <section class="py-16 bg-white border-t border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-{{ min(count($testimonials), 3) }} gap-10">
-            @foreach($testimonials as $testimonial)
-                @php
-                    $quote = $testimonial['quote_en'] ?? '' ?: ($testimonial['quote_fr'] ?? '');
-                    $role = $testimonial['author_role_en'] ?? '' ?: ($testimonial['author_role_fr'] ?? '');
-                    $initials = collect(explode(' ', $testimonial['author_name'] ?? ''))
-                        ->filter()
-                        ->map(fn ($part) => strtoupper(substr($part, 0, 1)))
-                        ->take(2)
-                        ->implode('');
-                @endphp
-                <div class="text-center">
-                    <i class="fas fa-quote-left text-primary/10 text-5xl mb-6"></i>
-                    <p class="text-lg font-medium text-dark mb-6 leading-relaxed italic">
-                        "{{ $quote }}"
-                    </p>
-                    <div class="flex flex-col items-center">
-                        <div class="w-12 h-12 rounded-full bg-primary/10 mb-3 flex items-center justify-center border-2 border-white shadow-sm">
-                            <span class="text-primary font-bold text-sm">{{ $initials }}</span>
-                        </div>
-                        <h5 class="text-dark font-bold text-sm">{{ $testimonial['author_name'] ?? '' }}</h5>
-                        <p class="text-gray-400 text-xs mt-0.5">{{ trim($role . ($testimonial['company'] ?? '' ? ', ' . $testimonial['company'] : '')) }}</p>
-                    </div>
-                </div>
-            @endforeach
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <i class="fas fa-quote-left text-primary/10 text-5xl mb-6"></i>
+        <h2 class="text-xl md:text-2xl font-medium text-dark mb-6 leading-relaxed max-w-3xl mx-auto italic">
+            "Al-Falah Marketing transformed our business. We went from struggling to find local clients in New York to having a booked calendar every single week."
+        </h2>
+        <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-slate-200 mb-3 overflow-hidden border-2 border-white shadow-sm">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="Client" class="w-full h-full object-cover">
+            </div>
+            <h5 class="text-dark font-bold text-sm">Johnathan Reed</h5>
+            <p class="text-gray-400 text-xs mt-0.5">CEO, Elite Realty Group</p>
         </div>
     </div>
 </section>
-@endif
 
 @endsection
 
