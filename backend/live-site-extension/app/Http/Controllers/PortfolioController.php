@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
+use App\Support\ContentStore;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,12 @@ class PortfolioController extends Controller
     public function index()
     {
         $projects = Portfolio::latest()->get();
-        return view('User.portfolio', compact('projects'));
+
+        $testimonials = collect(ContentStore::for('testimonials')->sorted())
+            ->filter(fn ($t) => ! empty($t['is_active']))
+            ->values();
+
+        return view('User.portfolio', compact('projects', 'testimonials'));
     }
 
     // ==========================================

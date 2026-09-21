@@ -36,29 +36,21 @@
                 @endif
             </a>
             
-            <a href="#"
-                class="flex items-center space-x-3 px-4 py-3 text-gray-500 hover:text-primary hover:bg-muted rounded-lg font-semibold text-sm uppercase tracking-wider transition-all">
-                <i class="fas fa-folder-open text-lg w-5"></i>
-                <span>Project Files</span>
-            </a>
-
-            <a href="#"
-                class="flex items-center space-x-3 px-4 py-3 text-gray-500 hover:text-primary hover:bg-muted rounded-lg font-semibold text-sm uppercase tracking-wider transition-all">
-                <i class="fas fa-calendar-check text-lg w-5"></i>
-                <span>Consultations</span>
-            </a>
-
-            <a href="#"
-                class="flex items-center space-x-3 px-4 py-3 text-gray-500 hover:text-primary hover:bg-muted rounded-lg font-semibold text-sm uppercase tracking-wider transition-all">
-                <i class="fas fa-credit-card text-lg w-5"></i>
-                <span>Invoices</span>
-            </a>
-
-            <a href="#"
-                class="flex items-center space-x-3 px-4 py-3 text-gray-500 hover:text-primary hover:bg-muted rounded-lg font-semibold text-sm uppercase tracking-wider transition-all">
-                <i class="fas fa-user-cog text-lg w-5"></i>
-                <span>Settings</span>
-            </a>
+            @foreach ([
+                ['icon' => 'fa-folder-open', 'label' => 'Project Files'],
+                ['icon' => 'fa-calendar-check', 'label' => 'Consultations'],
+                ['icon' => 'fa-credit-card', 'label' => 'Invoices'],
+                ['icon' => 'fa-user-cog', 'label' => 'Settings'],
+            ] as $item)
+                <span aria-disabled="true"
+                    class="flex items-center justify-between px-4 py-3 text-gray-300 rounded-lg font-semibold text-sm uppercase tracking-wider cursor-not-allowed select-none">
+                    <span class="flex items-center space-x-3">
+                        <i class="fas {{ $item['icon'] }} text-lg w-5"></i>
+                        <span>{{ $item['label'] }}</span>
+                    </span>
+                    <span class="text-[10px] normal-case tracking-normal font-bold bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">Soon</span>
+                </span>
+            @endforeach
 
             <!-- Divider Layout line element -->
             <div class="h-px bg-muted my-6"></div>

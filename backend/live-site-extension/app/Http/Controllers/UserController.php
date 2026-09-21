@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Portfolio;
+use App\Support\ContentStore;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserSignupMail;
 
@@ -34,11 +35,14 @@ class UserController extends Controller
      public function blog(Request $request)
     {
     $category = $request->query('category');
+    $search = $request->query('search');
 
     $featured = Blog::where('is_featured', true)->first();
 
     $blogs = Blog::where('is_featured', false)
         ->when($category, fn ($query) => $query->where('category', $category))
+        ->when($search, fn ($query) => $query->where(fn ($q) => $q->where('title', 'like', "%{$search}%")
+            ->orWhere('content', 'like', "%{$search}%")))
         ->latest()
         ->paginate(6)
         ->withQueryString();
@@ -143,7 +147,7 @@ public function show($slug) {
 
      public function branding()
     {
-        return view('User.services.branding');
+        return view('User.services.branding', ['testimonials' => $this->activeTestimonials()]);
     }
 
     public function automation()
@@ -153,7 +157,7 @@ public function show($slug) {
 
      public function content()
     {
-        return view('User.services.content');
+        return view('User.services.content', ['testimonials' => $this->activeTestimonials()]);
     }
 
      public function solution()
@@ -169,5 +173,13 @@ public function show($slug) {
       public function terms()
     {
         return view('User.terms-conditions');
+    }
+
+    /** Active testimonials from the admin Testimonials CMS, for public pages. */
+    protected function activeTestimonials()
+    {
+        return collect(ContentStore::for('testimonials')->sorted())
+            ->filter(fn ($t) => ! empty($t['is_active']))
+            ->values();
     }
 }

@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <img src="{{ asset('storage/public/'.$blog->image) }}" class="w-full rounded-3xl mb-12 shadow-xl">
+        <img src="{{ asset('storage/'.$blog->image) }}" class="w-full rounded-3xl mb-12 shadow-xl">
 
         <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             {!! nl2br(e($blog->content)) !!}

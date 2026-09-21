@@ -18,6 +18,7 @@
                     <th class="px-6 py-4">Email</th>
                     <th class="px-6 py-4">Meeting Date</th>
                     <th class="px-6 py-4">Subject</th>
+                    <th class="px-6 py-4">Status</th>
                     <th class="px-6 py-4 text-center">Actions</th>
                 </tr>
             </thead>
@@ -29,6 +30,13 @@
                     <td class="px-6 py-4 text-accent font-bold">{{ date('M d, Y', strtotime($item->meeting_date)) }}</td>
                     <td class="px-6 py-4 text-sm">{{ Str::limit($item->subject, 30) }}</td>
                     <td class="px-6 py-4">
+                        @if($item->confirmed_at)
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Confirmed</span>
+                        @else
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400">Pending</span>
+                        @endif
+                    </td>
+                    <td class="px-6 py-4">
                         <div class="flex flex-col sm:flex-row justify-center gap-2">
                             <!-- Language Selection Dropdown -->
                             <div class="flex items-center gap-1">
@@ -37,11 +45,11 @@
                                     <option value="fr">🇫🇷 French</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Confirm Button -->
-                            <button onclick="confirmWithLanguage('{{ $item->id }}', 'confirm')" 
+                            <button onclick="confirmWithLanguage('{{ $item->id }}', 'confirm')"
                                     class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm transition whitespace-nowrap">
-                                <i class="fas fa-check mr-1"></i> Confirm
+                                <i class="fas fa-check mr-1"></i> {{ $item->confirmed_at ? 'Re-confirm' : 'Confirm' }}
                             </button>
 
                             <!-- Reschedule Button -->

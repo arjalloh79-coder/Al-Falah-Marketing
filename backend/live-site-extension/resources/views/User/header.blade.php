@@ -180,8 +180,8 @@
     <div class="mobile-menu fixed top-0 left-0 w-full h-full bg-white z-50 lg:hidden" id="mobileMenu">
         <div class="flex flex-col h-full">
             <div class="flex items-center justify-between p-6 border-b-2 border-gray-200">
-                <span class="text-2xl font-bold text-dark tracking-tighter">MARKET<span
-                        class="text-primary">PRO</span></span>
+                <span class="text-2xl font-bold text-dark tracking-tighter">Al-Falah<span
+                        class="text-primary">Marketing</span></span>
                 <button class="w-10 h-10 bg-muted rounded-md flex items-center justify-center"
                     onclick="toggleMobileMenu()">
                     <i class="fas fa-times text-dark text-xl"></i>

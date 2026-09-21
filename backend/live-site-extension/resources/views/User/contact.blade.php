@@ -63,16 +63,16 @@
                 </div>
                 
                 <div class="flex space-x-4">
-                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                    <a href="https://www.facebook.com/profile.php?id=61573274222922" target="_blank" rel="noopener" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
-                        <i class="fab fa-twitter"></i>
+                    <a href="https://youtube.com/@al-falahmarketing-official?si=tt2bDxU_qv5g8M0o" target="_blank" rel="noopener" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                        <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                    <a href="https://www.linkedin.com/company/al-falah-marketing-inc/" target="_blank" rel="noopener" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
+                    <a href="https://www.instagram.com/alfalahmarketinginc/" target="_blank" rel="noopener" class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center text-dark hover:bg-primary hover:text-white transition-all duration-200 hover:scale-110">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>

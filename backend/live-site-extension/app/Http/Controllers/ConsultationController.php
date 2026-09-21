@@ -42,7 +42,9 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::findOrFail($id);
         $lang = $request->input('lang', 'en');
-        
+
+        $consultation->update(['confirmed_at' => now()]);
+
         // Send Mail with language preference
         Mail::to($consultation->email)->send(new ConsultationConfirmed($consultation, $lang));
 
@@ -62,6 +64,7 @@ class ConsultationController extends Controller
         $consultation = Consultation::findOrFail($id);
         $old_date = $consultation->meeting_date;
         $consultation->meeting_date = $request->new_date;
+        $consultation->confirmed_at = null;
         $consultation->save();
 
         $lang = $request->input('lang', 'en');

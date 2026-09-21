@@ -75,7 +75,7 @@
         <div class="group relative bg-muted rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
             <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="relative h-64 sm:h-80 lg:h-full overflow-hidden">
-                    <img src="{{ asset('storage/public/' . $featured->image) }}" alt="{{ $featured->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <img src="{{ asset('storage/' . $featured->image) }}" alt="{{ $featured->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
                 <div class="p-6 md:p-10 lg:p-16 flex flex-col justify-center">
                     <div class="flex items-center space-x-4 mb-4 md:mb-6">
@@ -123,7 +123,7 @@
                 @foreach($blogs as $blog)
                 <article class="flex flex-col group h-full">
                     <div class="relative rounded-2xl overflow-hidden mb-6 aspect-[16/10]">
-                        <img src="{{ asset('storage/public/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                     </div>
                     <div class="flex items-center space-x-3 mb-3 text-xs text-gray-500">
                         <span class="px-2.5 py-1 bg-gray-100 text-gray-800 font-bold uppercase rounded text-[10px]">

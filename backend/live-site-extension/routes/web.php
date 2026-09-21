@@ -149,7 +149,9 @@ Route::middleware('auth')->group(function () {
                 'icon' => 'fa-calendar-check',
                 'title' => $consultation->subject,
                 'subtitle' => 'Consultation · ' . \Illuminate\Support\Carbon::parse($consultation->meeting_date)->format('M j, Y'),
-                'status' => $consultation->meeting_date >= now()->toDateString() ? 'confirmed' : 'completed',
+                'status' => $consultation->meeting_date < now()->toDateString()
+                    ? 'completed'
+                    : ($consultation->confirmed_at ? 'confirmed' : 'pending'),
                 'date' => $consultation->created_at,
             ]))
             ->sortByDesc('date')

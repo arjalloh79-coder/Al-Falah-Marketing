@@ -27,7 +27,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-dark mb-2">No Domains Found</h3>
                 <p class="text-gray-500 max-w-sm mx-auto mb-8">You don't have any domains registered in our system yet. Contact us to link your domain.</p>
-                <a href="https://wa.me/YOUR_NUMBER" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-bold transition hover:scale-105">
+                <a href="{{ \App\Support\Contact::whatsappUrl() }}" target="_blank" rel="noopener" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-bold transition hover:scale-105">
                     Contact Support
                 </a>
             </div>
@@ -78,7 +78,7 @@
                                     Lapsed
                                 @endif
                             </span>
-                            <a href="https://wa.me/YOUR_NUMBER?text=Query regarding domain {{ $domain->domain_name }}" class="text-primary text-sm font-bold hover:underline">
+                            <a href="{{ \App\Support\Contact::whatsappUrl('Query regarding domain ' . $domain->domain_name) }}" target="_blank" rel="noopener" class="text-primary text-sm font-bold hover:underline">
                                 Help <i class="fas fa-chevron-right text-[10px] ml-1"></i>
                             </a>
                         </div>
