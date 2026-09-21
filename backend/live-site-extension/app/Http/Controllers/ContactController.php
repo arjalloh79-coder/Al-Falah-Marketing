@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactEnquiryReceived;
 use App\Mail\NewContactEnquiry;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -39,7 +41,12 @@ class ContactController extends Controller
         // 3. Notify the admin inbox so enquiries don't sit unseen
         Mail::to(config('mail.admin_notification_address'))->send(new NewContactEnquiry($enquiry));
 
-        // 4. Redirect back with a success message
+        // 4. Send the visitor an instant acknowledgment -- no AI, no risk of
+        // a wrong answer, just confirmation their message went through and
+        // a real reply is coming.
+        Mail::to($enquiry->email)->send(new ContactEnquiryReceived($enquiry, App::getLocale()));
+
+        // 5. Redirect back with a success message
         return back()->with('success', 'Thank you! Your message has been sent.');
     }
 }
