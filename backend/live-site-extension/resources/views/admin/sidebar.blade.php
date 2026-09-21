@@ -32,6 +32,12 @@
             <span class="mx-3 font-semibold">Blog</span>
         </a>
 
+        <a href="{{ route('admin.content-queue.index') }}"
+            class="flex items-center px-4 py-3 {{ Request::routeIs('admin.content-queue.*') ? 'bg-slate-800 text-white' : 'text-gray-400' }} hover:bg-slate-800 hover:text-white rounded-lg transition duration-200">
+            <i class="fas fa-robot w-5"></i>
+            <span class="mx-3 font-semibold">Content Queue</span>
+        </a>
+
         <a href="{{ route('admin.contacts.index') }}"
             class="flex items-center px-4 py-3 text-gray-400 hover:bg-slate-800 hover:text-white rounded-lg transition duration-200">
             <i class="fas fa-briefcase w-5"></i>

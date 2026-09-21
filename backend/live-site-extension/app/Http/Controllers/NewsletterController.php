@@ -43,27 +43,26 @@ class NewsletterController extends Controller
     public function export()
     {
         $subscribers = NewsletterSubscriber::all();
-        
+
         $filename = 'newsletter_subscribers_' . date('Y-m-d') . '.csv';
-        $handle = fopen('php://output', 'w');
-        
-        // Add CSV headers
-        fputcsv($handle, ['ID', 'Email', 'Subscribed Date']);
-        
-        // Add data
-        foreach ($subscribers as $subscriber) {
-            fputcsv($handle, [
-                $subscriber->id,
-                $subscriber->email,
-                $subscriber->created_at->format('Y-m-d H:i:s')
-            ]);
-        }
-        
-        fclose($handle);
-        
+
         return response()->stream(
-            function() use ($handle) {
-                // The content is already output
+            function () use ($subscribers) {
+                $handle = fopen('php://output', 'w');
+
+                // Add CSV headers
+                fputcsv($handle, ['ID', 'Email', 'Subscribed Date']);
+
+                // Add data
+                foreach ($subscribers as $subscriber) {
+                    fputcsv($handle, [
+                        $subscriber->id,
+                        $subscriber->email,
+                        $subscriber->created_at->format('Y-m-d H:i:s')
+                    ]);
+                }
+
+                fclose($handle);
             },
             200,
             [

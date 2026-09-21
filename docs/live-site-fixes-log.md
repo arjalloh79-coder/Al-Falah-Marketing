@@ -131,3 +131,48 @@ Rebuilt the Settings page and its config on both sides:
   `orange_money` (which would have broken if an admin ever disabled it).
   If an admin disables every method, checkout now shows a clear "no payment
   method active, contact us directly" message instead of a broken empty form.
+
+## 2026-09-21: Homepage/Contact social icons went nowhere; dashboard sidebar had 4 fake nav items
+
+Two unrelated dead-link issues found in the same sweep:
+
+- `User/index.blade.php` and `User/contact.blade.php` each had their own
+  Facebook/Twitter/LinkedIn/Instagram icon row hardcoded to `href="#"` —
+  every icon on the homepage and Contact page went nowhere. The real,
+  working social URLs already existed one partial over, in
+  `User/footer.blade.php` (Facebook, YouTube, LinkedIn, Instagram — there's
+  no Twitter/X account, footer never had one). Fixed both blocks to use
+  the same real URLs as the footer, including swapping the Twitter icon
+  for YouTube to match the account that actually exists.
+- `User/sidebar.blade.php` (the logged-in customer dashboard) listed
+  "Project Files", "Consultations", "Invoices" and "Settings" as nav links,
+  all `href="#"`. None of the four have a route, controller, or view —
+  unlike the admin footer badges fixed on 2026-09-18, there's no existing
+  real page to honestly link them to either (customer-facing consultations/
+  invoices/settings pages don't exist yet, and building four new features
+  is out of scope for a bug sweep). Changed them from fake clickable links
+  to non-interactive items with a "Soon" badge, so the dashboard stops
+  pretending these features work.
+
+## 2026-09-21: Admin Content Queue (AI content generation) page had no nav link
+
+`Admin\ContentQueueController` and its views (`admin/content-queue/index`,
+`admin/content-queue/edit`) are fully built and routed (`/admin/content-queue`)
+— generate, edit, approve, reject, delete all work — but no link to the page
+exists anywhere in the admin UI (not the sidebar, not the header). An admin
+would have to already know the URL to use it. Added a "Content Queue" entry
+to `admin/sidebar.blade.php`, next to Blog.
+
+## 2026-09-21: Newsletter CSV export wrote to the response before headers were sent
+
+`NewsletterController::export()` called `fopen('php://output', 'w')` and
+`fputcsv()`/`fclose()` directly in the controller body, then passed an
+**empty** closure to `response()->stream()`. Writing straight to
+`php://output` sends bytes to the browser immediately, before Symfony gets
+to send the `Content-Type`/`Content-Disposition` headers — the opposite of
+what `response()->stream()` is for. In practice this either throws a
+"headers already sent" warning that gets prepended to the file, or the
+browser doesn't treat the response as a file download at all — either way,
+clicking "Export" on `/admin/newsletter/export` did not reliably hand back
+a clean CSV. Fixed by moving the `fopen`/`fputcsv`/`fclose` calls inside
+the stream callback, which is the pattern `response()->stream()` expects.
