@@ -47,7 +47,7 @@
 
                     <!-- Aspect ratio fixed to 4/3 for crisp and compact image container -->
                     <div class="relative overflow-hidden rounded-xl bg-slate-100 aspect-[4/3]">
-                        <img src="{{ asset('storage/public/' . $project->image) }}" alt="{{ $project->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
                         <!-- Results Badge Metrics Element -->
                         <div class="absolute top-4 left-4 z-10">
@@ -98,22 +98,37 @@
     </div>
 </section>
 
+@if($testimonials->isNotEmpty())
 <!-- TESTIMONIAL MINI SECTION -->
 <section class="py-16 bg-white border-t border-slate-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <i class="fas fa-quote-left text-primary/10 text-5xl mb-6"></i>
-        <h2 class="text-xl md:text-2xl font-medium text-dark mb-6 leading-relaxed max-w-3xl mx-auto italic">
-            "Al-Falah Marketing transformed our business. We went from struggling to find local clients in New York to having a booked calendar every single week."
-        </h2>
-        <div class="flex flex-col items-center">
-            <div class="w-12 h-12 rounded-full bg-slate-200 mb-3 overflow-hidden border-2 border-white shadow-sm">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="Client" class="w-full h-full object-cover">
-            </div>
-            <h5 class="text-dark font-bold text-sm">Johnathan Reed</h5>
-            <p class="text-gray-400 text-xs mt-0.5">CEO, Elite Realty Group</p>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 {{ $testimonials->count() > 1 ? 'md:grid-cols-2' : '' }}">
+            @foreach($testimonials as $t)
+                @php
+                    $quote = app()->getLocale() === 'en' && ! empty($t['quote_en']) ? $t['quote_en'] : $t['quote_fr'];
+                    $role = app()->getLocale() === 'en' && ! empty($t['author_role_en']) ? $t['author_role_en'] : ($t['author_role_fr'] ?? '');
+                    $subtitle = trim($role . (! empty($t['company']) ? ', ' . $t['company'] : ''));
+                @endphp
+                <div class="text-center">
+                    <i class="fas fa-quote-left text-primary/10 text-5xl mb-6"></i>
+                    <h2 class="text-xl md:text-2xl font-medium text-dark mb-6 leading-relaxed italic">
+                        "{{ $quote }}"
+                    </h2>
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center mb-3 border-2 border-white shadow-sm">
+                            {{ strtoupper(substr($t['author_name'], 0, 1)) }}
+                        </div>
+                        <h5 class="text-dark font-bold text-sm">{{ $t['author_name'] }}</h5>
+                        @if($subtitle)
+                            <p class="text-gray-400 text-xs mt-0.5">{{ $subtitle }}</p>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endif
 
 @endsection
 

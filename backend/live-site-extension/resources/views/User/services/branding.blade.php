@@ -445,6 +445,7 @@
 </section>
 
 
+@if($testimonials->isNotEmpty())
 <!-- TESTIMONIALS -->
 <section class="py-20 lg:py-32 bg-muted">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -456,51 +457,31 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="testimonial-card bg-white p-8 rounded-2xl shadow-sm">
-                <div class="flex text-accent mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+            @foreach($testimonials->take(3) as $t)
+                @php
+                    $quote = app()->getLocale() === 'en' && ! empty($t['quote_en']) ? $t['quote_en'] : $t['quote_fr'];
+                    $role = app()->getLocale() === 'en' && ! empty($t['author_role_en']) ? $t['author_role_en'] : ($t['author_role_fr'] ?? '');
+                    $subtitle = trim($role . (! empty($t['company']) ? ', ' . $t['company'] : ''));
+                @endphp
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="flex text-accent mb-4">
+                        @for ($i = 0; $i < 5; $i++)
+                            <i class="{{ $i < ($t['rating'] ?? 5) ? 'fas' : 'far' }} fa-star"></i>
+                        @endfor
+                    </div>
+                    <p class="text-gray-600 mb-4">"{{ $quote }}"</p>
+                    <div>
+                        <p class="font-bold text-dark">{{ $t['author_name'] }}</p>
+                        @if($subtitle)
+                            <p class="text-sm text-gray-500">{{ $subtitle }}</p>
+                        @endif
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-4">"The branding package transformed our business. Our new identity perfectly captures who we are and has helped us attract premium clients."</p>
-                <div>
-                    <p class="font-bold text-dark">Sarah Johnson</p>
-                    <p class="text-sm text-gray-500">CEO, TechStart Solutions</p>
-                </div>
-            </div>
-            <div class="testimonial-card bg-white p-8 rounded-2xl shadow-sm">
-                <div class="flex text-accent mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 mb-4">"The UI/UX design for our app was exceptional. Our users love the intuitive interface and we've seen a 40% increase in engagement."</p>
-                <div>
-                    <p class="font-bold text-dark">Michael Chen</p>
-                    <p class="text-sm text-gray-500">Founder, HealthTrack App</p>
-                </div>
-            </div>
-            <div class="testimonial-card bg-white p-8 rounded-2xl shadow-sm">
-                <div class="flex text-accent mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 mb-4">"From logo to brand guidelines, everything was delivered with exceptional quality and attention to detail. Highly recommended!"</p>
-                <div>
-                    <p class="font-bold text-dark">Emily Rodriguez</p>
-                    <p class="text-sm text-gray-500">Marketing Director, GreenLife Co.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endif
 
 <!-- FAQ SECTION -->
 <section class="py-20 lg:py-32 bg-muted">

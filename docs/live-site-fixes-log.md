@@ -176,3 +176,85 @@ browser doesn't treat the response as a file download at all — either way,
 clicking "Export" on `/admin/newsletter/export` did not reliably hand back
 a clean CSV. Fixed by moving the `fopen`/`fputcsv`/`fclose` calls inside
 the stream callback, which is the pattern `response()->stream()` expects.
+
+## 2026-09-21: Checkout payment picker was non-interactive; three more dead links; a fake regressed since the `import-live-site-source` swap
+
+Found in a wider public-site sweep (public marketing + auth/account pages).
+One important piece of context surfaced while investigating the last item
+below, worth flagging up front: on 2026-09-20 this repo's
+`backend/live-site-extension/` was wholesale-replaced with the real code
+pulled from the live server (`import-live-site-source`, since the previous
+in-repo copy was an undeployed parallel scaffold). That swap silently
+reverted a handful of fixes that had only ever been made to the old
+scaffold — most were independently re-found and re-fixed afterwards
+(`Fix case-sensitive admin role check…`, `Replace fake client dashboard
+content with real data`), but at least one, below, was not.
+
+- **`User/checkout.blade.php` used Alpine.js (`x-data`, `x-model`, `x-show`,
+  `x-cloak`, `x-bind`) for its payment-method picker, but Alpine was never
+  loaded on the public site** — only `admin/main.blade.php` includes the
+  Alpine script tag; `User/main.blade.php` (the public layout every
+  storefront page extends) does not. Without Alpine, selecting a payment
+  method on `/order/{service}` did nothing: the highlighted-method styling
+  never updated, the method-specific fields never showed/hid, and the
+  `required` bindings on `payment_number`/`transaction_id` never activated
+  — a real defect on the revenue path. Added the same Alpine.js `<script>`
+  tag and `[x-cloak]` CSS rule to `User/main.blade.php` that the admin
+  layout already uses.
+- **Blog search box submitted but filtered nothing.** `User/blog.blade.php`
+  posts a `search` query to `route('blog')` and even echoes it back into
+  the input, but `UserController::blog()` only ever read the `category`
+  query param. Added a `title`/`content` `LIKE` filter for `search`.
+- **Two `wa.me/YOUR_NUMBER` literal placeholders** on `User/domains/index.blade.php`
+  ("Contact Support" and per-domain "Help" links) — never swapped for the
+  real `App\Support\Contact::whatsappUrl()` helper the rest of the app uses
+  (and the per-domain one built its `?text=` query param by raw string
+  concatenation, unescaped). Both now use `Contact::whatsappUrl()`.
+- **Footer "Portfolio" quick link had `href=""`** (every other quick link
+  uses a named route) — clicking it just reloaded the current page instead
+  of navigating to `/portfolio`. Fixed to `route('portfolio')`.
+- **Leftover "MarketPro" template branding** shown to real visitors: the
+  mobile menu logo (`User/header.blade.php`) and the homepage's closing CTA
+  copy (`User/index.blade.php`) both still said "MarketPro" instead of
+  "Al-Falah Marketing" — un-migrated boilerplate from whatever template the
+  site started from.
+- **Every public portfolio/blog image was broken (wrong storage path).**
+  `User/portfolio.blade.php`, `User/blog.blade.php` (×2), `User/blog_single.blade.php`,
+  and `User/index.blade.php` (×2) all built image URLs as
+  `asset('storage/public/' . $x->image)`. `Portfolio`/`Blog` images are
+  stored via `->store('portfolios'|'blogs', 'public')`, which returns a
+  path already relative to the `public` disk root — the correct URL is
+  `asset('storage/' . $x->image)`, exactly the pattern the admin list views
+  already use correctly. The extra `/public/` segment made every portfolio
+  card, homepage preview, blog thumbnail, and blog-single hero image a
+  broken image icon. Dropped the extra segment in all 6 spots.
+- **Public testimonials were still 100% hardcoded fake content, and the
+  admin Testimonials CMS fed none of it** — this is the regression
+  mentioned above. `resources/views/User/portfolio.blade.php` had reverted
+  to a single fake "Johnathan Reed / Elite Realty Group" quote with a
+  stock Unsplash headshot (the exact bug PR #11 fixed on 2026-09-20,
+  restored a few hours later by the production-code swap and never
+  re-fixed). `services/branding.blade.php` and `services/content.blade.php`
+  each had three more fully hardcoded fake testimonials
+  (Sarah Johnson/Michael Chen/Emily Rodriguez;
+  David Thompson/Sarah Mitchell/James Rodriguez) that were never wired up
+  at all, even before the swap. Fixed properly this time:
+  `PortfolioController::index()` and a new `UserController::activeTestimonials()`
+  helper now load active testimonials from `ContentStore::for('testimonials')`;
+  all three views render the real quote/name/role/company (in the visitor's
+  locale, with an initials avatar instead of a stock photo), the two
+  service pages also render the real star rating, and every section hides
+  itself when there are zero active testimonials instead of showing
+  something fake or empty.
+- **Customer dashboard showed consultations as "Confirmed" that no admin had
+  ever confirmed.** The `/dashboard` route computed a consultation's status
+  purely from its date (`meeting_date >= today ? 'confirmed' : 'completed'`)
+  — there was no `confirmed_at`/status column at all, so "Confirmed" meant
+  nothing beyond "the meeting hasn't happened yet." A customer could see a
+  meeting marked confirmed that the admin never clicked "Confirm" on.
+  Added a nullable `confirmed_at` column to `consultations`;
+  `ConsultationController::confirm()` now sets it, `reschedule()` clears it
+  (a reschedule needs re-confirming), the dashboard now shows "pending"
+  until it's actually set, and the admin Consultations list gained a
+  Confirmed/Pending status column so admins can tell which ones they've
+  already handled.

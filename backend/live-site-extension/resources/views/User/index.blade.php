@@ -303,7 +303,7 @@
 
                     <div class="relative overflow-hidden rounded-lg mb-6">
 
-                        <img src="{{ asset('storage/public/' . $project->image) }}"
+                        <img src="{{ asset('storage/' . $project->image) }}"
                              alt="{{ $project->title }}"
                              class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
 
@@ -416,7 +416,7 @@
                         <div class="relative overflow-hidden aspect-[16/10]">
                             <!-- Blog Image -->
                             @if($blog->image)
-                                <img src="{{ asset('storage/public/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105">
+                                <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105">
                             @else
                                 <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">No Image</div>
                             @endif
@@ -601,7 +601,7 @@
         </h2>
         
         <p class="text-xl text-white/90 mb-10 leading-relaxed">
-            Join 500+ businesses that trust MarketPro to deliver exceptional marketing results. Let's build something amazing together.
+            Join 500+ businesses that trust Al-Falah Marketing to deliver exceptional marketing results. Let's build something amazing together.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">

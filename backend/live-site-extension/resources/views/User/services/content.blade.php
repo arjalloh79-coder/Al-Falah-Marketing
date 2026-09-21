@@ -494,6 +494,7 @@
 
 
 
+@if($testimonials->isNotEmpty())
 <!-- TESTIMONIALS -->
 <section class="py-20 lg:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -505,51 +506,31 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-muted p-8 rounded-2xl">
-                <div class="flex text-secondary mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+            @foreach($testimonials->take(3) as $t)
+                @php
+                    $quote = app()->getLocale() === 'en' && ! empty($t['quote_en']) ? $t['quote_en'] : $t['quote_fr'];
+                    $role = app()->getLocale() === 'en' && ! empty($t['author_role_en']) ? $t['author_role_en'] : ($t['author_role_fr'] ?? '');
+                    $subtitle = trim($role . (! empty($t['company']) ? ', ' . $t['company'] : ''));
+                @endphp
+                <div class="bg-muted p-8 rounded-2xl">
+                    <div class="flex text-secondary mb-4">
+                        @for ($i = 0; $i < 5; $i++)
+                            <i class="{{ $i < ($t['rating'] ?? 5) ? 'fas' : 'far' }} fa-star"></i>
+                        @endfor
+                    </div>
+                    <p class="text-gray-600 mb-4">"{{ $quote }}"</p>
+                    <div>
+                        <p class="font-bold text-dark">{{ $t['author_name'] }}</p>
+                        @if($subtitle)
+                            <p class="text-sm text-gray-500">{{ $subtitle }}</p>
+                        @endif
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-4">"The content created by Al-Falah has transformed our online presence. Our blog traffic has increased by 300% and we're getting more leads than ever."</p>
-                <div>
-                    <p class="font-bold text-dark">David Thompson</p>
-                    <p class="text-sm text-gray-500">CEO, TechVibe Solutions</p>
-                </div>
-            </div>
-            <div class="bg-muted p-8 rounded-2xl">
-                <div class="flex text-secondary mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 mb-4">"The video marketing campaigns have been incredible. Our engagement rates have doubled and we're seeing a significant increase in brand awareness."</p>
-                <div>
-                    <p class="font-bold text-dark">Sarah Mitchell</p>
-                    <p class="text-sm text-gray-500">Marketing Director, GreenLeaf Co.</p>
-                </div>
-            </div>
-            <div class="bg-muted p-8 rounded-2xl">
-                <div class="flex text-secondary mb-4">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-600 mb-4">"Working with the content team has been a game-changer. Their strategic approach and creative execution are unmatched in the industry."</p>
-                <div>
-                    <p class="font-bold text-dark">James Rodriguez</p>
-                    <p class="text-sm text-gray-500">Founder, Elevate Agency</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endif
 
 
 <!-- FAQ SECTION -->

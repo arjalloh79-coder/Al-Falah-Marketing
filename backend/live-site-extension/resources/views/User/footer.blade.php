@@ -47,7 +47,7 @@
                             class="text-gray-400 hover:text-primary transition-colors font-medium">About Us</a></li>
                     <li><a href="{{ route('service') }}"
                             class="text-gray-400 hover:text-primary transition-colors font-medium">Services</a></li>
-                    <li><a href=""
+                    <li><a href="{{ route('portfolio') }}"
                             class="text-gray-400 hover:text-primary transition-colors font-medium">Portfolio</a></li>
                     <li><a href="{{ route('blog') }}"
                             class="text-gray-400 hover:text-primary transition-colors font-medium">Blog</a></li>
