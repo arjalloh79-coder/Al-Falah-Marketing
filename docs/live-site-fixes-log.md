@@ -258,3 +258,17 @@ content with real data`), but at least one, below, was not.
   until it's actually set, and the admin Consultations list gained a
   Confirmed/Pending status column so admins can tell which ones they've
   already handled.
+
+## 2026-09-21: Newsletter bulk-delete threw a 500 (found live, right after deploying the fixes above)
+
+`/admin/newsletter/bulk-delete` crashed with `TypeError: count(): Argument
+#1 ($value) must be of type Countable|array, string given` from inside
+`whereIn()`. The bulk-delete modal's JS builds its selection as
+`document.getElementById('bulkDeleteIds').value = JSON.stringify(ids)` —
+a single hidden `<input name="ids">` carrying a JSON-encoded string like
+`"[3,5,7]"` — but `NewsletterController::bulkDelete()` did
+`$request->input('ids', [])` and handed that string straight to
+`whereIn('id', $ids)`, which needs a real PHP array. Fixed by
+`json_decode`-ing it in the controller instead of changing the form to
+`ids[]` (smaller change, and the JS already controls the exact shape of
+what it sends).

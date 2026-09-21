@@ -77,12 +77,14 @@ class NewsletterController extends Controller
      */
     public function bulkDelete(Request $request)
     {
-        $ids = $request->input('ids', []);
-        
+        // The bulk-delete form sends `ids` as a JSON-encoded string
+        // (JSON.stringify(ids) into a single hidden input), not as ids[].
+        $ids = json_decode($request->input('ids', '[]'), true) ?: [];
+
         if (empty($ids)) {
             return back()->with('error', 'No subscribers selected.');
         }
-        
+
         NewsletterSubscriber::whereIn('id', $ids)->delete();
         
         return back()->with('success', 'Selected subscribers removed successfully.');
