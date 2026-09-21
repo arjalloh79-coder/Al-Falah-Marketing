@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewContactEnquiry;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -32,9 +34,12 @@ class ContactController extends Controller
         ]);
 
         // 2. Create the record in the database
-        Contact::create($validated);
+        $enquiry = Contact::create($validated);
 
-        // 3. Redirect back with a success message
+        // 3. Notify the admin inbox so enquiries don't sit unseen
+        Mail::to(config('mail.admin_notification_address'))->send(new NewContactEnquiry($enquiry));
+
+        // 4. Redirect back with a success message
         return back()->with('success', 'Thank you! Your message has been sent.');
     }
 }

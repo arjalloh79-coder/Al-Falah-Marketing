@@ -115,4 +115,17 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Notification Address
+    |--------------------------------------------------------------------------
+    |
+    | Where new-contact-enquiry notifications are sent. Defaults to the
+    | agency's own inbox so this works even if ADMIN_NOTIFICATION_EMAIL
+    | is never set.
+    |
+    */
+
+    'admin_notification_address' => env('ADMIN_NOTIFICATION_EMAIL', 'info@al-falahmarketing.com'),
+
 ];
