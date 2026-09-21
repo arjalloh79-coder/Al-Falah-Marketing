@@ -12,7 +12,7 @@ Step-by-step for getting `backend/` live on your actual Hostinger account. This 
 - **Upload path:** `public_html`
 - **Note on "supported frameworks" in hPanel:** the Node.js/React/etc. list you saw is for Hostinger's separate Node app hosting feature — not relevant here. This backend is PHP/Laravel; its frontend build step already ran and the compiled output is bundled into the deployment zip, so no Node runtime is needed on the server at all.
 
-**Requirement to check:** the backend needs **PHP 8.3 or newer**. Business plans support this, but you'll likely need to explicitly select it for the domain (see Step 2) — Hostinger's default PHP version is often older.
+**Requirement to check:** the backend needs **PHP 8.4.1 or newer** (Laravel 13 pulls in Symfony 8.x components, which raised the floor from 8.3 to 8.4.1 — `composer.lock` locks these versions already). Business plans support this, but you'll likely need to explicitly select it for the domain (see Step 2) — Hostinger's default PHP version is often older, and picking 8.3 is not enough.
 
 ## Step 0: Get the deployment bundle
 
@@ -28,7 +28,7 @@ I already built, tested, and sent you `al-falah-backend-deploy.zip` (~27MB) — 
 ## Step 2: Set the PHP version
 
 1. hPanel → **Advanced** → **PHP Configuration** for `al-falahmarketing.com`.
-2. Select **PHP 8.3** or newer.
+2. Select **PHP 8.4** (or newer). PHP 8.3 and below are not enough — Composer will refuse to run (`require >= 8.4.1`, you're running 8.2.33/8.3.x) and `php artisan migrate` will fail the same way.
 
 ## Step 3: Create the MySQL database
 
@@ -118,3 +118,4 @@ The existing site's contact/consultation forms and services catalog can point at
 - **"could not find driver" DB error:** the selected PHP version might not have `pdo_mysql` enabled — check hPanel's PHP extension list for the domain.
 - **CSS/JS look broken:** confirm `public/build/` made it into the extracted files, and that `APP_URL` in `.env` matches the actual domain/subdomain you're using.
 - **SSH connection refused:** double-check SSH is toggled on in hPanel and you're using the exact port it lists (Hostinger often uses a non-standard SSH port, not 22).
+- **"Composer dependencies require a PHP version >= 8.4.1. You are running 8.2.33" (or similar) when running `composer install`/`migrate`:** the domain's PHP version in hPanel is still set below 8.4 — redo Step 2 and select PHP 8.4 (or newer), then re-run the command. SSH sessions sometimes use a different default PHP binary than the one hPanel sets for the domain; if selecting 8.4 in hPanel doesn't fix it, run `php -v` over SSH to check which PHP the shell actually resolves to, and use the versioned binary Hostinger provides for SSH (e.g. `/usr/bin/php8.4` — check hPanel's SSH/PHP docs for the exact path) instead of the bare `php` command if they differ.
