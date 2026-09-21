@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Consultation;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConsultationConfirmed;
 use App\Mail\ConsultationRescheduled;
@@ -19,7 +20,14 @@ class ConsultationController extends Controller
             'subject' => 'required|string',
         ]);
 
-        Consultation::create($validated);
+        $consultation = Consultation::create($validated);
+
+        Notification::create([
+            'type' => 'consultation',
+            'title' => 'New consultation request',
+            'body' => $consultation->name . ' — ' . $consultation->subject,
+            'url' => route('admin.consultations.index'),
+        ]);
 
         return back()->with('consultation_success', 'Your consultation request has been sent successfully!');
     }

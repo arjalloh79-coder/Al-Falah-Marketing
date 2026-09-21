@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\Order;
 use App\Support\ContentStore;
 use Illuminate\Http\Request;
@@ -85,6 +86,13 @@ class CheckoutController extends Controller
             'payment_number' => $data['payment_number'] ?? null,
             'transaction_id' => $data['transaction_id'] ?? null,
             'status' => 'pending',
+        ]);
+
+        Notification::create([
+            'type' => 'order',
+            'title' => 'New order placed',
+            'body' => $order->customer_name . ' — ' . $order->service_name,
+            'url' => route('admin.orders.show', $order->id),
         ]);
 
         if ($method === 'card') {

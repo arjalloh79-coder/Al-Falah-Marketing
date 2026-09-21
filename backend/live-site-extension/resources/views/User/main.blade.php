@@ -146,17 +146,21 @@ function googleTranslateElementInit() {
 }
 
 function setLanguage(lang) {
-    if (lang === 'en') {
-        // Clear Google Translate cookie
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
-        document.cookie = "lang=en; path=/; max-age=" + (30 * 24 * 60 * 60);
-    } else {
-        // Set Google Translate cookie
-        document.cookie = "googtrans=/en/" + lang + "; path=/;";
-        document.cookie = "googtrans=/en/" + lang + "; path=/; domain=" + window.location.hostname;
-        document.cookie = "lang=" + lang + "; path=/; max-age=" + (30 * 24 * 60 * 60);
-    }
+    // Clearing the googtrans cookie to go back to English is unreliable --
+    // Google's own widget script can re-set its copy of that cookie on
+    // load using a domain format this code doesn't clear, silently
+    // reverting to French. Explicitly setting /en/en (translate English
+    // to English) sidesteps that entirely: it doesn't depend on a delete
+    // actually succeeding, it just always shows the original text.
+    const target = lang === 'fr' ? 'fr' : 'en';
+    const value = 'googtrans=/en/' + target;
+    const hostname = window.location.hostname;
+
+    document.cookie = value + '; path=/;';
+    document.cookie = value + '; path=/; domain=' + hostname + ';';
+    document.cookie = value + '; path=/; domain=.' + hostname + ';';
+
+    document.cookie = "lang=" + lang + "; path=/; max-age=" + (30 * 24 * 60 * 60);
     localStorage.setItem('lang', lang);
     window.location.reload();
 }

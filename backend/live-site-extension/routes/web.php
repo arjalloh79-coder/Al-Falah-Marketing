@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\ContentQueueController;
 use App\Http\Controllers\Admin\SearchController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\PasswordResetController;
 
 
@@ -90,6 +91,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
 // Admin global search
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/search', [SearchController::class, 'index'])->name('admin.search');
+});
+
+// Admin notifications
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::post('/admin/notifications/read-all', [NotificationController::class, 'readAll'])->name('admin.notifications.read-all');
+    Route::post('/admin/notifications/{notification}/read', [NotificationController::class, 'read'])->name('admin.notifications.read');
 });
 
 // consultation route (public: this is the website booking form)

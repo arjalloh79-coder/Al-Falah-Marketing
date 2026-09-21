@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ContactEnquiryReceived;
 use App\Mail\NewContactEnquiry;
 use App\Models\Contact;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
@@ -40,6 +41,13 @@ class ContactController extends Controller
 
         // 3. Notify the admin inbox so enquiries don't sit unseen
         Mail::to(config('mail.admin_notification_address'))->send(new NewContactEnquiry($enquiry));
+
+        Notification::create([
+            'type' => 'contact',
+            'title' => 'New contact enquiry',
+            'body' => $enquiry->first_name . ' ' . $enquiry->last_name . ' — ' . $enquiry->service_interest,
+            'url' => route('admin.contacts.index'),
+        ]);
 
         // 4. Send the visitor an instant acknowledgment -- no AI, no risk of
         // a wrong answer, just confirmation their message went through and
