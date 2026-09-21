@@ -272,3 +272,25 @@ a single hidden `<input name="ids">` carrying a JSON-encoded string like
 `json_decode`-ing it in the controller instead of changing the form to
 `ids[]` (smaller change, and the JS already controls the exact shape of
 what it sends).
+
+## 2026-09-21: `deploy.sh` never cleared caches or ran migrations, and wasn't version-controlled at all
+
+Found while walking through an actual production deploy. Two issues:
+
+- The live server's `deploy.sh` (`~/domains/al-falahmarketing.com/public_html/deploy.sh`)
+  only did `git fetch origin main && git reset --hard origin/main` — it never
+  ran `artisan migrate` or cleared config/view/route/cache, so every deploy
+  needed those run by hand afterward, and a deploy that only changed Blade
+  views could look like it "didn't work" if the old compiled views were
+  still cached.
+- `deploy.sh` itself was untracked — never committed anywhere, just a file
+  sitting in the server's working directory (which is why `git reset --hard`
+  never touched it: reset only resets tracked files). Any edit to it had to
+  be hand-applied on the server and would never come down through the
+  normal `git pull`/mirror flow other files get.
+
+Added `backend/live-site-extension/deploy.sh` to the repo (now mirrors to
+`Al-Falah-Website` like everything else here) with `artisan migrate --force`
+and a full cache-clear added after the pull. `artisan migrate --force` is
+safe to run on every deploy unconditionally — it only applies pending
+migrations and no-ops otherwise.

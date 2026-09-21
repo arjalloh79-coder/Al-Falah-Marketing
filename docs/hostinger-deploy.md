@@ -123,6 +123,17 @@ Visit `<your APP_URL>/api/services` — should return JSON with the 6 seeded ser
 
 The existing site's contact/consultation forms and services catalog can point at this backend's routes (`/contact-submit`, `/consultation-store`, `/api/services`, `/order/{service}`) once you're ready to cut over — see the rollout plan in `custom-backend-plan.md`. Don't rush this; proving the new backend standalone first (e.g. on a subdomain) before touching the live site's forms is the safer order.
 
+## Routine deploys (after the initial setup)
+
+Steps 0–8 above are for the *first* deploy. In practice, the account is set up as a plain git checkout at the app root (confirmed: `~/domains/al-falahmarketing.com/public_html` on this account, with `artisan`/`composer.json` directly inside it — not a `backend/` subfolder), tracking `arjalloh79-coder/Al-Falah-Website`'s `main` branch, which is auto-mirrored from `backend/live-site-extension/` in this repo on every push to `main` here.
+
+For every deploy after the first one, just run:
+```bash
+cd ~/domains/al-falahmarketing.com/public_html
+./deploy.sh
+```
+`deploy.sh` (tracked in this repo — see `backend/live-site-extension/deploy.sh`) does `git fetch && git reset --hard origin/main`, then `artisan migrate --force` and a full cache-clear, in one shot. No manual `composer install` needed either, unless `composer.lock` changed — see the "Composer platform" troubleshooting entry below if it did.
+
 ## If something goes wrong
 
 - **500 error, blank page:** set `APP_DEBUG=true` temporarily in `.env` to see the real error, then set it back to `false` once fixed — never leave debug mode on in production.
