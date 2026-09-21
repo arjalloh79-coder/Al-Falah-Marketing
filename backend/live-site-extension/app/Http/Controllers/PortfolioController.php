@@ -67,6 +67,42 @@ class PortfolioController extends Controller
         return redirect()->route('admin.portfolio.index')->with('success', 'Project added successfully!');
     }
 
+    public function edit($id)
+    {
+        $project = Portfolio::findOrFail($id);
+        return view('admin.portfolio.edit', compact('project'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $project = Portfolio::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'required|string',
+            'target_market' => 'required|string|max:255',
+            'badge_text' => 'required|string|max:255',
+            'year' => 'required|string|max:4',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'project_url' => 'nullable|url',
+            'website_url_live' => 'nullable|url',
+            'website_url_staging' => 'nullable|url'
+        ]);
+
+        $data = $request->only(['title', 'category', 'target_market', 'badge_text', 'year', 'project_url', 'website_url_live', 'website_url_staging']);
+
+        if ($request->hasFile('image')) {
+            if ($project->image) {
+                Storage::disk('public')->delete($project->image);
+            }
+            $data['image'] = $request->file('image')->store('portfolios', 'public');
+        }
+
+        $project->update($data);
+
+        return redirect()->route('admin.portfolio.index')->with('success', 'Project updated successfully!');
+    }
+
     public function destroy($id)
     {
         $project = Portfolio::findOrFail($id);

@@ -172,6 +172,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/portfolio', [PortfolioController::class, 'adminIndex'])->name('admin.portfolio.index');
     Route::get('/portfolio/create', [PortfolioController::class, 'create'])->name('admin.portfolio.create');
     Route::post('/portfolio/store', [PortfolioController::class, 'store'])->name('admin.portfolio.store');
+    Route::get('/portfolio/{id}/edit', [PortfolioController::class, 'edit'])->name('admin.portfolio.edit');
+    Route::put('/portfolio/{id}', [PortfolioController::class, 'update'])->name('admin.portfolio.update');
     Route::delete('/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('admin.portfolio.destroy');
 });
 
