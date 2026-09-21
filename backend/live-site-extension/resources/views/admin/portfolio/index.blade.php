@@ -34,11 +34,18 @@
                     <td class="p-4"><span class="bg-slate-700 px-2 py-1 rounded text-xs">{{ $project->category }}</span></td>
                     <td class="p-4 text-sm text-gray-400">{{ $project->target_market }}</td>
                     <td class="p-4">
-                        <form action="{{ route('admin.portfolio.destroy', $project->id) }}" method="POST" onsubmit="return confirm('Are you sure?')">
-                            @csrf
-                            @method('DELETE')
-                            <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
-                        </form>
+                        <div class="flex items-center gap-3">
+                            <a href="{{ route('admin.portfolio.edit', $project->id) }}" class="text-blue-500 hover:text-blue-700 transition" title="Edit">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form action="{{ route('admin.portfolio.destroy', $project->id) }}" method="POST" onsubmit="return confirm('Are you sure?')" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="text-red-500 hover:text-red-700 transition" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach

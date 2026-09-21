@@ -20,10 +20,18 @@
             </div>
             <div>
                 <label class="block text-sm font-bold mb-2">Category</label>
-                <select name="category" class="w-full p-3 border rounded-lg">
+                <select name="category" class="w-full p-3 border rounded-lg" required>
+                    <option value="">Select a category</option>
+                    <option>Digital Marketing</option>
                     <option>Web Design</option>
+                    <option>E-Commerce</option>
                     <option>SEO Tips</option>
-                    <option>AI Marketing</option>
+                    <option>AI & Automation</option>
+                    <option>Social Media</option>
+                    <option>Content Strategy</option>
+                    <option>Business Growth</option>
+                    <option>Technology</option>
+                    <option>Other</option>
                 </select>
             </div>
         </div>

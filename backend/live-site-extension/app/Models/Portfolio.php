@@ -16,6 +16,8 @@ class Portfolio extends Model
         'badge_text',
         'year',
         'image',
-        'project_url'
+        'project_url',
+        'website_url_live',
+        'website_url_staging'
     ];
 }
