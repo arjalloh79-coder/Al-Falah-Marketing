@@ -157,7 +157,7 @@
 
                 @auth
                     <!-- अगर यूजर लॉग इन है तो केवल उसका नाम और डैशबोर्ड लिंक आइकॉन दिखेगा -->
-                    <a href="{{ Auth::user()->role === 'admin' ? route('admin.index') : route('user.dashboard') }}"
+                    <a href="{{ strtolower(Auth::user()->role ?? '') === 'admin' ? route('admin.index') : route('user.dashboard') }}"
                         class="flex items-center space-x-3 px-4 h-12 bg-muted hover:bg-gray-200 text-dark rounded-md font-bold text-sm uppercase tracking-wider transition-colors duration-200">
                         <div
                             class="w-8 h-8 bg-primary text-white font-bold rounded-full flex items-center justify-center text-sm">
@@ -243,7 +243,7 @@
                 @endguest
 
                 @auth
-                    <a href="{{ Auth::user()->role === 'admin' ? route('admin.index') : route('user.dashboard') }}"
+                    <a href="{{ strtolower(Auth::user()->role ?? '') === 'admin' ? route('admin.index') : route('user.dashboard') }}"
                         class="w-full h-14 bg-primary text-white rounded-md font-bold text-sm uppercase tracking-wider flex items-center justify-center space-x-3 transition-all duration-200">
                         <div
                             class="w-8 h-8 bg-white text-primary font-bold rounded-full flex items-center justify-center text-sm">

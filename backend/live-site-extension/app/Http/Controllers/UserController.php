@@ -88,7 +88,7 @@ public function show($slug) {
             $request->session()->regenerate();
 
             // Intercept role types & dispatch to specific system dashboard routes
-            if (Auth::user()->role === 'admin') {
+            if (strtolower(Auth::user()->role ?? '') === 'admin') {
                 return redirect()->intended(route('admin.index'));
             }
 
