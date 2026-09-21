@@ -6,12 +6,12 @@
         </button>
 
         <!-- Search Bar (Desktop) -->
-        <div class="relative mx-4 lg:mx-0 hidden sm:block">
+        <form action="{{ route('admin.search') }}" method="GET" class="relative mx-4 lg:mx-0 hidden sm:block">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <i class="fas fa-search text-gray-400"></i>
             </span>
-            <input class="w-32 pl-10 pr-4 rounded-lg form-input sm:w-64 focus:border-blue-500 bg-gray-100 border-none h-10 text-sm" type="text" placeholder="Search data...">
-        </div>
+            <input type="text" name="q" value="{{ request('q') }}" class="w-32 pl-10 pr-4 rounded-lg form-input sm:w-64 focus:border-blue-500 bg-gray-100 border-none h-10 text-sm" placeholder="Search data...">
+        </form>
     </div>
 
     <div class="flex items-center space-x-4">

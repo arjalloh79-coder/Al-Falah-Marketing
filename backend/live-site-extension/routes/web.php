@@ -18,6 +18,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\ContentQueueController;
+use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\PasswordResetController;
 
 
@@ -84,6 +85,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/contacts', [AdminController::class, 'contacts'])->name('admin.contacts.index');
     Route::delete('/admin/contacts/{id}', [AdminController::class, 'destroyContact'])->name('admin.contacts.destroy');
+});
+
+// Admin global search
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/search', [SearchController::class, 'index'])->name('admin.search');
 });
 
 // consultation route (public: this is the website booking form)
