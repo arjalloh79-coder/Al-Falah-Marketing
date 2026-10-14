@@ -1,66 +1,59 @@
-# Al-Falah Marketing
+# Al-Falah Marketing — Official Website
 
-Business context, brand reference, and automation configs for Al-Falah Marketing — kept here so lead handling, content, and site work stay consistent across sessions and tools.
+**Live site:** [https://al-falahmarketing.com](https://al-falahmarketing.com)  
+**Owner:** [arjalloh79-coder](https://github.com/arjalloh79-coder) · Abdulrahman Jalloh
 
-## About
+This repository is the **single source of truth** for the Al-Falah Marketing production website (static multi-page site + PHP forms/admin + AI assistant).
 
-Al-Falah Marketing is a digital marketing agency helping SMBs and government institutions become competitive in the modern AI and tech landscape. Operating out of **Conakry / Coyah, Guinea** and **Freetown, Sierra Leone**, serving clients more broadly (site is bilingual EN/FR, HQ address listed in Laurel, MD, USA).
+## Structure
 
-Site: https://www.al-falahmarketing.com
+```
+/
+├── index.html, about.html, services.html, …   # Public pages
+├── blog/ , services/ , institutions-*.html    # Sections
+├── assets/images/ , assets/videos/            # Media
+├── api/          # contact, newsletter, AI assistant (PHP)
+├── admin/        # Simple PHP admin (blog/pages)
+├── ai-assistant.js , theme-toggle.js , theme-light.css
+├── lang-persist.js
+└── archive/      # Pointers to older projects (see below)
+```
 
-## Services
+## Deploy (Hostinger)
 
-| Service | What it covers |
-|---|---|
-| Web Development | Custom web apps, e-commerce, CMS integration |
-| Digital Marketing | SEO & SEM, social media ads, email marketing |
-| Branding & Design | Logo & visual identity, UI/UX design, marketing collateral |
-| AI & Automation | AI chatbots, CRM automation, workflow optimization |
-| Content Creation | Video marketing, blog & copywriting, graphics production |
-| IT Solutions | Cloud hosting, cyber security, tech support |
+1. Upload contents of this repo to `public_html/`
+2. Ensure PHP 8+ and `curl` enabled
+3. Edit `api/config.php` — set admin password + optional `OPENAI_API_KEY`
+4. Optional: Hostinger **Git** deploy from `main` → `public_html`
 
-## Contact
+## Features
 
-- **Phone / WhatsApp (US):** +1 240-280-6137
-- **Phone / WhatsApp (Guinea):** +224 611 351 302
-- **Phone / WhatsApp (Sierra Leone):** +232 74 321 916
-- **Email:** info@al-falahmarketing.com
-- **Office:** 8468 Winding Trail, Laurel, MD 20724, USA
-- **Facebook:** https://www.facebook.com/profile.php?id=61573274222922
-- **Instagram:** https://www.instagram.com/alfalahmarketinginc/
-- **LinkedIn:** https://www.linkedin.com/company/al-falah-marketing-inc/
-- **YouTube:** https://youtube.com/@al-falahmarketing-official
+- Bilingual EN/FR (`localStorage` + `lang-persist.js`)
+- Dark / light theme toggle
+- Institutions track + portfolio + blog
+- Hybrid AI assistant (`api/ai-assistant.php` + OpenAI)
+- Contact & newsletter endpoints
 
-## Brand
+## Older Al-Falah repos (consolidate / delete)
 
-- Colors: primary `#3B82F6` (blue), secondary `#10B981` (green), accent `#F59E0B` (amber), dark `#111827`
-- Font: Outfit (Google Fonts)
-- Languages: English / French, switchable site-wide
+These were separate mockup or legacy projects. Prefer **one** repo (this one). You can delete the others in GitHub → Settings → Delete repository:
 
-## Clients / portfolio referenced on site
+| Repository | Role |
+|------------|------|
+| `Al-Falah-Marketing` (this) | **Canonical website** |
+| `restaurant-agadir-kaloum-mockup` | Client mockup |
+| `oklm-grill-kipe-mockup` | Client mockup |
+| `zion-kitchen-laurel-mockup` | Client mockup |
+| `crown-bakery-freetown-mockup` | Client mockup |
+| `halal-brothers-silverspring-mockup` | Client mockup |
+| `abioseh-bakery-freetown-mockup` | Client mockup |
+| `restaurant-obureau-kobayah-mockup` | Client mockup |
+| `kaki-restaurant-kipe-mockup` | Client mockup |
+| `minaah-co-mockup` | Client mockup |
+| Other `*-mockup` / Laravel experiments | Legacy |
 
-Acile Coffee, Shawarma Sam, Labonet, E.I. Maloum, Metal Star Africa SARL, District Wildlife Solutions. FatimaVoyages is also an active client (separate repo: `arjalloh79-coder/fatimavoyages`), handled as a travel-industry account.
+Optional: move mockup HTML into `archive/client-mockups/<name>/` if you still need them in-git.
 
-## What's in this repo
+## License
 
-- `docs/site-source/` — a saved snapshot of the live homepage HTML, pulled 2026-08-29 (this session's network policy blocks direct access to al-falahmarketing.com, so this is the source of truth until a live connector is set up)
-- `docs/whatsapp-sales-assistant.md` — the bilingual WhatsApp lead-qualification playbook already in use
-- `docs/lead-and-automation-plan.md` — working notes and current status on the overall lead → booking pipeline
-- `docs/booking-setup.md` — how Google Calendar is wired up as the booking destination (live)
-- `docs/lead-capture-setup.md` — step-by-step to automate pulling leads from the site's contact/consultation forms into the tracker sheet
-- `docs/whatsapp-automation-setup.md` — step-by-step to move WhatsApp from a plain phone app to an automatable Business API
-- `content/batch-1/` — first content batch: blog post + video script (EN/FR) and social captions for Facebook/Instagram/LinkedIn/YouTube
-- `.claude/skills/al-falah-lead-triage/` — active skill: classify inbound leads (genuine / cold-pitch / suspicious / spam), draft the right reply, and log to the tracker sheet
-- `docs/order-notifications-setup.md` — the Al-Falah Services (Base44) backend that appeared 2026-09-16, the Orders tracker, and the hourly new-order watch
-- `backend/` — a real, working Laravel backend (services catalog, lead capture, orders + payment flows, admin dashboard) — see `docs/custom-backend-plan.md` and `backend/README.md`
-- `docs/payment-flows.md` — how the Orange Money / MTN / Moov / Wave / bank transfer / card checkout flows work, what's tested, and what real account details are still needed
-
-## Status / open items
-
-- **Custom backend (2026-09-16):** decided to build and own a Laravel backend rather than continue on Base44 (Base44 confirmed NOT to be the live site's actual backend). Scaffolded, tested end-to-end locally (migrations, seeder, contact/consultation forms incl. honeypot + rate limiting, order placement, payment-method-specific checkout flows, admin login/dashboard) — see `docs/custom-backend-plan.md`, `docs/payment-flows.md`, and `backend/README.md`. **Not yet deployed** — this session cannot reach Hostinger to deploy it; that's a manual step. Hosting confirmed compatible: Hostinger "Horizons Starter" plan (PHP + MySQL tier).
-- **Payment flows:** built and tested for all 6 methods — mobile money/bank use a "pay externally, submit proof, admin confirms manually" flow (no live gateway agreements in place); card is wired to Stripe Checkout but disabled until a Stripe key is added. **Real receiving account numbers/bank details are not yet filled in** — see `docs/payment-flows.md`.
-- **Lead tracker:** live — [Al-Falah Marketing - Leads](https://docs.google.com/spreadsheets/d/16khY9MvQdI80zZlJ8a5VmpXQjGsJfymbVD3H-f_0MI0/edit) (Google Sheets, via Zapier MCP) — will likely be superseded by the custom backend's own Leads table once deployed
-- **Order tracker:** live — [Al-Falah Marketing - Orders](https://docs.google.com/spreadsheets/d/1CtZT6rMKl0Ffhost9SNXPdLyhxTAjn1hliQVWGOZSbE/edit), watched hourly for new orders from the Al-Falah Services (Base44) backend (see `docs/order-notifications-setup.md`) — Base44 is being phased out per the decision above, not the long-term system of record
-- **Booking:** live — Google Calendar connected, see `docs/booking-setup.md`
-- **WhatsApp automation:** not yet built — the number is a plain phone app today, not a Business API; see `docs/whatsapp-automation-setup.md` for the path via Twilio
-- Zapier MCP connections (Gmail, Calendar, Sheets) are set up under arjalloh79@gmail.com
+Proprietary © Al-Falah Marketing. All rights reserved.
