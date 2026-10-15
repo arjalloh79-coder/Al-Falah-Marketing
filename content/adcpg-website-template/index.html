@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADCPG — Association de Doumbouya Cité &amp; Perle De Guinée</title>
+<meta name="description" content="Site officiel de l'ADCPG (Association de Doumbouya Cité & Perle De Guinée) — communauté, projets et actualités.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1b3d;
+    --navy-2:#132a5e;
+    --gold:#d4af37;
+    --gold-2:#f0d878;
+    --green:#1f8b4c;
+    --ink:#0f172a;
+    --muted:#5b6472;
+    --paper:#f7f6f2;
+    --white:#ffffff;
+    --line:#e6e3da;
+    --radius:16px;
+    --shadow:0 20px 50px -20px rgba(13,27,61,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html, body{overflow-x:hidden;max-width:100%;}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px;}
+  a, button, summary{-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+  .cta-btn:active, .btn-outline:active, .wa-btn:active, form.contact-form button:active{transform:scale(.97);}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *, *::before, *::after{transition-duration:.01ms !important;animation-duration:.01ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Outfit',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand-name{font-family:'Playfair Display',serif;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 clamp(18px, 4.5vw, 24px);}
+  [data-fr], [data-en]{display:none;}
+  html[data-lang="fr"] [data-fr]{display:inline;}
+  html[data-lang="fr"] span[data-fr],
+  html[data-lang="fr"] div[data-fr],
+  html[data-lang="fr"] p[data-fr],
+  html[data-lang="fr"] li[data-fr]{display:block;}
+  html[data-lang="fr"] li[data-fr],
+  html[data-lang="fr"] span[data-fr]{display:inline;}
+  html[data-lang="en"] [data-en]{display:inline;}
+  html[data-lang="en"] div[data-en],
+  html[data-lang="en"] p[data-en],
+  html[data-lang="en"] li[data-en]{display:block;}
+  html[data-lang="en"] li[data-en],
+  html[data-lang="en"] span[data-en]{display:inline;}
+  html[data-lang="fr"] .blk[data-fr]{display:block;}
+  html[data-lang="en"] .blk[data-en]{display:block;}
+  html[data-lang="fr"] .blk[data-en]{display:none;}
+  html[data-lang="en"] .blk[data-fr]{display:none;}
+  /* Inactive language never shows, whatever display an element's own component class sets */
+  html[data-lang="fr"] [data-en]{display:none !important;}
+  html[data-lang="en"] [data-fr]{display:none !important;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,27,61,0.96);
+    backdrop-filter:blur(8px);
+    color:#fff;
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .crest{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .crest svg{width:46px;height:46px;}
+  .brand-text{line-height:1.15;}
+  .brand-name{font-size:17px;font-weight:700;color:#fff;letter-spacing:.3px;}
+  .brand-sub{font-size:11px;color:var(--gold-2);text-transform:uppercase;letter-spacing:1.5px;}
+  nav.links{display:none;align-items:center;gap:28px;}
+  nav.links a{font-size:14.5px;font-weight:500;color:#e7e9f2;text-decoration:none;opacity:.9;transition:opacity .2s;}
+  nav.links a:hover{opacity:1;color:var(--gold-2);}
+  .nav-actions{display:flex;align-items:center;gap:10px;}
+  .nav-actions > .cta-btn{display:none !important;}
+  .lang-toggle{
+    display:flex;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+    border-radius:999px;padding:3px;font-size:12.5px;font-weight:600;
+  }
+  .lang-toggle button{
+    border:none;background:transparent;color:#cfd4e6;padding:0 15px;min-height:44px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:600;font-size:13.5px;
+  }
+  .lang-toggle button.active{background:var(--gold);color:var(--navy);}
+  .cta-btn{
+    background:var(--gold);color:var(--navy);padding:0 20px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;
+    font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;
+    box-shadow:0 8px 20px -8px rgba(212,175,55,0.7);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .cta-btn:hover{transform:translateY(-1px);box-shadow:0 12px 24px -8px rgba(212,175,55,0.85);}
+  .menu-btn{
+    display:flex;background:none;border:none;color:#fff;cursor:pointer;
+    width:48px;height:48px;border-radius:12px;align-items:center;justify-content:center;
+    flex-direction:column;gap:5px;padding:0;
+  }
+  .menu-btn:active{background:rgba(255,255,255,0.12);}
+  .menu-btn .bar{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s, opacity .25s;}
+  .menu-open .menu-btn .bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-open .menu-btn .bar:nth-child(2){opacity:0;}
+  .menu-open .menu-btn .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .scrim{
+    position:fixed;inset:0;background:rgba(6,12,30,0.55);backdrop-filter:blur(2px);
+    opacity:0;visibility:hidden;transition:opacity .25s, visibility .25s;z-index:58;
+  }
+  .menu-open .scrim{opacity:1;visibility:visible;}
+  .mobile-menu{
+    position:fixed;top:0;right:0;bottom:0;width:min(320px, 86vw);z-index:60;
+    background:var(--navy);color:#fff;display:flex;flex-direction:column;
+    padding:84px 22px 28px;gap:4px;box-shadow:-20px 0 60px rgba(0,0,0,0.45);
+    transform:translateX(105%);transition:transform .28s ease;visibility:hidden;
+  }
+  .menu-open .mobile-menu{transform:translateX(0);visibility:visible;}
+  .mobile-menu a{
+    display:flex;align-items:center;min-height:48px;padding:0 14px;border-radius:12px;
+    color:#e7e9f2;text-decoration:none;font-size:16.5px;font-weight:600;
+  }
+  .mobile-menu a:active{background:rgba(255,255,255,0.1);color:var(--gold-2);}
+  .mobile-menu .cta-btn{
+    margin-top:auto;justify-content:center;text-align:center;color:var(--navy);
+    min-height:52px;display:flex;align-items:center;font-size:16px;
+  }
+  .mobile-menu .drawer-close{
+    position:absolute;top:16px;right:16px;width:44px;height:44px;border:none;background:rgba(255,255,255,0.08);
+    color:#fff;font-size:20px;border-radius:12px;cursor:pointer;
+  }
+  html[data-lang="fr"] .mobile-menu a[data-fr]{display:flex;}
+  html[data-lang="fr"] .mobile-menu a[data-en]{display:none;}
+  html[data-lang="en"] .mobile-menu a[data-en]{display:flex;}
+  html[data-lang="en"] .mobile-menu a[data-fr]{display:none;}
+  .menu-open{overflow:hidden;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(212,175,55,0.18), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 55%, #0a1530 100%);
+    color:#fff;padding:clamp(48px, 8vw, 90px) 0 clamp(64px, 10vw, 110px);overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size:26px 26px;opacity:.5;pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:36px;align-items:center;text-align:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.14);
+    border:1px solid rgba(212,175,55,0.4);color:var(--gold-2);font-size:12.5px;font-weight:600;
+    letter-spacing:1px;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(29px, 6.6vw, 44px);line-height:1.18;margin:0 0 20px;font-weight:700;text-wrap:balance;}
+  .hero h1 em{font-style:normal;color:var(--gold-2);}
+  .hero p.lead{font-size:clamp(15.5px, 4vw, 17px);line-height:1.65;color:#c9cee0;max-width:520px;margin:0 auto 32px;}
+  .hero-btns{display:flex;flex-direction:column;align-items:stretch;gap:14px;}
+  .hero-btns .cta-btn, .hero-btns .btn-outline{width:100%;justify-content:center;min-height:52px;font-size:15.5px;}
+  .btn-outline{
+    border:1.5px solid rgba(255,255,255,0.35);color:#fff;padding:0 24px;min-height:48px;
+    display:inline-flex;align-items:center;justify-content:center;border-radius:999px;
+    text-decoration:none;font-weight:600;font-size:14.5px;transition:.2s;
+  }
+  .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff;}
+  .hero-emblem{
+    display:flex;align-items:center;justify-content:center;order:-1;
+  }
+  .emblem-card{
+    width:min(320px, 74vw);height:min(320px, 74vw);border-radius:50%;
+    background:#ffffff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.6);
+    position:relative;
+  }
+  .emblem-card svg{width:92.5%;height:92.5%;}
+  .emblem-ring{
+    position:absolute;inset:-8px;border-radius:50%;
+    border:1px dashed rgba(255,255,255,0.4);
+  }
+  .stat-strip{
+    background:var(--navy-2);border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .stat-strip .wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:22px 24px;}
+  .stat{color:#fff;text-align:center;flex:1;min-width:120px;}
+  .stat .num{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold-2);font-weight:700;}
+  .stat .label{font-size:12.5px;color:#aab0c6;text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:clamp(56px, 9vw, 90px) 0;scroll-margin-top:78px;}
+  .section-head{max-width:640px;margin:0 auto 50px;text-align:center;}
+  .kicker{color:var(--green);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+  .section-head h2{font-size:clamp(25px, 5.6vw, 32px);margin:0 0 14px;color:var(--navy);text-wrap:balance;}
+  .section-head p{color:var(--muted);font-size:16px;margin:0;}
+
+  .about-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center;}
+  .about-grid h2{font-size:clamp(24px, 5.4vw, 30px);color:var(--navy);margin:0 0 18px;text-wrap:balance;}
+  .about-grid p{color:var(--muted);font-size:15.5px;margin:0 0 16px;}
+  .pillar-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px;}
+  .pillar-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink);}
+  .pillar-list .dot{
+    width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px;
+  }
+  .about-photo{
+    background:linear-gradient(160deg,#1e3f82,#0d1b3d);border-radius:var(--radius);
+    aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.65);
+    font-size:14px;text-align:center;padding:30px;box-shadow:var(--shadow);
+  }
+
+  .cards-bg{background:#fff;}
+  .cards{display:grid;grid-template-columns:1fr;gap:18px;}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px 26px;
+    transition:transform .25s, box-shadow .25s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .card .icon{
+    width:48px;height:48px;border-radius:12px;background:var(--navy);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;
+  }
+  .card h3{margin:0 0 10px;font-size:18px;color:var(--navy);font-family:'Outfit';font-weight:700;}
+  .card p{margin:0;color:var(--muted);font-size:14.5px;}
+
+  .project-band{
+    background:linear-gradient(160deg, var(--navy), #16336e);color:#fff;border-radius:18px;
+    padding:30px 20px;display:grid;grid-template-columns:1fr;gap:34px;align-items:center;
+  }
+  .project-band .kicker{color:var(--gold-2);}
+  .project-band h2{color:#fff;font-size:28px;margin:0 0 16px;}
+  .project-band p{color:#c9cee0;font-size:15.5px;margin:0 0 22px;}
+  .progress-item{margin-bottom:18px;}
+  .progress-label{display:flex;justify-content:space-between;font-size:13px;color:#dfe3f0;margin-bottom:6px;}
+  .progress-track{height:8px;background:rgba(255,255,255,0.15);border-radius:999px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--gold);border-radius:999px;}
+  .project-visual{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:18px;
+    padding:28px;
+  }
+
+  .board-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .board-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center;
+    transition:box-shadow .25s, transform .25s;
+  }
+  .board-card:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
+  .avatar{
+    width:76px;height:76px;border-radius:50%;margin:0 auto 16px;
+    background:linear-gradient(160deg,#1e3f82,#0d1b3d);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;
+    border:3px solid var(--gold);
+  }
+  .board-card h3{margin:0 0 4px;font-size:16px;color:var(--navy);font-weight:700;font-family:'Outfit';}
+  .board-card .role{color:var(--green);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
+  .board-note{
+    margin-top:34px;text-align:center;font-size:13px;color:var(--muted);
+    background:#fbf8ee;border:1px dashed var(--gold);border-radius:12px;padding:14px 20px;
+  }
+
+  .statuts-section{background:var(--paper);}
+  .statuts-list{max-width:820px;margin:0 auto;display:grid;gap:14px;}
+  .statuts-list details{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:0;overflow:hidden;
+  }
+  .statuts-list summary{
+    cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;
+    padding:18px clamp(14px, 3.5vw, 22px);min-height:56px;font-weight:700;color:var(--navy);font-size:15.5px;
+    transition:background .2s;
+  }
+  .statuts-list summary:active{background:#f4f1e6;}
+  .statuts-list summary::-webkit-details-marker{display:none;}
+  .statuts-list summary .art-num{
+    flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--navy);
+    color:var(--gold-2);display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:14px;
+  }
+  .statuts-list summary .chev{margin-left:auto;color:var(--muted);transition:transform .2s;}
+  .statuts-list details[open] summary .chev{transform:rotate(90deg);}
+  .statuts-body{padding:0 clamp(16px, 3.5vw, 22px) 20px clamp(16px, 8vw, 74px);color:var(--muted);font-size:14.5px;animation:accordionIn .28s ease;}
+  @keyframes accordionIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+  .statuts-body h4{margin:14px 0 4px;font-size:13px;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;font-family:'Outfit';}
+  .statuts-body p{margin:0 0 10px;}
+  .statuts-meta{
+    max-width:820px;margin:26px auto 0;text-align:center;font-size:13px;color:var(--muted);
+    background:#fbf8ee;border:1px dashed var(--gold);border-radius:12px;padding:14px 20px;
+  }
+  .join-section{
+    background:radial-gradient(1100px 500px at 20% 0%, rgba(31,139,76,0.08), transparent 60%), #fff;
+  }
+  .join-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;}
+  .whatsapp-card{padding:28px 20px;
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .wa-icon{
+    width:64px;height:64px;border-radius:50%;background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:30px;
+  }
+  .whatsapp-card h3{margin:0 0 8px;color:var(--navy);}
+  .whatsapp-card p{color:var(--muted);font-size:14.5px;margin:0 0 22px;}
+  .wa-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;
+    padding:0 28px;min-height:52px;width:100%;border-radius:999px;font-weight:700;font-size:15.5px;box-shadow:0 12px 24px -10px rgba(37,211,102,0.6);
+    transition:transform .2s;
+  }
+  .wa-btn:hover{transform:translateY(-2px);}
+  .wa-fineprint{font-size:12px;color:#98a0b0;margin-top:16px;}
+
+  .contact-section{background:var(--navy);color:#fff;}
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:36px;}
+  .contact-grid h2{color:#fff;}
+  .contact-info{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:18px;}
+  .contact-info li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:#dfe3f0;}
+  .contact-info .ic{
+    width:38px;height:38px;border-radius:10px;background:rgba(212,175,55,0.15);color:var(--gold-2);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;
+  }
+  form.contact-form{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:24px 18px;}
+  form.contact-form label{display:block;font-size:13px;color:#c9cee0;margin-bottom:6px;font-weight:600;}
+  form.contact-form input, form.contact-form textarea, form.contact-form select{
+    width:100%;padding:13px 14px;min-height:48px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.06);color:#fff;font-family:inherit;font-size:16px;margin-bottom:18px;
+  }
+  form.contact-form input::placeholder, form.contact-form textarea::placeholder{color:#8891ac;}
+  form.contact-form button{
+    width:100%;padding:0;min-height:52px;border:none;border-radius:999px;background:var(--gold);color:var(--navy);
+    font-weight:700;font-size:16px;cursor:pointer;transition:transform .15s;
+  }
+
+  footer{background:#0a1530;color:#9aa2ba;padding:48px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:1fr;gap:30px;margin-bottom:36px;}
+  .footer-brand{display:flex;gap:12px;align-items:center;margin-bottom:14px;}
+  .footer-brand .brand-name{color:#fff;font-size:16px;}
+  footer p{font-size:13.5px;line-height:1.7;margin:0;}
+  footer h4{color:#fff;font-size:13.5px;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
+  footer a{color:#9aa2ba;text-decoration:none;font-size:14.5px;display:inline-block;padding:6px 0;}
+  footer a:hover{color:var(--gold-2);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;display:flex;flex-direction:column;text-align:center;gap:10px;font-size:12.5px;}
+  .footer-credit{margin-top:14px;font-size:12px;color:#6d768f;text-align:center;}
+  .footer-credit a{color:var(--gold-2);text-decoration:none;}
+  .footer-credit a:hover{text-decoration:underline;}
+
+  /* ---------- Rules banner (statutory notices) ---------- */
+  .rules-banner{
+    display:flex;gap:14px;align-items:flex-start;background:#fbf8ee;border:1px solid var(--gold);
+    border-radius:14px;padding:16px 18px;max-width:820px;margin:0 auto 34px;
+  }
+  .rules-banner .ic{font-size:20px;flex-shrink:0;line-height:1;}
+  .rules-banner p{margin:0;font-size:13.5px;color:#6b5a1f;line-height:1.6;}
+  .rules-banner strong{color:var(--navy);}
+
+  /* ---------- Vote section ---------- */
+  .vote-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:940px;margin:0 auto;}
+  .vote-card{
+    background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 22px;box-shadow:var(--shadow);
+  }
+  .vote-card h3{margin:0 0 6px;color:var(--navy);font-size:19px;}
+  .vote-card .sub{color:var(--muted);font-size:13.5px;margin:0 0 20px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+  .field input, .field select{
+    width:100%;min-height:48px;padding:0 14px;border-radius:10px;border:1.5px solid var(--line);
+    background:#fbfaf7;font-family:inherit;font-size:16px;color:var(--ink);
+  }
+  .field input:focus, .field select:focus{border-color:var(--gold);outline:none;}
+  .field-hint{font-size:12px;color:var(--muted);margin-top:6px;}
+  .btn-solid{
+    width:100%;min-height:50px;border:none;border-radius:999px;background:var(--navy);color:#fff;
+    font-weight:700;font-size:15px;cursor:pointer;transition:transform .15s, background .2s;
+  }
+  .btn-solid:hover{background:var(--navy-2);}
+  .btn-solid:active{transform:scale(.98);}
+  .btn-solid:disabled{opacity:.5;cursor:not-allowed;}
+  .vote-msg{
+    margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13.5px;display:none;
+  }
+  .vote-msg.show{display:block;}
+  .vote-msg.info{background:#eef2ff;color:#33418c;}
+  .vote-msg.error{background:#fdecec;color:#9c2b2b;}
+  .vote-msg.success{background:#e8f7ee;color:#1f7a3f;}
+
+  .session-pill{
+    display:inline-flex;align-items:center;gap:8px;background:#eef2ff;color:#33418c;font-size:12.5px;font-weight:600;
+    padding:7px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .session-pill button{
+    border:none;background:none;color:#33418c;text-decoration:underline;cursor:pointer;font-size:12.5px;padding:0;font-family:inherit;
+  }
+
+  .ballot-empty{
+    text-align:center;color:var(--muted);font-size:14.5px;padding:30px 10px;
+  }
+  .ballot-title{font-size:17px;font-weight:700;color:var(--navy);margin:0 0 6px;}
+  .ballot-desc{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+  .ballot-options{display:grid;gap:10px;margin-bottom:20px;}
+  .ballot-option{
+    display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;
+    padding:13px 16px;cursor:pointer;transition:border-color .15s, background .15s;
+  }
+  .ballot-option:hover{border-color:var(--gold);background:#fbf8ee;}
+  .ballot-option input{width:20px;height:20px;accent-color:var(--navy);flex-shrink:0;}
+  .ballot-option .name{font-weight:600;color:var(--ink);font-size:14.5px;}
+  .ballot-option .desc{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .ballot-option.has-voted{opacity:.55;pointer-events:none;}
+
+  .quorum-wrap{margin-bottom:22px;}
+  .quorum-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--navy);margin-bottom:6px;font-weight:600;}
+  .quorum-head .pct{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);}
+  .quorum-track{position:relative;height:12px;background:#efece2;border-radius:999px;overflow:visible;margin-top:8px;}
+  .quorum-fill{height:100%;background:linear-gradient(90deg, var(--navy), var(--navy-2));border-radius:999px;transition:width .5s ease;}
+  .quorum-marker{
+    position:absolute;top:-4px;bottom:-4px;width:2px;background:#c0392b;
+  }
+  .quorum-marker::after{
+    content:attr(data-label);position:absolute;top:18px;left:50%;transform:translateX(-50%);
+    font-size:10.5px;color:#c0392b;font-weight:700;white-space:nowrap;
+  }
+
+  .result-row{margin-bottom:14px;}
+  .result-head{display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink);margin-bottom:5px;}
+  .result-head b{color:var(--navy);}
+  .result-track{height:10px;background:#efece2;border-radius:999px;overflow:hidden;}
+  .result-fill{height:100%;background:var(--green);border-radius:999px;transition:width .5s ease;}
+
+  /* ---------- Transparency dashboard ---------- */
+  .fin-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:28px;}
+  .fin-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 20px;text-align:center;
+  }
+  .fin-card .num{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);font-weight:700;}
+  .fin-card .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-top:6px;}
+  .fin-card .note{font-size:11px;color:#b3ab8f;margin-top:8px;}
+
+  .fin-breakdown{max-width:760px;margin:0 auto 30px;}
+  .fin-item{margin-bottom:20px;}
+  .fin-item-head{display:flex;justify-content:space-between;font-size:14px;color:var(--navy);margin-bottom:6px;font-weight:600;}
+  .fin-item-head span.amt{color:var(--muted);font-weight:500;font-size:13px;}
+  .fin-track{height:10px;background:#efece2;border-radius:999px;overflow:hidden;}
+  .fin-fill{height:100%;background:var(--gold);border-radius:999px;}
+
+  .audit-cta{text-align:center;}
+
+  /* ---------- Timeline (assembly & roadmap) ---------- */
+  .timeline{max-width:760px;margin:0 auto 30px;display:grid;gap:0;}
+  .timeline-item{
+    position:relative;padding:0 0 30px 34px;border-left:2px solid var(--line);
+  }
+  .timeline-item:last-child{border-color:transparent;padding-bottom:0;}
+  .timeline-item::before{
+    content:"";position:absolute;left:-8px;top:2px;width:14px;height:14px;border-radius:50%;
+    background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 2px var(--gold);
+  }
+  .timeline-item h4{margin:0 0 4px;color:var(--navy);font-size:15.5px;}
+  .timeline-item p{margin:0 0 6px;color:var(--muted);font-size:13.5px;}
+  .timeline-item a.tl-link{font-size:13px;font-weight:600;color:var(--green);text-decoration:none;}
+  .timeline-item a.tl-link:hover{text-decoration:underline;}
+
+  .minutes-list{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+  .minutes-list li{
+    display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:10px 14px;font-size:13.5px;
+  }
+  .minutes-list .tag{font-size:11px;color:var(--muted);}
+
+  /* ---------- Modal (digital request form) ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(10,16,40,0.55);display:none;align-items:center;justify-content:center;
+    z-index:80;padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-card{
+    background:#fff;border-radius:18px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;
+    padding:26px 22px;position:relative;box-shadow:0 40px 80px -20px rgba(0,0,0,.5);
+  }
+  .modal-close{
+    position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;border:none;
+    background:#f3f1ea;color:var(--navy);font-size:16px;cursor:pointer;
+  }
+  .modal-card h3{margin:0 0 4px;color:var(--navy);font-size:19px;}
+  .modal-card .sub{color:var(--muted);font-size:13px;margin:0 0 18px;}
+
+  .fab-request{
+    position:fixed;right:18px;bottom:18px;z-index:40;background:var(--navy);color:#fff;border:none;
+    border-radius:999px;padding:0 20px;min-height:52px;display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 16px 32px -12px rgba(13,27,61,.55);
+  }
+  .fab-request:active{transform:scale(.97);}
+
+  @media (min-width:760px){
+    .vote-grid{grid-template-columns:0.85fr 1.15fr;align-items:start;}
+    .fin-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  /* ---------- Mobile-first breakpoints: base = phone, expand upward ---------- */
+  @media (max-width:599px){
+    .brand-sub{display:none !important;}
+  }
+  @media (min-width:640px){
+    .hero-btns{flex-direction:row;justify-content:center;align-items:center;}
+    .hero-btns .cta-btn, .hero-btns .btn-outline{width:auto;}
+    .cards{grid-template-columns:1fr 1fr;gap:22px;}
+    .footer-bottom{flex-direction:row;justify-content:space-between;text-align:left;}
+    .wa-btn{width:auto;}
+  }
+  @media (min-width:768px){
+    .board-grid{grid-template-columns:1fr 1fr;gap:18px;}
+    .stat-strip .wrap{grid-template-columns:repeat(4,1fr);padding:26px 24px;}
+    .about-grid{grid-template-columns:1fr 1fr;gap:44px;}
+    .project-band{grid-template-columns:1fr 1fr;padding:40px 32px;border-radius:22px;gap:40px;}
+  }
+  @media (min-width:900px){
+    nav.links{display:flex;}
+    .menu-btn{display:none;}
+    .nav-actions > .cta-btn{display:inline-flex !important;}
+    .hero-inner{grid-template-columns:1.2fr 0.8fr;gap:48px;text-align:left;}
+    .hero-emblem{order:0;}
+    .hero p.lead{margin:0 0 32px;}
+    .hero-btns{justify-content:flex-start;}
+    .about-grid{gap:56px;}
+    .cards{grid-template-columns:repeat(3,1fr);gap:28px;}
+    .board-grid{grid-template-columns:repeat(3,1fr);gap:26px;}
+    .project-band{padding:52px;border-radius:24px;gap:44px;}
+    .join-grid{grid-template-columns:1fr 1fr;gap:48px;}
+    .contact-grid{grid-template-columns:1fr 1fr;gap:56px;}
+    .footer-grid{grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+    .whatsapp-card{padding:36px;}
+    form.contact-form{padding:30px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="crest">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path id="crestRingHdr" d="M 37.8,139 A 71,71 0 1 1 162.2,139" fill="none"/>
+
+  <circle cx="100" cy="100" r="97" fill="#2028c8"/>
+  <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="85" fill="#2028c8"/>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="#ffffff" letter-spacing="0.3">
+    <textPath href="#crestRingHdr" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="300">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+  </text>
+
+  <g>
+      <g transform="translate(76 133) rotate(-8)"><path d="M0 0 Q 6.75 -5.89 13.5 0 Q 6.75 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.8" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(76 133) rotate(27)"><path d="M0 0 Q 4.859999999999999 -4.35 9.719999999999999 0 Q 4.859999999999999 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.776" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(63 127) rotate(-28)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(63 127) rotate(7)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(54 117) rotate(-48)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(54 117) rotate(-13)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(48 105) rotate(-66)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(48 105) rotate(-31)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(47 92) rotate(-84)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(47 92) rotate(-49)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(50 79) rotate(-104)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(50 79) rotate(-69)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(57 68) rotate(-124)"><path d="M0 0 Q 7.0 -5.89 14.0 0 Q 7.0 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.200000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(57 68) rotate(-89)"><path d="M0 0 Q 5.04 -4.35 10.08 0 Q 5.04 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.064" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(67 59) rotate(-144)"><path d="M0 0 Q 6.5 -5.89 13.0 0 Q 6.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.4" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(67 59) rotate(-109)"><path d="M0 0 Q 4.68 -4.35 9.36 0 Q 4.68 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.4879999999999995" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(124 133) rotate(188)"><path d="M0 0 Q 6.75 -5.89 13.5 0 Q 6.75 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.8" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(124 133) rotate(153)"><path d="M0 0 Q 4.859999999999999 -4.35 9.719999999999999 0 Q 4.859999999999999 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.776" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(137 127) rotate(208)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(137 127) rotate(173)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(146 117) rotate(228)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(146 117) rotate(193)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(152 105) rotate(246)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(152 105) rotate(211)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(153 92) rotate(264)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(153 92) rotate(229)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(150 79) rotate(284)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(150 79) rotate(249)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(143 68) rotate(304)"><path d="M0 0 Q 7.0 -5.89 14.0 0 Q 7.0 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.200000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(143 68) rotate(269)"><path d="M0 0 Q 5.04 -4.35 10.08 0 Q 5.04 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.064" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(133 59) rotate(324)"><path d="M0 0 Q 6.5 -5.89 13.0 0 Q 6.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.4" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(133 59) rotate(289)"><path d="M0 0 Q 4.68 -4.35 9.36 0 Q 4.68 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.4879999999999995" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+  </g>
+  <path d="M100 131 L98 140 L100 146 L102 140 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.4"/>
+
+  <path d="M101 50 L138 85 L133 85 L101 55 L69 85 L64 85 Z" fill="#f2f1f7"/>
+  <text x="101" y="66.5" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+
+  <text x="96" y="126" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+  <text x="101" y="119" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#c99a5f" text-anchor="middle">P</text>
+
+  <g fill="#ffffff">
+    <path transform="translate(62,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(91,147.5) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(120,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+  </g>
+</svg>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">ADCPG</div>
+        <div class="brand-sub" data-fr>Doumbouya Cité &amp; Perle</div>
+        <div class="brand-sub" data-en>Doumbouya Cité &amp; Perle</div>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#apropos" data-fr>À propos</a><a href="#apropos" data-en>About</a>
+      <a href="#mission" data-fr>Mission</a><a href="#mission" data-en>Mission</a>
+      <a href="#projet" data-fr>Nos Quartiers</a><a href="#projet" data-en>Our Neighborhoods</a>
+      <a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a>
+      <a href="#statuts" data-fr>Statuts</a><a href="#statuts" data-en>Bylaws</a>
+      <a href="#vote" data-fr>Vote</a><a href="#vote" data-en>Vote</a>
+      <a href="#transparence" data-fr>Transparence</a><a href="#transparence" data-en>Transparency</a>
+      <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button type="button" data-set-lang="fr" class="active">FR</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="cta-btn" href="#rejoindre" data-fr>Rejoindre</a>
+      <a class="cta-btn" href="#rejoindre" data-en>Join Us</a>
+      <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+  <div class="scrim" id="menuScrim"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+  <button class="drawer-close" type="button" aria-label="Fermer le menu">✕</button>
+  <a href="#apropos" data-fr>À propos</a><a href="#apropos" data-en>About</a>
+  <a href="#mission" data-fr>Mission</a><a href="#mission" data-en>Mission</a>
+  <a href="#projet" data-fr>Nos Quartiers</a><a href="#projet" data-en>Our Neighborhoods</a>
+  <a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a>
+  <a href="#statuts" data-fr>Statuts</a><a href="#statuts" data-en>Bylaws</a>
+  <a href="#vote" data-fr>Vote</a><a href="#vote" data-en>Vote</a>
+  <a href="#transparence" data-fr>Transparence</a><a href="#transparence" data-en>Transparency</a>
+  <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
+  <a class="cta-btn" href="#rejoindre" data-fr>Rejoindre le groupe</a>
+  <a class="cta-btn" href="#rejoindre" data-en>Join the group</a>
+</nav>
+
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">
+        <span data-fr>Association à but non lucratif</span>
+        <span data-en>Non-profit community association</span>
+      </div>
+      <h1 data-fr>Association Des Propriétaires De <em>Doumbouyah City &amp; Perle De Guinée</em></h1>
+      <h1 data-en>The homeowners association of <em>Doumbouya &amp; Perle</em></h1>
+      <p class="lead" data-fr>L'ADCPG régit et représente plus de 74 propriétés réparties sur les deux quartiers de Doumbouya et Perle, au sein de notre communauté de Coyah, en Guinée — au service des propriétaires, résidents et membres de la diaspora.</p>
+      <p class="lead" data-en>ADCPG governs and represents more than 74 properties across the two neighborhoods of Doumbouya and Perle, within our community in Coyah, Guinea — serving homeowners, residents, and diaspora members alike.</p>
+      <div class="hero-btns">
+        <a class="cta-btn" href="#rejoindre" data-fr>Rejoindre le groupe WhatsApp</a>
+        <a class="cta-btn" href="#rejoindre" data-en>Join our WhatsApp group</a>
+        <a class="btn-outline" href="#projet" data-fr>Découvrir nos quartiers</a>
+        <a class="btn-outline" href="#projet" data-en>Discover our neighborhoods</a>
+      </div>
+    </div>
+    <div class="hero-emblem">
+      <div class="emblem-card">
+        <div class="emblem-ring"></div>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path id="crestRingHero" d="M 37.8,139 A 71,71 0 1 1 162.2,139" fill="none"/>
+
+  <circle cx="100" cy="100" r="97" fill="#2028c8"/>
+  <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="85" fill="#2028c8"/>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="#ffffff" letter-spacing="0.3">
+    <textPath href="#crestRingHero" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="300">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+  </text>
+
+  <g>
+      <g transform="translate(76 133) rotate(-8)"><path d="M0 0 Q 6.75 -5.89 13.5 0 Q 6.75 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.8" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(76 133) rotate(27)"><path d="M0 0 Q 4.859999999999999 -4.35 9.719999999999999 0 Q 4.859999999999999 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.776" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(63 127) rotate(-28)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(63 127) rotate(7)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(54 117) rotate(-48)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(54 117) rotate(-13)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(48 105) rotate(-66)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(48 105) rotate(-31)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(47 92) rotate(-84)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(47 92) rotate(-49)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(50 79) rotate(-104)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(50 79) rotate(-69)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(57 68) rotate(-124)"><path d="M0 0 Q 7.0 -5.89 14.0 0 Q 7.0 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.200000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(57 68) rotate(-89)"><path d="M0 0 Q 5.04 -4.35 10.08 0 Q 5.04 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.064" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(67 59) rotate(-144)"><path d="M0 0 Q 6.5 -5.89 13.0 0 Q 6.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.4" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(67 59) rotate(-109)"><path d="M0 0 Q 4.68 -4.35 9.36 0 Q 4.68 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.4879999999999995" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(124 133) rotate(188)"><path d="M0 0 Q 6.75 -5.89 13.5 0 Q 6.75 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.8" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(124 133) rotate(153)"><path d="M0 0 Q 4.859999999999999 -4.35 9.719999999999999 0 Q 4.859999999999999 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.776" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(137 127) rotate(208)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(137 127) rotate(173)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(146 117) rotate(228)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(146 117) rotate(193)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(152 105) rotate(246)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(152 105) rotate(211)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(153 92) rotate(264)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(153 92) rotate(229)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(150 79) rotate(284)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(150 79) rotate(249)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(143 68) rotate(304)"><path d="M0 0 Q 7.0 -5.89 14.0 0 Q 7.0 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.200000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(143 68) rotate(269)"><path d="M0 0 Q 5.04 -4.35 10.08 0 Q 5.04 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.064" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(133 59) rotate(324)"><path d="M0 0 Q 6.5 -5.89 13.0 0 Q 6.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.4" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(133 59) rotate(289)"><path d="M0 0 Q 4.68 -4.35 9.36 0 Q 4.68 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.4879999999999995" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+  </g>
+  <path d="M100 131 L98 140 L100 146 L102 140 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.4"/>
+
+  <path d="M101 50 L138 85 L133 85 L101 55 L69 85 L64 85 Z" fill="#f2f1f7"/>
+  <text x="101" y="66.5" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+
+  <text x="96" y="126" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+  <text x="101" y="119" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#c99a5f" text-anchor="middle">P</text>
+
+  <g fill="#ffffff">
+    <path transform="translate(62,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(91,147.5) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(120,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+  </g>
+</svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div class="wrap">
+    <div class="stat"><div class="num">74+</div><div class="label" data-fr>Propriétés régies</div><div class="label" data-en>Properties governed</div></div>
+    <div class="stat"><div class="num">2</div><div class="label" data-fr>Quartiers — Doumbouya &amp; Perle</div><div class="label" data-en>Neighborhoods — Doumbouya &amp; Perle</div></div>
+    <div class="stat"><div class="num">13</div><div class="label" data-fr>Membres du bureau</div><div class="label" data-en>Board members</div></div>
+    <div class="stat"><div class="num">2024</div><div class="label" data-fr>Statuts adoptés en</div><div class="label" data-en>Bylaws adopted</div></div>
+  </div>
+</div>
+
+<section id="apropos">
+  <div class="wrap about-grid">
+    <div class="about-photo">
+      <span data-fr>[ Photo des propriétés / rues de Doumbouya &amp; Perle à ajouter ]</span>
+      <span data-en>[ Photo of the properties / streets of Doumbouya &amp; Perle to be added ]</span>
+    </div>
+    <div>
+      <div class="kicker" data-fr>Qui sommes-nous</div>
+      <div class="kicker" data-en>Who we are</div>
+      <h2 data-fr>L'Association de Doumbouya Cité &amp; Perle De Guinée</h2>
+      <h2 data-en>The Association de Doumbouya Cité &amp; Perle De Guinée</h2>
+      <p data-fr>L'ADCPG est l'association de copropriétaires (HOA) qui régit plus de 74 propriétés réparties sur les quartiers de Doumbouya et Perle, au sein de notre communauté de Coyah. Elle réunit propriétaires, résidents et membres de la diaspora autour de la gestion des biens communs, du développement local et de la préservation de notre héritage partagé.</p>
+      <p data-en>ADCPG is the homeowners association (HOA) governing more than 74 properties across the Doumbouya and Perle neighborhoods of our community in Coyah. It brings together homeowners, residents, and diaspora members around shared-property management, local development, and preserving our common heritage.</p>
+      <ul class="pillar-list">
+        <li><span class="dot">✓</span><span data-fr>Administrer les règlements et espaces communs de Doumbouya &amp; Perle</span><span data-en>Administer the bylaws and shared spaces of Doumbouya &amp; Perle</span></li>
+        <li><span class="dot">✓</span><span data-fr>Soutenir les projets de développement et d'infrastructure</span><span data-en>Support development and infrastructure projects</span></li>
+        <li><span class="dot">✓</span><span data-fr>Organiser l'entraide sociale et les collectes de fonds entre propriétaires</span><span data-en>Organize social support and fundraising among homeowners</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="mission" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Notre mission</div>
+      <div class="kicker" data-en>Our mission</div>
+      <h2 data-fr>Ce que nous défendons</h2>
+      <h2 data-en>What we stand for</h2>
+      <p data-fr>Trois piliers guident chaque action de l'ADCPG.</p>
+      <p data-en>Three pillars guide everything ADCPG does.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3 data-fr>Solidarité</h3><h3 data-en>Solidarity</h3>
+        <p data-fr>Un réseau d'entraide entre membres, familles et voisins, en Guinée comme dans la diaspora.</p>
+        <p data-en>A support network between members, families, and neighbors, at home and across the diaspora.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏗️</div>
+        <h3 data-fr>Développement</h3><h3 data-en>Development</h3>
+        <p data-fr>Contribuer aux infrastructures, à l'éducation et aux projets communautaires de Doumbouya Cité &amp; Perle.</p>
+        <p data-en>Contributing to infrastructure, education, and community projects in Doumbouya Cité &amp; Perle.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3 data-fr>Unité de la diaspora</h3><h3 data-en>Diaspora unity</h3>
+        <p data-fr>Connecter les membres à travers le monde autour d'une identité et d'objectifs communs.</p>
+        <p data-en>Connecting members across the world around a shared identity and common goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projet">
+  <div class="wrap">
+    <div class="project-band">
+      <div>
+        <div class="kicker" data-fr>Notre juridiction</div>
+        <div class="kicker" data-en>Our jurisdiction</div>
+        <h2 data-fr>Deux quartiers, une seule communauté</h2>
+        <h2 data-en>Two neighborhoods, one community</h2>
+        <p data-fr>L'ADCPG régit et représente plus de 74 propriétés réparties sur les quartiers de Doumbouya et Perle, qui forment ensemble notre communauté de Coyah — réglementation, entretien des espaces communs, cotisations et projets d'infrastructure. Cette section est prête à recevoir la répartition officielle des propriétés par quartier.</p>
+        <p data-en>ADCPG governs and represents more than 74 properties across the Doumbouya and Perle neighborhoods, which together form our community in Coyah — bylaws, upkeep of shared spaces, dues, and infrastructure projects. This section is ready to receive the official property breakdown by neighborhood.</p>
+        <a class="btn-outline" href="#contact" data-fr>Demander les détails de gouvernance</a>
+        <a class="btn-outline" href="#contact" data-en>Request governance details</a>
+      </div>
+      <div class="project-visual">
+        <div class="progress-item">
+          <div class="progress-label"><span data-fr>Propriétés — Doumbouya</span><span data-en>Properties — Doumbouya</span><span>—</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span data-fr>Propriétés — Perle</span><span data-en>Properties — Perle</span><span>—</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span data-fr>Total régi par l'ADCPG</span><span data-en>Total governed by ADCPG</span><span>74+</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+        </div>
+        <p style="font-size:12.5px;color:#aab0c6;margin:18px 0 0;" data-fr>* Répartition à titre indicatif — à remplacer par le décompte réel de propriétés par quartier.</p>
+        <p style="font-size:12.5px;color:#aab0c6;margin:18px 0 0;" data-en>* Breakdown is a placeholder — to be replaced with the real per-neighborhood property count.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bureau" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Gouvernance</div>
+      <div class="kicker" data-en>Governance</div>
+      <h2 data-fr>Le Bureau de l'ADCPG</h2>
+      <h2 data-en>The ADCPG Board</h2>
+      <p data-fr>Les membres actuels du bureau, tel qu'identifiés dans le groupe WhatsApp officiel de l'association.</p>
+      <p data-en>Current board members, as identified in the association's official WhatsApp group.</p>
+    </div>
+    <div class="board-grid">
+      <div class="board-card"><div class="avatar">AS</div><h3>Madame Aissatou Sow</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AD</div><h3>Mr Alpha S. Diallo</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MI</div><h3>Mr Ibrahim</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MS</div><h3>Madame Soumaoro</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MB</div><h3>Mr Barry</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MB</div><h3>Madame Balde</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MK</div><h3>Mr Kaba</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">MB</div><h3>Madame Blanchard</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AY</div><h3>Mr Abdoulaye Youla</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AT</div><h3>Mr Alpha Touré</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">ET</div><h3>Mr Emmanuel Lamin Touré</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AD</div><h3>Dr Abdoulaye Diallo</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+      <div class="board-card"><div class="avatar">AJ</div><h3>Mr Abdulrahman Jalloh</h3><div class="role" data-fr>Membre du bureau</div><div class="role" data-en>Board member</div></div>
+    </div>
+    <div class="board-note">
+      <span data-fr>Noms extraits de la liste des administrateurs du groupe WhatsApp — à confirmer avec l'association pour les titres exacts (Président, Trésorier, Secrétaire, etc.) et l'orthographe complète des noms de famille.</span>
+      <span data-en>Names pulled from the WhatsApp group's admin list — please confirm exact titles (President, Treasurer, Secretary, etc.) and full last names with the association.</span>
+    </div>
+  </div>
+</section>
+
+
+<section id="statuts" class="statuts-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Textes officiels</div>
+      <div class="kicker" data-en>Official documents</div>
+      <h2 data-fr>Les Statuts de l'Association</h2>
+      <h2 data-en>The Association's Bylaws</h2>
+      <p data-fr>Statuts adoptés par les membres le 29 mars 2024, conformément à la loi L/2005/013/AN du 4 juillet 2005.</p>
+      <p data-en>Bylaws adopted by the members on March 29, 2024, in accordance with law L/2005/013/AN of July 4, 2005.</p>
+    </div>
+    <div class="statuts-list">
+      <details open>
+        <summary><span class="art-num">I</span><span data-fr>Nom et Objectif</span><span data-en>Name and Purpose</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Nom</h4><p>Le nom de cette organisation sera « Doumbouyah City/Perle de Guinée », ci-après désignée « l'Association ». Les adhérents aux présents statuts constituent les membres de l'Association conformément à la loi L/2005/013/AN de l'Assemblée nationale du 4 juillet 2005.</p><h4>Section 2 — Objectif</h4><p>L'objectif de l'Association sera de promouvoir et de protéger les intérêts des propriétaires au sein de la communauté désignée à Coyah, République de Guinée, de favoriser un sentiment d'appartenance communautaire, et de maintenir et d'améliorer la valeur des propriétés au sein de la communauté.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Name</h4><p>The name of this organization shall be "Doumbouyah City/Perle de Guinée", hereafter "the Association". Adherents to these bylaws constitute the Association's members, in accordance with law L/2005/013/AN of the National Assembly of July 4, 2005.</p><h4>Section 2 — Purpose</h4><p>The Association's purpose is to promote and protect homeowners' interests within the designated community in Coyah, Republic of Guinea, foster a sense of community belonging, and maintain and improve property values within the community.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">II</span><span data-fr>Adhésion</span><span data-en>Membership</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Éligibilité</h4><p>L'adhésion est ouverte à tous les propriétaires de la communauté de Doumbouyah City/Perle de Guinée, tels que définis dans les accords d'achat de propriété conclus avec le promoteur immobilier Jobomax.</p><h4>Section 2 — Droits et Responsabilités</h4><p>Tous les membres ont le droit de participer aux réunions, de voter sur les questions soumises à l'assemblée, et d'accéder aux ressources et équipements de l'Association. Ils sont tenus de respecter les règles fixées par l'Association et de payer les cotisations en temps voulu.</p><h4>Section 3 — Résiliation</h4><p>L'adhésion prend fin lorsque le membre cesse d'être propriétaire d'une habitation au sein de la communauté, ou pour tout autre motif dûment justifié, constaté par le Comité de Gestion et approuvé par le Conseil d'Administration.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Eligibility</h4><p>Membership is open to all homeowners of the Doumbouyah City/Perle de Guinée community, as defined in the property purchase agreements concluded with the developer Jobomax.</p><h4>Section 2 — Rights and Responsibilities</h4><p>All members may attend meetings, vote on matters put to the assembly, and access the Association's resources and facilities. Members must follow the Association's rules and pay dues on time.</p><h4>Section 3 — Termination</h4><p>Membership ends when a member ceases to own a home within the community, or for any other duly justified reason, established by the Management Committee and approved by the Board of Directors.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">III</span><span data-fr>Conseil d'Administration</span><span data-en>Board of Directors</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Composition</h4><p>Les affaires de l'Association seront gérées par un Conseil d'Administration (CA) composé de 13 membres, élus pour une durée de cinq (5) années par les membres lors de l'assemblée annuelle.</p><h4>Section 2 — Pouvoirs et Devoirs</h4><p>Le CA désignera un Comité de Gestion de cinq (5) membres chargé de gérer les affaires administratives et financières, les activités majeures de l'Association, d'appliquer ses règles, de recruter et superviser les prestataires pour l'entretien et les réparations, et de prendre toute autre mesure nécessaire.</p><h4>Section 3 — Mandat</h4><p>Les gestionnaires exercent un mandat de deux (2) années, avec des mandats échelonnés pour assurer la continuité du leadership. Ils peuvent être reconduits.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Composition</h4><p>The Association's affairs are managed by a Board of Directors (CA) of 13 members, elected to five (5)-year terms by the members at the annual assembly.</p><h4>Section 2 — Powers and Duties</h4><p>The Board appoints a five (5)-member Management Committee empowered to run the Association's administrative and financial affairs and major activities, enforce its rules, hire and supervise maintenance and repair contractors, and take any other action needed to fulfill the Association's purpose.</p><h4>Section 3 — Terms</h4><p>Managers serve two (2)-year staggered terms to ensure leadership continuity, and may serve successive terms.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">IV</span><span data-fr>Réunions</span><span data-en>Meetings</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Assemblée Annuelle</h4><p>L'Association tiendra une assemblée annuelle pour élire les membres du CA, examiner les finances et traiter toute autre affaire. Un avis sera envoyé à tous les membres au moins 15 jours à l'avance. Cette assemblée pourra être virtuelle.</p><h4>Section 2 — Réunions Spéciales</h4><p>Des réunions spéciales du CA peuvent être convoquées par le Président, le Comité de Gestion, ou sur demande écrite de deux (2) membres, avec un avis d'au moins sept (7) jours et un ordre du jour.</p><h4>Section 3 — Quorum</h4><p>Le quorum pour toute réunion des membres est de 30% des membres en règle.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Annual Assembly</h4><p>The Association holds an annual members' assembly to elect Board members, review finances, and conduct any other business. Notice is sent to all members at least 15 days in advance; the assembly may be held virtually.</p><h4>Section 2 — Special Meetings</h4><p>Special Board meetings may be called by the President, the Management Committee, or on written request of two (2) members, with at least seven (7) days' notice and an agenda.</p><h4>Section 3 — Quorum</h4><p>A quorum for any members' meeting is 30% of members in good standing.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">V</span><span data-fr>Finances</span><span data-en>Finances</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Cotisations</h4><p>L'Association impose des cotisations annuelles à tous les membres pour couvrir l'entretien des espaces communs, des équipements, et toute autre dépense nécessaire. Le taux et la fréquence de paiement sont définis par l'assemblée générale. Une contribution spéciale et unique de 500 000 FGN, dénommée « Fonds de Solidarité », est imposée à tous les membres pour faire face aux priorités urgentes.</p><h4>Section 2 — Ressources</h4><p>Les ressources de l'Association sont les cotisations, le Fonds de Solidarité, les subventions, les dons, les recettes des activités de l'Association et toutes autres ressources légales conformes à ses objectifs.</p><h4>Section 3 — Exercice Financier</h4><p>L'exercice financier court du 1er janvier au 31 décembre.</p><h4>Section 4 — Registres Financiers</h4><p>Des registres financiers précis et complets sont tenus et mis à disposition des membres pour inspection sur demande.</p><h4>Section 5 — Commissariat aux Comptes</h4><p>Chargé du contrôle et de la vérification de la régularité des comptes, il comprend deux (2) membres désignés par le CA pour un mandat de deux (2) ans renouvelable.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Dues</h4><p>The Association levies annual dues on all members to cover upkeep of shared spaces and facilities and any other expense needed to fulfill its purpose. The rate and payment schedule are set by the general assembly. A special one-time contribution of 500,000 FGN, the "Solidarity Fund", is levied on all members to address the Association's urgent priorities.</p><h4>Section 2 — Resources</h4><p>The Association's resources are member dues, the Solidarity Fund, grants, donations, proceeds from its activities, and any other lawful resources consistent with its purpose.</p><h4>Section 3 — Fiscal Year</h4><p>The fiscal year runs January 1 to December 31.</p><h4>Section 4 — Financial Records</h4><p>Accurate, complete financial records are kept and made available for member inspection on request.</p><h4>Section 5 — Audit Committee</h4><p>Responsible for verifying the regularity of the accounts; two (2) members appointed by the Board for a renewable two (2)-year term.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">VI</span><span data-fr>Dispositions Générales</span><span data-en>General Provisions</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><h4>Section 1 — Amendements</h4><p>Ces statuts peuvent être modifiés par un vote des deux tiers des membres présents à toute réunion, à condition qu'un avis des amendements proposés soit envoyé à tous les membres au moins 30 jours à l'avance.</p><h4>Section 2 — Dissolution</h4><p>En cas de dissolution, tous les actifs restants après règlement des dettes seront distribués à la mairie de Coyah.</p><h4>Section 3 — Règlement Intérieur</h4><p>Un règlement intérieur, conçu de façon participative, complétera les présents statuts : droits et obligations des membres, procédures électorales, fonctionnement de l'Assemblée Générale et du CA, attributions des membres du CA et du Comité de Gestion, procédures financières et signatures bancaires, gestion des conflits, procédures disciplinaires et conflits d'intérêts.</p></div>
+          <div class="blk" data-en><h4>Section 1 — Amendments</h4><p>These bylaws may be amended by a two-thirds vote of members present at any meeting, provided notice of the proposed amendments is sent to all members at least 30 days in advance.</p><h4>Section 2 — Dissolution</h4><p>Upon dissolution, all assets remaining after settling debts shall be distributed to the Coyah town hall.</p><h4>Section 3 — Internal Rules</h4><p>Internal rules, drafted participatively, will complement these bylaws: member rights and duties, electoral procedures, operation of the General Assembly and Board, detailed roles of Board and Management Committee members, financial procedures and bank signatures, conflict management, disciplinary procedures, and conflict-of-interest rules.</p></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="art-num">VII</span><span data-fr>Adoption</span><span data-en>Adoption</span><span class="chev">›</span></summary>
+        <div class="statuts-body">
+          <div class="blk" data-fr><p>Ces statuts sont effectifs dès leur adoption par un vote majoritaire des membres présents lors d'une réunion dûment convoquée à cet effet. Ils ont été approuvés et adoptés par les membres de l'Association Doumbouyah City/Perle de Guinée le <strong>29 mars 2024</strong>.</p></div>
+          <div class="blk" data-en><p>These bylaws take effect upon adoption by a majority vote of members present at a meeting duly convened for that purpose. They were approved and adopted by the members of the Association Doumbouyah City/Perle de Guinée on <strong>March 29, 2024</strong>.</p></div>
+        </div>
+      </details>
+    </div>
+    <div class="statuts-meta">
+      <span data-fr>Texte intégral tel qu'adopté — la version anglaise est une traduction de courtoisie ; en cas de divergence, la version française fait foi.</span>
+      <span data-en>Full text as adopted — the English version is a courtesy translation; in case of discrepancy, the French version prevails.</span>
+    </div>
+  </div>
+</section>
+
+<section id="vote" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Vote électronique</div>
+      <div class="kicker" data-en>Online Voting</div>
+      <h2 data-fr>Élections &amp; motions du conseil</h2>
+      <h2 data-en>Board Elections &amp; Motions</h2>
+      <p data-fr>Un vote par propriété enregistrée — connectez-vous avec votre identifiant de lot et votre code d'accès WhatsApp.</p>
+      <p data-en>One vote per registered property — sign in with your Lot ID and WhatsApp access code.</p>
+    </div>
+
+    <div class="rules-banner">
+      <span class="ic">⚖️</span>
+      <p data-fr><strong>Règles statutaires (Article IV, Section 3 des statuts du 29 mars 2024) :</strong> le quorum pour toute réunion des membres est de 30% des membres en règle. Chaque propriété enregistrée parmi les 74+ propriétés de l'ADCPG dispose d'<strong>une seule voix</strong>, quel que soit le nombre de personnes vivant sur le lot.</p>
+      <p data-en><strong>Statutory rules (Article IV, Section 3 of the bylaws adopted March 29, 2024):</strong> quorum for any members' meeting is 30% of members in good standing. Each of ADCPG's 74+ registered properties gets <strong>exactly one vote</strong>, regardless of how many people live on the lot.</p>
+    </div>
+
+    <div class="vote-grid">
+
+      <div class="vote-card" id="loginCard">
+        <h3 data-fr>Connexion propriétaire</h3><h3 data-en>Owner Login</h3>
+        <p class="sub" data-fr>Utilisez l'identifiant de lot et le code d'accès communiqués par le bureau via WhatsApp.</p>
+        <p class="sub" data-en>Use the Lot ID and access code shared by the board over WhatsApp.</p>
+
+        <div id="loggedOutView">
+          <form id="loginForm">
+            <div class="field">
+              <label for="lotId" data-fr>Identifiant de propriété / lot</label>
+              <label for="lotId" data-en>Property / Lot ID</label>
+              <input type="text" id="lotId" name="lotId" autocomplete="username" placeholder="ex. DP-014" required>
+            </div>
+            <div class="field">
+              <label for="accessCode" data-fr>Code d'accès WhatsApp</label>
+              <label for="accessCode" data-en>WhatsApp Access Code</label>
+              <input type="password" id="accessCode" name="accessCode" autocomplete="current-password" inputmode="text" placeholder="••••••" required>
+              <div class="field-hint" data-fr>Code personnel envoyé par le bureau dans le groupe WhatsApp de l'ADCPG.</div>
+              <div class="field-hint" data-en>Personal code sent by the board in the ADCPG WhatsApp group.</div>
+            </div>
+            <button type="submit" class="btn-solid" id="loginBtn">
+              <span data-fr>Se connecter</span><span data-en>Sign in</span>
+            </button>
+          </form>
+          <div class="vote-msg" id="loginMsg"></div>
+          <p class="field-hint" style="margin-top:16px;">
+            <span data-fr>Code perdu ou non reçu ? </span><span data-en>Lost or never received a code? </span>
+            <a href="#rejoindre" style="color:var(--green);font-weight:600;"><span data-fr>Contactez le bureau via WhatsApp.</span><span data-en>Contact the board on WhatsApp.</span></a>
+          </p>
+        </div>
+
+        <div id="loggedInView" style="display:none;">
+          <div class="session-pill">
+            <span id="sessionLabel"></span>
+            <button type="button" id="logoutBtn" data-fr>Se déconnecter</button>
+            <button type="button" id="logoutBtnEn" data-en>Sign out</button>
+          </div>
+          <div id="quorumBlock" class="quorum-wrap" style="display:none;">
+            <div class="quorum-head">
+              <span data-fr>Participation actuelle</span><span data-en>Current turnout</span>
+              <span class="pct" id="turnoutPct">—%</span>
+            </div>
+            <div class="quorum-track">
+              <div class="quorum-fill" id="turnoutFill" style="width:0%;"></div>
+              <div class="quorum-marker" style="left:30%;" data-label="30%"></div>
+            </div>
+            <p class="field-hint" style="margin-top:26px;">
+              <span id="turnoutCount" data-fr>— votes sur 74+ propriétés</span>
+              <span id="turnoutCountEn" data-en>— votes out of 74+ properties</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vote-card" id="ballotCard">
+        <div id="ballotContent">
+          <div class="ballot-empty">
+            <p data-fr>Connectez-vous pour voir le scrutin en cours.</p>
+            <p data-en>Sign in to view the current ballot.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="transparence">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Transparence</div>
+      <div class="kicker" data-en>Transparency</div>
+      <h2 data-fr>Tableau de bord financier</h2>
+      <h2 data-en>Financial Transparency Dashboard</h2>
+      <p data-fr>Conformément à l'Article V des statuts — registres financiers accessibles aux membres sur demande.</p>
+      <p data-en>Per Article V of the bylaws — financial records available to members on request.</p>
+    </div>
+
+    <div class="fin-grid">
+      <div class="fin-card">
+        <div class="num">37 000 000 FGN</div>
+        <div class="lbl" data-fr>Cotisations annuelles collectées</div>
+        <div class="lbl" data-en>Annual dues collected</div>
+        <div class="note" data-fr>* Exemple — à remplacer par les chiffres réels</div>
+        <div class="note" data-en>* Sample figure — replace with real numbers</div>
+      </div>
+      <div class="fin-card">
+        <div class="num">500 000 FGN</div>
+        <div class="lbl" data-fr>Fonds de Solidarité (par propriété)</div>
+        <div class="lbl" data-en>Solidarity Fund (per property)</div>
+        <div class="note" data-fr>Contribution unique — Article V, Section 1</div>
+        <div class="note" data-en>One-time contribution — Article V, Section 1</div>
+      </div>
+      <div class="fin-card">
+        <div class="num">74+</div>
+        <div class="lbl" data-fr>Propriétés contributrices</div>
+        <div class="lbl" data-en>Contributing properties</div>
+        <div class="note" data-fr>Doumbouya &amp; Perle, Coyah</div>
+        <div class="note" data-en>Doumbouya &amp; Perle, Coyah</div>
+      </div>
+    </div>
+
+    <div class="fin-breakdown">
+      <div class="fin-item">
+        <div class="fin-item-head"><span data-fr>Fonds de Solidarité — objectif</span><span data-en>Solidarity Fund — target</span><span class="amt">— / 37 000 000 FGN</span></div>
+        <div class="fin-track"><div class="fin-fill" style="width:0%" id="finSolidarity"></div></div>
+      </div>
+      <div class="fin-item">
+        <div class="fin-item-head"><span data-fr>Entretien des espaces communs</span><span data-en>Shared-space upkeep</span><span class="amt">—</span></div>
+        <div class="fin-track"><div class="fin-fill" style="width:0%"></div></div>
+      </div>
+      <div class="fin-item">
+        <div class="fin-item-head"><span data-fr>Projets d'infrastructure</span><span data-en>Infrastructure projects</span><span class="amt">—</span></div>
+        <div class="fin-track"><div class="fin-fill" style="width:0%"></div></div>
+      </div>
+      <p class="field-hint" style="text-align:center;margin-top:6px;">
+        <span data-fr>* Répartition à titre indicatif — à remplacer par les registres financiers réels du Commissariat aux Comptes (Article V, Section 5).</span>
+        <span data-en>* Breakdown is a placeholder — to be replaced with real records from the Audit Committee (Article V, Section 5).</span>
+      </p>
+    </div>
+
+    <div class="audit-cta">
+      <button type="button" class="btn-outline" style="color:var(--navy);border-color:var(--navy);" onclick="openRequestModal('audit')">
+        <span data-fr>Demander l'audit complet</span><span data-en>Request the full audit</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="assemblee" class="cards-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-fr>Gouvernance</div>
+      <div class="kicker" data-en>Governance</div>
+      <h2 data-fr>Assemblée Générale &amp; Feuille de route</h2>
+      <h2 data-en>General Assembly &amp; Roadmap</h2>
+      <p data-fr>Réunions, procès-verbaux et avancement du projet d'infrastructure de Coyah.</p>
+      <p data-en>Meetings, minutes, and progress on the Coyah infrastructure project.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4 data-fr>Assemblée annuelle</h4><h4 data-en>Annual Assembly</h4>
+        <p data-fr>Date à confirmer — avis envoyé aux membres au moins 15 jours à l'avance (Article IV, Section 1). Cette assemblée peut se tenir en virtuel.</p>
+        <p data-en>Date to be confirmed — notice sent to members at least 15 days in advance (Article IV, Section 1). This assembly may be held virtually.</p>
+        <a class="tl-link" href="#" onclick="return false;"><span data-fr>Lien de la réunion virtuelle — à venir</span><span data-en>Virtual meeting link — coming soon</span></a>
+      </div>
+      <div class="timeline-item">
+        <h4 data-fr>Réunions spéciales du CA</h4><h4 data-en>Special Board Meetings</h4>
+        <p data-fr>Convoquées par le Président, le Comité de Gestion, ou deux (2) membres — avis d'au moins 7 jours (Article IV, Section 2).</p>
+        <p data-en>Called by the President, the Management Committee, or two (2) members — at least 7 days' notice (Article IV, Section 2).</p>
+      </div>
+      <div class="timeline-item">
+        <h4 data-fr>Archive des procès-verbaux</h4><h4 data-en>Minutes Archive</h4>
+        <ul class="minutes-list">
+          <li><span data-fr>Assemblée annuelle — à venir</span><span data-en>Annual Assembly — upcoming</span><span class="tag" data-fr>PDF bientôt</span><span class="tag" data-en>PDF soon</span></li>
+          <li><span data-fr>Réunion du CA — à venir</span><span data-en>Board meeting — upcoming</span><span class="tag" data-fr>PDF bientôt</span><span class="tag" data-en>PDF soon</span></li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <h4 data-fr>Feuille de route — Infrastructure Coyah</h4><h4 data-en>Roadmap — Coyah Infrastructure</h4>
+        <p data-fr>Avancement des projets d'infrastructure communs financés par les cotisations et le Fonds de Solidarité.</p>
+        <p data-en>Progress on shared infrastructure projects funded by dues and the Solidarity Fund.</p>
+        <div class="fin-item" style="margin-top:14px;">
+          <div class="fin-item-head"><span data-fr>Planification</span><span data-en>Planning</span><span class="amt">100%</span></div>
+          <div class="fin-track"><div class="fin-fill" style="width:100%"></div></div>
+        </div>
+        <div class="fin-item">
+          <div class="fin-item-head"><span data-fr>Travaux d'infrastructure</span><span data-en>Infrastructure works</span><span class="amt">—</span></div>
+          <div class="fin-track"><div class="fin-fill" style="width:35%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="audit-cta">
+      <button type="button" class="btn-outline" style="color:var(--navy);border-color:var(--navy);" onclick="openRequestModal('governance')">
+        <span data-fr>Soumettre une demande au bureau</span><span data-en>Submit a request to the board</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="rejoindre" class="join-section">
+  <div class="wrap join-grid">
+    <div>
+      <div class="kicker" data-fr>Rejoignez-nous</div>
+      <div class="kicker" data-en>Get involved</div>
+      <h2 style="font-size:30px;color:var(--navy);margin:0 0 16px;" data-fr>Restez connecté avec la communauté</h2>
+      <h2 style="font-size:30px;color:var(--navy);margin:0 0 16px;" data-en>Stay connected with the community</h2>
+      <p style="color:var(--muted);font-size:15.5px;" data-fr>Le groupe WhatsApp officiel de l'ADCPG est notre principal canal d'échange : annonces, actualités du projet, et entraide entre membres. Rejoignez-nous pour rester informé.</p>
+      <p style="color:var(--muted);font-size:15.5px;" data-en>ADCPG's official WhatsApp group is our main channel: announcements, project updates, and mutual support between members. Join us to stay informed.</p>
+    </div>
+    <div class="whatsapp-card">
+      <div class="wa-icon">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.2.6 4.3 1.7 6.1L4 29l8.1-1.7c1.7.9 3.7 1.4 5.9 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.8 1 1-4.7-.2-.4C5.4 17.6 5 16.3 5 15c0-6.1 4.9-11 11-11s11 4.9 11 11-4.9 10.8-11 10.8zm6-8.3c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+      </div>
+      <h3 data-fr>Groupe WhatsApp de l'ADCPG</h3><h3 data-en>ADCPG WhatsApp Group</h3>
+      <p data-fr>Scannez le code ou cliquez sur le bouton pour rejoindre directement.</p>
+      <p data-en>Scan the code or click the button to join directly.</p>
+      <a class="wa-btn" href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener">
+        <span data-fr>Rejoindre sur WhatsApp</span>
+        <span data-en>Join on WhatsApp</span>
+      </a>
+      <div class="wa-fineprint" data-fr>Ce lien vous redirige vers l'application WhatsApp officielle.</div>
+      <div class="wa-fineprint" data-en>This link redirects you to the official WhatsApp app.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kicker" style="color:var(--gold-2);" data-fr>Contact</div>
+      <div class="kicker" style="color:var(--gold-2);" data-en>Contact</div>
+      <h2 data-fr>Parlons-nous</h2>
+      <h2 data-en>Get in touch</h2>
+      <p style="color:#c9cee0;" data-fr>Une question, une suggestion, ou vous souhaitez contribuer au projet ? Contactez le bureau de l'ADCPG.</p>
+      <p style="color:#c9cee0;" data-en>Have a question, a suggestion, or want to contribute to the project? Reach out to the ADCPG board.</p>
+      <ul class="contact-info">
+        <li><span class="ic">💬</span><span data-fr>WhatsApp — voir le bouton "Rejoindre" ci-dessus</span><span data-en>WhatsApp — see the "Join" button above</span></li>
+        <li><span class="ic">✉️</span><span>contact@adcpg.org <span style="opacity:.6;">(<span data-fr>à confirmer</span><span data-en>to confirm</span>)</span></span></li>
+        <li><span class="ic">📍</span><span data-fr>Doumbouya Cité &amp; Perle, Coyah, Guinée</span><span data-en>Doumbouya Cité &amp; Perle, Coyah, Guinea</span></li>
+      </ul>
+    </div>
+    <form class="contact-form">
+      <label for="cf-name" data-fr>Nom complet</label><label for="cf-name" data-en>Full name</label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" autocapitalize="words" placeholder="—">
+      <label for="cf-email" data-fr>Adresse e-mail</label><label for="cf-email" data-en>Email address</label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="—">
+      <label for="cf-message" data-fr>Message</label><label for="cf-message" data-en>Message</label>
+      <textarea id="cf-message" name="message" rows="5" placeholder="—"></textarea>
+      <button type="submit" data-fr>Envoyer</button>
+      <button type="submit" data-en>Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="crest" style="width:38px;height:38px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:38px;height:38px;">
+  <path id="crestRingFtr" d="M 37.8,139 A 71,71 0 1 1 162.2,139" fill="none"/>
+
+  <circle cx="100" cy="100" r="97" fill="#2028c8"/>
+  <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="85" fill="#2028c8"/>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="#ffffff" letter-spacing="0.3">
+    <textPath href="#crestRingFtr" startOffset="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" textLength="300">ASSOCIATION DOUMBOUYAH CITY PERLE DE GUINEE</textPath>
+  </text>
+
+  <g>
+      <g transform="translate(76 133) rotate(-8)"><path d="M0 0 Q 6.75 -5.89 13.5 0 Q 6.75 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.8" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(76 133) rotate(27)"><path d="M0 0 Q 4.859999999999999 -4.35 9.719999999999999 0 Q 4.859999999999999 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.776" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(63 127) rotate(-28)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(63 127) rotate(7)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(54 117) rotate(-48)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(54 117) rotate(-13)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(48 105) rotate(-66)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(48 105) rotate(-31)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(47 92) rotate(-84)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(47 92) rotate(-49)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(50 79) rotate(-104)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(50 79) rotate(-69)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(57 68) rotate(-124)"><path d="M0 0 Q 7.0 -5.89 14.0 0 Q 7.0 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.200000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(57 68) rotate(-89)"><path d="M0 0 Q 5.04 -4.35 10.08 0 Q 5.04 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.064" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(67 59) rotate(-144)"><path d="M0 0 Q 6.5 -5.89 13.0 0 Q 6.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.4" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(67 59) rotate(-109)"><path d="M0 0 Q 4.68 -4.35 9.36 0 Q 4.68 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.4879999999999995" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(124 133) rotate(188)"><path d="M0 0 Q 6.75 -5.89 13.5 0 Q 6.75 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.8" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(124 133) rotate(153)"><path d="M0 0 Q 4.859999999999999 -4.35 9.719999999999999 0 Q 4.859999999999999 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.776" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(137 127) rotate(208)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(137 127) rotate(173)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(146 117) rotate(228)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(146 117) rotate(193)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(152 105) rotate(246)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(152 105) rotate(211)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(153 92) rotate(264)"><path d="M0 0 Q 7.5 -5.89 15.0 0 Q 7.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="12.0" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(153 92) rotate(229)"><path d="M0 0 Q 5.3999999999999995 -4.35 10.799999999999999 0 Q 5.3999999999999995 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.639999999999999" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(150 79) rotate(284)"><path d="M0 0 Q 7.25 -5.89 14.5 0 Q 7.25 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.600000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(150 79) rotate(249)"><path d="M0 0 Q 5.22 -4.35 10.44 0 Q 5.22 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.352" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(143 68) rotate(304)"><path d="M0 0 Q 7.0 -5.89 14.0 0 Q 7.0 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="11.200000000000001" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(143 68) rotate(269)"><path d="M0 0 Q 5.04 -4.35 10.08 0 Q 5.04 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="8.064" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(133 59) rotate(324)"><path d="M0 0 Q 6.5 -5.89 13.0 0 Q 6.5 5.89 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="10.4" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+      <g transform="translate(133 59) rotate(289)"><path d="M0 0 Q 4.68 -4.35 9.36 0 Q 4.68 4.35 0 0 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.45"/><line x1="0.5" y1="0" x2="7.4879999999999995" y2="0" stroke="#7a4a1e" stroke-width="0.35"/></g>
+  </g>
+  <path d="M100 131 L98 140 L100 146 L102 140 Z" fill="#c99a5f" stroke="#7a4a1e" stroke-width="0.4"/>
+
+  <path d="M101 50 L138 85 L133 85 L101 55 L69 85 L64 85 Z" fill="#f2f1f7"/>
+  <text x="101" y="66.5" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+
+  <text x="96" y="126" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="#f2f1f7" text-anchor="middle">D</text>
+  <text x="101" y="119" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#c99a5f" text-anchor="middle">P</text>
+
+  <g fill="#ffffff">
+    <path transform="translate(62,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(91,147.5) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+    <path transform="translate(120,145) scale(1.15)" d="M8 0 L10.1 5.7 16.1 5.9 11.4 9.6 13.1 15.4 8 12 2.9 15.4 4.6 9.6 -0.1 5.9 5.9 5.7 Z"/>
+  </g>
+</svg>
+          </div>
+          <div class="brand-name">ADCPG</div>
+        </div>
+        <p data-fr>Association de Doumbouya Cité &amp; Perle De Guinée (ADCPG) — au service de la communauté, en Guinée et dans la diaspora.</p>
+        <p data-en>Association de Doumbouya Cité &amp; Perle De Guinée (ADCPG) — serving the community, at home and across the diaspora.</p>
+      </div>
+      <div>
+        <h4 data-fr>Navigation</h4><h4 data-en>Navigation</h4>
+        <ul>
+          <li><a href="#apropos" data-fr>À propos</a><a href="#apropos" data-en>About</a></li>
+          <li><a href="#projet" data-fr>Nos Quartiers</a><a href="#projet" data-en>Our Neighborhoods</a></li>
+          <li><a href="#bureau" data-fr>Bureau</a><a href="#bureau" data-en>Board</a></li>
+          <li><a href="#statuts" data-fr>Statuts</a><a href="#statuts" data-en>Bylaws</a></li>
+          <li><a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Communauté</h4><h4 data-en>Community</h4>
+        <ul>
+          <li><a href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener" data-fr>Groupe WhatsApp</a><a href="https://chat.whatsapp.com/J2pwHXd6unvLmmNhvCbt7R?mode=gi_t" target="_blank" rel="noopener" data-en>WhatsApp Group</a></li>
+          <li><a href="#vote" data-fr>Vote électronique</a><a href="#vote" data-en>Online Voting</a></li>
+          <li><a href="#transparence" data-fr>Transparence financière</a><a href="#transparence" data-en>Financial Transparency</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ADCPG. <span data-fr>Tous droits réservés.</span><span data-en>All rights reserved.</span></span>
+      <span data-fr>Modèle de site — contenu à finaliser avec le bureau de l'association.</span>
+      <span data-en>Website template — content to be finalized with the association's board.</span>
+    </div>
+    <div class="footer-credit">
+      Conçu et créé par <a href="https://al-falahmarketing.com" target="_blank" rel="noopener">Al-Falah Marketing</a>, <a href="https://al-falahmarketing.com" target="_blank" rel="noopener">https://al-falahmarketing.com</a>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="fab-request" onclick="openRequestModal('maintenance')" aria-haspopup="dialog">
+  <span>✉️</span>
+  <span data-fr>Demande</span><span data-en>Request</span>
+</button>
+
+<div class="modal-overlay" id="requestModal" role="dialog" aria-modal="true" aria-labelledby="requestModalTitle">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeRequestModal()" aria-label="Close">✕</button>
+    <h3 id="requestModalTitle" data-fr>Formulaire de demande</h3>
+    <h3 data-en>Request Form</h3>
+    <p class="sub" data-fr>Entretien, audit financier, ou toute question de gouvernance — votre demande est transmise au Conseil d'Administration (13 membres).</p>
+    <p class="sub" data-en>Maintenance, financial audit, or any governance question — your request is sent to the 13-member Board of Directors.</p>
+
+    <form id="requestForm">
+      <div class="field">
+        <label for="reqName" data-fr>Nom complet</label>
+        <label for="reqName" data-en>Full name</label>
+        <input type="text" id="reqName" name="reqName" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="reqLotId" data-fr>Identifiant de lot (optionnel)</label>
+        <label for="reqLotId" data-en>Lot ID (optional)</label>
+        <input type="text" id="reqLotId" name="reqLotId" placeholder="ex. DP-014">
+      </div>
+      <div class="field">
+        <label for="reqCategory" data-fr>Catégorie</label>
+        <label for="reqCategory" data-en>Category</label>
+        <select id="reqCategory" name="reqCategory">
+          <option value="maintenance" data-i18n-fr="Entretien / Maintenance" data-i18n-en="Maintenance">Entretien / Maintenance</option>
+          <option value="governance" data-i18n-fr="Gouvernance" data-i18n-en="Governance">Gouvernance</option>
+          <option value="audit" data-i18n-fr="Audit financier" data-i18n-en="Financial audit">Audit financier</option>
+          <option value="other" data-i18n-fr="Autre" data-i18n-en="Other">Autre</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="reqMessage" data-fr>Message</label>
+        <label for="reqMessage" data-en>Message</label>
+        <textarea id="reqMessage" name="reqMessage" rows="4" required style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:#fbfaf7;font-family:inherit;font-size:15px;resize:vertical;"></textarea>
+      </div>
+      <button type="submit" class="btn-solid" id="requestSubmitBtn">
+        <span data-fr>Envoyer au bureau</span><span data-en>Send to the board</span>
+      </button>
+    </form>
+    <div class="vote-msg" id="requestMsg"></div>
+  </div>
+</div>
+
+<script>
+  function initMobileMenu(){
+    const body = document.body;
+    const btn = document.querySelector('.menu-btn');
+    const menu = document.getElementById('mobileMenu');
+    const scrim = document.getElementById('menuScrim');
+    if (!btn || !menu || !scrim) {
+      console.warn('ADCPG: mobile menu elements missing — hamburger will not work.', { btn, menu, scrim });
+      return;
+    }
+    const closeBtn = menu.querySelector('.drawer-close');
+    function setMenu(open){
+      body.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      setMenu(!body.classList.contains('menu-open'));
+    });
+    scrim.addEventListener('click', ()=> setMenu(false));
+    if (closeBtn) closeBtn.addEventListener('click', ()=> setMenu(false));
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', ()=> setMenu(false)); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+
+  function syncSelectI18n(){
+    const lang = document.documentElement.getAttribute('data-lang') || 'fr';
+    document.querySelectorAll('option[data-i18n-fr]').forEach(function(opt){
+      opt.textContent = lang === 'en' ? opt.getAttribute('data-i18n-en') : opt.getAttribute('data-i18n-fr');
+    });
+  }
+
+  document.querySelectorAll('[data-set-lang]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const lang = btn.getAttribute('data-set-lang');
+      document.documentElement.setAttribute('data-lang', lang);
+      document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      try{ localStorage.setItem('adcpg-lang', lang); }catch(e){}
+      syncSelectI18n();
+    });
+  });
+  try{
+    const saved = localStorage.getItem('adcpg-lang');
+    if(saved){
+      document.documentElement.setAttribute('data-lang', saved);
+      document.querySelectorAll('.lang-toggle button').forEach(b=>{
+        b.classList.toggle('active', b.getAttribute('data-set-lang')===saved);
+      });
+    }
+  }catch(e){}
+  syncSelectI18n();
+</script>
+
+<!-- ================================================================
+     ADCPG Voting & Governance — Supabase-backed module
+     Full setup guide: see docs/voting-supabase-setup.md and
+     supabase/schema.sql in the repository this page ships with.
+
+     IMPORTANT — this only talks to Supabase once the page is hosted
+     on a real domain (GitHub Pages, Netlify, your own server). It
+     will NOT reach Supabase from inside a Claude Artifact preview,
+     which sandboxes outbound network calls to a fixed allowlist.
+     ================================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  // ---- 1) CONFIGURE ME ------------------------------------------------
+  // Replace with your Supabase project's URL and public "anon" key
+  // (Project Settings → API in the Supabase dashboard). The anon key is
+  // safe to expose client-side — it only grants what your RLS policies
+  // and RPC functions allow (see supabase/schema.sql).
+  var SUPABASE_URL = 'https://YOUR-PROJECT-REF.supabase.co';
+  var SUPABASE_ANON_KEY = 'YOUR-PUBLIC-ANON-KEY';
+  var TOTAL_PROPERTIES = 74; // update if the association's property count changes
+
+  var configured = SUPABASE_URL.indexOf('YOUR-PROJECT-REF') === -1 &&
+                    SUPABASE_ANON_KEY.indexOf('YOUR-PUBLIC-ANON-KEY') === -1;
+  var sb = null;
+  if (configured && window.supabase) {
+    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+
+  // In-memory only — never persisted to localStorage/sessionStorage,
+  // so a shared or public device doesn't leak a member's access code.
+  var session = null; // { lotId, accessCode, ownerName }
+  var activeElection = null; // { id, title_fr, title_en, ..., candidates: [...] }
+  var realtimeChannel = null;
+
+  function $(id){ return document.getElementById(id); }
+  function lang(){ return document.documentElement.getAttribute('data-lang') || 'fr'; }
+  function t(fr, en){ return lang() === 'en' ? en : fr; }
+
+  function showMsg(el, text, type){
+    if(!el) return;
+    el.textContent = text;
+    el.className = 'vote-msg show ' + type;
+  }
+  function clearMsg(el){
+    if(!el) return;
+    el.className = 'vote-msg';
+    el.textContent = '';
+  }
+
+  // ---- 2) Not-configured fallback -------------------------------------
+  function renderNotConfigured(){
+    var ballot = $('ballotContent');
+    if (ballot) {
+      ballot.innerHTML =
+        '<div class="ballot-empty">' +
+          '<p data-fr>Le module de vote n\'est pas encore connecté à la base de données. Voir le guide de configuration Supabase fourni avec ce site.</p>' +
+          '<p data-en>The voting module isn\'t connected to a database yet. See the Supabase setup guide shipped with this site.</p>' +
+        '</div>';
+    }
+  }
+
+  // ---- 3) Login ---------------------------------------------------------
+  var loginForm = $('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var loginMsg = $('loginMsg');
+      clearMsg(loginMsg);
+      var lotId = $('lotId').value.trim();
+      var accessCode = $('accessCode').value;
+      if (!lotId || !accessCode) return;
+
+      if (!sb) {
+        showMsg(loginMsg, t(
+          'Backend non connecté — voir le guide de configuration Supabase.',
+          'Backend not connected — see the Supabase setup guide.'
+        ), 'error');
+        return;
+      }
+
+      var btn = $('loginBtn');
+      btn.disabled = true;
+      try {
+        var res = await sb.rpc('login_property', { p_lot_id: lotId, p_access_code: accessCode });
+        if (res.error) throw res.error;
+        var rows = res.data || [];
+        if (!rows.length) {
+          showMsg(loginMsg, t(
+            'Identifiant ou code d\'accès incorrect.',
+            'Incorrect Lot ID or access code.'
+          ), 'error');
+          return;
+        }
+        session = { lotId: lotId, accessCode: accessCode, ownerName: rows[0].owner_name };
+        enterLoggedInView();
+        await loadActiveElection();
+      } catch (err) {
+        console.error(err);
+        showMsg(loginMsg, t(
+          'Erreur de connexion. Réessayez ou contactez le bureau.',
+          'Sign-in error. Try again or contact the board.'
+        ), 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
+  function enterLoggedInView(){
+    $('loggedOutView').style.display = 'none';
+    $('loggedInView').style.display = 'block';
+    var label = t('Connecté — ', 'Signed in as ') + session.ownerName + ' (' + session.lotId + ')';
+    $('sessionLabel').textContent = label;
+  }
+
+  function logout(){
+    session = null;
+    activeElection = null;
+    if (realtimeChannel && sb) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
+    $('loggedOutView').style.display = 'block';
+    $('loggedInView').style.display = 'none';
+    $('quorumBlock').style.display = 'none';
+    $('loginForm').reset();
+    renderNotConfigured();
+  }
+  var lb1 = $('logoutBtn'); if (lb1) lb1.addEventListener('click', logout);
+  var lb2 = $('logoutBtnEn'); if (lb2) lb2.addEventListener('click', logout);
+
+  // ---- 4) Load active election + candidates -----------------------------
+  async function loadActiveElection(){
+    if (!sb) return;
+    var ballot = $('ballotContent');
+    try {
+      var res = await sb.from('elections')
+        .select('id, title_fr, title_en, description_fr, description_en, status, quorum_percent, candidates(id, name, description_fr, description_en, sort_order)')
+        .eq('status', 'active')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (res.error) throw res.error;
+      if (!res.data) {
+        activeElection = null;
+        ballot.innerHTML = '<div class="ballot-empty">' +
+          '<p data-fr>Aucune élection ou motion active pour le moment.</p>' +
+          '<p data-en>No active election or motion right now.</p>' +
+        '</div>';
+        $('quorumBlock').style.display = 'none';
+        return;
+      }
+      activeElection = res.data;
+      activeElection.candidates.sort(function(a,b){ return (a.sort_order||0) - (b.sort_order||0); });
+
+      var hasVotedRes = await sb.rpc('has_voted', { p_lot_id: session.lotId, p_election_id: activeElection.id });
+      var alreadyVoted = !hasVotedRes.error && hasVotedRes.data === true;
+
+      renderBallot(alreadyVoted);
+      $('quorumBlock').style.display = 'block';
+      await loadResults();
+      subscribeRealtime();
+    } catch (err) {
+      console.error(err);
+      ballot.innerHTML = '<div class="ballot-empty">' +
+        '<p data-fr>Impossible de charger le scrutin. Réessayez plus tard.</p>' +
+        '<p data-en>Could not load the ballot. Please try again later.</p>' +
+      '</div>';
+    }
+  }
+
+  function renderBallot(alreadyVoted){
+    var ballot = $('ballotContent');
+    var title = t(activeElection.title_fr, activeElection.title_en);
+    var desc = t(activeElection.description_fr || '', activeElection.description_en || '');
+
+    var optionsHtml = activeElection.candidates.map(function(c){
+      var cName = c.name;
+      var cDesc = t(c.description_fr || '', c.description_en || '');
+      return '<label class="ballot-option' + (alreadyVoted ? ' has-voted' : '') + '">' +
+        '<input type="radio" name="candidate" value="' + c.id + '" ' + (alreadyVoted ? 'disabled' : '') + '>' +
+        '<span><span class="name">' + cName + '</span>' +
+        (cDesc ? '<div class="desc">' + cDesc + '</div>' : '') + '</span>' +
+      '</label>';
+    }).join('');
+
+    ballot.innerHTML =
+      '<div class="ballot-title">' + title + '</div>' +
+      (desc ? '<p class="ballot-desc">' + desc + '</p>' : '') +
+      '<div class="ballot-options">' + optionsHtml + '</div>' +
+      (alreadyVoted
+        ? '<p class="vote-msg show success" style="display:block;">' + t('Vous avez déjà voté pour ce scrutin. Merci !', 'You have already voted in this ballot. Thank you!') + '</p>'
+        : '<button type="button" class="btn-solid" id="submitVoteBtn">' + t('Soumettre mon vote', 'Submit my vote') + '</button>' +
+          '<div class="vote-msg" id="ballotMsg"></div>'
+      ) +
+      '<div id="resultsBlock" style="margin-top:24px;"></div>';
+
+    if (!alreadyVoted) {
+      $('submitVoteBtn').addEventListener('click', submitVote);
+    }
+  }
+
+  async function submitVote(){
+    var ballotMsg = $('ballotMsg');
+    clearMsg(ballotMsg);
+    var picked = document.querySelector('input[name="candidate"]:checked');
+    if (!picked) {
+      showMsg(ballotMsg, t('Sélectionnez un candidat avant de voter.', 'Select a candidate before voting.'), 'error');
+      return;
+    }
+    var btn = $('submitVoteBtn');
+    btn.disabled = true;
+    try {
+      var res = await sb.rpc('cast_vote', {
+        p_lot_id: session.lotId,
+        p_access_code: session.accessCode,
+        p_election_id: activeElection.id,
+        p_candidate_id: picked.value
+      });
+      if (res.error) throw res.error;
+      showMsg(ballotMsg, t('Vote enregistré. Merci pour votre participation !', 'Vote recorded. Thank you for participating!'), 'success');
+      var hasVotedRes = await sb.rpc('has_voted', { p_lot_id: session.lotId, p_election_id: activeElection.id });
+      renderBallot(!hasVotedRes.error && hasVotedRes.data === true);
+      await loadResults();
+    } catch (err) {
+      console.error(err);
+      var code = (err && err.message) || '';
+      var msg = t('Erreur lors du vote. Réessayez.', 'Error while voting. Please try again.');
+      if (code.indexOf('already_voted') !== -1) msg = t('Ce lot a déjà voté pour ce scrutin.', 'This lot has already voted in this ballot.');
+      if (code.indexOf('election_not_active') !== -1) msg = t('Ce scrutin n\'est plus actif.', 'This ballot is no longer active.');
+      showMsg($('ballotMsg'), msg, 'error');
+      btn.disabled = false;
+    }
+  }
+
+  // ---- 5) Results + turnout (public views, safe to read without login) --
+  async function loadResults(){
+    if (!sb || !activeElection) return;
+    try {
+      var turnoutRes = await sb.from('election_turnout').select('*').eq('election_id', activeElection.id).maybeSingle();
+      if (!turnoutRes.error && turnoutRes.data) {
+        var pct = turnoutRes.data.turnout_percent || 0;
+        $('turnoutPct').textContent = pct + '%';
+        $('turnoutFill').style.width = Math.min(pct, 100) + '%';
+        var votesCast = turnoutRes.data.votes_cast || 0;
+        var total = turnoutRes.data.total_properties || TOTAL_PROPERTIES;
+        $('turnoutCount').textContent = votesCast + ' ' + t('votes sur', 'votes out of') + ' ' + total + ' ' + t('propriétés', 'properties');
+        $('turnoutCountEn').textContent = $('turnoutCount').textContent;
+      }
+
+      var resultsRes = await sb.from('election_results').select('*').eq('election_id', activeElection.id);
+      var block = $('resultsBlock');
+      if (!block) return;
+      if (resultsRes.error || !resultsRes.data || !resultsRes.data.length) { block.innerHTML = ''; return; }
+
+      var totalVotes = resultsRes.data.reduce(function(sum, r){ return sum + (r.vote_count || 0); }, 0) || 1;
+      var rowsHtml = resultsRes.data.map(function(r){
+        var p = Math.round(100 * (r.vote_count || 0) / totalVotes);
+        return '<div class="result-row">' +
+          '<div class="result-head"><b>' + r.candidate_name + '</b><span>' + r.vote_count + ' — ' + p + '%</span></div>' +
+          '<div class="result-track"><div class="result-fill" style="width:' + p + '%"></div></div>' +
+        '</div>';
+      }).join('');
+      block.innerHTML = '<h4 style="font-size:13px;color:var(--navy);text-transform:uppercase;letter-spacing:.6px;margin:0 0 10px;">' +
+        t('Résultats en direct', 'Live results') + '</h4>' + rowsHtml;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function subscribeRealtime(){
+    if (!sb || !activeElection || realtimeChannel) return;
+    realtimeChannel = sb.channel('votes-' + activeElection.id)
+      .on('postgres_changes', {
+        event: 'INSERT', schema: 'public', table: 'votes',
+        filter: 'election_id=eq.' + activeElection.id
+      }, function(){ loadResults(); })
+      .subscribe();
+  }
+
+  // ---- 6) Digital request modal ------------------------------------------
+  window.openRequestModal = function(category){
+    var modal = $('requestModal');
+    if (!modal) return;
+    if (category) $('reqCategory').value = category;
+    modal.classList.add('open');
+  };
+  window.closeRequestModal = function(){
+    var modal = $('requestModal');
+    if (modal) modal.classList.remove('open');
+  };
+  var reqModalEl = $('requestModal');
+  if (reqModalEl) {
+    reqModalEl.addEventListener('click', function(e){ if (e.target === reqModalEl) closeRequestModal(); });
+  }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeRequestModal(); });
+
+  var requestForm = $('requestForm');
+  if (requestForm) {
+    requestForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var msgEl = $('requestMsg');
+      clearMsg(msgEl);
+      var payload = {
+        full_name: $('reqName').value.trim(),
+        lot_id: $('reqLotId').value.trim() || null,
+        category: $('reqCategory').value,
+        message: $('reqMessage').value.trim()
+      };
+      if (!payload.full_name || !payload.message) return;
+
+      if (!sb) {
+        showMsg(msgEl, t(
+          'Backend non connecté — écrivez-nous directement via WhatsApp en attendant.',
+          'Backend not connected — please reach us on WhatsApp in the meantime.'
+        ), 'error');
+        return;
+      }
+
+      var btn = $('requestSubmitBtn');
+      btn.disabled = true;
+      try {
+        var res = await sb.from('governance_requests').insert(payload);
+        if (res.error) throw res.error;
+        showMsg(msgEl, t('Demande envoyée. Le bureau vous répondra bientôt.', 'Request sent. The board will follow up soon.'), 'success');
+        requestForm.reset();
+        setTimeout(closeRequestModal, 1600);
+      } catch (err) {
+        console.error(err);
+        showMsg(msgEl, t('Erreur lors de l\'envoi. Réessayez.', 'Error sending your request. Please try again.'), 'error');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
+  // ---- 7) Boot ------------------------------------------------------------
+  if (!configured) {
+    renderNotConfigured();
+  }
+})();
+</script>
+
+</body>
+</html>
