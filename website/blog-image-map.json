@@ -1,0 +1,12 @@
+{
+  "note": "Blog covers must NOT use /storage/public/blogs/ (old Laravel). Use local assets/images.",
+  "map": {
+    "power-of-automation": "assets/images/gallery-ai-leads.jpg",
+    "ai-marketing": "assets/images/gallery-ai-brain.jpg",
+    "2026-growth": "assets/images/gallery-growth.jpg",
+    "beyond-seo": "assets/images/analyst-dashboard.jpg",
+    "post-scale-ai": "assets/images/ai-neural.jpg",
+    "why-seo": "assets/images/strategy-presentation.jpg",
+    "social-media": "assets/images/gallery-ads.jpg"
+  }
+}
