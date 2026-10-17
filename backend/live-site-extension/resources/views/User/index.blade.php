@@ -67,6 +67,45 @@
     </div>
 </section>
 
+<!-- FREE ENGLISH APP (BETA TESTERS) SECTION -->
+<section id="english-app" class="py-16 lg:py-24 bg-white" aria-labelledby="english-app-title">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-muted rounded-md border-l-8 border-accent p-8 lg:p-12 text-center">
+            <span class="inline-block px-4 py-2 bg-accent/15 text-accent rounded-md font-semibold text-sm uppercase tracking-wider mb-6">
+                Beta &middot; Testers wanted
+            </span>
+
+            <h2 id="english-app-title" class="text-3xl lg:text-5xl font-bold text-dark mb-6 tracking-tighter leading-tight">
+                Free English Learning for Beginners <span class="text-primary">in Guinea</span>
+            </h2>
+
+            <p class="text-lg lg:text-xl text-gray-600 mb-6 leading-relaxed">
+                Short lessons, a daily streak and games, in French, Pular, Susu or Maninka. It works on any phone, even with a weak connection.
+            </p>
+
+            <p class="text-base lg:text-lg text-gray-700 mb-8 leading-relaxed">
+                <strong>We need your opinion.</strong> The app is brand new and we are looking for people to test it and tell us what they think:
+                what is easy, what is confusing, and what you would like to learn next. It takes about 5 minutes.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://english.al-falahmarketing.com/" target="_blank" rel="noopener"
+                   class="h-16 px-10 bg-primary text-white rounded-md font-bold text-sm uppercase tracking-wider inline-flex items-center justify-center transition-all duration-200 hover:scale-105">
+                    Try the app free
+                </a>
+                <a href="#contact"
+                   class="h-16 px-10 border-4 border-primary text-primary rounded-md font-bold text-sm uppercase tracking-wider inline-flex items-center justify-center transition-all duration-200 hover:bg-primary hover:text-white">
+                    Send your feedback
+                </a>
+            </div>
+
+            <p class="text-sm text-gray-500 mt-6">
+                Tip: open the link on your phone, then tap &ldquo;Add to Home screen&rdquo; to use it like an app.
+            </p>
+        </div>
+    </div>
+</section>
+
 <!-- ABOUT SECTION -->
 <section id="about" class="py-20 lg:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
