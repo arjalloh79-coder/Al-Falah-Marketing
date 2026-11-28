@@ -53,8 +53,9 @@
         </a>
 
         <!-- Desktop nav -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-charcoal/80" aria-label="Primary">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-charcoal/80" aria-label="Primary">
           <a href="#about"    class="link-underline py-1">About</a>
+          <a href="#watch"    class="link-underline py-1">Watch</a>
           <a href="#prayer"   class="link-underline py-1">Prayer Times</a>
           <a href="#programs" class="link-underline py-1">Programs</a>
           <a href="#inside"   class="link-underline py-1">Inside</a>
@@ -85,6 +86,7 @@
     <div id="mobile-menu" class="lg:hidden hidden border-t border-brass/15 glass">
       <nav class="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1 text-[15px] font-medium" aria-label="Mobile">
         <a href="#about"    class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">About</a>
+        <a href="#watch"    class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Watch</a>
         <a href="#prayer"   class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Prayer Times</a>
         <a href="#programs" class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Programs &amp; Classes</a>
         <a href="#inside"   class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Inside Melbourne Madinah</a>
@@ -311,6 +313,31 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= WATCH / VIDEO ======================= -->
+    <section id="watch" class="relative py-20 md:py-28 bg-emerald-deep text-canvas scroll-mt-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.05]" aria-hidden="true" style="background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22%3E%3Cpath d=%22M30 2l7 14 15 2-11 11 3 15-14-8-14 8 3-15L8 18l15-2z%22 fill=%22none%22 stroke=%22%23C59B48%22 stroke-width=%221%22/%3E%3C/svg%3E');background-size:120px 120px;"></div>
+      <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        <p class="eyebrow text-brass-light mb-3 reveal">Watch</p>
+        <h2 class="font-serif text-3xl md:text-5xl tracking-tightish reveal">Step inside Melbourne Madinah</h2>
+        <p class="mt-4 text-canvas/80 text-lg max-w-2xl mx-auto reveal">Press play for a short look at the Madinah and the community who gather here, in the heart of the city.</p>
+        <div class="mt-10 reveal">
+          <div class="relative mx-auto aspect-video w-full overflow-hidden rounded-3xl ring-1 ring-brass/30 shadow-lift bg-black">
+            <button type="button" class="yt-facade group absolute inset-0 h-full w-full cursor-pointer" data-ytid="XnERo14XrQY" aria-label="Play video: Step inside Melbourne Madinah">
+              <img src="https://i.ytimg.com/vi/XnERo14XrQY/maxresdefault.jpg"
+                   onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/XnERo14XrQY/hqdefault.jpg'"
+                   alt="Melbourne Madinah — click to play the video"
+                   class="h-full w-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition duration-500" loading="lazy" decoding="async" />
+              <span class="absolute inset-0 bg-gradient-to-t from-emerald-deep/60 via-transparent to-transparent" aria-hidden="true"></span>
+              <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-brass text-emerald-deep shadow-lift group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="h-7 w-7 md:h-8 md:w-8 ml-1" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </button>
+          </div>
+          <p class="mt-4 text-xs text-canvas/55 reveal">Video hosted on YouTube · plays when you press play.</p>
         </div>
       </div>
     </section>
@@ -961,6 +988,22 @@
       btn.addEventListener('click', function () {
         document.querySelectorAll('.give-tier').forEach(function (b) { b.classList.remove('bg-emerald', 'text-canvas'); });
         btn.classList.add('bg-emerald', 'text-canvas');
+      });
+    });
+
+    /* ---------- YouTube lazy facade (load player only on click) ---------- */
+    document.querySelectorAll('.yt-facade').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-ytid');
+        if (!id) return;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+        iframe.title = 'Step inside Melbourne Madinah';
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('loading', 'lazy');
+        iframe.className = 'absolute inset-0 h-full w-full';
+        btn.replaceWith(iframe);
       });
     });
   })();
