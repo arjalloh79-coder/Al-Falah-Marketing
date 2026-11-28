@@ -1,0 +1,288 @@
+/* =============================================================
+   Melbourne Madinah — SHARED DESIGN TOKENS & COMPONENTS
+   Used by the chooser page and all 3 hero options.
+   Edit colours, fonts and spacing in :root below.
+   ============================================================= */
+
+/* ---------- 1. DESIGN TOKENS (edit these) ---------- */
+:root {
+  /* Brand palette */
+  --emerald:   #0B3D2E;   /* deep green  */
+  --emerald-2: #124f3c;   /* lighter green for gradients */
+  --gold:      #C9A24B;   /* warm gold   */
+  --gold-soft: #e3c988;   /* lighter gold */
+  --ivory:     #F7F3E8;   /* ivory / text on dark */
+  --midnight:  #0A1A2F;   /* midnight navy */
+  --midnight-2:#132742;   /* lighter navy for gradients */
+
+  /* Semantic */
+  --ink:          #0f241b;  /* dark text on light bg */
+  --ink-muted:    #45584f;  /* muted text on light bg */
+  --on-dark:      #F7F3E8;  /* text on dark bg */
+  --on-dark-muted:#cdd7d0;  /* muted text on dark bg */
+
+  /* Fonts */
+  --font-head: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-ar:   "Amiri", "Scheherazade New", serif;
+
+  /* Spacing scale */
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+
+  /* Layout */
+  --maxw: 1200px;
+  --header-h: 68px;
+  --radius: 14px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease: cubic-bezier(.22,.61,.36,1);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(10,26,47,.10);
+  --shadow-md: 0 12px 40px rgba(10,26,47,.22);
+}
+
+/* ---------- 2. RESET / BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--ivory);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-family: var(--font-head); font-weight: 600; line-height: 1.05; }
+
+/* Accessible skip link */
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 200;
+  background: var(--gold); color: var(--midnight);
+  padding: .6rem 1rem; border-radius: 0 0 var(--radius) 0; font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+
+/* Visible focus for keyboard users everywhere */
+a:focus-visible, button:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- 3. LAYOUT HELPERS ---------- */
+.wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- 4. STICKY HEADER (shared across all pages) ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--header-h);
+  display: flex; align-items: center;
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  background: color-mix(in srgb, var(--midnight) 78%, transparent);
+  border-bottom: 1px solid rgba(201,162,75,.22);
+}
+/* On light option (Geometric) header can opt into a light theme via .site-header--light */
+.site-header--light {
+  background: color-mix(in srgb, var(--ivory) 82%, transparent);
+  border-bottom: 1px solid rgba(11,61,46,.14);
+}
+.site-header--light .brand,
+.site-header--light .nav a { color: var(--emerald); }
+.site-header--light .nav a:hover { color: var(--gold); }
+
+.header-inner {
+  width: 100%; max-width: var(--maxw); margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  display: flex; align-items: center; gap: 1rem;
+}
+
+/* Logo wordmark */
+.brand {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--font-head); font-weight: 600; font-size: 1.28rem;
+  letter-spacing: .3px; color: var(--ivory); text-decoration: none; white-space: nowrap;
+}
+.brand .brand-mark { width: 26px; height: 26px; flex: none; }
+.brand b { color: var(--gold); font-weight: 600; }
+
+/* Primary nav */
+.nav { margin-left: auto; }
+.nav ul { display: flex; align-items: center; gap: clamp(.9rem, 2vw, 1.5rem); list-style: none; margin: 0; padding: 0; }
+.nav a {
+  color: var(--on-dark-muted); text-decoration: none; font-size: .9rem; font-weight: 500;
+  padding: .4rem 0; position: relative; transition: color .2s var(--ease);
+}
+.nav a:hover { color: var(--ivory); }
+.nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 0;
+  background: var(--gold); transition: width .25s var(--ease);
+}
+.nav a:hover::after { width: 100%; }
+
+/* Donate button (shared) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font-family: var(--font-body); font-weight: 600; font-size: .95rem;
+  padding: .7rem 1.3rem; border-radius: var(--radius-pill);
+  text-decoration: none; cursor: pointer; border: 1.5px solid transparent;
+  transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease), color .2s var(--ease);
+  will-change: transform;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-donate { background: var(--gold); color: var(--midnight); box-shadow: var(--shadow-sm); padding: .55rem 1.1rem; font-size: .88rem; }
+.btn-donate:hover { background: var(--gold-soft); box-shadow: 0 8px 22px rgba(201,162,75,.4); }
+.nav-donate { margin-left: .4rem; }
+
+.btn-primary { background: var(--gold); color: var(--midnight); box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--gold-soft); box-shadow: 0 10px 28px rgba(201,162,75,.4); }
+.btn-ghost { background: transparent; color: var(--ivory); border-color: rgba(247,243,232,.55); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-soft); }
+/* Ghost variant for light backgrounds */
+.btn-ghost--ink { color: var(--emerald); border-color: rgba(11,61,46,.4); }
+.btn-ghost--ink:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ---------- 5. MOBILE NAV ---------- */
+.nav-toggle {
+  display: none; margin-left: auto;
+  width: 44px; height: 44px; background: transparent; border: 0; cursor: pointer;
+  color: inherit;
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+  content: ""; display: block; position: relative;
+  width: 24px; height: 2px; background: currentColor; margin-inline: auto;
+  transition: transform .25s var(--ease), opacity .2s var(--ease);
+}
+.nav-toggle span::before { position: absolute; top: -7px; }
+.nav-toggle span::after  { position: absolute; top: 7px; }
+.site-header:not(.site-header--light) .nav-toggle { color: var(--ivory); }
+.site-header--light .nav-toggle { color: var(--emerald); }
+
+@media (max-width: 860px) {
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .nav {
+    position: fixed; inset: var(--header-h) 0 auto 0; margin: 0;
+    background: var(--midnight);
+    border-bottom: 1px solid rgba(201,162,75,.25);
+    transform: translateY(-120%); transition: transform .3s var(--ease);
+    box-shadow: var(--shadow-md);
+  }
+  .nav.open { transform: translateY(0); }
+  .nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 0; }
+  .nav li { border-top: 1px solid rgba(255,255,255,.06); }
+  .nav a { display: block; color: var(--on-dark-muted); padding: .95rem clamp(1rem,4vw,2rem); font-size: 1rem; }
+  .nav a::after { display: none; }
+  .nav-donate { margin: .7rem clamp(1rem,4vw,2rem); }
+  .nav-toggle[aria-expanded="true"] span { transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span::before { transform: rotate(90deg); top: 0; }
+  .nav-toggle[aria-expanded="true"] span::after  { opacity: 0; }
+  /* Light header still gets dark dropdown for contrast */
+  .site-header--light .nav a { color: var(--on-dark-muted); }
+  .site-header--light .nav a:hover { color: var(--ivory); }
+}
+
+/* ---------- 6. HERO SCAFFOLD (shared structure) ---------- */
+.hero {
+  position: relative;
+  min-height: calc(100svh - var(--header-h));
+  display: flex; align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-inner {
+  position: relative; z-index: 3;
+  width: 100%; max-width: var(--maxw); margin-inline: auto;
+  padding: clamp(2rem, 6vh, 4.5rem) clamp(1rem, 4vw, 2rem);
+}
+.hero-content { max-width: 640px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .78rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); display: inline-block; }
+.headline {
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  letter-spacing: -.5px;
+}
+.subhead {
+  margin: 1.1rem 0 0; font-size: clamp(1rem, 1.6vw, 1.2rem);
+  max-width: 48ch; line-height: 1.6;
+}
+.cta-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+
+/* Arabic line helper */
+.ar { font-family: var(--font-ar); direction: rtl; font-size: 1.25em; line-height: 1.8; }
+
+/* ---------- 7. INFO STRIP (next prayer + address) ---------- */
+.info-strip {
+  display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; align-items: center;
+  margin-top: 2rem; padding: .85rem 1.1rem;
+  border-radius: var(--radius);
+  background: rgba(10,26,47,.34);
+  border: 1px solid rgba(201,162,75,.3);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  font-size: .9rem; max-width: 560px;
+}
+.info-strip--light {
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(11,61,46,.16);
+}
+.info-item { display: flex; align-items: center; gap: .55rem; }
+.info-item svg { width: 18px; height: 18px; flex: none; color: var(--gold); }
+.info-label { color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .68rem; }
+.info-val { font-weight: 600; }
+.info-strip:not(.info-strip--light) { color: var(--on-dark); }
+.info-strip:not(.info-strip--light) .info-val { color: var(--ivory); }
+.info-strip--light { color: var(--ink); }
+.info-divider { width: 1px; height: 26px; background: currentColor; opacity: .18; }
+
+/* Placeholder highlight so client can spot what to replace */
+.ph {
+  background: rgba(201,162,75,.18);
+  border-bottom: 1px dashed var(--gold);
+  padding: 0 .15em; border-radius: 3px;
+}
+
+/* ---------- 8. SCROLL CUE ---------- */
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 1.3rem; transform: translateX(-50%);
+  z-index: 3; color: var(--gold); opacity: .8; font-size: .7rem; letter-spacing: .2em;
+  text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: .4rem;
+}
+.scroll-cue .dot {
+  width: 22px; height: 34px; border: 1.5px solid currentColor; border-radius: 12px; position: relative;
+}
+.scroll-cue .dot::after {
+  content: ""; position: absolute; left: 50%; top: 6px; width: 3px; height: 7px;
+  background: currentColor; border-radius: 2px; transform: translateX(-50%);
+  animation: cueMove 1.6s var(--ease) infinite;
+}
+@keyframes cueMove { 0%{opacity:0;transform:translate(-50%,0)} 40%{opacity:1} 100%{opacity:0;transform:translate(-50%,10px)} }
+
+@media (max-width: 560px){ .scroll-cue{ display:none; } }
+
+/* ---------- 9. REDUCED MOTION (global) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
