@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melbourne Madinah — A House of Worship & Community in the Heart of the CBD</title>
+  <meta name="description" content="Melbourne Madinah is a mosque and community hub at 359 Exhibition Street in the heart of Melbourne's CBD — daily five prayers, two Jumu'ah sittings, classes, youth programs and a welcome for everyone. A Mercy Mission initiative." />
+  <meta name="theme-color" content="#14453D" />
+  <link rel="canonical" href="https://melbournemadinah.org/" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="place_of_worship" />
+  <meta property="og:site_name" content="Melbourne Madinah" />
+  <meta property="og:title" content="Melbourne Madinah — Prayer & Community in the Heart of Melbourne" />
+  <meta property="og:description" content="A mosque and community hub at 359 Exhibition Street, Melbourne CBD. Daily prayers, two Jumu'ah sittings, classes and youth programs. All are welcome." />
+  <meta property="og:url" content="https://melbournemadinah.org/" />
+  <meta property="og:image" content="https://melbournemadinah.org/public/images/entrance-courtyard.jpg" />
+  <meta property="og:locale" content="en_AU" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Melbourne Madinah — Prayer & Community in the Heart of Melbourne" />
+  <meta name="twitter:description" content="A mosque and community hub at 359 Exhibition Street, Melbourne CBD. All are welcome." />
+  <meta name="twitter:image" content="https://melbournemadinah.org/public/images/entrance-courtyard.jpg" />
+
+  <!-- Favicon: inline SVG eight-point star -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314453D'/%3E%3Cpath d='M16 5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L16 24l-5.2 2.8 1-5.8-4.2-4.1 5.8-.8z' fill='%23C59B48'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Compiled Tailwind + custom styles (see src/input.css · rebuild with: npm run build) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-canvas text-charcoal font-sans antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-emerald focus:text-canvas focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <!-- ======================= HEADER ======================= -->
+  <header id="site-header" class="glass fixed top-0 inset-x-0 z-50 border-b border-brass/15 transition-shadow duration-300">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 md:h-20 items-center justify-between gap-4">
+        <!-- Wordmark -->
+        <a href="#top" class="flex items-center gap-3 shrink-0" aria-label="Melbourne Madinah home">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald text-brass" aria-hidden="true">
+            <svg viewBox="0 0 32 32" class="h-6 w-6"><path d="M16 4l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L16 23.3 10.1 26.4l1.1-6.5-4.7-4.6 6.5-.9z" fill="currentColor"/></svg>
+          </span>
+          <span class="leading-none">
+            <span class="block font-serif text-xl md:text-2xl font-semibold tracking-tightish text-emerald">Melbourne Madinah</span>
+            <span class="block text-[11px] tracking-[0.18em] uppercase text-slate mt-0.5">A Mercy Mission initiative</span>
+          </span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-charcoal/80" aria-label="Primary">
+          <a href="#about"    class="link-underline py-1">About</a>
+          <a href="#prayer"   class="link-underline py-1">Prayer Times</a>
+          <a href="#programs" class="link-underline py-1">Programs</a>
+          <a href="#inside"   class="link-underline py-1">Inside</a>
+          <a href="#support"  class="link-underline py-1">Support</a>
+          <a href="#visit"    class="link-underline py-1">Visit</a>
+        </nav>
+
+        <!-- Right: next prayer + donate -->
+        <div class="flex items-center gap-3">
+          <a href="#prayer" class="hidden sm:flex items-center gap-2 rounded-full border border-emerald/15 bg-white/60 px-3.5 py-1.5 text-xs text-emerald hover:border-brass/50 transition-colors" aria-label="Next prayer time">
+            <span class="pulse inline-block h-1.5 w-1.5 rounded-full bg-brass" aria-hidden="true"></span>
+            <span class="font-semibold" id="np-name-mini">Next</span>
+            <span class="tabular-nums font-semibold text-charcoal" id="np-time-mini">—</span>
+          </a>
+          <a href="#support" class="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-emerald px-4 md:px-5 py-2 text-sm font-semibold text-canvas shadow-soft hover:bg-emerald-deep transition-colors">
+            Support
+            <svg viewBox="0 0 20 20" class="h-4 w-4"><path d="M10 3.5c-1.6-2-4.4-1.6-5.6 0-1 1.4-.7 3.3 1 5L10 14l4.6-5.5c1.7-1.7 2-3.6 1-5-1.2-1.6-4-2-5.6 0z" fill="currentColor"/></svg>
+          </a>
+          <!-- Mobile menu toggle -->
+          <button id="menu-btn" class="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-emerald/15 text-emerald" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg id="menu-icon" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-brass/15 glass">
+      <nav class="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1 text-[15px] font-medium" aria-label="Mobile">
+        <a href="#about"    class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">About</a>
+        <a href="#prayer"   class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Prayer Times</a>
+        <a href="#programs" class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Programs &amp; Classes</a>
+        <a href="#inside"   class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Inside Melbourne Madinah</a>
+        <a href="#support"  class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Support &amp; Sadaqah</a>
+        <a href="#visit"    class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Plan Your Visit</a>
+        <a href="#support"  class="mobile-link mt-2 rounded-lg bg-emerald px-3 py-3 text-center font-semibold text-canvas">Support the Madinah</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ======================= HERO ======================= -->
+    <section class="relative overflow-hidden bg-stone pt-16 md:pt-20">
+      <div class="geo-bg absolute inset-0 opacity-70" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center py-14 md:py-20 lg:py-24">
+          <!-- Copy -->
+          <div class="lg:col-span-6 reveal">
+            <p class="eyebrow text-brass mb-5 flex items-center gap-3">
+              <span class="h-px w-8 bg-brass/60"></span>359 Exhibition Street · Melbourne CBD
+            </p>
+            <p class="font-arabic text-2xl md:text-3xl text-emerald/80 mb-4" dir="rtl" lang="ar">ٱلسَّلَامُ عَلَيْكُمْ</p>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tightish text-emerald">
+              A place of prayer<br class="hidden sm:block" /> and belonging in the<br class="hidden sm:block" /> heart of the city.
+            </h1>
+            <p class="mt-6 text-lg text-slate max-w-xl leading-relaxed">
+              Melbourne Madinah is a working masjid and community home in the middle of the CBD — five daily prayers, two Friday sittings, classes and gatherings, and a warm welcome for everyone who walks through the laneway door.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#visit" class="inline-flex items-center gap-2 rounded-full bg-emerald px-6 py-3.5 text-sm font-semibold text-canvas shadow-lift hover:bg-emerald-deep transition-colors">
+                Plan your visit
+                <svg viewBox="0 0 20 20" class="h-4 w-4"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="#prayer" class="inline-flex items-center gap-2 rounded-full border border-emerald/25 bg-white/50 px-6 py-3.5 text-sm font-semibold text-emerald hover:border-brass/60 hover:bg-white transition-colors">
+                View prayer times
+              </a>
+            </div>
+            <!-- live next prayer -->
+            <div class="mt-9 inline-flex items-center gap-4 rounded-2xl border border-emerald/10 bg-white/70 px-5 py-3.5 shadow-soft">
+              <span class="pulse inline-block h-2 w-2 rounded-full bg-brass" aria-hidden="true"></span>
+              <div class="text-sm">
+                <span class="text-slate">Next prayer</span>
+                <span class="mx-1.5 font-semibold text-emerald" id="np-name-hero">—</span>
+                <span class="text-slate">begins</span>
+                <span class="ml-1 font-semibold tabular-nums text-charcoal" id="np-time-hero">—</span>
+                <span class="ml-1 text-slate" id="np-count-hero"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Architectural image frame -->
+          <div class="lg:col-span-6 reveal">
+            <div class="relative">
+              <!-- Arch-topped main photo -->
+              <figure class="relative overflow-hidden rounded-t-[7rem] rounded-b-3xl shadow-lift ring-1 ring-emerald/10">
+                <img src="public/images/entrance-courtyard.jpg" width="788" height="1400"
+                     alt="The laneway courtyard entrance to Melbourne Madinah — green turf underfoot, heritage red-brick walls and the walkway leading to the community door."
+                     class="w-full h-[460px] md:h-[560px] object-cover" loading="eager" decoding="async" />
+                <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-emerald-deep/80 to-transparent px-6 py-5 text-canvas">
+                  <span class="text-xs tracking-[0.18em] uppercase text-brass-light/90">Find the laneway</span>
+                  <span class="block font-serif text-lg">Our courtyard entrance, off Exhibition Street</span>
+                </figcaption>
+              </figure>
+              <!-- Inset secondary photo -->
+              <figure class="absolute -bottom-8 -left-5 sm:-left-8 hidden sm:block w-40 md:w-52 overflow-hidden rounded-2xl shadow-lift ring-4 ring-canvas">
+                <img src="public/images/entrance-laneway.jpg" width="788" height="1400"
+                     alt="The brick entrance with the coffee flag and a small garden of pink geraniums marking the way in."
+                     class="w-full h-48 md:h-60 object-cover" loading="lazy" decoding="async" />
+              </figure>
+              <!-- Brass corner accent -->
+              <div class="absolute -top-4 -right-4 h-20 w-20 rounded-full border border-brass/40 hidden md:block" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= TRUST BAR ======================= -->
+    <section class="bg-emerald text-canvas">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <dl class="grid grid-cols-2 md:grid-cols-4 divide-y divide-canvas/10 md:divide-y-0 md:divide-x">
+          <div class="px-2 md:px-6 py-7 text-center reveal">
+            <dt class="text-xs tracking-[0.16em] uppercase text-brass-light/80">In the city</dt>
+            <dd class="mt-1 font-serif text-2xl md:text-3xl">CBD laneway masjid</dd>
+          </div>
+          <div class="px-2 md:px-6 py-7 text-center reveal">
+            <dt class="text-xs tracking-[0.16em] uppercase text-brass-light/80">Every day</dt>
+            <dd class="mt-1 font-serif text-2xl md:text-3xl">5 daily prayers</dd>
+          </div>
+          <div class="px-2 md:px-6 py-7 text-center reveal">
+            <dt class="text-xs tracking-[0.16em] uppercase text-brass-light/80">Every Friday</dt>
+            <dd class="mt-1 font-serif text-2xl md:text-3xl">2 Jumu'ah sittings</dd>
+          </div>
+          <div class="px-2 md:px-6 py-7 text-center reveal">
+            <dt class="text-xs tracking-[0.16em] uppercase text-brass-light/80">For everyone</dt>
+            <dd class="mt-1 font-serif text-2xl md:text-3xl">Brothers &amp; sisters</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ======================= PRAYER TIMES ======================= -->
+    <section id="prayer" class="relative py-20 md:py-28 bg-canvas scroll-mt-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow text-brass mb-3">Today at the Madinah</p>
+          <h2 class="font-serif text-3xl md:text-5xl tracking-tightish text-emerald">Daily prayer &amp; Jumu'ah times</h2>
+          <p class="mt-4 text-slate text-lg leading-relaxed">
+            Athān (begins) times are calculated live for Melbourne each day. Iqāmah (congregation) follows by the Madinah's set intervals. The next prayer is highlighted below.
+          </p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-3 gap-6">
+          <!-- Daily timetable -->
+          <div class="lg:col-span-2 rounded-3xl border border-emerald/10 bg-white shadow-soft overflow-hidden reveal">
+            <div class="flex flex-wrap items-center justify-between gap-3 px-6 md:px-8 py-5 border-b border-stone bg-stone/50">
+              <div>
+                <p class="font-serif text-xl text-emerald" id="today-date">Today</p>
+                <p class="text-xs text-slate mt-0.5" id="hijri-note">Melbourne, Australia · local time</p>
+              </div>
+              <div class="text-right">
+                <p class="text-xs tracking-[0.16em] uppercase text-slate">Time now</p>
+                <p class="font-semibold tabular-nums text-emerald text-lg" id="clock-now">—</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-[1fr_auto_auto] text-sm">
+              <div class="contents text-xs tracking-[0.14em] uppercase text-slate">
+                <div class="px-6 md:px-8 py-3 bg-stone/30">Prayer</div>
+                <div class="px-4 py-3 bg-stone/30 text-right">Begins</div>
+                <div class="px-6 md:px-8 py-3 bg-stone/30 text-right">Iqāmah</div>
+              </div>
+              <!-- rows injected by JS -->
+              <div id="prayer-rows" class="contents"></div>
+            </div>
+
+            <p class="px-6 md:px-8 py-4 text-xs text-slate border-t border-stone leading-relaxed">
+              Calculation: Muslim World League (Fajr 18° / Isha 17°), standard Asr. Iqāmah offsets after athān — Fajr 30 min, Dhuhr 10 min, Asr 10 min, Maghrib 5 min, Isha 10 min. Times are a guide; please confirm the board on arrival, especially in Ramadan.
+            </p>
+          </div>
+
+          <!-- Jumu'ah card -->
+          <div class="rounded-3xl bg-emerald text-canvas shadow-lift overflow-hidden reveal">
+            <div class="px-7 py-7 border-b border-canvas/10">
+              <p class="font-arabic text-xl text-brass-light mb-1" dir="rtl" lang="ar">صَلَاةُ ٱلْجُمُعَة</p>
+              <h3 class="font-serif text-2xl">Friday — Jumu'ah</h3>
+            </div>
+            <ul class="divide-y divide-canvas/10">
+              <li class="flex items-center justify-between px-7 py-5">
+                <div>
+                  <p class="font-semibold">First Jumu'ah</p>
+                  <p class="text-xs text-canvas/70 mt-0.5">Doors close once the first sitting is full</p>
+                </div>
+                <span class="font-serif text-2xl text-brass-light tabular-nums">1:10<span class="text-sm ml-1">PM</span></span>
+              </li>
+              <li class="flex items-center justify-between px-7 py-5">
+                <div>
+                  <p class="font-semibold">Second Jumu'ah</p>
+                  <p class="text-xs text-canvas/70 mt-0.5">A second full khutbah &amp; prayer</p>
+                </div>
+                <span class="font-serif text-2xl text-brass-light tabular-nums">2:00<span class="text-sm ml-1">PM</span></span>
+              </li>
+            </ul>
+            <div class="px-7 py-5 bg-emerald-deep/40 text-sm flex items-center gap-6">
+              <span class="inline-flex items-center gap-2"><svg viewBox="0 0 20 20" class="h-4 w-4 text-brass-light"><path d="M10 10a3 3 0 100-6 3 3 0 000 6zm-6 7a6 6 0 1112 0z" fill="currentColor"/></svg>Brothers downstairs</span>
+              <span class="inline-flex items-center gap-2"><svg viewBox="0 0 20 20" class="h-4 w-4 text-brass-light"><path d="M10 10a3 3 0 100-6 3 3 0 000 6zm-6 7a6 6 0 1112 0z" fill="currentColor"/></svg>Sisters upstairs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-6"><div class="hairline"></div></div>
+
+    <!-- ======================= ABOUT ======================= -->
+    <section id="about" class="py-20 md:py-28 bg-canvas scroll-mt-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Image -->
+          <div class="reveal order-last lg:order-first">
+            <div class="relative">
+              <figure class="overflow-hidden rounded-3xl rounded-tr-[6rem] shadow-lift ring-1 ring-emerald/10">
+                <img src="public/images/interior-calligraphy.jpg" width="900" height="1600"
+                     alt="Framed Arabic calligraphy on the wall inside Melbourne Madinah, beside the community noticeboard carrying current programs and campaigns."
+                     class="w-full h-[440px] md:h-[560px] object-cover" loading="lazy" decoding="async" />
+              </figure>
+              <div class="absolute -bottom-6 -right-4 sm:-right-6 bg-white rounded-2xl shadow-lift ring-1 ring-emerald/10 px-6 py-5 max-w-[15rem]">
+                <p class="font-arabic text-lg text-emerald" dir="rtl" lang="ar">ٱلْمَدِينَة</p>
+                <p class="text-sm text-slate mt-1 leading-snug">Named for the city that first became a home for faith and community.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Copy -->
+          <div class="reveal">
+            <p class="eyebrow text-brass mb-3">About Melbourne Madinah</p>
+            <h2 class="font-serif text-3xl md:text-5xl tracking-tightish text-emerald leading-tight">
+              A modern Madinah, inspired by a timeless model.
+            </h2>
+            <div class="mt-6 space-y-5 text-slate text-lg leading-relaxed">
+              <p>
+                When the Prophet ﷺ arrived in Madinah, the first thing he built was a masjid — and around it grew a community of learning, hospitality and belonging. Melbourne Madinah carries that same intention into the centre of one of the world's great cities.
+              </p>
+              <p>
+                Tucked behind a heritage brick façade off Exhibition Street, our space is small in footprint but full in purpose: a place to pray between meetings and classes, to study, to meet, and to feel at home — whether you work in the towers nearby, study in the city, or are simply passing through.
+              </p>
+              <p>
+                Melbourne Madinah is an initiative of <strong class="text-emerald font-semibold">Mercy Mission</strong>, delivered with partners who serve the city's Muslims every day. Everyone is welcome here — the regular and the first-time visitor alike.
+              </p>
+            </div>
+            <div class="mt-8 grid sm:grid-cols-3 gap-4">
+              <div class="rounded-2xl border border-emerald/10 bg-stone/50 px-5 py-4">
+                <p class="font-serif text-2xl text-emerald">Prayer</p>
+                <p class="text-sm text-slate mt-1">Five times a day, in congregation</p>
+              </div>
+              <div class="rounded-2xl border border-emerald/10 bg-stone/50 px-5 py-4">
+                <p class="font-serif text-2xl text-emerald">Knowledge</p>
+                <p class="text-sm text-slate mt-1">Classes, circles &amp; youth programs</p>
+              </div>
+              <div class="rounded-2xl border border-emerald/10 bg-stone/50 px-5 py-4">
+                <p class="font-serif text-2xl text-emerald">Community</p>
+                <p class="text-sm text-slate mt-1">Gatherings, Zakat help &amp; hospitality</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PROGRAMS ======================= -->
+    <section id="programs" class="relative py-20 md:py-28 bg-stone scroll-mt-20">
+      <div class="geo-bg absolute inset-0 opacity-60" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow text-brass mb-3">Programs, classes &amp; gatherings</p>
+          <h2 class="font-serif text-3xl md:text-5xl tracking-tightish text-emerald">More than a prayer room.</h2>
+          <p class="mt-4 text-slate text-lg leading-relaxed">
+            Throughout the week the Madinah fills with learning and community life — for youth, professionals, and families in the city.
+          </p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- GROUNDED -->
+          <article class="group rounded-3xl bg-white border border-emerald/10 shadow-soft p-7 flex flex-col reveal hover:shadow-lift transition-shadow">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-5"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" stroke-linejoin="round"/></svg></span>
+            <span class="text-[11px] font-semibold tracking-[0.14em] uppercase text-brass">Youth · Ages 12–16</span>
+            <h3 class="mt-1 font-serif text-2xl text-emerald">Grounded</h3>
+            <p class="mt-2 text-slate text-sm leading-relaxed flex-1">A six-week program raising confident, grounded and socially aware young Muslims — identity, deeds, technology and responsibility, with mentors, workshops and excursions.</p>
+            <p class="mt-4 text-sm font-medium text-charcoal">Sundays · 10:00am–12:30pm</p>
+          </article>
+
+          <!-- Madinah Nights -->
+          <article class="group rounded-3xl bg-white border border-emerald/10 shadow-soft p-7 flex flex-col reveal hover:shadow-lift transition-shadow">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-5"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8 8 0 019.5 4 7 7 0 1020 14.5z" stroke-linejoin="round"/></svg></span>
+            <span class="text-[11px] font-semibold tracking-[0.14em] uppercase text-brass">Evening gatherings</span>
+            <h3 class="mt-1 font-serif text-2xl text-emerald">Madinah Nights</h3>
+            <p class="mt-2 text-slate text-sm leading-relaxed flex-1">Evenings of reflection, reminders and community in the heart of the city — a chance to slow down, reconnect and find stillness amid the week.</p>
+            <p class="mt-4 text-sm font-medium text-charcoal">Seasonal · watch our socials</p>
+          </article>
+
+          <!-- Classes & Circles -->
+          <article class="group rounded-3xl bg-white border border-emerald/10 shadow-soft p-7 flex flex-col reveal hover:shadow-lift transition-shadow">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-5"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H4z M4 16l4 3M20 16l-4 3" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+            <span class="text-[11px] font-semibold tracking-[0.14em] uppercase text-brass">Learning</span>
+            <h3 class="mt-1 font-serif text-2xl text-emerald">Classes &amp; Circles</h3>
+            <p class="mt-2 text-slate text-sm leading-relaxed flex-1">Regular educational circles and talks for adults — Qur'an, seerah and the essentials of faith — accessible for the city worker and the lifelong student.</p>
+            <p class="mt-4 text-sm font-medium text-charcoal">Weekly · ask for the schedule</p>
+          </article>
+
+          <!-- Zakat Help Desk -->
+          <article class="group rounded-3xl bg-white border border-emerald/10 shadow-soft p-7 flex flex-col reveal hover:shadow-lift transition-shadow">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-5"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M7 7h7a3 3 0 010 6H7m10 0" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="text-[11px] font-semibold tracking-[0.14em] uppercase text-brass">With National Zakat Foundation</span>
+            <h3 class="mt-1 font-serif text-2xl text-emerald">Zakat Help Desk</h3>
+            <p class="mt-2 text-slate text-sm leading-relaxed flex-1">Not sure how to calculate, pay or apply for Zakat? Our on-site partner, the National Zakat Foundation, is here to answer your questions and keep your Zakat serving Australians in need.</p>
+            <p class="mt-4 text-sm font-medium text-charcoal">On-site · ask our desk</p>
+          </article>
+
+          <!-- Heritage Central -->
+          <article class="group rounded-3xl bg-white border border-emerald/10 shadow-soft p-7 flex flex-col reveal hover:shadow-lift transition-shadow">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-5"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h9l5 5v11H5z M14 4v5h5" stroke-linejoin="round"/></svg></span>
+            <span class="text-[11px] font-semibold tracking-[0.14em] uppercase text-brass">Books &amp; collections</span>
+            <h3 class="mt-1 font-serif text-2xl text-emerald">Heritage Central</h3>
+            <p class="mt-2 text-slate text-sm leading-relaxed flex-1">Browse Islamic books and collectibles through our Heritage Central corner — a quiet source of knowledge to take home from your visit to the Madinah.</p>
+            <p class="mt-4 text-sm font-medium text-charcoal">In the foyer</p>
+          </article>
+
+          <!-- Seasonal / Ramadan -->
+          <article class="group rounded-3xl bg-white border border-emerald/10 shadow-soft p-7 flex flex-col reveal hover:shadow-lift transition-shadow">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-5"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2M12 8a4 4 0 100 8 4 4 0 000-8z" stroke-linecap="round"/></svg></span>
+            <span class="text-[11px] font-semibold tracking-[0.14em] uppercase text-brass">Seasonal</span>
+            <h3 class="mt-1 font-serif text-2xl text-emerald">Ramadan &amp; Holidays</h3>
+            <p class="mt-2 text-slate text-sm leading-relaxed flex-1">Special Ramadan programs, open days, camps and school-holiday activities bring the city's community together through the year. Keep an eye on our events.</p>
+            <p class="mt-4 text-sm font-medium text-charcoal">Throughout the year</p>
+          </article>
+        </div>
+
+        <p class="mt-8 text-sm text-slate reveal">Want to join a program or ask about a class? <a href="#visit" class="text-emerald font-semibold link-underline">Get in touch with us →</a></p>
+      </div>
+    </section>
+
+    <!-- ======================= INSIDE / FACILITIES GALLERY ======================= -->
+    <section id="inside" class="py-20 md:py-28 bg-canvas scroll-mt-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow text-brass mb-3">Inside Melbourne Madinah</p>
+          <h2 class="font-serif text-3xl md:text-5xl tracking-tightish text-emerald">A quiet, cared-for space.</h2>
+          <p class="mt-4 text-slate text-lg leading-relaxed">
+            From the laneway courtyard to the calligraphy on the walls, every corner is kept with care — so that the moment you step inside, you feel welcome.
+          </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-[200px] md:auto-rows-[220px]">
+          <!-- Reception -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 col-span-2 row-span-2 reveal">
+            <img src="public/images/reception-welcome-desk.jpg" width="900" height="1600"
+                 alt="The welcome desk inside Melbourne Madinah, with the National Zakat Foundation stand and a refreshments fridge nearby."
+                 class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-5 py-4 text-canvas">
+              <span class="text-[11px] tracking-[0.16em] uppercase text-brass-light/90">Welcome desk</span>
+              <span class="block font-serif text-lg leading-snug">Say salām — grab water, ask a question, find your way</span>
+            </figcaption>
+          </figure>
+
+          <!-- Calligraphy -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 reveal">
+            <img src="public/images/interior-calligraphy.jpg" width="900" height="1600"
+                 alt="Framed Arabic calligraphy artwork on the wall of Melbourne Madinah."
+                 class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-4 py-3 text-canvas">
+              <span class="block font-serif text-base leading-snug">Calligraphy &amp; noticeboard</span>
+            </figcaption>
+          </figure>
+
+          <!-- Hallway -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 reveal">
+            <img src="public/images/interior-hallway.jpg" width="900" height="1600"
+                 alt="The hallway inside Melbourne Madinah with a long patterned runner leading toward the daylight of the entrance."
+                 class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-4 py-3 text-canvas">
+              <span class="block font-serif text-base leading-snug">The hallway in</span>
+            </figcaption>
+          </figure>
+
+          <!-- Entrance laneway -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 reveal">
+            <img src="public/images/entrance-laneway.jpg" width="788" height="1400"
+                 alt="The red-brick entrance to Melbourne Madinah with a coffee flag and a small garden marking the door."
+                 class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-4 py-3 text-canvas">
+              <span class="block font-serif text-base leading-snug">Street-side garden</span>
+            </figcaption>
+          </figure>
+
+          <!-- Courtyard -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 reveal">
+            <img src="public/images/entrance-courtyard.jpg" width="788" height="1400"
+                 alt="The courtyard outside Melbourne Madinah with green turf and heritage brickwork."
+                 class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-4 py-3 text-canvas">
+              <span class="block font-serif text-base leading-snug">Courtyard</span>
+            </figcaption>
+          </figure>
+
+          <!-- READY SLOT: prayer hall -->
+          <figure class="relative overflow-hidden rounded-2xl border-2 border-dashed border-brass/40 bg-stone/60 flex items-center justify-center text-center p-4 reveal" data-photo-slot="prayer-hall">
+            <div>
+              <svg viewBox="0 0 24 24" class="h-7 w-7 mx-auto text-brass mb-2" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-5h6v5" stroke-linejoin="round"/></svg>
+              <p class="font-serif text-base text-emerald leading-tight">Prayer hall (musallā)</p>
+              <p class="text-[11px] text-slate mt-1">Photo slot ready</p>
+            </div>
+          </figure>
+
+          <!-- READY SLOT: sisters' area -->
+          <figure class="relative overflow-hidden rounded-2xl border-2 border-dashed border-brass/40 bg-stone/60 flex items-center justify-center text-center p-4 reveal" data-photo-slot="sisters-area">
+            <div>
+              <svg viewBox="0 0 24 24" class="h-7 w-7 mx-auto text-brass mb-2" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-5h6v5" stroke-linejoin="round"/></svg>
+              <p class="font-serif text-base text-emerald leading-tight">Sisters' prayer area</p>
+              <p class="text-[11px] text-slate mt-1">Photo slot ready</p>
+            </div>
+          </figure>
+        </div>
+        <p class="mt-5 text-xs text-slate reveal">More of the space — the prayer halls, sisters' area, ablution facilities and street entrance — will appear here as photos are added.</p>
+      </div>
+    </section>
+
+    <!-- ======================= SUPPORT / SADAQAH ======================= -->
+    <section id="support" class="relative py-20 md:py-28 bg-emerald text-canvas scroll-mt-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.06]" aria-hidden="true" style="background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22%3E%3Cpath d=%22M30 2l7 14 15 2-11 11 3 15-14-8-14 8 3-15L8 18l15-2z%22 fill=%22none%22 stroke=%22%23C59B48%22 stroke-width=%221%22/%3E%3C/svg%3E');background-size:120px 120px;"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <!-- Left: story + verse -->
+          <div class="reveal">
+            <p class="eyebrow text-brass-light mb-3">Support &amp; Sadaqah</p>
+            <h2 class="font-serif text-3xl md:text-5xl tracking-tightish leading-tight">Build the House of Allah in the heart of the city.</h2>
+            <p class="mt-5 text-canvas/85 text-lg leading-relaxed">
+              Keeping a masjid alive in the middle of Melbourne takes a community. Your Sadaqah and Zakat keep the doors open, the carpets clean, the classes running — and help us build the facilities our growing congregation needs.
+            </p>
+            <figure class="mt-8 border-l-2 border-brass/60 pl-5">
+              <p class="font-arabic text-2xl leading-relaxed text-brass-light" dir="rtl" lang="ar">وَمَا تُنفِقُوا۟ مِنْ خَيْرٍ يُوَفَّ إِلَيْكُمْ وَأَنتُمْ لَا تُظْلَمُونَ</p>
+              <figcaption class="mt-2 text-canvas/80 text-sm">“And whatever you spend of good — it will be fully repaid to you, and you will not be wronged.” <span class="text-brass-light">(Qur'an 2:272)</span></figcaption>
+            </figure>
+          </div>
+
+          <!-- Right: campaign card -->
+          <div class="reveal">
+            <div class="rounded-3xl bg-canvas text-charcoal shadow-lift overflow-hidden">
+              <div class="px-7 py-6 border-b border-stone">
+                <span class="text-[11px] font-semibold tracking-[0.16em] uppercase text-brass">Current appeal</span>
+                <h3 class="font-serif text-2xl text-emerald mt-1">Men's Ablution Facilities</h3>
+                <p class="text-sm text-slate mt-1">Construction expected to begin around the New Year.</p>
+                <!-- progress -->
+                <div class="mt-5">
+                  <div class="flex items-end justify-between mb-2">
+                    <span class="text-sm text-slate">Goal</span>
+                    <span class="font-serif text-2xl text-emerald">$100,000</span>
+                  </div>
+                  <div class="h-2.5 rounded-full bg-stone overflow-hidden" role="progressbar" aria-label="Fundraising progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="h-full rounded-full bg-brass" style="width:8%"></div>
+                  </div>
+                  <p class="text-xs text-slate mt-2">Every contribution brings the build closer. <span class="italic">Jazāk Allāhu khayran.</span></p>
+                </div>
+              </div>
+
+              <!-- giving tiers -->
+              <div class="px-7 py-6">
+                <p class="text-sm font-semibold text-emerald mb-3">Give a one-off Sadaqah</p>
+                <div class="grid grid-cols-4 gap-2">
+                  <button class="give-tier rounded-xl border border-emerald/15 py-2.5 text-sm font-semibold text-emerald hover:bg-emerald hover:text-canvas transition-colors">$25</button>
+                  <button class="give-tier rounded-xl border border-emerald/15 py-2.5 text-sm font-semibold text-emerald hover:bg-emerald hover:text-canvas transition-colors">$50</button>
+                  <button class="give-tier rounded-xl border border-emerald/15 py-2.5 text-sm font-semibold text-emerald hover:bg-emerald hover:text-canvas transition-colors">$100</button>
+                  <button class="give-tier rounded-xl border border-emerald/15 py-2.5 text-sm font-semibold text-emerald hover:bg-emerald hover:text-canvas transition-colors">$500</button>
+                </div>
+                <a href="#visit" class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald px-5 py-3.5 text-sm font-semibold text-canvas hover:bg-emerald-deep transition-colors">
+                  Donate to the Madinah
+                  <svg viewBox="0 0 20 20" class="h-4 w-4"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+
+                <!-- bank + zakat -->
+                <div class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
+                  <div class="rounded-2xl bg-stone/60 p-4">
+                    <p class="font-semibold text-emerald mb-1">Direct deposit</p>
+                    <dl class="text-slate space-y-0.5 text-[13px]">
+                      <div><dt class="inline text-charcoal/60">Account:</dt> <dd class="inline">Mercy Mission Dawah Inc</dd></div>
+                      <div><dt class="inline text-charcoal/60">Bank:</dt> <dd class="inline">Bank of Melbourne</dd></div>
+                      <div><dt class="inline text-charcoal/60">BSB:</dt> <dd class="inline tabular-nums">193&nbsp;879</dd></div>
+                      <div class="text-xs text-slate/80 pt-1">Ask for the account number &amp; reference on-site, or by phone.</div>
+                    </dl>
+                  </div>
+                  <div class="rounded-2xl bg-stone/60 p-4">
+                    <p class="font-semibold text-emerald mb-1">Zakat &amp; on-site</p>
+                    <p class="text-slate text-[13px] leading-relaxed">Pay your Zakat with the National Zakat Foundation at our desk. An <strong>EFTPOS</strong> machine is available at the Madinah for cards.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= VISIT & CONTACT ======================= -->
+    <section id="visit" class="py-20 md:py-28 bg-canvas scroll-mt-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow text-brass mb-3">Plan your visit</p>
+          <h2 class="font-serif text-3xl md:text-5xl tracking-tightish text-emerald">Find us in the city.</h2>
+          <p class="mt-4 text-slate text-lg leading-relaxed">
+            We're in the heart of Melbourne's CBD. Look for the laneway entrance off Exhibition Street — the garden and the courtyard mark the way in.
+          </p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-5 gap-6">
+          <!-- Entrance cue + details -->
+          <div class="lg:col-span-3 grid sm:grid-cols-2 gap-6">
+            <!-- entrance photo cue -->
+            <figure class="relative overflow-hidden rounded-3xl ring-1 ring-emerald/10 shadow-soft sm:col-span-2 reveal">
+              <img src="public/images/entrance-laneway.jpg" width="788" height="1400"
+                   alt="Look for this entrance: the red-brick wall with a coffee flag and a small pink-flowered garden, marking the laneway door into Melbourne Madinah."
+                   class="w-full h-56 md:h-64 object-cover object-center" loading="lazy" decoding="async" />
+              <figcaption class="absolute inset-0 bg-gradient-to-r from-emerald-deep/80 via-emerald-deep/30 to-transparent flex items-center">
+                <div class="px-6 md:px-8 text-canvas max-w-xs">
+                  <span class="text-[11px] tracking-[0.16em] uppercase text-brass-light">Spot the door</span>
+                  <p class="font-serif text-xl md:text-2xl leading-snug mt-1">Follow the garden and coffee flag into the laneway.</p>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- address -->
+            <div class="rounded-3xl border border-emerald/10 bg-white p-6 shadow-soft reveal">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-3"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <h3 class="font-serif text-xl text-emerald">Address</h3>
+              <address class="not-italic text-slate mt-1 leading-relaxed">
+                359 Exhibition Street<br />Melbourne VIC 3000<br />Australia
+              </address>
+              <a href="https://www.google.com/maps/search/?api=1&query=359+Exhibition+Street+Melbourne+VIC+3000" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald link-underline">Open in Maps →</a>
+            </div>
+
+            <!-- getting here -->
+            <div class="rounded-3xl border border-emerald/10 bg-white p-6 shadow-soft reveal">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald/10 text-emerald mb-3"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 16V7a3 3 0 013-3h8a3 3 0 013 3v9M5 16h14M5 16l-1 3M19 16l1 3M8 19v1M16 19v1" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <h3 class="font-serif text-xl text-emerald">Getting here</h3>
+              <ul class="text-slate mt-1 space-y-1.5 text-sm leading-relaxed">
+                <li><strong class="text-charcoal/80">Train:</strong> Parliament &amp; Melbourne Central stations, a short walk away.</li>
+                <li><strong class="text-charcoal/80">Tram:</strong> routes along Bourke, La Trobe &amp; Latrobe/Victoria Streets.</li>
+                <li><strong class="text-charcoal/80">Parking:</strong> paid city car parks nearby; metered street parking in the CBD.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact card -->
+          <div class="lg:col-span-2 reveal">
+            <div class="rounded-3xl bg-emerald text-canvas shadow-lift p-7 md:p-8 h-full flex flex-col">
+              <h3 class="font-serif text-2xl">Get in touch</h3>
+              <p class="text-canvas/80 text-sm mt-1">Questions about prayers, programs, bookings or donations — we'd love to hear from you.</p>
+
+              <div class="mt-5 space-y-3 text-sm">
+                <a href="tel:1300623462" class="flex items-center gap-3 rounded-xl bg-canvas/10 px-4 py-3 hover:bg-canvas/15 transition-colors">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-brass-light shrink-0" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8 7 15 15 15l1-4-5-2-2 2a11 11 0 01-5-5l2-2-2-5z" stroke-linejoin="round"/></svg>
+                  <span><span class="block text-canvas/70 text-xs">Call</span>1300 62 34 62</span>
+                </a>
+                <a href="mailto:info@melbournemadinah.org" class="flex items-center gap-3 rounded-xl bg-canvas/10 px-4 py-3 hover:bg-canvas/15 transition-colors">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-brass-light shrink-0" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v12H4z M4 7l8 6 8-6" stroke-linejoin="round"/></svg>
+                  <span><span class="block text-canvas/70 text-xs">Email</span>info@melbournemadinah.org</span>
+                </a>
+              </div>
+
+              <!-- form -->
+              <form class="mt-5 space-y-3" action="https://formspree.io/f/your-form-id" method="POST" aria-label="Contact Melbourne Madinah">
+                <!-- NOTE: replace the action URL with your Formspree (or other) form endpoint to receive messages. -->
+                <div>
+                  <label for="name" class="sr-only">Your name</label>
+                  <input id="name" name="name" type="text" required placeholder="Your name" class="w-full rounded-xl bg-canvas text-charcoal placeholder-slate/70 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brass" />
+                </div>
+                <div>
+                  <label for="email" class="sr-only">Your email</label>
+                  <input id="email" name="email" type="email" required placeholder="Your email" class="w-full rounded-xl bg-canvas text-charcoal placeholder-slate/70 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brass" />
+                </div>
+                <div>
+                  <label for="message" class="sr-only">Your message</label>
+                  <textarea id="message" name="message" rows="3" required placeholder="How can we help?" class="w-full rounded-xl bg-canvas text-charcoal placeholder-slate/70 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brass resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full rounded-xl bg-brass px-5 py-3 text-sm font-semibold text-emerald-deep hover:bg-brass-light transition-colors">Send message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="bg-emerald-deep text-canvas/90">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-canvas/10 text-brass" aria-hidden="true">
+              <svg viewBox="0 0 32 32" class="h-6 w-6"><path d="M16 4l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L16 23.3 10.1 26.4l1.1-6.5-4.7-4.6 6.5-.9z" fill="currentColor"/></svg>
+            </span>
+            <span class="font-serif text-2xl text-canvas">Melbourne Madinah</span>
+          </div>
+          <p class="mt-4 text-canvas/70 text-sm max-w-sm leading-relaxed">
+            A masjid and community home in the heart of Melbourne's CBD. A Mercy Mission initiative. All are welcome.
+          </p>
+          <p class="font-arabic text-lg text-brass-light mt-4" dir="rtl" lang="ar">بَارَكَ ٱللَّٰهُ فِيكُمْ</p>
+        </div>
+
+        <nav class="md:col-span-3" aria-label="Footer">
+          <p class="text-xs tracking-[0.16em] uppercase text-brass-light/80 mb-4">Explore</p>
+          <ul class="space-y-2.5 text-sm text-canvas/80">
+            <li><a href="#prayer" class="hover:text-brass-light transition-colors">Prayer Times</a></li>
+            <li><a href="#about" class="hover:text-brass-light transition-colors">About</a></li>
+            <li><a href="#programs" class="hover:text-brass-light transition-colors">Programs &amp; Classes</a></li>
+            <li><a href="#support" class="hover:text-brass-light transition-colors">Support &amp; Sadaqah</a></li>
+            <li><a href="#visit" class="hover:text-brass-light transition-colors">Plan Your Visit</a></li>
+          </ul>
+        </nav>
+
+        <div class="md:col-span-4">
+          <p class="text-xs tracking-[0.16em] uppercase text-brass-light/80 mb-4">Visit &amp; Contact</p>
+          <address class="not-italic text-sm text-canvas/80 leading-relaxed">
+            359 Exhibition Street<br />Melbourne VIC 3000<br />
+            <a href="tel:1300623462" class="hover:text-brass-light transition-colors">1300 62 34 62</a><br />
+            <a href="mailto:info@melbournemadinah.org" class="hover:text-brass-light transition-colors">info@melbournemadinah.org</a>
+          </address>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="https://www.instagram.com/melbournemadinah/" target="_blank" rel="noopener" aria-label="Instagram" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-canvas/10 hover:bg-brass hover:text-emerald-deep transition-colors">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.8 3.8 0 01-1.4-.9 3.8 3.8 0 01-.9-1.4c-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1a3.3 3.3 0 00-.8-1.3 3.3 3.3 0 00-1.3-.8c-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 8a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2zm6.3-8.2a1.1 1.1 0 11-2.3 0 1.1 1.1 0 012.3 0z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/melbournemadinah/" target="_blank" rel="noopener" aria-label="Facebook" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-canvas/10 hover:bg-brass hover:text-emerald-deep transition-colors">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.3H7.6V13h2.5v8z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-canvas/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-canvas/60">
+        <p>© <span id="year">2026</span> Melbourne Madinah · A Mercy Mission initiative. All rights reserved.</p>
+        <p>Website crafted by <a href="https://al-falahmarketing.com" target="_blank" rel="noopener" class="text-brass-light hover:text-brass transition-colors">Al-Falah Marketing</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating call button (mobile) -->
+  <a href="tel:1300623462" class="sm:hidden fixed bottom-5 right-5 z-40 inline-flex items-center justify-center h-14 w-14 rounded-full bg-emerald text-canvas shadow-lift" aria-label="Call Melbourne Madinah">
+    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5c0 8 7 15 15 15l1-4-5-2-2 2a11 11 0 01-5-5l2-2-2-5z" stroke-linejoin="round"/></svg>
+  </a>
+
+  <!-- ======================= JSON-LD ======================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Mosque",
+    "name": "Melbourne Madinah",
+    "description": "A mosque and community hub in the heart of Melbourne's CBD — daily five prayers, two Jumu'ah sittings, classes and youth programs. A Mercy Mission initiative.",
+    "url": "https://melbournemadinah.org/",
+    "telephone": "+611300623462",
+    "email": "info@melbournemadinah.org",
+    "image": "https://melbournemadinah.org/public/images/entrance-courtyard.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "359 Exhibition Street",
+      "addressLocality": "Melbourne",
+      "addressRegion": "VIC",
+      "postalCode": "3000",
+      "addressCountry": "AU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -37.8078, "longitude": 144.9700 },
+    "areaServed": "Melbourne CBD",
+    "parentOrganization": { "@type": "Organization", "name": "Mercy Mission" }
+  }
+  </script>
+
+  <!-- ======================= SCRIPTS ======================= -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ---------- Mobile menu ---------- */
+    var menuBtn = document.getElementById('menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var menuIcon = document.getElementById('menu-icon');
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open menu');
+      menuIcon.innerHTML = '<path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>';
+    }
+    function openMenu() {
+      mobileMenu.classList.remove('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.setAttribute('aria-label', 'Close menu');
+      menuIcon.innerHTML = '<path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>';
+    }
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
+    });
+    document.querySelectorAll('.mobile-link').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+    /* ---------- Header shadow on scroll ---------- */
+    var header = document.getElementById('site-header');
+    function onScroll() {
+      if (window.scrollY > 8) header.classList.add('shadow-soft');
+      else header.classList.remove('shadow-soft');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---------- Scroll reveal ---------- */
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    /* ---------- Year ---------- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ========== PRAYER TIME ENGINE (NOAA-based, Melbourne, DST-safe) ========== */
+    var LAT = -37.8078, LNG = 144.9700;           // 359 Exhibition St, Melbourne
+    var TZ = 'Australia/Melbourne';
+    var PARAMS = { fajr: 18, isha: 17, asrFactor: 1 }; // Muslim World League
+    // Iqamah offsets (minutes after athan) — from the Madinah's board
+    var IQAMA = { fajr: 30, dhuhr: 10, asr: 10, maghrib: 5, isha: 10 };
+    var D2R = Math.PI / 180, R2D = 180 / Math.PI;
+
+    function solarParams(y, m, d) {
+      function jd(Y, M, D) { if (M <= 2) { Y--; M += 12; } var A = Math.floor(Y / 100), B = 2 - A + Math.floor(A / 4); return Math.floor(365.25 * (Y + 4716)) + Math.floor(30.6001 * (M + 1)) + D + B - 1524.5; }
+      var JD = jd(y, m, d), T = (JD - 2451545.0) / 36525.0;
+      var L0 = ((280.46646 + T * (36000.76983 + T * 0.0003032)) % 360 + 360) % 360;
+      var M = 357.52911 + T * (35999.05029 - 0.0001537 * T);
+      var e = 0.016708634 - T * (0.000042037 + 0.0000001267 * T);
+      var Mr = M * D2R;
+      var C = Math.sin(Mr) * (1.914602 - T * (0.004817 + 0.000014 * T)) + Math.sin(2 * Mr) * (0.019993 - 0.000101 * T) + Math.sin(3 * Mr) * 0.000289;
+      var L = L0 + C, omega = 125.04 - 1934.136 * T, lambda = L - 0.00569 - 0.00478 * Math.sin(omega * D2R);
+      var eps0 = 23 + (26 + ((21.448 - T * (46.815 + T * (0.00059 - T * 0.001813)))) / 60) / 60;
+      var eps = eps0 + 0.00256 * Math.cos(omega * D2R);
+      var decl = R2D * Math.asin(Math.sin(eps * D2R) * Math.sin(lambda * D2R));
+      var yv = Math.tan(eps / 2 * D2R); yv *= yv;
+      var eqt = 4 * R2D * (yv * Math.sin(2 * L0 * D2R) - 2 * e * Math.sin(Mr) + 4 * e * yv * Math.sin(Mr) * Math.cos(2 * L0 * D2R) - 0.5 * yv * yv * Math.sin(4 * L0 * D2R) - 1.25 * e * e * Math.sin(2 * Mr));
+      return { decl: decl, eqt: eqt };
+    }
+    function hourAngle(alt, lat, decl) {
+      var x = (Math.sin(alt * D2R) - Math.sin(lat * D2R) * Math.sin(decl * D2R)) / (Math.cos(lat * D2R) * Math.cos(decl * D2R));
+      if (x < -1 || x > 1) return null;
+      return R2D * Math.acos(x) * 4; // minutes
+    }
+    // Returns {name: Date(UTC instant)} for the given Melbourne calendar date
+    function prayerDates(y, m, d) {
+      var sp = solarParams(y, m, d);
+      var noon = 720 - 4 * LNG - sp.eqt; // minutes UTC
+      var asrAlt = R2D * Math.atan(1 / (PARAMS.asrFactor + Math.tan(Math.abs(LAT - sp.decl) * D2R)));
+      function mk(alt, dir) { var ha = hourAngle(alt, LAT, sp.decl); if (ha === null) return null; return noon + dir * ha; }
+      var mins = {
+        fajr: mk(-PARAMS.fajr, -1), sunrise: mk(-0.833, -1), dhuhr: noon,
+        asr: mk(asrAlt, 1), maghrib: mk(-0.833, 1), isha: mk(-PARAMS.isha, 1)
+      };
+      var base = Date.UTC(y, m - 1, d), out = {};
+      for (var k in mins) out[k] = mins[k] === null ? null : new Date(base + Math.round(mins[k] * 60000));
+      return out;
+    }
+    // Melbourne Y/M/D for a given instant (handles DST)
+    function melbYMD(dateObj) {
+      var p = new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(dateObj);
+      var o = {}; p.forEach(function (x) { o[x.type] = x.value; });
+      return { y: +o.year, m: +o.month, d: +o.day };
+    }
+    function fmtTime(dateObj, withOffsetMin) {
+      if (!dateObj) return '—';
+      var t = withOffsetMin ? new Date(dateObj.getTime() + withOffsetMin * 60000) : dateObj;
+      return new Intl.DateTimeFormat('en-AU', { timeZone: TZ, hour: 'numeric', minute: '2-digit', hour12: true }).format(t)
+        .replace('am', 'AM').replace('pm', 'PM');
+    }
+
+    var PRAYERS = [
+      { key: 'fajr', label: 'Fajr', ar: 'الفجر' },
+      { key: 'sunrise', label: 'Sunrise', ar: 'الشروق', noIqama: true },
+      { key: 'dhuhr', label: 'Dhuhr', ar: 'الظهر' },
+      { key: 'asr', label: 'Asr', ar: 'العصر' },
+      { key: 'maghrib', label: 'Maghrib', ar: 'المغرب' },
+      { key: 'isha', label: 'Isha', ar: 'العشاء' }
+    ];
+
+    function render() {
+      var now = new Date();
+      var today = melbYMD(now);
+      var t = prayerDates(today.y, today.m, today.d);
+
+      // date label
+      document.getElementById('today-date').textContent =
+        new Intl.DateTimeFormat('en-AU', { timeZone: TZ, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(now);
+      document.getElementById('clock-now').textContent = fmtTime(now, 0);
+
+      // Determine next upcoming athan (search today, then tomorrow's Fajr)
+      var order = ['fajr', 'sunrise', 'dhuhr', 'asr', 'maghrib', 'isha'];
+      var nextKey = null, nextDate = null;
+      for (var i = 0; i < order.length; i++) {
+        if (t[order[i]] && t[order[i]].getTime() > now.getTime()) { nextKey = order[i]; nextDate = t[order[i]]; break; }
+      }
+      if (!nextKey) {
+        var tmrw = new Date(now.getTime() + 86400000); var tm = melbYMD(tmrw);
+        var t2 = prayerDates(tm.y, tm.m, tm.d); nextKey = 'fajr'; nextDate = t2.fajr;
+      }
+
+      // rows
+      var html = '';
+      PRAYERS.forEach(function (p) {
+        var isNext = (p.key === nextKey);
+        var begins = fmtTime(t[p.key], 0);
+        var iqama = p.noIqama ? '<span class="text-slate/50">—</span>' : fmtTime(t[p.key], IQAMA[p.key]);
+        html +=
+          '<div class="prayer-row contents' + (isNext ? ' is-next' : '') + '">' +
+            '<div class="px-6 md:px-8 py-4 border-t border-stone flex items-center gap-3' + (isNext ? ' is-next' : '') + '">' +
+              (isNext ? '<span class="pulse inline-block h-2 w-2 rounded-full bg-brass" aria-hidden="true"></span>' : '<span class="inline-block h-2 w-2"></span>') +
+              '<span class="font-semibold text-charcoal">' + p.label + '</span>' +
+              (isNext ? '<span class="ml-1 text-[10px] font-semibold tracking-wider uppercase text-brass">Next</span>' : '') +
+              '<span class="font-arabic text-base text-slate/70 ml-auto hidden sm:inline" dir="rtl">' + p.ar + '</span>' +
+            '</div>' +
+            '<div class="px-4 py-4 border-t border-stone text-right tabular-nums text-charcoal' + (isNext ? ' is-next font-semibold' : '') + '">' + begins + '</div>' +
+            '<div class="px-6 md:px-8 py-4 border-t border-stone text-right tabular-nums font-semibold text-emerald' + (isNext ? ' is-next' : '') + '">' + iqama + '</div>' +
+          '</div>';
+      });
+      document.getElementById('prayer-rows').innerHTML = html;
+
+      // next-prayer indicators
+      var labelMap = { fajr: 'Fajr', sunrise: 'Sunrise', dhuhr: 'Dhuhr', asr: 'Asr', maghrib: 'Maghrib', isha: 'Isha' };
+      var nLabel = labelMap[nextKey], nTime = fmtTime(nextDate, 0);
+      var diff = nextDate.getTime() - now.getTime();
+      var hrs = Math.floor(diff / 3600000), mins = Math.floor((diff % 3600000) / 60000);
+      var countdown = hrs > 0 ? ('in ' + hrs + 'h ' + mins + 'm') : ('in ' + mins + 'm');
+
+      setText('np-name-mini', nLabel); setText('np-time-mini', nTime);
+      setText('np-name-hero', nLabel); setText('np-time-hero', nTime); setText('np-count-hero', '· ' + countdown);
+    }
+    function setText(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+
+    render();
+    setInterval(render, 30000); // refresh every 30s
+
+    /* ---------- Giving tier micro-interaction ---------- */
+    document.querySelectorAll('.give-tier').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.give-tier').forEach(function (b) { b.classList.remove('bg-emerald', 'text-canvas'); });
+        btn.classList.add('bg-emerald', 'text-canvas');
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
