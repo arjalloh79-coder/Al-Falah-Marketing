@@ -398,7 +398,7 @@
           </p>
         </div>
 
-        <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-[200px] md:auto-rows-[220px]">
+        <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 grid-flow-row-dense gap-4 md:gap-5 auto-rows-[200px] md:auto-rows-[220px]">
           <!-- Prayer hall (musallā) — feature -->
           <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 col-span-2 row-span-2 reveal">
             <img src="public/images/prayer-hall.jpg" width="844" height="1500"
@@ -438,6 +438,17 @@
                  class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
             <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-4 py-3 text-canvas">
               <span class="block font-serif text-base leading-snug">The hallway in</span>
+            </figcaption>
+          </figure>
+
+          <!-- Main prayer hall in use -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 col-span-2 reveal">
+            <img src="public/images/prayer-hall-main.jpg" width="844" height="1500"
+                 alt="A worshipper in prayer in the main hall at Melbourne Madinah, on richly patterned carpet, with the daily iqamah board and a small library on the wall."
+                 class="h-full w-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-5 py-4 text-canvas">
+              <span class="text-[11px] tracking-[0.16em] uppercase text-brass-light/90">In congregation</span>
+              <span class="block font-serif text-lg leading-snug">Open through the day for every prayer</span>
             </figcaption>
           </figure>
 
@@ -481,6 +492,16 @@
             </figcaption>
           </figure>
 
+          <!-- Prayer area / overflow -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 reveal">
+            <img src="public/images/prayer-area.jpg" width="844" height="1500"
+                 alt="A quiet prayer area at Melbourne Madinah with mihrab-patterned carpet, a chair for those who need to sit, and prayer garments at hand."
+                 class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-4 py-3 text-canvas">
+              <span class="block font-serif text-base leading-snug">A quiet place to pray</span>
+            </figcaption>
+          </figure>
+
           <!-- Community noticeboard -->
           <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 col-span-2 reveal">
             <img src="public/images/community-noticeboard.jpg" width="844" height="1500"
@@ -492,13 +513,14 @@
             </figcaption>
           </figure>
 
-          <!-- READY SLOT: ablution facilities -->
-          <figure class="relative overflow-hidden rounded-2xl border-2 border-dashed border-brass/40 bg-stone/60 flex items-center justify-center text-center p-4 reveal" data-photo-slot="ablution">
-            <div>
-              <svg viewBox="0 0 24 24" class="h-7 w-7 mx-auto text-brass mb-2" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 10V6a2 2 0 012-2h1M4 10h16v2a6 6 0 01-6 6h-4a6 6 0 01-6-6z M8 21l1-3M16 21l-1-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <p class="font-serif text-base text-emerald leading-tight">Ablution facilities</p>
-              <p class="text-[11px] text-slate mt-1">Photo slot ready</p>
-            </div>
+          <!-- Brothers' wudu -->
+          <figure class="relative group overflow-hidden rounded-2xl ring-1 ring-emerald/10 reveal">
+            <img src="public/images/brothers-wudu.jpg" width="844" height="1500"
+                 alt="Signage inside Melbourne Madinah pointing the way to the brothers' wudu (ablution) facilities."
+                 class="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" decoding="async" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-deep/85 to-transparent px-4 py-3 text-canvas">
+              <span class="block font-serif text-base leading-snug">Brothers' wudu</span>
+            </figcaption>
           </figure>
 
           <!-- READY SLOT: street entrance -->
@@ -510,7 +532,7 @@
             </div>
           </figure>
         </div>
-        <p class="mt-5 text-xs text-slate reveal">A couple of slots are still open — the <strong class="font-semibold text-slate">ablution facilities</strong> and the <strong class="font-semibold text-slate">street entrance &amp; signage</strong> — and will appear here as those photos are added.</p>
+        <p class="mt-5 text-xs text-slate reveal">One slot is still open — a clear photo of the <strong class="font-semibold text-slate">street entrance &amp; signage</strong> — and will appear here once it's added.</p>
       </div>
     </section>
 
