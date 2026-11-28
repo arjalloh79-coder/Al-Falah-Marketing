@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ============ SEO / SOCIAL (replace copy as needed) ============ -->
+  <title>Melbourne Madinah — A Home for Worship & Community</title>
+  <meta name="description" content="Melbourne Madinah is a mosque and community home in Melbourne. Join us for daily prayers, learning and community programs. All are welcome." />
+  <meta name="theme-color" content="#0B3D2E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Melbourne Madinah — A Home for Worship & Community" />
+  <meta property="og:description" content="A mosque and community home in Melbourne. Daily prayers, learning and programs for all." />
+  <meta property="og:image" content="../assets/og-placeholder.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/shared.css" />
+
+  <!-- ================= OPTION 1 — GEOMETRIC AWAKENING (inline styles) ================= -->
+  <style>
+    /* Option 1 runs on a light ivory field with an emerald wash */
+    body.opt1 { background: var(--ivory); color: var(--ink); }
+    .opt1 .hero {
+      background:
+        radial-gradient(120% 90% at 85% 15%, rgba(201,162,75,.14), transparent 55%),
+        radial-gradient(120% 120% at 10% 100%, rgba(11,61,46,.10), transparent 60%),
+        var(--ivory);
+    }
+    .opt1 .headline { color: var(--emerald); }
+    .opt1 .subhead  { color: var(--ink-muted); }
+
+    /* --- The girih star canvas (right / background) --- */
+    .girih-wrap {
+      position: absolute; z-index: 1; inset: 0;
+      display: flex; align-items: center; justify-content: flex-end;
+      pointer-events: none;
+    }
+    .girih {
+      width: min(118vh, 860px); height: auto;
+      margin-right: -14%; opacity: .96;
+      filter: drop-shadow(0 20px 60px rgba(11,61,46,.18));
+    }
+    @media (max-width: 900px){
+      .girih-wrap { align-items: flex-start; justify-content: center; opacity: .5; }
+      .girih { width: 150vw; margin: -30vw 0 0 0; }
+    }
+
+    /* Slow rotation of the whole motif */
+    .girih .spin { transform-box: fill-box; transform-origin: 50% 50%; animation: girihSpin 150s linear infinite; }
+    @keyframes girihSpin { to { transform: rotate(360deg); } }
+
+    /* Line-draw: paths use pathLength="1" so one rule fits every stroke */
+    .girih .stroke {
+      fill: transparent;
+      stroke: var(--gold);
+      stroke-width: 1.4;
+      stroke-dasharray: 1; stroke-dashoffset: 1;
+      animation: girihDraw 2.1s var(--ease) forwards;
+    }
+    .girih .stroke.d1 { animation-delay:.05s } .girih .stroke.d2 { animation-delay:.35s }
+    .girih .stroke.d3 { animation-delay:.65s } .girih .stroke.d4 { animation-delay:.95s }
+    @keyframes girihDraw { to { stroke-dashoffset: 0; } }
+
+    /* The soft emerald→gold fill fades in once the lines are drawn */
+    .girih .fill { opacity: 0; animation: girihFill 1.4s var(--ease) 2.2s forwards; }
+    @keyframes girihFill { to { opacity: 1; } }
+
+    /* --- Word-by-word headline reveal --- */
+    .opt1 .word { display: inline-block; overflow: hidden; vertical-align: top; }
+    .opt1 .word > span {
+      display: inline-block; transform: translateY(105%); opacity: 0;
+      animation: wordUp .8s var(--ease) forwards;
+    }
+    @keyframes wordUp { to { transform: translateY(0); opacity: 1; } }
+    /* Reveal starts after the pattern completes (~2.6s) */
+    .opt1 .fade-late { opacity: 0; animation: fadeIn .9s var(--ease) forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* Reduced motion: everything resolves to its finished, static state */
+    @media (prefers-reduced-motion: reduce) {
+      .girih .spin { animation: none; }
+      .girih .stroke { stroke-dashoffset: 0; }
+      .girih .fill { opacity: 1; }
+      .opt1 .word > span { transform: none; opacity: 1; }
+      .opt1 .fade-late { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="opt1">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ SHARED HEADER (light theme for this option) ============ -->
+  <header class="site-header site-header--light">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Melbourne Madinah home">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+          <path d="M12 2l2.6 6.3L21 9l-5 4.1L17.6 20 12 16.4 6.4 20 8 13.1 3 9l6.4-.7z" stroke="#C9A24B" stroke-width="1.4" fill="rgba(201,162,75,.18)"/>
+        </svg>
+        Melbourne<b>Madinah</b>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+        <span></span>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#prayer">Prayer Times</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="nav-donate"><a class="btn btn-donate" href="#donate">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <main id="main">
+    <section class="hero" aria-labelledby="h1">
+
+      <!-- Decorative animated girih star (no meaning for screen readers) -->
+      <div class="girih-wrap" aria-hidden="true">
+        <svg class="girih" viewBox="0 0 400 400" role="img">
+          <defs>
+            <radialGradient id="g1" cx="50%" cy="45%" r="60%">
+              <stop offset="0%"  stop-color="#C9A24B" stop-opacity=".55"/>
+              <stop offset="55%" stop-color="#124f3c" stop-opacity=".30"/>
+              <stop offset="100%" stop-color="#0B3D2E" stop-opacity=".12"/>
+            </radialGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0B3D2E" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#C9A24B" stop-opacity=".85"/>
+            </linearGradient>
+          </defs>
+
+          <g class="spin">
+            <!-- soft filled 8-point star (two squares) -->
+            <g class="fill">
+              <path d="M200 40 350 200 200 360 50 200Z" fill="url(#g1)"/>
+              <path d="M94 94 306 94 306 306 94 306Z" fill="url(#g1)" opacity=".7"/>
+              <circle cx="200" cy="200" r="150" fill="none" stroke="url(#g2)" stroke-width="1"/>
+            </g>
+
+            <!-- drawn line work -->
+            <circle class="stroke d1" pathLength="1" cx="200" cy="200" r="178"/>
+            <circle class="stroke d1" pathLength="1" cx="200" cy="200" r="150"/>
+            <path   class="stroke d2" pathLength="1" d="M200 50 350 200 200 350 50 200Z"/>
+            <path   class="stroke d2" pathLength="1" d="M94 94 306 94 306 306 94 306Z"/>
+            <!-- inner octagon -->
+            <path   class="stroke d3" pathLength="1" d="M200 120 256 144 280 200 256 256 200 280 144 256 120 200 144 144Z"/>
+            <!-- radiating spokes / girih knots -->
+            <path class="stroke d4" pathLength="1" d="M200 50V120M350 200H280M200 350V280M50 200H120"/>
+            <path class="stroke d4" pathLength="1" d="M94 94 144 144M306 94 256 144M306 306 256 256M94 306 144 256"/>
+            <circle class="stroke d4" pathLength="1" cx="200" cy="200" r="44"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow fade-late" style="animation-delay:2.4s">Melbourne, Australia</span>
+
+          <!-- ========================================================= -->
+          <!-- ====== EDIT ALL HERO TEXT IN THIS BLOCK ONLY ============ -->
+          <!-- ========================================================= -->
+          <h1 class="headline" id="h1">
+            <span class="word"><span style="animation-delay:2.6s">A&nbsp;place</span></span>
+            <span class="word"><span style="animation-delay:2.72s">of&nbsp;peace,</span></span><br/>
+            <span class="word"><span style="animation-delay:2.84s">prayer</span></span>
+            <span class="word"><span style="animation-delay:2.96s">&amp;&nbsp;belonging.</span></span>
+          </h1>
+
+          <p class="subhead fade-late" style="animation-delay:3.1s">
+            A mosque and community home in the heart of Melbourne — open for daily
+            worship, learning and connection. Everyone is welcome.
+          </p>
+
+          <div class="cta-row fade-late" style="animation-delay:3.3s">
+            <a class="btn btn-primary" href="#prayer">Prayer Times</a>
+            <a class="btn btn-ghost btn-ghost--ink" href="#contact">Visit Us</a>
+          </div>
+
+          <!-- Next prayer + address — REPLACE PLACEHOLDERS with live data -->
+          <div class="info-strip info-strip--light fade-late" style="animation-delay:3.5s">
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <div>
+                <div class="info-label">Next Prayer</div>
+                <div class="info-val"><span class="ph">[PRAYER NAME]</span> · <span class="ph">[PRAYER TIME]</span></div>
+              </div>
+            </div>
+            <div class="info-divider" aria-hidden="true"></div>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <div>
+                <div class="info-label">Find Us</div>
+                <div class="info-val"><span class="ph">[ADDRESS]</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- ===================== END HERO TEXT ===================== -->
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span class="dot"></span>Scroll</div>
+    </section>
+  </main>
+
+  <!-- ============ SEO: Place / Mosque schema (replace placeholders) ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["PlaceOfWorship", "LocalBusiness"],
+    "name": "Melbourne Madinah",
+    "description": "A mosque and community home in Melbourne offering daily prayers, learning and community programs.",
+    "address": { "@type": "PostalAddress", "streetAddress": "[ADDRESS]", "addressLocality": "Melbourne", "addressRegion": "VIC", "addressCountry": "AU" },
+    "telephone": "[PHONE]",
+    "url": "[WEBSITE URL]"
+  }
+  </script>
+
+  <script src="../assets/js/shared.js"></script>
+</body>
+</html>
