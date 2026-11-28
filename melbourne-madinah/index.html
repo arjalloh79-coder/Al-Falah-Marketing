@@ -21,8 +21,9 @@
   <meta name="twitter:description" content="A mosque and community hub at 359 Exhibition Street, Melbourne CBD. All are welcome." />
   <meta name="twitter:image" content="https://melbournemadinah.org/public/images/entrance-courtyard.jpg" />
 
-  <!-- Favicon: inline SVG eight-point star -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314453D'/%3E%3Cpath d='M16 5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L16 24l-5.2 2.8 1-5.8-4.2-4.1 5.8-.8z' fill='%23C59B48'/%3E%3C/svg%3E" />
+  <!-- Favicon: Mercy Mission Madinah mark -->
+  <link rel="icon" type="image/png" href="public/images/favicon.png" />
+  <link rel="apple-touch-icon" href="public/images/favicon.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,8 +44,8 @@
       <div class="flex h-16 md:h-20 items-center justify-between gap-4">
         <!-- Wordmark -->
         <a href="#top" class="flex items-center gap-3 shrink-0" aria-label="Melbourne Madinah home">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald text-brass" aria-hidden="true">
-            <svg viewBox="0 0 32 32" class="h-6 w-6"><path d="M16 4l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L16 23.3 10.1 26.4l1.1-6.5-4.7-4.6 6.5-.9z" fill="currentColor"/></svg>
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald p-2" aria-hidden="true">
+            <img src="public/images/logo-mark-white.png" alt="" class="h-full w-full object-contain" />
           </span>
           <span class="leading-none">
             <span class="block font-serif text-xl md:text-2xl font-semibold tracking-tightish text-emerald">Melbourne Madinah</span>
@@ -53,8 +54,9 @@
         </a>
 
         <!-- Desktop nav -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-charcoal/80" aria-label="Primary">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-charcoal/80" aria-label="Primary">
           <a href="#about"    class="link-underline py-1">About</a>
+          <a href="#watch"    class="link-underline py-1">Watch</a>
           <a href="#prayer"   class="link-underline py-1">Prayer Times</a>
           <a href="#programs" class="link-underline py-1">Programs</a>
           <a href="#inside"   class="link-underline py-1">Inside</a>
@@ -85,6 +87,7 @@
     <div id="mobile-menu" class="lg:hidden hidden border-t border-brass/15 glass">
       <nav class="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1 text-[15px] font-medium" aria-label="Mobile">
         <a href="#about"    class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">About</a>
+        <a href="#watch"    class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Watch</a>
         <a href="#prayer"   class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Prayer Times</a>
         <a href="#programs" class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Programs &amp; Classes</a>
         <a href="#inside"   class="mobile-link rounded-lg px-3 py-2.5 hover:bg-emerald/5">Inside Melbourne Madinah</a>
@@ -311,6 +314,31 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= WATCH / VIDEO ======================= -->
+    <section id="watch" class="relative py-20 md:py-28 bg-emerald-deep text-canvas scroll-mt-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.05]" aria-hidden="true" style="background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22%3E%3Cpath d=%22M30 2l7 14 15 2-11 11 3 15-14-8-14 8 3-15L8 18l15-2z%22 fill=%22none%22 stroke=%22%23C59B48%22 stroke-width=%221%22/%3E%3C/svg%3E');background-size:120px 120px;"></div>
+      <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        <p class="eyebrow text-brass-light mb-3 reveal">Watch</p>
+        <h2 class="font-serif text-3xl md:text-5xl tracking-tightish reveal">Step inside Melbourne Madinah</h2>
+        <p class="mt-4 text-canvas/80 text-lg max-w-2xl mx-auto reveal">Press play for a short look at the Madinah and the community who gather here, in the heart of the city.</p>
+        <div class="mt-10 reveal">
+          <div class="relative mx-auto aspect-video w-full overflow-hidden rounded-3xl ring-1 ring-brass/30 shadow-lift bg-black">
+            <button type="button" class="yt-facade group absolute inset-0 h-full w-full cursor-pointer" data-ytid="XnERo14XrQY" aria-label="Play video: Step inside Melbourne Madinah">
+              <img src="https://i.ytimg.com/vi/XnERo14XrQY/maxresdefault.jpg"
+                   onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/XnERo14XrQY/hqdefault.jpg'"
+                   alt="Melbourne Madinah — click to play the video"
+                   class="h-full w-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition duration-500" loading="lazy" decoding="async" />
+              <span class="absolute inset-0 bg-gradient-to-t from-emerald-deep/60 via-transparent to-transparent" aria-hidden="true"></span>
+              <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-brass text-emerald-deep shadow-lift group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="h-7 w-7 md:h-8 md:w-8 ml-1" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </button>
+          </div>
+          <p class="mt-4 text-xs text-canvas/55 reveal">Video hosted on YouTube · plays when you press play.</p>
         </div>
       </div>
     </section>
@@ -706,12 +734,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
       <div class="grid md:grid-cols-12 gap-10">
         <div class="md:col-span-5">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-canvas/10 text-brass" aria-hidden="true">
-              <svg viewBox="0 0 32 32" class="h-6 w-6"><path d="M16 4l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L16 23.3 10.1 26.4l1.1-6.5-4.7-4.6 6.5-.9z" fill="currentColor"/></svg>
-            </span>
-            <span class="font-serif text-2xl text-canvas">Melbourne Madinah</span>
-          </div>
+          <img src="public/images/logo-mercy-mission-madinah-white.png" alt="Mercy Mission Madinah" width="731" height="532" class="h-24 w-auto" />
           <p class="mt-4 text-canvas/70 text-sm max-w-sm leading-relaxed">
             A masjid and community home in the heart of Melbourne's CBD. A Mercy Mission initiative. All are welcome.
           </p>
@@ -961,6 +984,22 @@
       btn.addEventListener('click', function () {
         document.querySelectorAll('.give-tier').forEach(function (b) { b.classList.remove('bg-emerald', 'text-canvas'); });
         btn.classList.add('bg-emerald', 'text-canvas');
+      });
+    });
+
+    /* ---------- YouTube lazy facade (load player only on click) ---------- */
+    document.querySelectorAll('.yt-facade').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-ytid');
+        if (!id) return;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+        iframe.title = 'Step inside Melbourne Madinah';
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('loading', 'lazy');
+        iframe.className = 'absolute inset-0 h-full w-full';
+        btn.replaceWith(iframe);
       });
     });
   })();
